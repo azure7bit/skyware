@@ -8,16 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+ *= require bootstrap-w-font-awesome
+ *= require tablesorter
+ *= require pageslide
+ *= require style.css
  */
-
-#container {
-  float: left;
-  margin: 0 auto 20px auto;
-  margin-bottom: 20px;
-  width: 100%;
-  text-align:center;
-  clear:both;
-  margin-top:10%;
-}

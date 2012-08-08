@@ -1,0 +1,44 @@
+<% content_for :header do %>
+  <%= render 'shared/top_bar' %>
+<% end %>
+<%= render partial: 'shared/add_answer', locals: {question: @question} %>
+
+<div class="row-fluid">
+  <div class="span8">
+
+    <span class="label tag tagPrimary">Email Marketing</span>
+    <span class="label tag">Restaurant Marketing</span>
+    <span class="label tag">Newsletter</span>
+    <span class="label tag">Saas</span>
+    <br /><br />
+
+    <h1><%= @question.text %></h1>
+    <p class="desc" style="color: #666; font-family: Arial;"><%= @question.description %></p>
+    <br />
+
+    <% @question.answers.compact.each do |answer| %>
+        <blockquote>
+          <p class="text"><%= answer.text %></p>
+          <cite>
+            <a class="up" href="#">Upvote</a>
+            <a class="reply" href="#">Reply</a>
+            <a class="down" href="#">Downvote</a>
+          </cite>
+        </blockquote>
+    <% end %>
+
+    <br />
+    <a class="btn btn-primary" data-toggle="modal" data-target="#add-answer-modal">Post Answer</a>
+    <a class="btn btn-inverse">Invite Contacts to Answer Question</a><br/>
+
+  </div>
+
+  <div class="span4">
+    <a class="btn btn-danger">Follow Question</a><br />
+    <span class="titleSection">Most Recommended Solution in this thread</span><br />
+    <span class="titleSection">Other Solutions Mentioned</span><br />
+    Deal<br />
+    <span class="titleSection"><a>20</a> people doing what</span><br />
+
+  </div>
+</div>

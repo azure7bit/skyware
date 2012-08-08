@@ -1,0 +1,10 @@
+<div>
+  <%# Question Search Bar %> <!-- <div class="logo"><img src="/assets/skywyre-logo.png" /></div> -->
+  <%= render partial: 'shared/search_bar', locals: {add_question_button: true} %>
+</div>
+
+<% if user_signed_in? %>
+  <%= render 'shared/notifications' %>
+<% else %>
+  <%= render 'shared/login' %>
+<% end  %>

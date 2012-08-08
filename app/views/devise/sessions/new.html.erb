@@ -1,0 +1,52 @@
+<% content_for :header do %>
+  <%= render 'shared/login' %>
+<% end %>
+
+
+<!-- <div class="modal" id="login-modal"> -->
+  <div class="modal-header">
+    <h3>Sign in</h3>
+  </div>
+  <%= form_for @user, as: :user, url: session_path(:user) do |f| %>
+    <div class="modal-body">
+      <% if msg = flash_notice %>
+        <div class="alert alert-error alert-block">
+          <div class="alert-icon error-icon"></div>
+          <div class="close" data-dismiss="alert">&times;</div>
+          <%= msg.first.to_s.strip %>
+        </div>
+      <% end %>
+      <fieldset>
+        <%= text(:login,    form: f, placeholder: 'Username or E-mail', tabindex: 1).html_safe %>
+        <%= password(:password, form: f, placeholder: 'Password',           tabindex: 2).html_safe %>
+        <%= f.submit "Sign in", id: 'login-button', class: 'btn btn-primary' %>
+        <a id="forgot-password" data-toggle="modal" href="#forgot-modal">Forgot Password?</a>
+      </fieldset>
+    </div>
+    <div class="modal-footer">
+      <fieldset>
+        <div class="facebook-connect">
+          <a href="/auth/facebook"><img src="/assets/facebook-signin-btn.png" width="130" height="25"></a>
+          <a href="/auth/twitter"><img src="/assets/twitter-signin-btn.png" width="130" height="25"></a>
+          <a href="/auth/linkedin"><img src="/assets/linkedin-signin-btn.png" width="130" height="25"></a>
+       	</div>
+      </fieldset>
+    </div>
+  <% end %>
+  <!-- </div> -->
+
+<div class="modal" id="forgot-modal" style="display:none;">
+  <div class="modal-header">
+    <h3>Forgot Password</h3>
+  </div>
+  <%= form_tag '/forgot_password', id: 'forgot-form' do  %>
+  <div class="modal-body">
+    <p>Enter your username or e-mail, and a new password will be sent to you:</p><br>
+    <%= text :login, class: 'input-xlarge', placeholder: 'Username or E-mail' %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary">Request Password</a>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<%# Notifications Bar %>
+<div class="user pull-right">
+
+  <%# General Site Notifications %>
+  <button class="btn notification">Notification<span class="badge badge-important"><%= @notifications.count %></span></button>
+
+  <%# Avatar %>
+  <div class="btn-group userimg">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <img src="<%= current_user.avatar %>" />
+    </a>
+		<span class="caret"></span>
+		<ul class="dropdown-menu">
+      <li><a href="/user/profile">Profile</a></li>
+      <li><a href="/user/settings">Settings</a></li>
+      <li class="divider"></li>
+      <li><a href="/logout">Logout</a></li>
+	  </ul>
+  </div>
+
+  <%# Inbox Notifications %>
+  <button class="btn inbox">Inbox<span class="badge badge-important"><%= @messages.count %></span></button>
+</div>

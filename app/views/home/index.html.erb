@@ -1,0 +1,28 @@
+<% content_for :header do %>
+  <%= render 'shared/login' %>
+<% end %>
+
+<div id="container">
+  <div id="search-box">
+    <div class="logo"><img src="/assets/skywyre-logo.png" width="215"/></div>
+    <div class="search-field">
+      <%= render partial: 'shared/search_bar', locals: {add_question_button: false} %>
+    </div>
+  </div>
+</div>
+
+<style>
+.searchask { margin-left: 29%; }
+.searchask input { height: 12px !important; }  
+</style>
+<script>
+  $(function(){
+    $('#search-text').focus(function(){
+      $(this).next().addClass('btn-primary');
+      $(this).next().removeClass('btn-inverse');
+    }).blur(function(){
+      $(this).next().addClass('btn-inverse');
+      $(this).next().removeClass('btn-primary');
+    });
+  })
+</script>
