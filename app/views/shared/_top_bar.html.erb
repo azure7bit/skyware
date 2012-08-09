@@ -1,10 +1,61 @@
-<div>
-  <%# Question Search Bar %> <!-- <div class="logo"><img src="/assets/skywyre-logo.png" /></div> -->
-  <%= render partial: 'shared/search_bar', locals: {add_question_button: true} %>
-</div>
+<!-- #topbar: Top Bar Menu -->
+<ul id="topbar" class="on-click">
+  <li class="pull-left">
+    <h1 id="topbar-title">
+      <i class="icon-cloud"></i>
+      <a href="">Skywyre Control Panel</a>
+    </h1>
+  </li>
+  <!--<li>-->
+    <!--<a href="theme-docs.html">-->
+      <!--<i class="icon-book"></i>-->
+      <!--<span>Theme Docs</span>-->
+    <!--</a>-->
+  <!--</li>-->
+  <% if logged_in %>
+  <li class="pull-right">
+    <a href="#" data-toggle="dropdown">
+      <i class="icon-user"></i>
+      <span>Rahmal Conda</span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#"><i class="icon-user"></i><span>&nbsp;Profile</span></a></li>
+      <li><a href="#"><i class="icon-cog"></i><span>&nbsp;Settings</span></a></li>
+      <li class="divider"></li>
+      <li><a href="#"><i class="icon-off"></i><span>&nbsp;Logout</span></a></li>
+    </ul>
+    </li>
+  <% else %>
+  <li class="pull-right">
+    <a href="#" data-toggle="dropdown">
+      <i class="icon-lock"></i>
+      <span>Log In</span>
+    </a>
+  </li>
 
-<% if user_signed_in? %>
-  <%= render 'shared/notifications' %>
-<% else %>
-  <%= render 'shared/login' %>
-<% end  %>
+  <% end %>
+  <li class="pull-right">
+    <a href="#" data-toggle="dropdown">
+      <i class="icon-question-sign"></i>
+      <span>Help</span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">About Skywyre</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms &amp; Conditions</a></li>
+    </ul>
+  </li>
+  <!--  
+  <li class="pull-right">
+    <a href="page-login.html">
+      <i class="icon-sign-blank"></i>
+      <span>Sign in</span>
+    </a>
+  </li>
+  -->
+</ul>
+<!-- /#topbar: Top Bar Menu -->
+

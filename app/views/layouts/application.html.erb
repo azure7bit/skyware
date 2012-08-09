@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title><%= title %></title>
+  <title>Skywyre</title>
   <%= meta_tags                %>
   <%= favicon                  %>
   <%= stylesheets :application %>
@@ -12,15 +12,19 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
 </head>
-<body>
-  <%= render 'layouts/header' %>
-  <%= render 'shared/notice'  %>
-
-  <div class="container <%= page?(:home, :index) ? '' : 'strdBox' %>">
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
-
-  <%= render 'shared/add_question' %>
+<body class="sidebar-max">
+  <%= render partial: 'shared/top_bar', locals: {logged_in: false} %>
+  <div class="container-fluid" id="container">
+    <div class="row-fluid">
+      <div class="span2"></div>
+      <div class="span8">    
+        <div class="panel" id="panel-theme-docs">
+        <br />
+        <%= yield %>
+        </div><!-- /.panel -->
+      </div><!-- /.span8 -->
+      <div class="span2"></div>
+    </div><!--/row-fluid-->
+  </div><!-- /container -->       
 </body>
 </html>

@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :questions
-  has_many :answers
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable, :validatable
   devise :registerable, :database_authenticatable, :recoverable, :rememberable, :trackable, :authentication_keys => [:login]

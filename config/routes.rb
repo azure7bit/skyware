@@ -25,7 +25,8 @@ Skywyre::Application.routes.draw do
   match 'terms'   => 'home#terms',   as: :terms
 
   # Sample Question for testing view/UI
-  match 'test' => 'home#test', as: :test
+  match 'admin' => 'home#test', as: :admin
+  match 'test'  => 'home#test', as: :test
 
   root to: 'home#index'
 end

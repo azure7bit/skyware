@@ -12,61 +12,9 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
 </head>
-
 <body class="sidebar-max">
 
-<!--============================= Page Body =================================-->
-
-<!-- #topbar: Top Bar Menu -->
-<ul id="topbar" class="on-click">
-  <li class="pull-left">
-    <h1 id="topbar-title">
-      <i class="icon-cloud"></i>
-      <a href="">Skywyre Control Panel</a>
-    </h1>
-  </li>
-  <!--<li>-->
-    <!--<a href="theme-docs.html">-->
-      <!--<i class="icon-book"></i>-->
-      <!--<span>Theme Docs</span>-->
-    <!--</a>-->
-  <!--</li>-->
-  <li class="pull-right">
-    <a href="#" data-toggle="dropdown">
-      <i class="icon-user"></i>
-      <span>Rahmal Conda</span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#"><i class="icon-user"></i><span>&nbsp;Profile</span></a></li>
-      <li><a href="#"><i class="icon-cog"></i><span>&nbsp;Settings</span></a></li>
-      <li class="divider"></li>
-      <li><a href="#"><i class="icon-off"></i><span>&nbsp;Logout</span></a></li>
-    </ul>
-  </li>
-  <li class="pull-right">
-    <a href="#" data-toggle="dropdown">
-      <i class="icon-question-sign"></i>
-      <span>Help</span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#">About Skywyre</a></li>
-      <li><a href="#">Support</a></li>
-      <li><a href="#">Contact Us</a></li>
-      <li class="divider"></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms &amp; Conditions</a></li>
-    </ul>
-  </li>
-  <!--  
-  <li class="pull-right">
-    <a href="page-login.html">
-      <i class="icon-sign-blank"></i>
-      <span>Sign in</span>
-    </a>
-  </li>
-  -->
-</ul>
-<!-- /#topbar: Top Bar Menu -->
+  <%= render partial: 'shared/top_bar', locals: {logged_in: true} %>
 
 <div class="container-fluid" id="container">
   <div class="row-fluid">
@@ -640,58 +588,6 @@
   </div><!-- /.row-fluid -->
 
 </div><!-- /.container-fluid#container -->
-
-<!--============================= /Page Body ================================-->
-
-<!-- Javascript: placed at the end of the document to speed up page loading
-     (generally gives more consistent behavior than 'defer') -->
-
-  <!-- Scripts will most likely break in IE6 and below, so why bother loading them? -->
-  <!--[if lte IE 6]><noscript><![endif]-->
-
-  <!-- CMS/Framework scripts -->
-    <!-- ADD HERE -->
-  <!-- /CMS/Framework scripts -->
-
-  <!-- jQuery -->
-    <!-- 1: Grab Google CDN's jQuery, if the CMS/Framework hasn't loaded it -->
-    <!-- <script>window.jQuery || document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"><\/script>')</script>  -->
-    <!-- 2: ...fall back to local if offline -->
-    <!-- <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script> -->
-    <!-- 3: if jQuery was loaded in compatibility mode, where you have to use the
-            long 'jQuery(...)' instead of '$(...)' (Wordpress does this), revert
-            to to "classic" jQuery behavior -->
-            <!-- <script>if ($ === undefined) $ = jQuery</script> -->
-  <!-- /jQuery -->
-
-  <!-- Bootstrap Components -->
-  <!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
-
-  <!-- Flot Plotting -->
-  <!--
-  <script src="js/libs/flot/excanvas.min.js"></script>
-  <script src="js/libs/flot/jquery.flot.min.js"></script>
-  <script src="js/libs/flot/jquery.flot.resize.min.js"></script>
-  <script src="js/libs/flot/jquery.flot.pie.min.js"></script>
-  -->
-
-  <!-- Google Code Prettyfy - source-code highlighter -->
-  <!-- <script src="js/libs/google-code-prettify/prettify.js"></script> -->
-
-  <!-- jQuery Table Sorter Plugin -->
-  <!--<script src="js/libs/jquery.tablesorter/jquery.tablesorter.min.js"></script>-->
-
-  <!-- jQuery Page Slide Plugin -->
-  <!--<script src="js/libs/jquery.pageslide/jquery.pageslide.min.js"></script>-->
-
-  <!--<script src="js/madmin.js"></script>-->
-  <!--<script src="js/application.js"></script>-->
-
-  <!--<script src="js/demo-area-chart.js"></script>-->
-  <!--<script src="js/demo-dynamic-chart.js"></script>-->
-  <!--<script src="js/demo-pie-chart.js"></script>-->
-
-<!-- /Javascript -->
 
 </body>
 </html>
