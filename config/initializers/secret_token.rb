@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Skywyre::Application.config.secret_token = '0d4a2199b1b2edfb54f389c7e42c5bd79d6228b1e8568af0cab8ab6c3d6774281c1ee65894f9322aeac48bb675b1d11bcfe8f6c6c714866c52720345cf7cf1cc'
+SkyHQNew::Application.config.secret_token = '23762b7dcdf0121949786d706cdb3223490e1cd20aef0bdf142dfac13d65a0414fc5690f8a96ed46e166d3e7c677b4e6fc4c118c9b58b7101c3f433244bb1341'

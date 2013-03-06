@@ -12,19 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.libs
-//
-//= require twitter/bootstrap
-//= require string
-//= require less
-//= require madmin
-//= require_self
-
-$(function(){
-  $("a[rel=popover]").popover();
-  $("a[rel=tooltip]").tooltip();
-  $(".tooltip").tooltip();
-  $(".tablesorter").tablesorter({widgets: ['zebra']});
-  $('a.help-link').pageslide({direction: 'left'});
-  madmin.init();
-});
+//= require_tree .
