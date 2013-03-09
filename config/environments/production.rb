@@ -1,4 +1,4 @@
-SkyHQNew::Application.configure do
+SkyhqNew::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -64,4 +64,6 @@ SkyHQNew::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  ENV['GOOGLE_APP_ID'] = '989261022210.apps.googleusercontent.com'
+  ENV['GOOGLE_APP_SECRET'] = 'c9gGp-DAcb3MgZhhAvHSiWnw'
 end

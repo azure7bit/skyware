@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-SkyHQNew::Application.load_tasks
+SkyhqNew::Application.load_tasks

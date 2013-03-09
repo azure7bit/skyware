@@ -1,4 +1,8 @@
-SkyHQNew::Application.routes.draw do
+SkyhqNew::Application.routes.draw do
+  root :to => 'Websites#index'
+
+  devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" }
+  get '/index' => 'Websites#index', :match => 'index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +52,6 @@ SkyHQNew::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

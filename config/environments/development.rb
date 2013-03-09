@@ -1,4 +1,4 @@
-SkyHQNew::Application.configure do
+SkyhqNew::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -34,4 +34,9 @@ SkyHQNew::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  ENV['GOOGLE_APP_ID'] = '989261022210.apps.googleusercontent.com'
+  ENV['GOOGLE_APP_SECRET'] = 'c9gGp-DAcb3MgZhhAvHSiWnw'
 end
