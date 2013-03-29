@@ -1,4 +1,7 @@
 SkyhqNew::Application.routes.draw do
+  resources :categories
+
+
   resources :business_messengers
 
 
