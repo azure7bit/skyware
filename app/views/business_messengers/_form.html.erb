@@ -1,0 +1,29 @@
+<%= form_for(@business_messenger) do |f| %>
+  <% if @business_messenger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business_messenger.errors.count, "error") %> prohibited this business_messenger from being saved:</h2>
+
+      <ul>
+      <% @business_messenger.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :super_admin_id %><br />
+    <%= f.number_field :super_admin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

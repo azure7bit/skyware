@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Business:</b>
+  <%= @manager.business_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @manager.name %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @manager.password %>
+</p>
+
+<p>
+  <b>Password confirmation:</b>
+  <%= @manager.password_confirmation %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @manager.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_manager_path(@manager) %> |
+<%= link_to 'Back', managers_path %>

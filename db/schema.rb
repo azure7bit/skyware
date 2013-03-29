@@ -11,7 +11,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306215302) do
+ActiveRecord::Schema.define(:version => 20130329020054) do
+
+  create_table "business_messengers", :force => true do |t|
+    t.integer  "super_admin_id"
+    t.text     "body"
+    t.string   "email"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.integer  "super_admin_id"
+    t.string   "name"
+    t.string   "location"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "employees", :force => true do |t|
+    t.integer  "business_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "managers", :force => true do |t|
+    t.integer  "business_id"
+    t.string   "name"
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.string   "email"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.integer  "super_admin_id"
+    t.string   "name"
+    t.integer  "price"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "super_admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

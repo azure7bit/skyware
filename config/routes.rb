@@ -1,4 +1,19 @@
 SkyhqNew::Application.routes.draw do
+  resources :business_messengers
+
+
+  resources :products
+
+
+  resources :employees
+
+
+  resources :managers
+
+
+  resources :businesses
+
+
   root :to => 'Websites#index'
 
   devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" }

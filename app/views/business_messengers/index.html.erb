@@ -1,0 +1,27 @@
+<h1>Listing business_messengers</h1>
+
+<table>
+  <tr>
+    <th>Super admin</th>
+    <th>Body</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @business_messengers.each do |business_messenger| %>
+  <tr>
+    <td><%= business_messenger.super_admin_id %></td>
+    <td><%= business_messenger.body %></td>
+    <td><%= business_messenger.email %></td>
+    <td><%= link_to 'Show', business_messenger %></td>
+    <td><%= link_to 'Edit', edit_business_messenger_path(business_messenger) %></td>
+    <td><%= link_to 'Destroy', business_messenger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Business messenger', new_business_messenger_path %>

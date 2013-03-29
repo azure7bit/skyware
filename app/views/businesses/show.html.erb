@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Super admin:</b>
+  <%= @business.super_admin_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @business.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @business.location %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @business.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @business.latitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

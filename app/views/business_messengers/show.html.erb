@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Super admin:</b>
+  <%= @business_messenger.super_admin_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @business_messenger.body %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @business_messenger.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_business_messenger_path(@business_messenger) %> |
+<%= link_to 'Back', business_messengers_path %>
