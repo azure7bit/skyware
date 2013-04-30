@@ -8,18 +8,23 @@ SkyhqNew::Application.routes.draw do
   resources :products
 
 
-  resources :employees
 
-
-  resources :managers
-
-
-  resources :businesses
+  resources :businesses do
+    resources :managers 
+    resources :employees
+  end
 
 
   root :to => 'Websites#index'
 
   devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" }
+
+  devise_scope :super_admin do
+    get "login",    to: "devise/sessions#new"
+    get "logout",   to: "devise/sessions#destroy"
+    get "register", to: "devise/registrations#new"
+  end
+
   get '/index' => 'Websites#index', :match => 'index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

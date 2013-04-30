@@ -26,5 +26,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_manager_path(@manager) %> |
-<%= link_to 'Back', managers_path %>
+<%= link_to 'Edit', edit_business_manager_path(@business, @manager) %> |
+<%= link_to 'Back', business_managers_path(@business, @manager) %>
+<%= link_to 'New Employee', new_business_manager_employee_path(@business, @manager) %>

@@ -40,7 +40,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @business = Business.new(params[:business])
+    @business = current_super_admin.businesses.build(params[:business])
 
     respond_to do |format|
       if @business.save

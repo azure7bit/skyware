@@ -1,1 +1,12 @@
 Welcome Super Admin!
+
+Thanks for choosing SkyHQ!
+<%= link_to "Create A New Business Location", new_business_path %>
+
+Your Business Locations:
+<% @businesses.each do |business| %>
+  <%= business.name %>
+  <%= business.location %>
+<% end %>
+
+<%= link_to "Sign Out", logout_path %>

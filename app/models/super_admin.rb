@@ -12,6 +12,8 @@ class SuperAdmin < ActiveRecord::Base
 
   has_many :businesses
 
+  has_many :employees, :through => :business
+
   include Tire::Model::Search
   include Tire::Model::Callbacks
 

@@ -2,6 +2,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
+    @business = Business.find(params[:business_id])
     @employees = Employee.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @business = Business.find(params[:business_id])
     @employee = Employee.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   # GET /employees/new.json
   def new
+    @business = Business.find(params[:business_id])
     @employee = Employee.new
 
     respond_to do |format|
@@ -34,13 +37,15 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @business = Business.find(params[:business_id])
     @employee = Employee.find(params[:id])
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(params[:employee])
+    @business = Business.find(params[:business_id])
+    @employee = @business.employees.build(params[:employee])
 
     respond_to do |format|
       if @employee.save
@@ -56,6 +61,7 @@ class EmployeesController < ApplicationController
   # PUT /employees/1
   # PUT /employees/1.json
   def update
+    @business = Business.find(params[:business_id])
     @employee = Employee.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +78,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    @business = Business.find(params[:business_id])
     @employee = Employee.find(params[:id])
     @employee.destroy
 

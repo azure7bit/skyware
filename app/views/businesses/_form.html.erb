@@ -12,24 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :super_admin_id %><br />
-    <%= f.number_field :super_admin_id %>
+    <%= f.hidden_field :super_admin_id, :value => current_super_admin.id %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :Address %><br />
     <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
   </div>
   <div class="actions">
     <%= f.submit %>
