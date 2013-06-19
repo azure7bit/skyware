@@ -34,7 +34,10 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'compass-rails'
   gem 'compass-h5bp'
+  gem "therubyracer"
+  gem "less-rails"
 end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
