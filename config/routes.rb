@@ -1,13 +1,9 @@
 SkyhqNew::Application.routes.draw do
   resources :categories
 
-
   resources :business_messengers
 
-
   resources :products
-
-
 
   resources :businesses do
     resources :managers 
@@ -24,7 +20,7 @@ SkyhqNew::Application.routes.draw do
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
   end
-
+  
   get '/index' => 'Websites#index', :match => 'index'
   match '/about' => "general_pages#about", :as => 'about'
   match '/contact-us' => "general_pages#contact_us", :as => 'contact_us'
