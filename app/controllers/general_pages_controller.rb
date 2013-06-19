@@ -3,10 +3,10 @@ class GeneralPagesContoller < ApplicationController
 	def about
 	end
 
-	def terms_of_service
+	def contact_us
 	end
 
-	def contact_us
+	def terms_of_service
 	end
 	
 end

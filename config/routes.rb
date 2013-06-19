@@ -26,6 +26,9 @@ SkyhqNew::Application.routes.draw do
   end
 
   get '/index' => 'Websites#index', :match => 'index'
+  match '/about' => "general_pages#about", :as => 'about'
+  match '/contact-us' => "general_pages#contact_us", :as => 'contact_us'
+  match '/terms-of-service' => "general_pages#terms_of_service", :as => 'terms_of_service'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
