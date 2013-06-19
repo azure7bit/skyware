@@ -23,8 +23,9 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem "omniauth-google-oauth2"
-
+gem 'simple_form'
 gem 'tire'
+gem "font-awesome-rails"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
