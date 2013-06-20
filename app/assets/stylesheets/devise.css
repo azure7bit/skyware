@@ -11,6 +11,8 @@
  *= require_self
  *= require global
  *= require metro-bootstrap
+ *= require registration
  *= require font-awesome
+
  */
 
