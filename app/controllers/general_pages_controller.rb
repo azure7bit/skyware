@@ -1,4 +1,4 @@
-class GeneralPagesContoller < ApplicationController
+class GeneralPagesController < ApplicationController
 
 	def about
 	end
