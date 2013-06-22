@@ -8,6 +8,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'activerecord-mysql2-adapter'
+
 group :production do 
   gem 'pg'
 end

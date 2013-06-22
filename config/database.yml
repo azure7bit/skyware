@@ -18,8 +18,11 @@ test:
   pool: 5
   timeout: 5000
 
+
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: skyhq-production
   pool: 5
   timeout: 5000
+  host: localhost
+  port: 5432
