@@ -22,8 +22,6 @@ GEM
       activesupport (= 3.2.12)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-mysql2-adapter (0.0.3)
-      mysql2
     activeresource (3.2.12)
       activemodel (= 3.2.12)
       activesupport (= 3.2.12)
@@ -178,7 +176,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-mysql2-adapter
   coffee-rails (~> 3.2.1)
   compass-h5bp
   compass-rails
@@ -186,6 +183,7 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails
   less-rails
+  mysql2
   omniauth-google-oauth2
   pg
   rails (= 3.2.12)

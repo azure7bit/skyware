@@ -8,7 +8,7 @@ group :development do
   gem 'sqlite3'
 end
 
-gem 'activerecord-mysql2-adapter'
+gem 'mysql2'
 
 group :production do 
   gem 'pg'
