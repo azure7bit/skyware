@@ -86,6 +86,7 @@ GEM
     mime-types (1.21)
     multi_json (1.6.1)
     multipart-post (1.2.0)
+    mysql2 (0.3.11)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -102,6 +103,7 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -181,7 +183,9 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails
   less-rails
+  mysql2
   omniauth-google-oauth2
+  pg
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   simple_form
