@@ -66,6 +66,6 @@ SkyhqNew::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  ENV['GOOGLE_APP_ID'] = '989261022210.apps.googleusercontent.com'
-  ENV['GOOGLE_APP_SECRET'] = 'c9gGp-DAcb3MgZhhAvHSiWnw'
+  ENV['GOOGLE_APP_ID'] = '989261022210-08c37n29fjj7rs1st53baci66pbo5e5p.apps.googleusercontent.com'
+  ENV['GOOGLE_APP_SECRET'] = 'xI-d48vrm0MmnoxywYXI-UBR'
 end
