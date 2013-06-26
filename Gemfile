@@ -45,7 +45,7 @@ group :assets do
   gem "less-rails"
 end
 
-
+gem 'gmaps4rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

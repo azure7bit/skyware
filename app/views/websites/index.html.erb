@@ -4,9 +4,29 @@ Thanks for choosing SkyHQ!
 <%= link_to "Create A New Business Location", new_business_path %>
 
 Your Business Locations:
-<% @businesses.each do |business| %>
-  <%= business.name %>
-  <%= business.location %>
-<% end %>
+<table>
+	<thead>	
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<% @businesses.each do |business| %>
+			<tr>
+			  <td><%= link_to "#{business.name}", business_path(business) %></td>
+			  <td><%= link_to "#{business.location}", business_path(business) %></td>
+			</tr>
+			<% end %>
+	</tbody>
+</table>
 
+<%= gmaps4rails(@json) %>
+
+<% if current_super_admin.online_store.nil? %>
+	<%= link_to "Create Online Store Unit", new_online_store_path %>
+<% else %>
+	<%= link_to "Online Store", online_store_path(current_super_admin) %>
+<% end %>
 <%= link_to "Sign Out", logout_path %>

@@ -1,9 +1,14 @@
 SkyhqNew::Application.routes.draw do
+  resources :online_stores do
+    resources :products
+  end
+
+
   resources :categories
 
   resources :business_messengers
 
-  resources :products
+  
 
   resources :businesses do
     resources :managers 

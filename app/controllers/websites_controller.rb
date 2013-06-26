@@ -3,5 +3,6 @@ class WebsitesController < ApplicationController
   
   def index
   	@businesses = current_super_admin.businesses
+  	@json = Business.all.to_gmaps4rails
   end
 end

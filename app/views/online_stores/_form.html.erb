@@ -1,0 +1,16 @@
+<%= simple_form_for(@online_store) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :super_admin_id, :value => current_super_admin.id %>
+  </div>
+
+  <div class="form-inputs">
+  	<%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

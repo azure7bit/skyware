@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Super admin:</b>
+  <%= @online_store.super_admin_id %>
+</p>
+
+<%= link_to "Add Products", new_online_store_product_path(@online_store) %>
+<%= link_to 'Edit', edit_online_store_path(@online_store) %> |
+<%= link_to 'Back', online_stores_path %>

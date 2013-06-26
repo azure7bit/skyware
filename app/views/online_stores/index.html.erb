@@ -1,0 +1,23 @@
+<h1>Listing online_stores</h1>
+
+<table>
+  <tr>
+    <th>Super admin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @online_stores.each do |online_store| %>
+  <tr>
+    <td><%= online_store.super_admin_id %></td>
+    <td><%= link_to 'Show', online_store %></td>
+    <td><%= link_to 'Edit', edit_online_store_path(online_store) %></td>
+    <td><%= link_to 'Destroy', online_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Online store', new_online_store_path %>

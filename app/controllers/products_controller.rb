@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @online_store = OnlineStore.find_by_id(params[:id])
+    @products = @online_store.products
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @online_store = OnlineStore.find_by_id(params[:online_store_id])
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -25,7 +27,8 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-
+    @online_store = OnlineStore.find_by_id(params[:online_store_id])
+    @super_admin = @online_store.super_admin
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
@@ -40,7 +43,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    @online_store = OnlineStore.find_by_id(params[:online_store_id])
+    @product = @online_store.products.build(params[:product])
 
     respond_to do |format|
       if @product.save
