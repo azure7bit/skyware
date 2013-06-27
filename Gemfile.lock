@@ -88,6 +88,7 @@ GEM
     multi_json (1.6.1)
     multipart-post (1.2.0)
     mysql2 (0.3.11)
+    newrelic_rpm (3.6.3.104)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -186,6 +187,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  newrelic_rpm
   omniauth-google-oauth2
   pg
   rails (= 3.2.12)
