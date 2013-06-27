@@ -15,6 +15,7 @@ class OnlineStoresController < ApplicationController
   # GET /online_stores/1.json
   def show
     @online_store = OnlineStore.find(params[:id])
+    @products = @online_store.products
 
     respond_to do |format|
       format.html # show.html.erb

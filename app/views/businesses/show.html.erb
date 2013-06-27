@@ -24,6 +24,19 @@
   <b>Latitude:</b>
   <%= @business.latitude %>
 </p>
+<h2>Managers</h2>
+<ul>
+  <% @managers.each do |manager| %>
+    <li><%= link_to "#{manager.name}", business_manager_path(@business, manager) %></li>
+  <% end %>
+</ul>
+
+<h2>Staff/Employees</h2>
+<ul>
+<% @employees.each do |employee| %>
+  <li><%= link_to "#{employee.name}", business_employee_path(employee) %></li>
+<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_business_path(@business) %> |

@@ -15,16 +15,16 @@
   <%= @employee.email %>
 </p>
 
-<p>
+<!-- <p>
   <b>Password:</b>
-  <%= @employee.password %>
+  <%#= @employee.password %>
 </p>
 
 <p>
   <b>Password confirmation:</b>
-  <%= @employee.password_confirmation %>
-</p>
+  <%#= @employee.password_confirmation %>
+</p> -->
 
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<%= link_to 'Edit', edit_business_employee_path(@employee) %> |
+<%= link_to 'Back', :back %>

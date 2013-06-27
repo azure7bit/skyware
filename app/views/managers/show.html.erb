@@ -10,15 +10,15 @@
   <%= @manager.name %>
 </p>
 
-<p>
+<!-- <p>
   <b>Password:</b>
-  <%= @manager.password %>
+  <%#= @manager.password %>
 </p>
 
 <p>
   <b>Password confirmation:</b>
-  <%= @manager.password_confirmation %>
-</p>
+  <%#= @manager.password_confirmation %>
+</p> -->
 
 <p>
   <b>Email:</b>
@@ -27,5 +27,5 @@
 
 
 <%= link_to 'Edit', edit_business_manager_path(@business, @manager) %> |
-<%= link_to 'Back', business_managers_path(@business, @manager) %>
-<%= link_to 'New Employee', new_business_manager_employee_path(@business, @manager) %>
+<%= link_to 'Back', :back %> |
+<%= link_to 'New Employee', new_business_employee_path(@business, @manager) %>
