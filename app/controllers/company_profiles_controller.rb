@@ -13,7 +13,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/1
   # GET /company_profiles/1.json
   def show
-    @company_profile = CompanyProfile.find(params[:id])
+    @company_profile = CompanyProfile.find_by_super_admin_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +41,7 @@ class CompanyProfilesController < ApplicationController
   # POST /company_profiles.json
   def create
     @company_profile = CompanyProfile.new(params[:company_profile])
+    @company_profile.super_admin_id = current_super_admin.id
 
     respond_to do |format|
       if @company_profile.save

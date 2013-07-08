@@ -1,0 +1,14 @@
+<%= form_for :conversation, url: :conversations do |f| %>
+  <% if @user.present? %>
+    <h2>Message To <%= @user.name %></h2>
+	  <%= f.hidden_field :recipients, :value => @user.email %>
+  <% else %>
+	  <%= f.text_field :recipients %>
+  <% end %>
+  <%= f.text_field :subject %>
+  <%= f.text_field :body %>
+  <!-- <div class="form-actions"> -->
+    Subject: <%= f.button :submit, class: 'button' %>
+    Message: <%= submit_tag 'Cancel', type: :reset, class: 'button' %>
+  <!-- </div> -->
+<% end %>

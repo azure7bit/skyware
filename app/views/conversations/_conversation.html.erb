@@ -1,0 +1,12 @@
+
+<%= content_tag_for(:li, conversation) do |conversation| %>
+ 
+    <%= link_to conversation.subject, conversation %>
+    <%#= link_to conversation.receipts_for(current_user).last.message.subject, conversation %>
+    <%# if conversation.is_completely_trashed?(current_user) %>
+      <%#= button_to 'Untrash', [:untrash, conversation], method: :post %>
+    <%# else %>
+      <%#= button_to 'Move to trash', [:trash, conversation], method: :post %>
+    <%# end %>
+  
+<% end %>

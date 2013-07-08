@@ -1,0 +1,15 @@
+ <div class="column_10 offset_2">
+
+<% set_meta_tags :site => 'MusicMind', :title => 'Messages', :reverse => true %>
+<h1 id="conversation_subject"><%= conversation.subject %></h1>
+<ul id="conversation_message">
+  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+    <% message = receipt.message %>
+    <h3 id="message_subject"><%= message.subject %></h3>
+    <p id="message_body"><%= message.body %></p>
+  <% end %>
+</ul>
+<div id="send_message_form">
+	<%= render 'messages/form', conversation: conversation %>
+</div>
+</div>

@@ -1,4 +1,14 @@
 SkyhqNew::Application.routes.draw do
+
+  get("/conversations/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})
+  
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
   
   resources :company_profiles
 

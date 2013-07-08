@@ -1,0 +1,42 @@
+<%# set_meta_tags :site => 'MusicMind', :title => 'Inbox', :reverse => true %>
+<style type="text/css">
+	li.conversation{
+		background-color: white;
+	}
+
+	.logged .box_title {
+		border-bottom: 1px solid #f0f0f0;
+		background: #55ABA8;
+		color: white;
+	}
+
+	li.conversation a{
+		padding:10px 15px;
+
+	}
+
+	.logged .song_list a{
+		color:black;
+		font-weight: bold;
+	}
+
+	.logged .song_list a:hover{
+		color:white;
+	}
+</style>
+
+<section class="wrapper" id="inbox">
+	
+	<h1>Messages</h1> 
+
+	<h2 class="box_title"> Inbox</h2>
+	<!-- get all messages that have not been ready -->
+	<ul id="inbox-messages" class="logged song_list a"><%= render mailbox.inbox %></ul>
+	
+	<h2 class="box_title">SentBox</h2>
+	<ul id="outbox-messages" class="logged song_list a"><%= render mailbox.sentbox %></ul> 
+	<!-- <h2>Trash</h2> -->
+	<!-- <ul><%= render mailbox.trash %></ul> -->
+
+	<%= link_to 'Start Conversation', :new_conversation, :class => "btn btn-primary", :style => "margin-top:10px; float:right;" %>
+</section>

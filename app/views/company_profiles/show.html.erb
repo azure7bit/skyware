@@ -1,3 +1,8 @@
+<%#= stylesheet_link_tag 'tuktuk.css' %>
+<%#= stylesheet_link_tag 'tuktuk.icons.css' %>
+<%#= stylesheet_link_tag 'tuktuk.theme.css' %>
+<%#= javascript_include_tag 'tuktuk.js' %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -45,6 +50,7 @@
   <%= @company_profile.company_establishment_date %>
 </p>
 
+<a class="btn btn-warning" id="accept-terms-popoup-button" data-tuktuk-modal="big_modal"><span class="icon envelope" style="margin-right:5px;"></span>Message <%= @company_profile.company_name %></a>
 
 <%= link_to 'Edit', edit_company_profile_path(@company_profile) %> |
 <%= link_to 'Back', company_profiles_path %>

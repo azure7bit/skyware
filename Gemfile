@@ -49,6 +49,12 @@ gem 'gmaps4rails'
 
 #ping
 gem 'newrelic_rpm'
+
+#messaging system
+gem 'mailboxer'
+
+#country select
+gem 'country_select'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
