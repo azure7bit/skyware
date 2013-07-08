@@ -9,7 +9,7 @@ class Business < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => false
 
   def gmaps4rails_address
 		#describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
