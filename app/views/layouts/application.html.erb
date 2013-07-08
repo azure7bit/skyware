@@ -15,8 +15,9 @@
       <%= content_tag :div, value, :class => "alert flash #{key}" unless value.blank? %>
     </div>
   <% end %>
-  
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
   <footer>
     <%= yield :scripts %>
   </footer>

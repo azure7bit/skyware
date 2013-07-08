@@ -1,12 +1,24 @@
-Welcome Super Admin!
+<style type="text/css">
+	tr.main-table-head th{
+		padding-right:20px;
+	}
+</style>
 
-Thanks for choosing SkyHQ!
-<%= link_to "Create A New Business Location", new_business_path %>
+<h2>Welcome Super Admin!</h2>
 
-Your Business Locations:
-<table>
+<span>Thanks for choosing SkyHQ!</span> <br />
+
+
+<br />
+
+
+<div id="gmap" style="float:left;">
+	<%= gmaps4rails(@json) %>
+</div>
+<h3 style="float:right; margin-right:40px;">Your Business Locations:</h3>
+<table id="businesses" class="table" style="float:left; margin-left:40px; width:200px;">
 	<thead>	
-		<tr>
+		<tr class="main-table-head">
 			<th>Name</th>
 			<th>Address</th>
 		</tr>
@@ -21,12 +33,13 @@ Your Business Locations:
 			<% end %>
 	</tbody>
 </table>
+<div id="bottom-links" style="float:left;">
+	<%= link_to "New Business Location", new_business_path, :class => "btn btn-primary" %>
+	<% if current_super_admin.online_store.nil? %>
+		<%= link_to "Create Online Store Unit", new_online_store_path, :class => "btn btn-link btn-large" %>
+	<% else %>
+		<%= link_to "Online Store", online_store_path(current_super_admin), :class => "btn btn-link btn-large" %>
+	<% end %>
 
-<%= gmaps4rails(@json) %>
-
-<% if current_super_admin.online_store.nil? %>
-	<%= link_to "Create Online Store Unit", new_online_store_path %>
-<% else %>
-	<%= link_to "Online Store", online_store_path(current_super_admin) %>
-<% end %>
-<%= link_to "Sign Out", logout_path %>
+	<%= link_to "Sign Out", logout_path, :class => "btn btn-link btn-large" %>
+</div>

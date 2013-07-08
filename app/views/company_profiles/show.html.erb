@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Super admin:</b>
+  <%= @company_profile.super_admin_id %>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%= @company_profile.company_name %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @company_profile.website %>
+</p>
+
+<p>
+  <b>Hq street address:</b>
+  <%= @company_profile.hq_street_address %>
+</p>
+
+<p>
+  <b>Hq city:</b>
+  <%= @company_profile.hq_city %>
+</p>
+
+<p>
+  <b>Hq state:</b>
+  <%= @company_profile.hq_state %>
+</p>
+
+<p>
+  <b>Hq zipcode:</b>
+  <%= @company_profile.hq_zipcode %>
+</p>
+
+<p>
+  <b>Hq country:</b>
+  <%= @company_profile.hq_country %>
+</p>
+
+<p>
+  <b>Company establishment date:</b>
+  <%= @company_profile.company_establishment_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_profile_path(@company_profile) %> |
+<%= link_to 'Back', company_profiles_path %>

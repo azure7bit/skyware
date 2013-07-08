@@ -1,5 +1,5 @@
 class Business < ActiveRecord::Base
-  attr_accessible :latitude, :location, :longitude, :name, :super_admin_id, :street, :city, :country
+  attr_accessible :latitude, :location, :longitude, :name, :super_admin_id, :street, :city, :country, :state, :zipcode
 
   belongs_to :super_admin
   has_many :managers

@@ -1,5 +1,8 @@
 SkyhqNew::Application.routes.draw do
   
+  resources :company_profiles
+
+
   resources :online_stores do
     resources :products
   end

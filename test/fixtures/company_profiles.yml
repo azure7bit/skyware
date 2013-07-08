@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  super_admin_id: 1
+  company_name: MyString
+  website: MyString
+  hq_street_address: MyString
+  hq_city: MyString
+  hq_state: MyString
+  hq_zipcode: MyString
+  hq_country: MyString
+  company_establishment_date: 2013-07-06 11:47:14
+
+two:
+  super_admin_id: 1
+  company_name: MyString
+  website: MyString
+  hq_street_address: MyString
+  hq_city: MyString
+  hq_state: MyString
+  hq_zipcode: MyString
+  hq_country: MyString
+  company_establishment_date: 2013-07-06 11:47:14
