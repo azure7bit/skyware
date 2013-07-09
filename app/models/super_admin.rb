@@ -10,6 +10,8 @@ class SuperAdmin < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image
   # attr_accessible :title, :body
 
+  acts_as_messageable
+
   has_many :businesses
 
   has_one :online_store
@@ -18,7 +20,7 @@ class SuperAdmin < ActiveRecord::Base
 
   has_many :employees, :through => :business
 
-  # acts_as_messageable
+  
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
@@ -37,11 +39,9 @@ class SuperAdmin < ActiveRecord::Base
     super_admin
 	end
 
-  def name
-    return self.name
-  end
 
-  def mailboxer_email
+
+  def mailboxer_email(object)
     #Check if an email should be sent for that object
     #if true
     return self.email
