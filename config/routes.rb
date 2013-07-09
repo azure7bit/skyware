@@ -1,14 +1,6 @@
 SkyhqNew::Application.routes.draw do
 
-  get("/conversations/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})
   
-  resources :conversations, only: [:index, :show, :new, :create] do
-    member do
-      post :reply
-      post :trash
-      post :untrash
-    end
-  end
   
   resources :company_profiles
 
@@ -46,6 +38,16 @@ SkyhqNew::Application.routes.draw do
   match '/terms-of-service' => "general_pages#terms_of_service", :as => 'terms_of_service'
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  get("/conversations/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})
+  
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

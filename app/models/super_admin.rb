@@ -18,7 +18,7 @@ class SuperAdmin < ActiveRecord::Base
 
   has_many :employees, :through => :business
 
-  acts_as_messageable
+  # acts_as_messageable
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
@@ -41,7 +41,7 @@ class SuperAdmin < ActiveRecord::Base
     return self.name
   end
 
-  def mailboxer_email(object)
+  def mailboxer_email
     #Check if an email should be sent for that object
     #if true
     return self.email
