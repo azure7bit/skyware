@@ -1,8 +1,8 @@
-<%= simple_form_for(@company_profile) do |f| %>
+<%= simple_form_for([@company_profile]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :super_admin_id, :as => :hidden, :value => current_super_admin.id %>
+    <%= f.input :super_admin_id, :as => :hidden, :value => @super_admin.id %>
     <%= f.input :company_name %>
     <%= f.input :website %>
     <%= f.input :hq_street_address %>

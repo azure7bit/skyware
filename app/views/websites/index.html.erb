@@ -42,9 +42,9 @@
 	<% end %>
 
 	<% if current_super_admin.company_profile.nil? %>
-	  <%= link_to "Create Your Company Profile", new_company_profile_path, :class => "btn btn-primary" %>
+	  <%= link_to "Create Your Company Profile", new_company_profile_path(:super_admin_id => current_super_admin.id), :class => "btn btn-primary" %>
 	<% else %>
-	  <%= link_to "Company Profile", company_profile_path(current_super_admin.id), :class => "btn btn=primary" %>
+	  <%= link_to "Company Profile", company_profile_path(current_super_admin.id), :class => "btn btn-primary" %>
 	<% end %>
 	<%= link_to "Messages", :conversations, :class => "btn btn-warning" %>
 

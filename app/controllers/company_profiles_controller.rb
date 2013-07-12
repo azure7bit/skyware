@@ -13,7 +13,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/1
   # GET /company_profiles/1.json
   def show
-    @company_profile = CompanyProfile.find_by_super_admin_id(params[:id])
+    @company_profile = current_super_admin.company_profile
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +25,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/new.json
   def new
     @company_profile = CompanyProfile.new
+    @super_admin = SuperAdmin.find_by_id(params[:super_admin_id])
 
     respond_to do |format|
       format.html # new.html.erb

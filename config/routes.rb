@@ -1,9 +1,5 @@
 SkyhqNew::Application.routes.draw do
 
-  
-  
-  resources :company_profiles
-
 
   resources :online_stores do
     resources :products
@@ -24,7 +20,9 @@ SkyhqNew::Application.routes.draw do
 
   root :to => 'Websites#index'
 
-  devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" }
+  devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" } do
+    resources :company_profiles
+  end
 
   devise_scope :super_admin do
     get "login",    to: "devise/sessions#new"
