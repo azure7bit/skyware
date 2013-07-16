@@ -3,6 +3,6 @@ class Manager < ActiveRecord::Base
 
   belongs_to :business
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 end

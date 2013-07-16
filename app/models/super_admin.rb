@@ -22,8 +22,8 @@ class SuperAdmin < ActiveRecord::Base
 
   
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)

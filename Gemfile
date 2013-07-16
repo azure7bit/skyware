@@ -31,7 +31,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'simple_form'
-gem 'tire'
+# gem 'tire'
 gem "font-awesome-rails"
 
 group :assets do

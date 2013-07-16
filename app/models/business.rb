@@ -6,8 +6,8 @@ class Business < ActiveRecord::Base
   has_many :employees
 
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 
   acts_as_gmappable
 
