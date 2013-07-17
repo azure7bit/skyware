@@ -40,11 +40,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* HEADER */
-.navbar{
+.navbar.navbar-inverse{
   .navbar-inner{
     border:none;
     padding:5px 0;
     .container{
+      width: 1170px;
       .nav{
         li{
           text-transform: inherit;
@@ -61,7 +62,8 @@ h1, h2, h3, h4, h5, h6{
       }
       .brand{
         font-size:.7em;
-        margin-left: 10px;
+        padding-left:0;
+        margin-left: 1px;
         .icon-cloud{
           /*margin-right:inherit;*/
         }
@@ -69,11 +71,55 @@ h1, h2, h3, h4, h5, h6{
     }
   }
 }
-.navbar-inverse, .navbar-inner, .navbar{
+.navbar-inverse, .navbar-inverse > .navbar-inner{
   background-color:#3d4450 !important;
   background:#3d4450;
   background-image:none !important;
 }
+
+/* HEADER */
+.navbar.navbar-sub{
+  margin-top:-25px;
+  .navbar-inner{
+    border:none;
+    padding:5px 0;
+    .container{
+      width: 1170px;
+      .nav{
+        li{
+          text-transform: inherit;
+          a{
+            font-size:14px;
+            font-weight:400;
+            color:#7f7f7f;
+            margin-left: 5px;
+            padding:10px 30px 10px 1px;
+            i{
+              margin-right:4px;
+            }
+          }
+          a:hover{
+            color:#5a5a5a;
+          }
+        }
+      }
+      .brand{
+        font-size:.7em;
+        padding-left:0;
+        margin-left: 1px;
+        .icon-cloud{
+          /*margin-right:inherit;*/
+        }
+      }
+    }
+  }
+}
+.navbar-inverse, .navbar-sub > .navbar-inner{
+  background-color:#e8e9eb !important;
+  background:#e8e9eb;
+  background-image:none !important;
+}
+
 
 /* EXTERNAL */
 #header-title{

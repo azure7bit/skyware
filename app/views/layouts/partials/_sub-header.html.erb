@@ -1,0 +1,39 @@
+<div class="navbar navbar-sub">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+        <ul class="nav">
+          <li><%= link_to "<i class='icon-plus-sign'></i> Business Location".html_safe, new_business_path %></li>
+          <li>
+            <% if current_super_admin.online_store.nil? %>
+              <%= link_to "<i class='icon-shopping-cart'></i> Create Online Store Unit".html_safe, new_online_store_path %>
+            <% else %>
+              <%= link_to "<i class='icon-shopping-cart'></i> Online Store".html_safe, online_store_path(current_super_admin) %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_super_admin.company_profile.nil? %>
+              <%= link_to "<i class='icon-user'></i> Create Your Company Profile".html_safe, new_company_profile_path(:super_admin_id => current_super_admin.id) %>
+            <% else %>
+              <%= link_to "<i class='icon-user'></i> Company Profile".html_safe, company_profile_path(current_super_admin.company_profile.id) %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-envelope'></i> Messages".html_safe, :conversations %>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
