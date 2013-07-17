@@ -5,28 +5,31 @@
 <div class="container">
 	<div class="row-fluid">
 		<div class="span12">
-			<h3>Business Locations:</h3>
-			<table id="businesses" class="table table-striped">
-				<thead>
-			    <tr>
-			      <th>Name</th>
-			      <th>Address</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			  	<% @businesses.each do |business| %>
-			    	<tr>
-			    		<td>
-			    			<%= link_to "#{business.name}", business_path(business) %>
-			    		</td>
-			    		<td>
-			    			<%= link_to "#{business.location}", business_path(business) %>
-			    		</td>
-			    	</tr>
-			    <% end %>
-			  </tbody>
-			  </tbody>
-			</table>
+			<% if @businesses.present? %>
+				<h3>Business Locations:</h3>
+				<table id="businesses" class="table table-striped">
+					<thead>
+				    <tr>
+				      <th>Name</th>
+				      <th>Address</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<% @businesses.each do |business| %>
+				    	<tr>
+				    		<td>
+				    			<%= link_to "#{business.name}", business_path(business) %>
+				    		</td>
+				    		<td>
+				    			<%= link_to "#{business.location}", business_path(business) %>
+				    		</td>
+				    	</tr>
+				    <% end %>
+				  </tbody>
+				</table>
+			<% else %>
+				<h3 class="text-center">No businesses have been created.  <%= link_to "Add a business location.".html_safe, new_business_path %>
+			<% end %>
 		</div>
 	</div>
 </div>
