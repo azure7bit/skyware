@@ -3,51 +3,33 @@
 <%#= stylesheet_link_tag 'tuktuk.theme.css' %>
 <%#= javascript_include_tag 'tuktuk.js' %>
 
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+      <h3>
+        <%= @company_profile.try(:company_name) %>
+        <div class="header-details pull-right">
+          <a class="small-header-text" id="accept-terms-popoup-button" data-tuktuk-modal="big_modal"><span class="icon envelope" style="margin-right:5px;"></span>Send Message</a> &#8211; 
+          <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
+        </div>
+      </h3>
+      <h5>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h5>
 
-
-
-<p>
-  <b>Company name:</b>
-  <%= @company_profile.company_name %>
-</p>
-
-<p>
-  <b>Website:</b>
-  <%= @company_profile.website %>
-</p>
-
-<p>
-  <b>Hq street address:</b>
-  <%= @company_profile.hq_street_address %>
-</p>
-
-<p>
-  <b>Hq city:</b>
-  <%= @company_profile.hq_city %>
-</p>
-
-<p>
-  <b>Hq state:</b>
-  <%= @company_profile.hq_state %>
-</p>
-
-<p>
-  <b>Hq zipcode:</b>
-  <%= @company_profile.hq_zipcode %>
-</p>
-
-<p>
-  <b>Hq country:</b>
-  <%= @company_profile.hq_country %>
-</p>
-
-<p>
-  <b>Company establishment date:</b>
-  <%= @company_profile.company_establishment_date %>
-</p>
-
-<a class="btn btn-warning" id="accept-terms-popoup-button" data-tuktuk-modal="big_modal"><span class="icon envelope" style="margin-right:5px;"></span>Message <%= @company_profile.company_name %></a>
-
-<%= link_to 'Edit', edit_company_profile_path(@company_profile) %> |
-<%= link_to 'Back', company_profiles_path %>
+      <div class="row-fluid">
+        <div class="span3">
+          <a href="http://maps.google.com/maps?q=<%= @company_profile.full_address %>" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @company_profile.full_address %>&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C<%= @company_profile.full_address %>&sensor=false" alt="Map"/></a>
+        </div>
+        <div class="span9">
+          <address>
+            <%= @company_profile.try(:hq_street_address) %><br>
+            <%= @company_profile.try(:hq_city) %>, <%= @company_profile.try(:hq_state) %> <%= @company_profile.try(:hq_zipcode) %> <%= @company_profile.try(:hq_country) %><br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+            <%= link_to @company_profile.try(:website), @company_profile.try(:website), target: "_blank" %>
+          </address>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

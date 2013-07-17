@@ -2,23 +2,30 @@
   <% if @business.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
-
       <ul>
-      <% @business.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @business.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="form-inputs">
-    <%= f.hidden_field :super_admin_id, :value => current_super_admin.id %>
-    <%= f.input :name %>
-    <%= f.input :street %>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :zipcode %>
-    <%= f.input :country %>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= f.input :name %>
+        <%= f.input :street %>
+        <%= f.input :city %>
+        <%= f.button :submit, :class => "btn btn-primary" %>
+      </div>
+      <div class="span6">
+        <%= f.input :state %>
+        <%= f.input :zipcode %>
+        <%= f.input :country %>
+      </div>
+    </div>
+   
+    
   </div>
-  <%= f.button :submit, :class => "btn btn-primary" %>
+  
 <% end %>

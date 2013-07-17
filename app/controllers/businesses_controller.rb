@@ -42,7 +42,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @business = current_super_admin.businesses.build(params[:business])
+    @business = current_super_admin.businesses.build(params[:business].merge(super_admin_id: current_super_admin.id))
 
     respond_to do |format|
       if @business.save

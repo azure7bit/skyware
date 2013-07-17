@@ -2,15 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.hidden_field :super_admin_id, :value => current_super_admin.id %>
+    <div class="row-fluid">
+      <div class="span12">
+        <%= f.input :name %>
+        <%= f.button :submit, :class => "btn btn-primary btn-normal" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-inputs">
-  	<%= f.label :name %>
-    <%= f.text_field :name%>
-  </div>
-
-  
-    <%= f.button :submit, :class => "btn btn-primary btn-normal" %>
-  
 <% end %>

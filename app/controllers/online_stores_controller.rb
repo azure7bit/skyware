@@ -42,7 +42,7 @@ class OnlineStoresController < ApplicationController
   # POST /online_stores
   # POST /online_stores.json
   def create
-    @online_store = current_super_admin.build_online_store(params[:online_store])
+    @online_store = current_super_admin.build_online_store(params[:online_store].merge(super_admin_id: current_super_admin.id))
 
     respond_to do |format|
       if @online_store.save

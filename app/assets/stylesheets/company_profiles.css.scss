@@ -1,3 +1,11 @@
 // Place all the styles related to the CompanyProfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.header-details{
+  color:#c0c0c0;
+  font-size:14px;
+  font-weight:400;
+  .small-header-text{
+    cursor:pointer;
+  }
+}
