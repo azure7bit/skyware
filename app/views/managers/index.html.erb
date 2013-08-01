@@ -2,11 +2,6 @@
 
 <table>
   <tr>
-    <th>Business</th>
-    <th>Name</th>
-    <th>Password</th>
-    <th>Password confirmation</th>
-    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,18 +9,13 @@
 
 <% @managers.each do |manager| %>
   <tr>
-    <td><%= manager.business_id %></td>
-    <td><%= manager.name %></td>
-    <td><%= manager.password %></td>
-    <td><%= manager.password_confirmation %></td>
-    <td><%= manager.email %></td>
-    <td><%= link_to 'Show', business_manager_path(@business, manager) %></td>
-    <td><%= link_to 'Edit', edit_business_manager_path(@business, manager) %></td>
-    <td><%= link_to 'Destroy', "/businesses/#{@business.id}/managers/#{manager.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', manager %></td>
+    <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
+    <td><%= link_to 'Destroy', manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Manager', new_business_manager_path(@business) %>
+<%= link_to 'New Manager', new_manager_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729225711) do
+ActiveRecord::Schema.define(:version => 20130801194753) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -80,16 +80,6 @@ ActiveRecord::Schema.define(:version => 20130729225711) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "employees", :force => true do |t|
-    t.integer  "business_id"
-    t.string   "name"
-    t.string   "email"
-    t.string   "password"
-    t.string   "password_confirmation"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-  end
-
   create_table "forum_posts", :force => true do |t|
     t.integer  "company_forum_topic_id"
     t.integer  "postable_id"
@@ -100,11 +90,13 @@ ActiveRecord::Schema.define(:version => 20130729225711) do
   end
 
   create_table "managers", :force => true do |t|
-    t.integer  "business_id"
-    t.string   "name"
+    t.string   "email"
     t.string   "password"
     t.string   "password_confirmation"
-    t.string   "email"
+    t.integer  "business_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "title"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end

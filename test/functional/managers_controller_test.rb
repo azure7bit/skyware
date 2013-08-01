@@ -18,7 +18,7 @@ class ManagersControllerTest < ActionController::TestCase
 
   test "should create manager" do
     assert_difference('Manager.count') do
-      post :create, manager: { business_id: @manager.business_id, email: @manager.email, name: @manager.name, password: @manager.password, password_confirmation: @manager.password_confirmation }
+      post :create, manager: {  }
     end
 
     assert_redirected_to manager_path(assigns(:manager))
@@ -35,7 +35,7 @@ class ManagersControllerTest < ActionController::TestCase
   end
 
   test "should update manager" do
-    put :update, id: @manager, manager: { business_id: @manager.business_id, email: @manager.email, name: @manager.name, password: @manager.password, password_confirmation: @manager.password_confirmation }
+    put :update, id: @manager, manager: {  }
     assert_redirected_to manager_path(assigns(:manager))
   end
 

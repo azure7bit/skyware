@@ -21,7 +21,7 @@
 				    			<%= link_to "#{business.name}", business_path(business) %>
 				    		</td>
 				    		<td>
-				    			<%= link_to "#{business.location}", business_path(business) %>
+				    			<%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
 				    		</td>
 				    	</tr>
 				    <% end %>

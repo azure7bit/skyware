@@ -1,20 +1,18 @@
 class ManagersController < ApplicationController
   # GET /managers
   # GET /managers.json
-  def index
-    @business = Business.find(params[:business_id])
-    @managers = Manager.all
+  # def index
+  #   @managers = Manager.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @managers }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # index.html.erb
+  #     format.json { render json: @managers }
+  #   end
+  # end
 
   # GET /managers/1
   # GET /managers/1.json
   def show
-    @business = Business.find(params[:business_id])
     @manager = Manager.find(params[:id])
 
     respond_to do |format|
@@ -37,7 +35,6 @@ class ManagersController < ApplicationController
 
   # GET /managers/1/edit
   def edit
-    @business = Business.find(params[:business_id])
     @manager = Manager.find(params[:id])
   end
 
@@ -45,12 +42,12 @@ class ManagersController < ApplicationController
   # POST /managers.json
   def create
     @business = Business.find(params[:business_id])
-    @manager = @business.managers.build(params[:manager])
+    @manager = Manager.new(params[:manager])
 
     respond_to do |format|
       if @manager.save
-        format.html { redirect_to business_manager_path(@business, @manager), notice: 'Manager was successfully created.' }
-        format.json { render json: business_manager_path(@business, @manager), status: :created, location: @manager }
+        format.html { redirect_to business_path(@business), notice: 'Manager was successfully created.' }
+        format.json { render json: @manager, status: :created, location: @manager }
       else
         format.html { render action: "new" }
         format.json { render json: @manager.errors, status: :unprocessable_entity }
@@ -61,7 +58,6 @@ class ManagersController < ApplicationController
   # PUT /managers/1
   # PUT /managers/1.json
   def update
-    @business = Business.find(params[:business_id])
     @manager = Manager.find(params[:id])
 
     respond_to do |format|
@@ -83,7 +79,7 @@ class ManagersController < ApplicationController
     @manager.destroy
 
     respond_to do |format|
-      format.html { redirect_to business_managers_path(@business) }
+      format.html { redirect_to business_path(@manager.business) }
       format.json { head :no_content }
     end
   end

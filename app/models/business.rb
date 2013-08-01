@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
 
   belongs_to :super_admin
   has_many :managers
-  has_many :employees
+  # has_many :employees
 
 
   # include Tire::Model::Search

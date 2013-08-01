@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Super admin:</b>
-  <%= @business.super_admin_id %>
-</p>
-
+<div id="gmap" style="float:left;">
+  <%= gmaps4rails(@json) %>
+</div>
 <p>
   <b>Name:</b>
   <%= @business.name %>
@@ -27,19 +25,24 @@
 <h2>Managers</h2>
 <ul>
   <% @managers.each do |manager| %>
-    <li><%= link_to "#{manager.name}", business_manager_path(@business, manager) %></li>
+    <li>
+      <%= link_to "#{manager.name}", business_manager_path(@business, manager) %>
+      <%#= link_to "Delete Manager", business_managers_path(@business, manager), :method => "delete" %>
+      <%= button_to "Cancel Manager's Account", business_manager_path(@business, manager), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+    </li>
+
   <% end %>
 </ul>
 
 <h2>Staff/Employees</h2>
 <ul>
-<% @employees.each do |employee| %>
-  <li><%= link_to "#{employee.name}", business_employee_path(employee) %></li>
-<% end %>
+<%# @employees.each do |employee| %>
+  <li><%#= link_to "#{employee.name}", business_employee_path(employee) %></li>
+<%# end %>
 </ul>
 
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
-<%= link_to 'Create New Manager', new_business_manager_path(@business) %>
-<%= link_to 'Create New Employee', new_business_employee_path(@business) %>
+<%= link_to 'Add New Manager', new_business_manager_path(@business) %>
+<%#= link_to 'Create New Employee', new_business_employee_path(@business) %>

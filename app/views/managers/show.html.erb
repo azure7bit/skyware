@@ -1,31 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Business:</b>
-  <%= @manager.business_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @manager.name %>
-</p>
-
-<!-- <p>
-  <b>Password:</b>
-  <%#= @manager.password %>
-</p>
-
-<p>
-  <b>Password confirmation:</b>
-  <%#= @manager.password_confirmation %>
-</p> -->
-
-<p>
-  <b>Email:</b>
-  <%= @manager.email %>
-</p>
+<%= @manager.id %>
+<%= @manager.first_name %>
+<%= @manager.last_name %>
+<%= @manager.email %>
+<%= @manager.title %>
 
 
-<%= link_to 'Edit', edit_business_manager_path(@business, @manager) %> |
-<%= link_to 'Back', :back %> |
-<%= link_to 'New Employee', new_business_employee_path(@business, @manager) %>
+
+<%= link_to 'Edit', edit_business_manager_path(@manager) %> |
+<%= link_to 'Back', :back %>
