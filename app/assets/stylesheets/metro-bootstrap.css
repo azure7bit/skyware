@@ -4,6 +4,11 @@
  *
  * from talkslab based on twitter bootstrap.
  */
+
+
+
+
+
 article,
 aside,
 details,
@@ -210,6 +215,9 @@ body {
 }
 a {
   color: #2e8bcc;
+  text-decoration: none;
+  text-decoration: none;
+  text-decoration: none;
   text-decoration: none;
 }
 a:hover {
@@ -658,7 +666,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 12.5px 25px;
+  margin: 0 0 12.5px 0px;
 }
 ul ul,
 ul ol,
@@ -1111,6 +1119,7 @@ input,
 textarea,
 .uneditable-input {
   margin-left: 0;
+  width: 99%;
 }
 .controls-row [class*="span"] + [class*="span"] {
   margin-left: 20px;
@@ -6100,7 +6109,9 @@ ul {
 }
 li {
   display: list-item;
+  list-style: none;
   text-align: -webkit-match-parent;
+  font-size: 20px;
 }
 .thumbnails > li.tile {
   display: block;

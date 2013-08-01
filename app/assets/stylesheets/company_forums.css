@@ -1,0 +1,47 @@
+// Place all the styles related to the CompanyForums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul#forum-topic-list{
+	margin-left:0px;
+}
+
+li#forum-topic-list-item{
+	font-size:20px;
+	margin: 10px 0px 10px 0px;
+	list-style: none;
+	text-decoration: none;
+	padding-left:0px;
+	background: #e8e9eb;
+	padding: 20px 0px 20px 10px;
+	font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+}
+
+li#forum-topic-list-item:hover{
+	background-color: #2e7bcc;
+}
+
+ul#forum-topic-list a{
+	text-decoration: none;
+	font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+}
+
+ul#forum-topic-list a:hover{
+	text-decoration: none;
+	color:white;
+}
+
+
+h2#forum-topic-title{
+	text-decoration: underline;
+}
+
+i#forum-topic-link-icon{
+	float:right;
+	margin-right:10px;
+}
+
+span#posts-count{
+    position: absolute;
+    right: 200px;
+}

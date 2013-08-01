@@ -1,0 +1,26 @@
+<div class="container">
+	<h1>
+		<i class="icon-group icon-1x"></i> <%= @company_forum.title %>
+	</h1>
+	<section id="forum-topics">
+		<% if @company_forum_topics.count >= 1 %>
+			<h2 id="forum-topic-title">Company Forum Topics</h2>
+			<ul id="forum-topic-list">
+				<% @company_forum_topics.each do |company_forum_topic| %>
+					<%= link_to company_forum_company_forum_topic_path(@company_forum, company_forum_topic) do %>
+						<li id="forum-topic-list-item">
+					  	<%= truncate(company_forum_topic.topic_title, :length => 100) %>
+					  	<span id="posts-count">Posts: <%= company_forum_topic.forum_posts.count %></span>
+					  	<span><i id="forum-topic-link-icon" class="icon-long-arrow-right"></i></span>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
+		<% else %>
+			<h4>There are currently no topics in this forum. Add your first topic below.</h4>
+		<% end %>
+	</section>
+	<footer>
+		<%= link_to "Create New Topic", new_company_forum_company_forum_topic_path(@company_forum), :class => "btn btn-primary" %>
+	</footer>
+</div>

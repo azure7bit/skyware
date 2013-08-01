@@ -1,0 +1,2 @@
+module CompanyForumsHelper
+end

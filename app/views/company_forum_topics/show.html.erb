@@ -1,0 +1,10 @@
+<h1><%= @company_forum_topic.topic_title %></h1>
+<ul id="topic-posts">
+	<% @forum_posts.each do |post| %>
+		<li style="font-size:20px;background-color:#e8e9eb;padding:10px 0px 10px 5px;margin:5px 0px 5px 0px;"><%= post.post_body %></li>
+	<% end %>
+</ul>
+<%#= link_to 'Edit', edit_company_forum_company_forum_topic_path(@company_forum_topic) %> 
+<div id="post-form"></div>
+<%= link_to "Add New Post", new_company_forum_company_forum_topic_forum_post_path(@company_forum, @company_forum_topic), :remote => true, :class => "btn btn-primary" %> |
+<%= link_to 'Back', :back, :class => "btn btn-warning" %>

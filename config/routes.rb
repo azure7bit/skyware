@@ -1,5 +1,10 @@
 SkyhqNew::Application.routes.draw do
 
+  resources :company_forums do
+    resources :company_forum_topics do
+      resources :forum_posts
+    end
+  end
 
   resources :company_profiles
   

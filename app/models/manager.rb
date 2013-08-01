@@ -3,6 +3,8 @@ class Manager < ActiveRecord::Base
 
   belongs_to :business
 
+  has_many :forum_posts, :as => :postable
+
   # include Tire::Model::Search
   # include Tire::Model::Callbacks
 end

@@ -22,6 +22,13 @@
             <% end %>
           </li>
           <li>
+            <% if current_super_admin.company_forum.nil? %>
+              <%= link_to "<i class='icon-group'></i> Create Company Forum".html_safe, new_company_forum_path %>
+            <% else %>
+              <%= link_to "<i class='icon-group'></i> Company Forum".html_safe, company_forum_path(current_super_admin) %>
+            <% end %>
+          </li>
+          <li>
             <% if current_super_admin.company_profile.nil? %>
               <%= link_to "<i class='icon-user'></i> Create Your Company Profile".html_safe, new_company_profile_path(:super_admin_id => current_super_admin.id) %>
             <% else %>
