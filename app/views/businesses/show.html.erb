@@ -10,7 +10,7 @@
 
   <h2><b>Location:</b>
   <%= @business.gmaps4rails_address %></h2>
-
+<% unless @managers.nil? %>
 <h2 style="text-decoration:underline;">Managers</h2>
 <table id="businesses" class="table table-striped">
           <thead>
@@ -42,6 +42,7 @@
   <li><%#= link_to "#{employee.name}", business_employee_path(employee) %></li>
 <%# end %>
 </ul>
+<% end %>
 
 <%= link_to new_business_manager_path(@business), :class => "btn btn-primary btn-large" do %> 
   <i class="icon-plus"></i> Add Manager
