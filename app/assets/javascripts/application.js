@@ -13,17 +13,16 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 //= require jquery.libs
 //= require twitter/bootstrap
 //= require string
 //= require less
 //= require madmin
 //= require_self
-//= require gmaps4rails/gmaps4rails.base
-//= require gmaps4rails/gmaps4rails.bing
-//= require gmaps4rails/gmaps4rails.googlemaps
-//= require gmaps4rails/gmaps4rails.mapquest
-//= require gmaps4rails/gmaps4rails.openlayers
+
+
 
 $(function(){
   $("a[rel=popover]").popover();
