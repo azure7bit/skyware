@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= @company_forum_topic.topic_title %></h1>
 <ul id="topic-posts">
 	<% @forum_posts.each do |post| %>
@@ -8,3 +9,4 @@
 <div id="post-form"></div>
 <%= link_to "Add New Post", new_company_forum_company_forum_topic_forum_post_path(@company_forum, @company_forum_topic), :remote => true, :class => "btn btn-primary" %> |
 <%= link_to 'Back', :back, :class => "btn btn-warning" %>
+</div>

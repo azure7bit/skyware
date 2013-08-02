@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
 
-<div id="gmap" style="float:left;">
+
+<div id="gmap" style="float:left; margin-top:0px;">
   <%= gmaps4rails(@json) %>
 </div>
+<div class="container">
 <p>
   <b>Name:</b>
   <%= @business.name %>
@@ -46,3 +47,4 @@
 <%= link_to 'Back', businesses_path %>
 <%= link_to 'Add New Manager', new_business_manager_path(@business) %>
 <%#= link_to 'Create New Employee', new_business_employee_path(@business) %>
+</div>

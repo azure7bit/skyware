@@ -1,17 +1,18 @@
-<div id="gmap" style="float:left;">
+<div id="gmap" style="float:left;margin-top:0px;">
 	<%= gmaps4rails(@json) %>
 </div>
 
-<div class="container">
+
 	<div class="row-fluid">
 		<div class="span12">
 			<% if @businesses.present? %>
-				<h3>Business Locations:</h3>
+				<h3>Business Locations:<span>Add up to 10</span></h3>
 				<table id="businesses" class="table table-striped">
 					<thead>
 				    <tr>
 				      <th>Name</th>
 				      <th>Address</th>
+				      <th>Action</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -23,15 +24,18 @@
 				    		<td>
 				    			<%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
 				    		</td>
+				    		<td>
+				    			<%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+				    		</td>
 				    	</tr>
 				    <% end %>
 				  </tbody>
 				</table>
 			<% else %>
-				<h3 class="text-center">No businesses have been created.  <%= link_to "Add a business location.".html_safe, new_business_path %>
+				<h3 class="text-center">Add up to 10 business locations.  <%= link_to "Add a business location.".html_safe, new_business_path %>
 			<% end %>
 		</div>
 	</div>
-</div>
+
 
 
