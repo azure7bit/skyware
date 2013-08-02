@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801194753) do
+ActiveRecord::Schema.define(:version => 20130802161828) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(:version => 20130801194753) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "company_docs", :force => true do |t|
+    t.string   "company_document_file_name"
+    t.string   "company_document_content_type"
+    t.integer  "company_document_file_size"
+    t.datetime "company_document_updated_at"
+    t.integer  "uploader_id"
+    t.string   "uploader_type"
+    t.integer  "company_forum_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "company_forum_topics", :force => true do |t|

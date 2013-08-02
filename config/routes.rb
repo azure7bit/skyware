@@ -1,5 +1,8 @@
 SkyhqNew::Application.routes.draw do
 
+  
+
+
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
 
@@ -7,6 +10,7 @@ SkyhqNew::Application.routes.draw do
     resources :company_forum_topics do
       resources :forum_posts
     end
+    resources :company_docs
   end
 
   resources :company_profiles

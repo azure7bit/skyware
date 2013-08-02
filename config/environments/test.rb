@@ -34,4 +34,8 @@ SkyhqNew::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  ENV['AWS_BUCKET'] = 'skyhq-test'
+  ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJIVNCEZEJGZSFZUA'
+  ENV['AWS_SECRET_ACCESS_KEY'] = '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'
 end

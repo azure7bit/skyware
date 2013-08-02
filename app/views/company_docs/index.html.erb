@@ -1,0 +1,26 @@
+<div class="container margin-top margin-bottom">
+<h1>Company Documents for <%= @company_forum.title %></h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Document Name</th>
+    <th>Show</th>
+    <th>Download</th>
+  </tr>
+
+<% @company_docs.each do |company_doc| %>
+  <tr>
+    <td><%= company_doc.company_document_file_name %></td>
+    <td><%= link_to 'Show', company_forum_company_doc_path(@company_forum, company_doc) %></td>
+    <td><%= link_to "Download", company_doc.company_document.url, :download => "#{company_doc.company_document_file_name}", title: "Download this document", :class => "btn btn-primary" %></td>
+
+    <!-- <td><%#= link_to 'Edit', edit_company_forum_company_doc_path(@company_forum, company_doc) %></td> -->
+    <!-- <td><%#= link_to 'Destroy', company_forum_company_doc_path(@company_forum, company_doc), method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Upload New Company Document', new_company_forum_company_doc_path(@company_forum), :class => "btn btn-success btn-large" %>
+</div>

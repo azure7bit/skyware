@@ -1,6 +1,9 @@
 <div class="container margin-bottom" style="margin-top:30px;">
 	<h1>
 		<i class="icon-group icon-1x"></i> <%= @company_forum.title %>
+		<%= link_to company_forum_company_docs_path(@company_forum), :class => "btn btn-success", :style => "float:right" do %>
+			<i class="icon-upload icon-2x"></i> <h4>Company Docs</h4>
+		<% end %>
 	</h1>
 	<section id="forum-topics">
 		<% if @company_forum_topics.count >= 1 %>

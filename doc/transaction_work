@@ -1,0 +1,11 @@
+We need to pull tdown the data for recurring prolific transactions 
+
+One time transactions for donations on one spreadsheet. 
+project donation - if value.present and not recurring
+gospelfunder donation - if gf_donation_amount present and not recurring
+
+On-going transaction on another
+project recurring donation - if value.present and it is recurring - we need the customer id
+gospelfunder recurring donation - if gf_donation_amount.present and it is recurring
+
+When a transaction happens that day, we can look at their 

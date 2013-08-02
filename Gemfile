@@ -47,6 +47,10 @@ end
 
 gem 'gmaps4rails'
 
+#attachment uploading
+gem 'paperclip'
+gem 'aws-sdk'
+
 #ping
 gem 'newrelic_rpm'
 

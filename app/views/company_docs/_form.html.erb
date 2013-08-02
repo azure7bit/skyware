@@ -1,0 +1,9 @@
+<%= simple_form_for([@company_forum, @company_doc]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.file_field :company_doc %>
+  </div>
+
+    <%= f.button :submit, :class => "btn btn-primary btn-large" %>
+<% end %>

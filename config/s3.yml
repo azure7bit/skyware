@@ -1,0 +1,12 @@
+development:
+  bucket: skyhq-dev
+  access_key_id: 'AKIAJIVNCEZEJGZSFZUA'
+  secret_access_key: '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'
+test:
+  bucket: skyhq-test
+  access_key_id: 'AKIAJIVNCEZEJGZSFZUA'
+  secret_access_key: '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'
+production:
+  bucket: skyhq-prod
+  access_key_id: 'AKIAJIVNCEZEJGZSFZUA'
+  secret_access_key: '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'

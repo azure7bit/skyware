@@ -4,6 +4,8 @@ class CompanyForum < ActiveRecord::Base
   belongs_to :super_admin
 
   has_many :company_forum_topics
+
+  has_many :company_docs
   # include Tire::Model::Search
   # include Tire::Model::Callbacks
 end
