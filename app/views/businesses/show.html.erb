@@ -3,48 +3,54 @@
 <div id="gmap" style="float:left; margin-top:0px;">
   <%= gmaps4rails(@json) %>
 </div>
-<div class="container">
-<p>
-  <b>Name:</b>
-  <%= @business.name %>
-</p>
+<div class="container" style="margin-bottom:60px;">
 
-<p>
-  <b>Location:</b>
-  <%= @business.location %>
-</p>
+  <h2><b>Location Name:</b>
+  <%= @business.name %></h2>
 
-<p>
-  <b>Longitude:</b>
-  <%= @business.longitude %>
-</p>
+  <h2><b>Location:</b>
+  <%= @business.gmaps4rails_address %></h2>
 
-<p>
-  <b>Latitude:</b>
-  <%= @business.latitude %>
-</p>
-<h2>Managers</h2>
-<ul>
-  <% @managers.each do |manager| %>
-    <li>
-      <%= link_to "#{manager.name}", business_manager_path(@business, manager) %>
-      <%#= link_to "Delete Manager", business_managers_path(@business, manager), :method => "delete" %>
-      <%= button_to "Cancel Manager's Account", business_manager_path(@business, manager), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-    </li>
-
-  <% end %>
-</ul>
-
-<h2>Staff/Employees</h2>
+<h2 style="text-decoration:underline;">Managers</h2>
+<table id="businesses" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @managers.each do |manager| %>
+              <tr>
+                <td>
+                  <%= link_to "#{manager.name}", business_manager_path(@business, manager) %>
+                </td>
+                <td>
+                  <%= link_to "#{manager.title}", business_manager_path(@business, manager) %>
+                </td>
+                <td>
+                  <%= link_to "Cancel Manager's Account", business_manager_path(@business, manager), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+<!-- <h2>Staff/Employees</h2> -->
 <ul>
 <%# @employees.each do |employee| %>
   <li><%#= link_to "#{employee.name}", business_employee_path(employee) %></li>
 <%# end %>
 </ul>
 
+<%= link_to new_business_manager_path(@business), :class => "btn btn-primary btn-large" do %> 
+  <i class="icon-plus"></i> Add Manager
+<% end %>
+<br />
+<br />
+<%= link_to 'Go Back', root_path, :class => "btn btn-warning" %> |
+<%= link_to 'Edit Location', edit_business_path(@business), :class => "btn btn-warning" %> 
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
-<%= link_to 'Add New Manager', new_business_manager_path(@business) %>
+
 <%#= link_to 'Create New Employee', new_business_employee_path(@business) %>
 </div>

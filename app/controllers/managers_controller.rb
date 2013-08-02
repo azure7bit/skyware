@@ -42,7 +42,7 @@ class ManagersController < ApplicationController
   # POST /managers.json
   def create
     @business = Business.find(params[:business_id])
-    @manager = Manager.new(params[:manager])
+    @manager = @business.managers.build(params[:manager])
 
     respond_to do |format|
       if @manager.save

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top:30px;">
 	<h1>
 		<i class="icon-group icon-1x"></i> <%= @company_forum.title %>
 	</h1>
@@ -9,7 +9,7 @@
 				<% @company_forum_topics.each do |company_forum_topic| %>
 					<%= link_to company_forum_company_forum_topic_path(@company_forum, company_forum_topic) do %>
 						<li id="forum-topic-list-item">
-					  	<%= truncate(company_forum_topic.topic_title, :length => 100) %>
+					  	<%= truncate(company_forum_topic.topic_title.titleize, :length => 100) %>
 					  	<span id="posts-count">Posts: <%= company_forum_topic.forum_posts.count %></span>
 					  	<span><i id="forum-topic-link-icon" class="icon-long-arrow-right"></i></span>
 						</li>

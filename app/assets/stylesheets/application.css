@@ -21,3 +21,10 @@
  *= require company_profiles
  */
 
+.margin-bottom{
+	margin-bottom:60px;
+}
+
+.margin-top{
+	margin-top:30px;
+}
