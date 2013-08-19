@@ -11,7 +11,7 @@
 <% @company_docs.each do |company_doc| %>
   <tr>
     <td><%= company_doc.company_document_file_name %></td>
-    <td><%= link_to 'Show', company_forum_company_doc_path(@company_forum, company_doc) %></td>
+    <td><%= link_to 'Show', company_doc.company_document.url, target: "_blank" %></td>
     <td><%= link_to "Download", company_doc.company_document.url, :download => "#{company_doc.company_document_file_name}", title: "Download this document", :class => "btn btn-primary" %></td>
 
     <!-- <td><%#= link_to 'Edit', edit_company_forum_company_doc_path(@company_forum, company_doc) %></td> -->

@@ -26,7 +26,7 @@ class CompanyDocsController < ApplicationController
   # GET /company_docs/new.json
   def new
     @company_forum = CompanyForum.find(params[:company_forum_id])
-    @company_doc = CompanyDoc.new
+    @company_doc = CompanyDoc.new uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +44,7 @@ class CompanyDocsController < ApplicationController
   # POST /company_docs.json
   def create
     @company_forum = CompanyForum.find(params[:company_forum_id])
-    @company_doc = @company_forum.company_docs.build(params[:id])
+    @company_doc = @company_forum.company_docs.build(params[:company_doc].merge({uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type}))
 
     respond_to do |format|
       if @company_doc.save

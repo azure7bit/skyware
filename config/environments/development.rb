@@ -43,4 +43,5 @@ SkyhqNew::Application.configure do
   ENV['AWS_BUCKET'] = 'skyhq-dev'
   ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJIVNCEZEJGZSFZUA'
   ENV['AWS_SECRET_ACCESS_KEY'] = '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'
+  config.paperclip_defaults = { storage: :s3, s3_credentials: { bucket: 'skyhq-dev', access_key_id: 'AKIAJBJNGQPG5Z6Q5WWQ', secret_access_key:  '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'}, s3_host_name: 's3-us-west-2.amazonaws.com' }  
 end
