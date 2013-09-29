@@ -9,7 +9,7 @@
 SuperAdmin.destroy_all
 CompanyProfile.destroy_all
 Business.destroy_all
-Employee.destroy_all
+# Employee.destroy_all
 OnlineStore.destroy_all
 Manager.destroy_all
 Product.destroy_all
