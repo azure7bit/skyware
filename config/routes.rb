@@ -31,8 +31,11 @@ SkyhqNew::Application.routes.draw do
     resources :employees
   end
 
-
-  root :to => 'Websites#index'
+  authenticated :super_admin do
+    root :to => 'Websites#index'
+  end
+  
+  root :to => 'Websites#home'
 
   devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" } 
 
