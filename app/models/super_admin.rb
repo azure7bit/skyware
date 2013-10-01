@@ -43,7 +43,9 @@ class SuperAdmin < ActiveRecord::Base
     super_admin
 	end
 
-
+  def name
+    return "#{first_name} #{last_name}"
+  end
 
   def mailboxer_email(object)
     #Check if an email should be sent for that object
@@ -54,7 +56,7 @@ class SuperAdmin < ActiveRecord::Base
   end
 
    def name_with_initial
-    "#{first_name.first}. #{last_name}"
+    "#{first_name} #{last_name}"
    end
 
 

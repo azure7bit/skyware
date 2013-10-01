@@ -1,3 +1,18 @@
+li.conversation{
+	background-color: white;
+}
+
+.box_title {
+	border-bottom: 1px solid #f0f0f0;
+	background: #55ABA8;
+	color: white;
+}
+
+li.conversation a{
+	padding:10px 15px;
+
+}
+
 [data-tuktuk=boxes]{display:-webkit-box;display:-moz-box;display:-ms-box;display:-o-box;display:box;-webkit-box-pack:justify;-moz-box-pack:justify;-ms-box-pack:justify;-o-box-pack:justify;box-pack:justify;overflow:hidden;}
 [data-tuktuk=boxes] > aside,[data-tuktuk=boxes] > section{display:-webkit-box;display:-moz-box;display:-ms-box;display:-o-box;display:box;-webkit-box-orient:vertical;-moz-box-orient:vertical;-ms-box-orient:vertical;-o-box-orient:vertical;box-orient:vertical;}
 [data-tuktuk=boxes] > aside > header,[data-tuktuk=boxes] > section > header,[data-tuktuk=boxes] > aside > footer,[data-tuktuk=boxes] > section > footer,[data-tuktuk=boxes] > aside > div > header,[data-tuktuk=boxes] > section > div > header,[data-tuktuk=boxes] > aside > div > footer,[data-tuktuk=boxes] > section > div > footer{-webkit-box-flex:0;-moz-box-flex:0;-ms-box-flex:0;-o-box-flex:0;box-flex:0;display:block;height:52px;line-height:52px;padding:0 1em}

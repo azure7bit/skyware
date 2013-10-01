@@ -1,28 +1,27 @@
 <%# set_meta_tags :site => 'MusicMind', :title => 'Inbox', :reverse => true %>
 <style type="text/css">
 	li.conversation{
-		background-color: white;
+		background-color: #e8e9eb;
+		font-size:1.250em;
+		padding:10px 0px 10px 20px;
+		font-size:20px;
 	}
 
-	.logged .box_title {
+  .box_title {
 		border-bottom: 1px solid #f0f0f0;
-		background: #55ABA8;
+		background: #3d4450;
 		color: white;
+		padding-left:20px;
+		padding-bottom:0px;
+		margin-bottom:0px;
 	}
 
 	li.conversation a{
-		padding:10px 15px;
+		padding:10px 10px;
 
 	}
 
-	.logged .song_list a{
-		color:black;
-		font-weight: bold;
-	}
 
-	.logged .song_list a:hover{
-		color:white;
-	}
 </style>
 
 <section class="wrapper" id="inbox">
@@ -32,10 +31,10 @@
 
 	<h2 class="box_title"> Inbox</h2>
 	<!-- get all messages that have not been ready -->
-	<ul id="inbox-messages" class="logged song_list a"><%= render mailbox.inbox %></ul>
+	<ul id="inbox-messages"><%= render mailbox.inbox %></ul>
 	
 	<h2 class="box_title">SentBox</h2>
-	<ul id="outbox-messages" class="logged song_list a"><%= render mailbox.sentbox %></ul> 
+	<ul id="outbox-messages"><%= render mailbox.sentbox %></ul> 
 	<!-- <h2>Trash</h2> -->
 	<!-- <ul><%= render mailbox.trash %></ul> -->
 
