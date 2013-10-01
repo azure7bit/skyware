@@ -36,6 +36,9 @@
             <% end %>
           </li>
           <li>
+            <%= link_to "<i class='icon-user'></i> Admin Profile".html_safe, admin_profile_path(current_super_admin) %>
+          </li>
+          <li>
             <%= link_to "<i class='icon-envelope'></i> Messages".html_safe, :conversations %>
           </li>
         </ul>

@@ -1,15 +1,37 @@
- <div class="column_10 offset_2">
+<section class="wrapper" id="inbox">
+	<div class="container margin-bottom margin-top">
+		<div class="column_10 offset_2">
+			<h2 id="conversation_subject">Subject: <%= conversation.subject %></h2>
 
-<% set_meta_tags :site => 'MusicMind', :title => 'Messages', :reverse => true %>
-<h1 id="conversation_subject"><%= conversation.subject %></h1>
-<ul id="conversation_message">
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-    <% message = receipt.message %>
-    <h3 id="message_subject"><%= message.subject %></h3>
-    <p id="message_body"><%= message.body %></p>
-  <% end %>
-</ul>
-<div id="send_message_form">
-	<%= render 'messages/form', conversation: conversation %>
-</div>
-</div>
+			<ul id="conversation_message" style="padding-bottom:0px;">
+			  <%= content_tag_for(:li, conversation.receipts_for(current_super_admin)) do |receipt| %>
+			    <% message = receipt.message %>
+			    <% super_admin = SuperAdmin.find_by_id(message.sender_id) %>
+			    <div id="time_sent" style="float:right; padding-top:5px; padding-right:10px; font-size:14px;">
+			    	Sent <%= time_ago_in_words(message.created_at) %> ago.
+			    </div>
+			    
+				    <div class="sender_picture">
+				    	<%= super_admin.name.titleize %>
+							<% unless super_admin.image? %>
+								<%= image_tag("profile-placeholder.png", :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+							<% else %>
+								<% if super_admin.uploaded_image? %>
+									<%= image_tag(super_admin.super_admin_uploaded_image.url(:bigger_thumb), :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+								<% else %>
+									<%= image_tag('profile-placeholder.png', :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+								<% end %>
+							<% end %>
+						</div>
+					
+			    <h4 id="message_subject"><%= message.subject %></h4>
+			    <p id="message_body"><%= message.body %></p>
+			    
+			  <% end %>
+			</ul>
+			<div id="send_message_form">
+				<%= render 'conversations/form', conversation: conversation %>
+			</div>
+		</div>
+	</div>
+</section>

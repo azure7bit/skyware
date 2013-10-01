@@ -2,7 +2,7 @@ SkyhqNew::Application.routes.draw do
 
   
 
-
+  match '/admin_profile/:super_admin_id' => "company_profiles#admin_profile", :as => "admin_profile"
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
 

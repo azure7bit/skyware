@@ -3,7 +3,7 @@
     <h2>Message To <%= @user.name %></h2>
 	  <%= f.hidden_field :recipients, :value => @user.email %>
   <% else %>
-	  <%= f.label "To:" %><%= f.select :recipients, SuperAdmin.all.collect {|p| [ p.name_with_initial, p.id ] }, { include_blank: true } %>
+	  <%= f.label "To:" %><%= f.select :recipients, SuperAdmin.all.collect {|p| [ p.name_with_initial, p.email ] }, { include_blank: true } %>
   <% end %>
   <%= f.label :subject %><%= f.text_field :subject %>
   <%= f.label :body %><%= f.text_area :body, :rows => 7 %>
