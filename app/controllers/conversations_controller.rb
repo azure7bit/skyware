@@ -26,18 +26,14 @@ class ConversationsController < ApplicationController
     end
   end
 
-
   def create
     recipient_emails = conversation_params(:recipients).split(',')
-    recipients = User.where(email: recipient_emails).all
+    recipients = SuperAdmin.where(email: recipient_emails).all
 
-    conversation = current_super_admin.send_message(recipients, *conversation_params(:body, :subject)).conversation
+    conversation = current_super_admin.
+      send_message(recipients, *conversation_params(:body, :subject)).conversation
 
-
-    respond_to do |format|
-      format.html { redirect_to :back  }
-      format.js
-    end
+    redirect_to conversation
   end
 
   def reply

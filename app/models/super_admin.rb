@@ -8,7 +8,6 @@ class SuperAdmin < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image
-  # attr_accessible :title, :body
 
   acts_as_messageable
 
@@ -43,7 +42,9 @@ class SuperAdmin < ActiveRecord::Base
     super_admin
 	end
 
-
+  def name
+    return "#{first_name} #{last_name}"
+  end
 
   def mailboxer_email(object)
     #Check if an email should be sent for that object
@@ -51,6 +52,10 @@ class SuperAdmin < ActiveRecord::Base
     return self.email
     #if false
     #return nil
+  end
+
+  def name_with_initial
+    "#{first_name} #{last_name}"
   end
 
 

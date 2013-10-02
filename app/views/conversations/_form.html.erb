@@ -3,12 +3,12 @@
     <h2>Message To <%= @user.name %></h2>
 	  <%= f.hidden_field :recipients, :value => @user.email %>
   <% else %>
-	  <%= f.text_field :recipients %>
+	  <%= f.label "To:" %><%= f.select :recipients, SuperAdmin.all.collect {|p| [ p.name_with_initial, p.email ] }, { include_blank: true } %>
   <% end %>
-  <%= f.text_field :subject %>
-  <%= f.text_field :body %>
+  <%= f.label :subject %><%= f.text_field :subject %>
+  <%= f.label :body %><%= f.text_area :body, :rows => 7 %>
   <!-- <div class="form-actions"> -->
-    Subject: <%= f.button :submit, class: 'button' %>
-    Message: <%= submit_tag 'Cancel', type: :reset, class: 'button' %>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', :back, class: 'btn btn-warning' %>
   <!-- </div> -->
 <% end %>

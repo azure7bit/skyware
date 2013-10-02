@@ -1,0 +1,17 @@
+<div class="span8 offset3 margin-top">
+  <h2>
+    <div class="column_12" style="float:left;"><%= @super_admin.name %></div>
+    <div style="float:right">
+    <%= link_to edit_super_admin_registration_path do %>
+      <p class="icon-edit">Edit</p>
+    <% end %>
+    </div>
+  </h2><br />
+  <h2 class="margin-top">
+    You've been a SkyHQ member for <%= time_ago_in_words(@super_admin.created_at) %>.
+  </h2>
+  <h2 class="margin-top">
+    Location: <%= @super_admin.location %><br />
+    Phone Number: <%= @super_admin.phone_number %>
+  </h2>
+</div>

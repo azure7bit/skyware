@@ -1,4 +1,5 @@
 class CompanyProfilesController < ApplicationController
+  before_filter :authenticate_super_admin!, :only => [:admin_profile]
   # GET /company_profiles
   # GET /company_profiles.json
   def index
@@ -36,6 +37,13 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/1/edit
   def edit
     @company_profile = CompanyProfile.find(params[:id])
+  end
+
+  def admin_profile
+    @super_admin = current_super_admin
+    respond_to do |format|
+      format.html
+    end
   end
 
   # POST /company_profiles
