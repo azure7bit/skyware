@@ -28,3 +28,8 @@
 .margin-top{
 	margin-top:30px;
 }
+
+a.navigation:hover {
+color: #333333;
+background-color: white;
+}

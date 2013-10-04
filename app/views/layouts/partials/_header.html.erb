@@ -18,11 +18,11 @@
       <div class="nav-collapse collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->
         <ul class="pull-right nav">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Home", root_path, :class => "navigation" %></li>
+          <li><%= link_to "About", about_path, :class => "navigation" %></li>
           <% unless super_admin_signed_in? %>
-            <li><%= link_to "Login", login_path %></li>
-            <li><%= link_to "Signup", register_path %></li>
+            <li><%= link_to "Login", login_path, :class => "navigation" %></li>
+            <li><%= link_to "Signup", register_path, :class => "navigation" %></li>
           <% else %>
             <li><%= link_to "Sign Out", logout_path %></li>
           <% end %>
