@@ -13,10 +13,7 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: relative;
-  z-index: 10;
-}
+
 
 .navbar-default {
     background-color: transparent;
@@ -122,7 +119,8 @@ body {
 
   /* Navbar positioning foo */
   .navbar-wrapper {
-    margin-top: 20px;
+      position: relative;
+      z-index: 10;
   }
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
