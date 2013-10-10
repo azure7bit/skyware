@@ -4,7 +4,7 @@
 
 body {
   padding-bottom: 40px;
-  background-color: rgb(61, 68, 80);
+  color: #5a5a5a;
 }
 
 
@@ -13,7 +13,10 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-
+.navbar-wrapper {
+  position: relative;
+  z-index: 15;
+}
 
 .navbar-default {
     background-color: rgba(0,0,0, 0.5);
@@ -54,6 +57,7 @@ body {
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 550px;
+  background-color: #777;
 }
 .carousel-inner > .item > img {
   position: absolute;
@@ -100,7 +104,6 @@ body {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
-  color: #FFFFFF;
 }
 
 
@@ -114,13 +117,11 @@ body {
   .marketing {
     padding-left: 0;
     padding-right: 0;
-	color: #FFFFFF;
-  }
+}
 
   /* Navbar positioning foo */
   .navbar-wrapper {
-      position: relative;
-      z-index: 10;
+    margin-top: 20px;
   }
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
