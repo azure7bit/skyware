@@ -9,22 +9,18 @@
 
     <title>SkyHQ</title>
 
-    <!-- Bootstrap core CSS -->
-    <%= stylesheet_link_tag "bootstrap", media: "all", "data-turbolinks-track" => true %>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <%= javascript_include_tag "html5shiv", "data-turbolinks-track" => true %>
-        <%= javascript_include_tag "respond.min", "data-turbolinks-track" => true %>
-    <![endif]-->
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'gmaps4rails.css' %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <%= stylesheet_link_tag "home.css", media: "all", "data-turbolinks-track" => true %>
   </head>
-<!-- NAVBAR
-================================================== -->
+  
   <body>
-          <div class="navbar navbar-default navbar-fixed-top">
+     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,14 +34,14 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-                        <li><%= link_to "Home", root_path %></li>
-                        <li><%= link_to "About", about_path %></li>
-                        <% unless super_admin_signed_in? %>
-                            <li><%= link_to "Login", login_path, :class => "navigation" %></li>
-                            <li><%= link_to "Signup", register_path, :class => "navigation" %></li>
-                        <% else %>
-                            <li><%= link_to "Sign Out", logout_path %></li>
-                        <% end %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", about_path %></li>
+            <% unless super_admin_signed_in? %>
+                <li><%= link_to "Login", login_path, :class => "navigation" %></li>
+                <li><%= link_to "Signup", register_path, :class => "navigation" %></li>
+            <% else %>
+                <li><%= link_to "Sign Out", logout_path %></li>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
         </div>
@@ -122,18 +118,16 @@
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p class="white">&copy; 2013 SkyHQ, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <%= yield :scripts %>
+         <p class="pull-right"><a href="#">Back to top</a></p>
+         <p class="white">&copy; 2013 SkyHQ, Inc. &middot; 
+            <%= link_to "About", about_path, :class => "navigation" %> &middot; 
+            <%= link_to "Contact Us", contact_us_path, :class => "navigation" %> &middot; 
+            <%= link_to "Terms", terms_of_service_path, :class => "navigation" %> &middot; 
+         </p>
       </footer>
 
     </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "jquery", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "holder", "data-turbolinks-track" => true %>
+    
   </body>
 </html>
