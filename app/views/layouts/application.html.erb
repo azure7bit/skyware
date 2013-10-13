@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SkyHQ</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -12,7 +14,6 @@
 <body>
 
   <%= render "layouts/partials/header" %>
-  <%#= render "layouts/partials/sub-header" if super_admin_signed_in? %>
 
   <% flash.each do |key, value| %>
     <div id="alert">
