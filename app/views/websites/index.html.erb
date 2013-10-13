@@ -1,10 +1,12 @@
-<div id="gmap" style="float:left;margin-top:0px;">
-	<%= gmaps4rails(@json) %>
-</div>
 
-<div class="container margin-bottom">
+<div class="container">
+ <div class="jumbotron">
+
 	<div class="row-fluid">
 		<div class="span12">
+    	   <div id="gmap" style="float:left;margin-top:0px;">
+                <%= gmaps4rails(@json) %>
+            </div>
 			<% if @businesses.present? %>
 				<h3>Business Locations:</h3>
 				<table id="businesses" class="table table-striped">
@@ -36,6 +38,7 @@
 			<% end %>
 		</div>
 	</div>
+ </div>
 </div>
 
 

@@ -1,4 +1,7 @@
-<div class="span8 offset3 margin-top">
+<%= render "layouts/partials/header" %>
+
+<div class="container">
+ <div class="jumbotron">
   <h2>
     <div class="column_12" style="float:left;"><%= @super_admin.name %></div>
     <div style="float:right">
@@ -14,4 +17,5 @@
     Location: <%= @super_admin.location %><br />
     Phone Number: <%= @super_admin.phone_number %>
   </h2>
+ </div>
 </div>
