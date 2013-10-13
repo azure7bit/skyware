@@ -1,17 +1,17 @@
 <div class="container">
-
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-
-<%= link_to 'Edit', edit_online_store_product_path(@product) %> |
-<%= link_to 'Back', online_store_products_path %>
-
+    <div class="jumbotron">
+        <p>
+          <b>Name:</b>
+          <%= @product.name %>
+        </p>
+        
+        <p>
+          <b>Price:</b>
+          <%= @product.price %>
+        </p>
+        
+        
+        <%= link_to 'Edit', edit_online_store_product_path(@product) %> |
+        <%= link_to 'Back', online_store_products_path %>
+    </div>
 </div>

@@ -8,11 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_self
  *= require company_forums.css
  *= require company_forum_topics.css
  *= require forum_posts.css
- *= require metro-bootstrap
  *= require global
  *= require font-awesome
  *= require external-pages

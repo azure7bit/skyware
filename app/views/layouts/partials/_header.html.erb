@@ -1,34 +1,59 @@
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <a class="navbar-brand" href="/index">SkyHQ</a>
+          
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li><%= link_to "About", about_path, :class => "navigation" %></li>
  
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
- 
-      <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to root_path, class: "brand" do %>
-        <div class="sky-logo"><i class="icon-cloud"></i> <span class="header">SkyHQ</span></div>
-      <% end %>
- 
-      <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
-        <!-- .nav, .navbar-search, .navbar-form, etc -->
-        <ul class="pull-right nav">
-          <li><%= link_to "Home", root_path, :class => "navigation" %></li>
-          <li><%= link_to "About", about_path, :class => "navigation" %></li>
-          <% unless super_admin_signed_in? %>
-            <li><%= link_to "Login", login_path, :class => "navigation" %></li>
-            <li><%= link_to "Signup", register_path, :class => "navigation" %></li>
-          <% else %>
-            <li><%= link_to "Sign Out", logout_path %></li>
-          <% end %>
-        </ul>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to "<i class='icon-plus-sign'></i> Business Location".html_safe, new_business_path %></li>
+                  <li>
+                    <%= link_to "<i class='icon-shopping-cart'></i> Online Store".html_safe, online_store_path(current_super_admin) %>
+                    <% if current_super_admin.online_store.nil? %>
+                      <%= link_to "<i class='icon-shopping-cart'></i> Create Online Store Unit".html_safe, new_online_store_path %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "<i class='icon-group'></i> Company Forum".html_safe, company_forum_path(current_super_admin) %>
+                    <% if current_super_admin.company_forum.nil? %>
+                      <%= link_to "<i class='icon-group'></i> Create Company Forum".html_safe, new_company_forum_path %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "<i class='icon-user'></i> Company Profile".html_safe, company_profile_path(current_super_admin.company_profile.id) %>
+                    <% if current_super_admin.company_profile.nil? %>
+                      <%= link_to "<i class='icon-user'></i> Create Your Company Profile".html_safe, new_company_profile_path(:super_admin_id => current_super_admin.id) %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "<i class='icon-user'></i> Admin Profile".html_safe, admin_profile_path(current_super_admin) %>
+                  </li>
+                  <li>
+                    <%= link_to "<i class='icon-envelope'></i> Messages".html_safe, :conversations %>
+                  </li>
+                  <% unless super_admin_signed_in? %>
+                    <li><%= link_to "Login", login_path, :class => "navigation" %></li>
+                    <li><%= link_to "Signup", register_path, :class => "navigation" %></li>
+                  <% else %>
+                    <li><%= link_to "Sign Out", logout_path %></li>
+                  <% end %>
+              </ul>
+            </li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
       </div>
-      
     </div>
-  </div>
-</div>
