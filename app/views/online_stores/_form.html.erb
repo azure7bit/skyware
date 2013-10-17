@@ -1,12 +1,6 @@
 <%= simple_form_for(@online_store) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <div class="row-fluid">
-      <div class="span12">
         <%= f.input :name %>
         <%= f.button :submit, :class => "btn btn-primary btn-normal" %>
-      </div>
-    </div>
-  </div>
 <% end %>
