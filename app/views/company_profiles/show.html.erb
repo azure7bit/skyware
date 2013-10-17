@@ -1,37 +1,33 @@
-<%#= stylesheet_link_tag 'tuktuk.css' %>
-<%#= stylesheet_link_tag 'tuktuk.icons.css' %>
-<%#= stylesheet_link_tag 'tuktuk.theme.css' %>
-<%#= javascript_include_tag 'tuktuk.js' %>
-
 <div class="container">
- <div class="jumbotron">
-  <div class="row-fluid">
-    <div class="span6 offset3">
-      <h1>
-        <%= @company_profile.try(:company_name) %>
-        <div class="header-details pull-right">
-          <a class="small-header-text" id="accept-terms-popoup-button" data-tuktuk-modal="big_modal"><span class="icon envelope" style="margin-right:5px;"></span>Send Message</a> &#8211; 
-          <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
-        </div>
-      </h1>
-      <h4>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h4>
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+         <div class="jumbotron">
+              <h1>
+                <%= @company_profile.try(:company_name) %>
+              </h1>
+              <h4>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h4>
+        
+                  <a href="http://maps.google.com/maps?q=<%= @company_profile.full_address %>" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @company_profile.full_address %>&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C<%= @company_profile.full_address %>&sensor=false" alt="Map"/></a>
+                  <address>
+                    <%= @company_profile.try(:hq_street_address) %><br>
+                    <%= @company_profile.try(:hq_city) %>, <%= @company_profile.try(:hq_state) %> <%= @company_profile.try(:hq_zipcode) %> <%= @company_profile.try(:hq_country) %><br>
+                    <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                    <%= link_to @company_profile.try(:website), @company_profile.try(:website), target: "_blank" %>
+                  </address>
+         </div>
+         </div><!--/span-->
 
-      <div class="row-fluid">
-        <div class="span5">
-          <a href="http://maps.google.com/maps?q=<%= @company_profile.full_address %>" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @company_profile.full_address %>&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C<%= @company_profile.full_address %>&sensor=false" alt="Map"/></a>
-        </div>
-        <div class="span5" style="font-size:20px;">
-          <address>
-            <%= @company_profile.try(:hq_street_address) %><br>
-            <%= @company_profile.try(:hq_city) %>, <%= @company_profile.try(:hq_state) %> <%= @company_profile.try(:hq_zipcode) %> <%= @company_profile.try(:hq_country) %><br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890<br>
-            <%= link_to @company_profile.try(:website), @company_profile.try(:website), target: "_blank" %>
-          </address>
-        </div>
-      </div>
-      
-      
-    </div>
-  </div>
- </div>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="well sidebar-nav">
+            <ul class="nav">
+              <li>Navigation</li>
+              <li>
+                <a >Send Message</a>
+                <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
+              </li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+         
 </div>

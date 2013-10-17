@@ -1,46 +1,57 @@
 <div class="container">
-
  <!-- Main component for a primary marketing message or call to action -->
- <div class="jumbotron">
-    <h1>Listing company_profiles</h1>
-    
-    <table>
-      <tr>
-        <th>Super admin</th>
-        <th>Company name</th>
-        <th>Website</th>
-        <th>Hq street address</th>
-        <th>Hq city</th>
-        <th>Hq state</th>
-        <th>Hq zipcode</th>
-        <th>Hq country</th>
-        <th>Company establishment date</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    
-    <% @company_profiles.each do |company_profile| %>
-      <tr>
-        <td><%= company_profile.super_admin_id %></td>
-        <td><%= company_profile.company_name %></td>
-        <td><%= company_profile.website %></td>
-        <td><%= company_profile.hq_street_address %></td>
-        <td><%= company_profile.hq_city %></td>
-        <td><%= company_profile.hq_state %></td>
-        <td><%= company_profile.hq_zipcode %></td>
-        <td><%= company_profile.hq_country %></td>
-        <td><%= company_profile.company_establishment_date %></td>
-        <td><%= link_to 'Show', company_profile %></td>
-        <td><%= link_to 'Edit', edit_company_profile_path(company_profile) %></td>
-        <td><%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    </table>
-    
-    <br />
-    
-    <%= link_to 'New Company profile', new_company_profile_path %>
- </div>
+       <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+             <div class="jumbotron">
+                <h1>Company Profiles</h1>
+                
+                <table>
+                  <tr>
+                    <th>Super admin</th>
+                    <th>Company name</th>
+                    <th>Website</th>
+                    <th>Hq street address</th>
+                    <th>Hq city</th>
+                    <th>Hq state</th>
+                    <th>Hq zipcode</th>
+                    <th>Hq country</th>
+                    <th>Company establishment date</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                
+                <% @company_profiles.each do |company_profile| %>
+                  <tr>
+                    <td><%= company_profile.super_admin_id %></td>
+                    <td><%= company_profile.company_name %></td>
+                    <td><%= company_profile.website %></td>
+                    <td><%= company_profile.hq_street_address %></td>
+                    <td><%= company_profile.hq_city %></td>
+                    <td><%= company_profile.hq_state %></td>
+                    <td><%= company_profile.hq_zipcode %></td>
+                    <td><%= company_profile.hq_country %></td>
+                    <td><%= company_profile.company_establishment_date %></td>
+                    <td><%= link_to 'Show', company_profile %></td>
+                    <td><%= link_to 'Edit', edit_company_profile_path(company_profile) %></td>
+                    <td><%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+                </table>
+                
+             </div>
+        </div><!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="well sidebar-nav">
+            <ul class="nav">
+              <li>Navigation</li>
+              <li>
+                <%= link_to 'New Company profile', new_company_profile_path %>
+              </li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
 
 </div> <!-- /container -->
