@@ -26,7 +26,8 @@
                             <% end %> --!>
                   </li>
                   <li>
-                    <%= link_to "<i class='icon-comment'></i> Communications HQ".html_safe, company_forums_path%>
+                    <a href="/company_forums/1"><i class='icon-comment'></i> Communications HQ</a>
+                    <!-- <%= link_to "<i class='icon-comment'></i> Communications HQ".html_safe, company_forums_path(1)%> --!>
                     <!-- <% if current_super_admin.company_forum.nil? %>
                       <%= link_to "<i class='icon-group'></i> Create Company Forum".html_safe, new_company_forum_path %>
                     <% end %> --!>
