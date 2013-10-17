@@ -9,23 +9,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-inputs">
-    <div class="row-fluid">
-      <div class="span6">
+<form role="form">
+   <div class="form-group">
         <%= f.input :name %>
         <%= f.input :street %>
         <%= f.input :city %>
-        <%= f.submit "Create Business Location", :class => "btn btn-primary" %>
       </div>
-      <div class="span6">
+      <div class="form-group">
         <%= f.input :state %>
         <%= f.input :zipcode %>
         <%= f.input :country %>
       </div>
-    </div>
-   
-    
-  </div>
-  
+      
+      <%= f.submit "Create Business Location", :class => "btn btn-primary" %>
+</form>  
 <% end %>

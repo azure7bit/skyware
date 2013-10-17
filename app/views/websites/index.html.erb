@@ -1,44 +1,60 @@
-
 <div class="container">
- <div class="jumbotron">
 
-	<div class="row-fluid">
-		<div class="span12">
-    	   <div id="gmap" style="float:left;margin-top:0px;">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <div id="gmap">
                 <%= gmaps4rails(@json) %>
             </div>
-			<% if @businesses.present? %>
-				<h3>Business Locations:</h3>
-				<table id="businesses" class="table table-striped">
-					<thead>
-				    <tr>
-				      <th>Name</th>
-				      <th>Address</th>
-				      <th>Actions</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  	<% @businesses.each do |business| %>
-				    	<tr>
-				    		<td>
-				    			<%= link_to "#{business.name}", business_path(business) %>
-				    		</td>
-				    		<td>
-				    			<%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
-				    		</td>
-				    		<td>
-				    			<%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-				    		</td>
-				    	</tr>
-				    <% end %>
-				  </tbody>
-				</table>
-			<% else %>
-				<h3 class="text-center">Add up to 10 business locations.  <%= link_to "Add a business location.".html_safe, new_business_path %>
-			<% end %>
-		</div>
-	</div>
- </div>
-</div>
+            <% if @businesses.present? %>
+                <h3>Business Locations:</h3>
+                <table id="businesses" class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @businesses.each do |business| %>
+                        <tr>
+                            <td>
+                                <%= link_to "#{business.name}", business_path(business) %>
+                            </td>
+                            <td>
+                                <%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
+                            </td>
+                            <td>
+                                <%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+                            </td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+            <% else %>
+                <h3 class="text-center">Add up to 10 business locations.  <%= link_to "Add a business location.".html_safe, new_business_path %>
+            <% end %>
+          </div>
+          
+        </div><!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="well sidebar-nav">
+            <ul class="nav">
+              <li>Navigation</li>
+              <li>
+                <%= link_to "Add business location".html_safe, new_business_path %>
+              </li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
 
 
+    </div><!--/.container-->

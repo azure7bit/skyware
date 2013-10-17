@@ -3,6 +3,7 @@
 <head>
   <title>SkyHQ</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag params[:controller] %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'gmaps4rails.css' %>
@@ -11,16 +12,16 @@
 </head>
 <body>
 
-  <%= render "layouts/partials/header" %>
 
   <% flash.each do |key, value| %>
     <div id="alert">
       <%= content_tag :div, value, :class => "alert flash #{key}" unless value.blank? %>
     </div>
   <% end %>
-  <!-- <div class="container" style="margin-bottom:40px; margin-top:25px;"> -->
+  <%= render "layouts/partials/header" %>
+
     <%= yield %>
-  <!-- </div> -->
+
   <div class="container">
       <footer>
         <%= yield :scripts %>
