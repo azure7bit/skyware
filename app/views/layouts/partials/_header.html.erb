@@ -19,14 +19,14 @@
               <ul class="dropdown-menu">
                   <li><%= link_to "<i class='icon-screenshot'></i> Locations HQ".html_safe, index_path%></li>
                   <li>
-                    <%= link_to "<i class='icon-barcode'></i> Orders HQ".html_safe, online_store_path(current_super_admin) %>
+                    <%= link_to "<i class='icon-barcode'></i> Orders HQ".html_safe, online_store_path(current_super_admin)%>
                             <!--
                             <% if current_super_admin.online_store.nil? %>
-                              <%= link_to "<i class='icon-shopping-cart'></i> Create Online Store Unit".html_safe, new_online_store_path %>
+                              <%= link_to "<i class='icon-shopping-cart'></i> Create Online Store Unit".html_safe, new_online_store_path%>
                             <% end %> --!>
                   </li>
                   <li>
-                    <%= link_to "<i class='icon-comment'></i> Communications HQ".html_safe, company_forum_path(current_super_admin) %>
+                    <%= link_to "<i class='icon-comment'></i> Communications HQ".html_safe, company_forum_path(current_super_admin)%>
                     <!-- <% if current_super_admin.company_forum.nil? %>
                       <%= link_to "<i class='icon-group'></i> Create Company Forum".html_safe, new_company_forum_path %>
                     <% end %> --!>
