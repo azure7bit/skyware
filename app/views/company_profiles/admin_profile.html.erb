@@ -5,9 +5,11 @@
         <div class="col-xs-12 col-sm-9">
           <div class="jumbotron">
               <h2>
-                <div class="column_12" style="float:left;"><%= @super_admin.name %></div>
-              </h2><br />
-              <h2 class="margin-top">
+                <div>
+                    <%= @super_admin.name %>
+                </div>
+              </h2>
+              <h2>
                 You've been a SkyHQ member for <%= time_ago_in_words(@super_admin.created_at) %>.
               </h2>
               <h2>
