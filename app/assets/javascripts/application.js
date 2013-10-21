@@ -23,12 +23,6 @@
 //= require holder
 //= require_self
 
-$(document).ready(function() {
-  $('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-  });
-});
-
 $(function(){
   $("a[rel=popover]").popover();
   $("a[rel=tooltip]").tooltip();
@@ -36,4 +30,10 @@ $(function(){
   $(".tablesorter").tablesorter({widgets: ['zebra']});
   $('a.help-link').pageslide({direction: 'left'});
   madmin.init();
+});
+
+$(document).ready(function() {
+	  $('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	  });
 });
