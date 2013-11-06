@@ -10,18 +10,11 @@
  *
  *= require bootstrap
  *= require_self
- *= require company_forums.css
- *= require company_forum_topics.css
- *= require forum_posts.css
- *= require global
- *= require font-awesome
- *= require external-pages
- *= require gmaps4rails
- *= require dashboard
- *= require company_profiles
+ *= require_tree .
  */
 
 a.navigation:hover {
 color: #333333;
 background-color: white;
 }
+
