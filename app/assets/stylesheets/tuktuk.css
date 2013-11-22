@@ -258,7 +258,7 @@ body > section.landing h2{font-size:4em}
 body > section.landing h3{font-size:2.8em}
 body > section.landing .form.subscribe{margin-top:1em;}
 body > section.landing .form.subscribe *{float:left}
-body > section.landing .form.subscribe input{-webkit-box-flex:;-moz-box-flex:;-ms-box-flex:;-o-box-flex:;box-flex:;width:85%;border-right:0;margin-top:0;border:0}
+body > section.landing .form.subscribe input{-webkit-box-flex:0;-moz-box-flex:0;-ms-box-flex:0;-o-box-flex:0;box-flex:0;width:85%;border-right:0;margin-top:0;border:0}
 body > section.landing .form.subscribe .button,body > section.landing .form.subscribe button{width:15%;-webkit-box-shadow:none;-moz-box-shadow:none;-ms-box-shadow:none;-o-box-shadow:none;box-shadow:none}
 a{text-decoration:none;outline:0}
 
