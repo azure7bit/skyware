@@ -1,14 +1,16 @@
-<%= form_for :conversation, url: :conversations do |f| %>
-  <% if @user.present? %>
+<%= simple_form_for(:conversation, url: :conversations, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+<form role="form">
+    <% if @user.present? %>
     <h2>Message To <%= @user.name %></h2>
-	  <%= f.hidden_field :recipients, :value => @user.email %>
-  <% else %>
-	  <%= f.label "To:" %><%= f.select :recipients, SuperAdmin.all.collect {|p| [ p.name_with_initial, p.email ] }, { include_blank: true } %>
-  <% end %>
-  <%= f.label :subject %><%= f.text_field :subject %>
-  <%= f.label :body %><%= f.text_area :body, :rows => 7 %>
-  <!-- <div class="form-actions"> -->
+    <%= f.hidden_field :recipients, :value => @user.email %>
+    <% else %>
+    <%= f.label "To:" %><%= f.select :recipients, SuperAdmin.all.collect {|p| [ p.name_with_initial, p.email ] }, { include_blank: true } %>
+    <% end %>
+    <%= f.label :subject %><%= f.text_field :subject %>
+    <%= f.label :body %><%= f.text_area :body, :rows => 7 %>
+    <!-- <div class="form-actions"> -->
     <%= f.submit "Submit", class: 'btn btn-primary' %>
     <%= link_to 'Cancel', :back, class: 'btn btn-warning' %>
-  <!-- </div> -->
+    <!-- </div> -->
+</form>
 <% end %>

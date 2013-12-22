@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SkyHQ</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag params[:controller] %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'gmaps4rails.css' %>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-</head>
-<body>
-
-
-  <% flash.each do |key, value| %>
-    <div id="alert">
-      <%= content_tag :div, value, :class => "alert flash #{key}" unless value.blank? %>
-    </div>
-  <% end %>
-  <%= render "layouts/partials/header" %>
-
-    <%= yield %>
-
-  <div class="container">
-      <footer>
-        <%= yield :scripts %>
-         <p class="pull-right"><a href="#">Back to top</a></p>
-         <p class="white">&copy; 2013 SkyHQ, Inc. &middot; 
-            <%= link_to "About", about_path, :class => "navigation" %> &middot; 
-            <%= link_to "Contact Us", contact_us_path, :class => "navigation" %> &middot; 
-            <%= link_to "Terms", terms_of_service_path, :class => "navigation" %> &middot; 
-         </p>
-      </footer>
-  </div>
-</body>
+    <head>
+        <title>SkyHQ</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= stylesheet_link_tag params[:controller] %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag 'gmaps4rails.css' %>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    </head>
+    <body>
+        <% flash.each do |key, value| %>
+        <div id="alert">
+            <%= content_tag :div, value, :class => "alert flash #{key}" unless value.blank? %>
+        </div>
+        <% end %>
+        <%= render "layouts/partials/header" %>
+        <%= yield %>
+        <footer>
+            <div class="container">
+                <%= yield :scripts %>
+                <p class="pull-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <p class="white">
+                    &copy; 2013 SkyHQ, Inc. &middot; <%= link_to "About", about_path, :class => "navigation" %>&middot; <%= link_to "Contact Us", contact_us_path, :class => "navigation" %>&middot; <%= link_to "Terms", terms_of_service_path, :class => "navigation" %>&middot; 
+                </p>
+            </div>
+        </footer>
+    </body>
 </html>

@@ -1,26 +1,23 @@
-<%= simple_form_for(@business) do |f| %>
-  <% if @business.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h4>
-      <ul>
+<%= simple_form_for(@business, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+<% if @business.errors.any? %>
+<div id="error_explanation">
+    <h4><%= pluralize(@business.errors.count, "error") %>prohibited this business from being saved:</h4>
+    <ul>
         <% @business.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <li>
+            <%= msg %>
+        </li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 <form role="form">
-   <div class="form-group">
-        <%= f.input :name %>
-        <%= f.input :street %>
-        <%= f.input :city %>
-      </div>
-      <div class="form-group">
-        <%= f.input :state %>
-        <%= f.input :zipcode %>
-        <%= f.input :country %>
-      </div>
-      
-      <%= f.submit "Create Business Location", :class => "btn btn-primary" %>
-</form>  
+    <%= f.input :name %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zipcode %>
+    <%= f.input :country %>
+    <%= f.submit "Create Business Location", :class => "btn btn-primary" %>
+</form>
 <% end %>

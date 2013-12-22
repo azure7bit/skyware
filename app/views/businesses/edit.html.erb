@@ -1,10 +1,7 @@
-<div class="container"> 
-  <div class="jumbotron">
+<div class="container">
     <h1>Editing business</h1>
-    
     <%= render 'form' %>
-    
-    <%= link_to 'Show', @business %> |
-    <%= link_to 'Back', businesses_path %>
- </div>
+    <div class="smallMenuItem">
+        <%= link_to 'Show', @business %> | <%= link_to 'Back', businesses_path %>
+    </div>
 </div>
