@@ -13,37 +13,34 @@
                     <table class="table table-striped">
                         <thead>
                             <th>
-                                Super admin
+                                Admin
                             </th>
                             <th>
-                                Company name
+                                Company
                             </th>
                             <th>
                                 Website
                             </th>
                             <th>
-                                Hq street address
+                                Street
                             </th>
                             <th>
-                                Hq city
+                                City
                             </th>
                             <th>
-                                Hq state
+                                State
                             </th>
                             <th>
-                                Hq zipcode
+                                Zip
                             </th>
                             <th>
-                                Hq country
+                                Country
                             </th>
                             <th>
-                                Company establishment date
+                                Est.
                             </th>
                             <th>
-                            </th>
-                            <th>
-                            </th>
-                            <th>
+                                Menu
                             </th>
                         </thead>
                         <% @company_profiles.each do |company_profile| %>
@@ -77,12 +74,8 @@
                             </td>
                             <td>
                                 <%= link_to 'Show', company_profile %>
-                            </td>
-                            <td>
                                 <%= link_to 'Edit', edit_company_profile_path(company_profile) %>
-                            </td>
-                            <td>
-                                <%= link_to 'Destroy', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <%= link_to 'Remove', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
                             </td>
                         </tr>
                         <% end %>

@@ -1,4 +1,4 @@
-<%= simple_form_for(@online_store) do |f| %>
+<%= simple_form_for(@online_store, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
   <%= f.error_notification %>
 
         <%= f.input :name %>
