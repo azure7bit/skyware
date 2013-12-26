@@ -19,8 +19,8 @@
                     <%= simple_form_for(@super_admin, as: :super_admin, url: session_path(:super_admin)) do |f| %>
                     <h2 class="no-top-margin">Login</h2>
                     <%= f.error_notification %>
-                    <%= f.input :email, autofocus: true, required: true, label: false, input_html: {class: "col-lg-12"}, placeholder: "email address" %>
-                    <%= f.input :password, :required => true, label: false, input_html: {class: "col-lg-12"}, placeholder: "password" %>
+                    <%= f.input :email, autofocus: true, required: true, label: false, input_html: {class: "col-lg-12"}, placeholder: "email address", :class => "form-control" %>
+                    <%= f.input :password, :required => true, label: false, input_html: {class: "col-lg-12"}, placeholder: "password", :class => "form-control" %>
                     <button type="submit" class="btn btn-link btn-large">
                         submit <i class='icon-lock'></i>
                     </button>

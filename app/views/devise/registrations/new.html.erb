@@ -16,7 +16,7 @@
             <h2 class="no-top-margin">Sign up</h2>
             <%= f.error_notification %>
 
-            <%= f.input :email, autofocus: true, required: true, label: false, input_html: {class: "col-lg-12"}, placeholder: "email address" %>
+            <%= f.input :email, autofocus: true, required: true, label: false, input_html: {class: "col-lg-12"}, placeholder: "email address", :class => "form-control" %>
             <%= f.input :password, :required => true, label: false, input_html: {class: "col-lg-12"}, placeholder: "password" %>
             <%= f.input :password_confirmation, label: false, :required => true, input_html: {class: "col-lg-12"}, placeholder: "password again" %>
            

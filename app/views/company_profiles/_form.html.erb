@@ -1,8 +1,7 @@
 <%= simple_form_for([@company_profile], :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :super_admin_id, :as => :hidden, :value => @super_admin.id %>
+<%= f.error_notification %>
+<div class="form-inputs">
+    <%= f.input :super_admin_id, :as => :hidden, :value => @company_profile.super_admin_id %>
     <%= f.input :company_name %>
     <%= f.input :website %>
     <%= f.input :hq_street_address %>
@@ -11,9 +10,6 @@
     <%= f.input :hq_zipcode %>
     <%= f.input :hq_country %>
     <%= f.input :company_establishment_date, as: :date %>
-  </div>
-
-  
-    <%= f.button :submit, :class => "btn btn-primary btn-large" %>
-  
+</div>
+<%= f.button :submit, :class => "btn btn-primary btn-large" %>
 <% end %>
