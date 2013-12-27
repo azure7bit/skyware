@@ -43,7 +43,7 @@
                                     <%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
                                 </td>
                                 <td>
-                                    <%= link_to "Edit" ,edit_business_path(business) %>| <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+                                    <%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
                                 </td>
                             </tr>
                             <% end %>
