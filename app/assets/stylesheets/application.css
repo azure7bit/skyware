@@ -17,6 +17,10 @@ a.navigation:hover {
 	background-color: white;
 }
 
+html,body{
+    height: 100%
+}
+
 .smallMenuItems {
 	margin-top: 30px;
 }
@@ -24,3 +28,4 @@ a.navigation:hover {
 .footer {
 	margin-top: 70px;
 }
+

@@ -1,12 +1,20 @@
 <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
-                    Toggle nav
-                </button>
-            </p>
-            <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to "Add business location".html_safe, new_business_path %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
                 <% if @businesses.present? %>
                 <div class="table-responsive">
@@ -35,35 +43,18 @@
                                     <%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
                                 </td>
                                 <td>
-                                    <%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+                                    <%= link_to "Edit" ,edit_business_path(business) %>| <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
                                 </td>
                             </tr>
                             <% end %>
                         </tbody>
                     </table>
                 </div>
-                    <% else %>
-                    <h3 class="text-center">
-                    Add up to 10 business locations. <%= link_to "Add a business location.".html_safe, new_business_path %>
-                    <% end %>
+                <% else %>
+                <h3 class="text-center">
+                Add up to 10 business locations. <%= link_to "Add a business location.".html_safe, new_business_path %>
+                <% end %>
             </div>
         </div>
-        <!--/span-->
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <%= link_to "Add business location".html_safe, new_business_path %>
-                    </li>
-                </ul>
-            </div>
-            <!--/.well -->
-        </div>
-        <!--/span-->
     </div>
-    <!--/row-->
 </div>
-<!--/.container-->

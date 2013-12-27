@@ -1,12 +1,21 @@
 <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
-                    Toggle nav
-                </button>
-            </p>
-            <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <a>Send Message</a>
+                        <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
                 <h1><%= @company_profile.try(:company_name) %>
                 </h1>
                 <h4>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h4>
@@ -28,22 +37,5 @@
                 </div>
             </div>
         </div>
-        <!--/span-->
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <a>Send Message</a>
-                        <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
-                    </li>
-                </ul>
-            </div>
-            <!--/.well -->
-        </div>
-        <!--/span-->
     </div>
-    <!--/row-->
 </div>

@@ -1,44 +1,52 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to 'New Online store', new_online_store_path %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
+                <h1>Listing Orders</h1>
+                <table>
+                    <tr>
+                        <th>
+                            Super admin
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    <% @online_stores.each do |online_store| %>
+                    <tr>
+                        <td>
+                            <%= online_store.super_admin_id %>
+                        </td>
+                        <td>
+                            <%= link_to 'Show', online_store %>
+                        </td>
+                        <td>
+                            <%= link_to 'Edit', edit_online_store_path(online_store) %>
+                        </td>
+                        <td>
+                            <%= link_to 'Destroy', online_store, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-      <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-          <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          </p>
-          <div class="jumbotron">
-            <h1>Listing Orders</h1>
-            
-            <table>
-              <tr>
-                <th>Super admin</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            
-            <% @online_stores.each do |online_store| %>
-              <tr>
-                <td><%= online_store.super_admin_id %></td>
-                <td><%= link_to 'Show', online_store %></td>
-                <td><%= link_to 'Edit', edit_online_store_path(online_store) %></td>
-                <td><%= link_to 'Destroy', online_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-            </table>
-             </div>
-          
-        </div><!--/span-->
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-          <div class="well sidebar-nav">
-            <ul class="nav">
-              <li>Navigation</li>
-              <li>
-                <%= link_to 'New Online store', new_online_store_path %>
-              </li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
-
-</div><!--/.container-->

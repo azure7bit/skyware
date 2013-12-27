@@ -1,12 +1,21 @@
 <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <p class="pull-right visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">
-                    Toggle nav
-                </button>
-            </p>
-            <div class="jumbotron">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to "Add Manager".html_safe, new_business_manager_path(@business) %>
+                        <%= link_to 'Edit Location', edit_business_path(@business) %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
                 <h3><b>Location Name: </b><%= @business.name %></h3>
                 <h3><b>Location: </b><%= @business.gmaps4rails_address %></h3>
@@ -59,18 +68,5 @@
                 <% end %>
             </div>
         </div>
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <%= link_to "Add Manager".html_safe, new_business_manager_path(@business) %>
-                        <%= link_to 'Edit Location', edit_business_path(@business) %>
-                    </li>
-                </ul>
-            </div>
-            <!--/.well -->
-        </div>
     </div>
+</div>
