@@ -13,27 +13,6 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps
-//= require jquery.libs
-//= require string
-//= require less
-//= require madmin
-//= require holder
 //= require_self
-
-$(function(){
-  $("a[rel=popover]").popover();
-  $("a[rel=tooltip]").tooltip();
-  $(".tooltip").tooltip();
-  $(".tablesorter").tablesorter({widgets: ['zebra']});
-  $('a.help-link').pageslide({direction: 'left'});
-  madmin.init();
-});
-
-$(document).ready(function() {
-	  $('[data-toggle=offcanvas]').click(function() {
-	    $('.row-offcanvas').toggleClass('active');
-	  });
-});

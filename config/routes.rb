@@ -31,9 +31,9 @@ SkyhqNew::Application.routes.draw do
     resources :employees
   end
 
-  authenticated :super_admin do
-    root :to => 'Websites#index'
-  end
+#  authenticated :super_admin do
+#    root :to => 'Websites#index'
+#  end
   
   root :to => 'Websites#home'
 
