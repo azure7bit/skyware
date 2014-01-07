@@ -1,7 +1,13 @@
 SkyhqNew::Application.routes.draw do
 
-  
-
+  match '/home' => 'websites#home'
+  match '/about' => 'general_pages#about'
+  match '/contact' => 'general_pages#contact'
+  match '/faq' => 'general_pages#faq'
+  match '/features' => 'general_pages#feature'
+  match '/pricing' => 'general_pages#pricing'
+  match '/services' => 'general_pages#services'
+  match '/terms-of-service' => 'general_pages#tos'
   match '/admin_profile/:super_admin_id' => "company_profiles#admin_profile", :as => "admin_profile"
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
@@ -24,8 +30,6 @@ SkyhqNew::Application.routes.draw do
 
   resources :business_messengers
 
-  
-
   resources :businesses do
     resources :managers 
     resources :employees
@@ -46,9 +50,8 @@ SkyhqNew::Application.routes.draw do
   end
   
   get '/index' => 'Websites#index', :match => 'index'
-  match '/about' => "general_pages#about", :as => 'about'
-  match '/contact-us' => "general_pages#contact_us", :as => 'contact_us'
-  match '/terms-of-service' => "general_pages#terms_of_service", :as => 'terms_of_service'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

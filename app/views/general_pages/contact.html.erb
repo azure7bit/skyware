@@ -20,6 +20,8 @@
     <!-- CSS Implementing Plugins -->    
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="assets/plugins/flexslider/flexslider.css" type="text/css" media="screen">          
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="assets/css/pages/page_contact.css">
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color">
     <link rel="stylesheet" href="assets/css/themes/headers/default.css" id="style_color-header-1">    
@@ -57,7 +59,7 @@
         </ul>
     </div>      
 </div><!--/top-->
-<!--=== End Top ===-->    
+<!--=== End Top ===-->      
 
 <!--=== Header ===-->    
 <div class="header">
@@ -84,7 +86,7 @@
                             Home
                         </a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="about.html" data-delay="0" data-close-others="false">
                             About
                         </a>
@@ -99,7 +101,7 @@
                             <li><a href="pricing.html">Pricing</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="contact.html" data-hover="dropdown" data-delay="0" data-close-others="false">
                             Contact
                         </a>
@@ -122,97 +124,77 @@
 
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
-	<div class="container">
-        <h1 class="pull-left">About Us</h1>
+    <div class="container">
+        <h1 class="pull-left">Our Contacts</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="">Pages</a></li>
-            <li class="active">About Us</li>
+            <li class="active">Contacts</li>
         </ul>
-    </div><!--/container-->
+    </div>
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 
 <!--=== Content Part ===-->
-<div class="container">		
-	<div class="row margin-bottom-30">
-    	<div class="col-md-6 md-margin-bottom-40">
-            <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone. Lorem sequat ipsum dolor lorem sit amet, consectetur adipiscing dolor elit. Unify is an incredibly beautiful responsive Bootstrap Template for It works on all major web.</p>
-            <ul class="list-unstyled">
-                <li><i class="icon-ok color-green"></i> Donec id elit non mi porta gravida</li>
-                <li><i class="icon-ok color-green"></i> Corporate and Creative</li>
-                <li><i class="icon-ok color-green"></i> Responsive Bootstrap Template</li>
-                <li><i class="icon-ok color-green"></i> Elit non mi porta gravida</li>
-                <li><i class="icon-ok color-green"></i> Award winning digital agency</li>
-            </ul><br />
+<div class="container">     
+    <div class="row margin-bottom-30">
+        <div class="col-md-9 mb-margin-bottom-30">
+            <p>Accusamus et iusto odio dignissimos <strong class="color-green">ducimus qui blanditiis</strong> praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing <strong class="color-green">elit landitiis</strong>. Quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipidipiscing elit mag scing. Ut non libero consectetur adipiscing elit magna distinctio lorem ipsum dolor sit amet consectetur adipiscing eliidem rerum facilist.</p><br>
+            <div class="tag-box tag-box-v2">
+                <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>
+            </div>            
+            <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p><br>
+            <form>
+                <label>Name</label>
+                <div class="row margin-bottom-20">
+                    <div class="col-md-7 col-md-offset-0">
+                        <input type="text" class="form-control">
+                    </div>                
+                </div>
+                
+                <label>Email <span class="color-red">*</span></label>
+                <div class="row margin-bottom-20">
+                    <div class="col-md-7 col-md-offset-0">
+                        <input type="text" class="form-control">
+                    </div>                
+                </div>
+                
+                <label>Message</label>
+                <div class="row margin-bottom-20">
+                    <div class="col-md-11 col-md-offset-0">
+                        <textarea rows="8" class="form-control"></textarea>
+                    </div>                
+                </div>
+                
+                <p><button type="submit" class="btn-u">Send Message</button></p>
+            </form>
+        </div><!--/col-md-9-->
+        
+        <div class="col-md-3">
+            <!-- Google Map -->
+            <div id="map" class="map map-box map-box-space1 margin-bottom-40">
+            </div><!---/map-->
+            <!-- End Google Map -->
 
-            <!-- Blockquotes -->
-            <blockquote>
-                <p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why.</p>
-                <small>CEO Jack Bour</small>
-            </blockquote>
-        </div>
+            <!-- Contacts -->
+            <div class="headline"><h2>Contacts</h2></div>
+            <ul class="list-unstyled who margin-bottom-30">
+                <li><a href="#"><i class="icon-home"></i>5B Streat, City 50987 New Town US</a></li>
+                <li><a href="#"><i class="icon-envelope-alt"></i>info@example.com</a></li>
+                <li><a href="#"><i class="icon-phone-sign"></i>1(222) 5x86 x97x</a></li>
+                <li><a href="#"><i class="icon-globe"></i>http://www.example.com</a></li>
+            </ul>
+            <!-- End Contacts -->
 
-    	<div class="col-md-6 md-margin-bottom-40">
-            <div class="responsive-video">
-                <iframe src="http://player.vimeo.com/video/9679622" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
-            </div>
-        </div>
-    </div><!--/row-->
-
-	<!-- Meer Our Team -->
-	<div class="headline"><h2>Meet Our Team</h2></div>
-    <div class="row team">
-        <div class="col-sm-3">
-            <div class="thumbnail-style">
-                <img class="img-responsive" src="assets/img/team/1.jpg" alt="" />
-                <h3><a>Jack Bour</a> <small>Chief Executive Officer</small></h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
-                <ul class="list-unstyled list-inline team-socail">
-                	<li><a href="#"><i class="icon-facebook"></i></a></li>
-                	<li><a href="#"><i class="icon-twitter"></i></a></li>
-                	<li><a href="#"><i class="icon-google-plus"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail-style">
-                <img class="img-responsive" src="assets/img/team/3.jpg" alt="" />
-                <h3><a>Kate Metus</a> <small>Project Manager</small></h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
-                <ul class="list-unstyled list-inline team-socail">
-                	<li><a href="#"><i class="icon-facebook"></i></a></li>
-                	<li><a href="#"><i class="icon-twitter"></i></a></li>
-                	<li><a href="#"><i class="icon-google-plus"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail-style">
-                <img class="img-responsive" src="assets/img/team/2.jpg" alt="" />
-                <h3><a>Porta Gravida</a> <small>VP of Operations</small></h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
-                <ul class="list-unstyled list-inline team-socail">
-                	<li><a href="#"><i class="icon-facebook"></i></a></li>
-                	<li><a href="#"><i class="icon-twitter"></i></a></li>
-                	<li><a href="#"><i class="icon-google-plus"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="thumbnail-style">
-                <img class="img-responsive" src="assets/img/team/4.jpg" alt="" />
-                <h3><a>Donec Elit</a> <small>Director, R &amp; D Talent</small></h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
-                <ul class="list-unstyled list-inline team-socail">
-                	<li><a href="#"><i class="icon-facebook"></i></a></li>
-                	<li><a href="#"><i class="icon-twitter"></i></a></li>
-                	<li><a href="#"><i class="icon-google-plus"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div><!--/team-->
-	<!-- End Meer Our Team -->
+            <!-- Business Hours -->
+            <div class="headline"><h2>Business Hours</h2></div>
+            <ul class="list-unstyled margin-bottom-30">
+                <li><strong>Monday-Friday:</strong> 10am to 8pm</li>
+                <li><strong>Saturday:</strong> 11am to 3pm</li>
+                <li><strong>Sunday:</strong> Closed</li>
+            </ul>
+            <!-- End Business Hours -->
+        </div><!--/col-md-3-->
+    </div><!--/row-->        
 
     <!-- Our Clients -->
     <div id="clients-flexslider" class="flexslider home clients">
@@ -322,8 +304,8 @@
             </li>
         </ul>
     </div><!--/flexslider-->
-    <!-- //End Our Clients -->
-</div><!--/container-->		
+    <!-- End Our Clients -->
+</div><!--/container-->     
 <!--=== End Content Part ===-->
 
 <!--=== Footer ===-->
@@ -372,8 +354,8 @@
         <div class="row">
             <div class="col-md-6">                      
                 <p class="copyright-space">
-                    2013 &copy; Unify. ALL Rights Reserved. 
-                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                    2013 &copy; SkyHQ. ALL Rights Reserved. 
+                    <a href="_privacy.html">Privacy Policy</a> | <a href="_tos.html">Terms of Service</a>
                 </p>
             </div>
             <div class="col-md-6">  
@@ -393,13 +375,17 @@
 <script type="text/javascript" src="assets/plugins/hover-dropdown.min.js"></script> 
 <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
 <!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="assets/plugins/gmap/gmap.js"></script>
 <script type="text/javascript" src="assets/plugins/flexslider/jquery.flexslider-min.js"></script>
 <!-- JS Page Level -->           
 <script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/pages/contact.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
-        App.initSliders();        
+        App.initSliders();                
+        Contact.initMap();        
     });
 </script>
 <!--[if lt IE 9]>
