@@ -27,99 +27,8 @@
 </head> 
 
 <body>
-<!--=== Style Switcher ===-->    
-<i class="style-switcher-btn icon-cogs hidden-xs"></i>
-<div class="style-switcher">
-    <div class="theme-close"><i class="icon-remove"></i></div>
-    <div class="theme-heading">Theme Colors</div>
-    <ul class="list-unstyled">
-        <li class="theme-default theme-active" data-style="default" data-header="light"></li>
-        <li class="theme-blue" data-style="blue" data-header="light"></li>
-        <li class="theme-orange" data-style="orange" data-header="light"></li>
-        <li class="theme-red" data-style="red" data-header="light"></li>
-        <li class="theme-light last" data-style="light" data-header="light"></li>
-    </ul>
-    <div style="margin-bottom:18px;"></div>
-    <div class="theme-heading">Layouts</div>
-    <div class="text-center">
-        <a href="#" class="btn-u btn-u-green btn-block active-switcher-btn wide-layout-btn">Wide</a>
-        <a href="#" class="btn-u btn-u-green btn-block boxed-layout-btn">Boxed</a>
-    </div>
-</div><!--/style-switcher-->
-<!--=== End Style Switcher ===-->    
-
-<!--=== Top ===-->    
-<div class="top">
-    <div class="container">         
-        <ul class="loginbar pull-right">
-            <li><a href="_faq.html">Help</a></li>  
-            <li class="devider"></li>   
-            <li><a href="page_login.html">Login</a></li>   
-        </ul>
-    </div>      
-</div><!--/top-->
-<!--=== End Top ===-->     
-
-<!--=== Header ===-->    
-<div class="header">
-    <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="home.html" data-delay="0" data-close-others="false">
-                            Home
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="about.html" data-delay="0" data-close-others="false">
-                            About
-                        </a>
-                    </li>
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
-                            Features
-                            <i class="icon-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="features.html">Services</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="contact.html" data-hover="dropdown" data-delay="0" data-close-others="false">
-                            Contact
-                        </a>
-                    </li>                    
-                    <li class="hidden-sm"><a class="search"><i class="icon-search search-btn"></i></a></li>
-                </ul>
-                <div class="search-open">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <span class="input-group-btn">
-                            <button class="btn-u" type="button">Go</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div>                
-            </div><!-- /navbar-collapse -->
-        </div>    
-    </div>    
-</div><!--/header-->
-<!--=== End Header ===-->    
+	
+<%= render "layouts/partials/headerunify" %>
 
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
@@ -127,7 +36,7 @@
         <h1 class="pull-left">Pricing Page</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li><a href="">Pages</a></li>
+            <li><a href="">Features</a></li>
             <li class="active">Pricing</li>
         </ul>
     </div>
@@ -302,65 +211,7 @@
 </div><!--/container-->		
 <!--=== End Content Part ===-->
 
-<!--=== Footer ===-->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 md-margin-bottom-40">
-                <!-- About -->
-                <div class="headline"><h2>About</h2></div>  
-                <p class="margin-bottom-25 md-margin-bottom-40">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>    
-            </div><!--/col-md-4-->  
-            <div class="col-md-4">
-                <!-- Monthly Newsletter -->
-                <div class="headline"><h2>Monthly Newsletter</h2></div> 
-                <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
-                <form class="footer-subsribe">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Address">                            
-                        <span class="input-group-btn">
-                            <button class="btn-u" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->                    
-                </form>      
-                            </div><!--/col-md-4-->
-            <div class="col-md-4">
-                <!-- Stay Connected -->
-                <div class="headline"><h2>Stay Connected</h2></div> 
-                <ul class="social-icons">
-                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
-                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
-                    <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
-                    <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
-                </ul>
-            </div><!--/col-md-4-->
-        </div><!--/row-->   
-    </div><!--/container--> 
-</div><!--/footer-->    
-<!--=== End Footer ===-->
-
-<!--=== Copyright ===-->
-<div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">                      
-                <p class="copyright-space">
-                    2013 &copy; Unify. ALL Rights Reserved. 
-                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                </p>
-            </div>
-            <div class="col-md-6">  
-                <a href="index.html">
-                    <img id="logo-footer" src="assets/img/logo2-default.png" class="pull-right" alt="" />
-                </a>
-            </div>
-        </div><!--/row-->
-    </div><!--/container--> 
-</div><!--/copyright--> 
-<!--=== End Copyright ===-->
+<%= render "layouts/partials/footerunify" %>
 
 <!-- JS Global Compulsory -->           
 <script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>

@@ -4,7 +4,7 @@ SkyhqNew::Application.routes.draw do
   match '/about' => 'general_pages#about'
   match '/contact' => 'general_pages#contact'
   match '/faq' => 'general_pages#faq'
-  match '/features' => 'general_pages#feature'
+  match '/testimonials' => 'general_pages#testimonials'
   match '/pricing' => 'general_pages#pricing'
   match '/services' => 'general_pages#services'
   match '/terms-of-service' => 'general_pages#tos'

@@ -12,8 +12,8 @@ class GeneralPagesController < ApplicationController
     render 'general_pages/faq', :layout => false
   end
   
-  def feature
-    render 'general_pages/feature', :layout => false
+  def testimonials
+    render 'general_pages/testimonials', :layout => false
   end
   
   def pricing
