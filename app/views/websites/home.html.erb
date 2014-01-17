@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
-<head>
-    <title>SkyHQ | Welcome...</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- CSS Global Compulsory-->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/headers/header1.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="shortcut icon" href="favicon.ico">        
-    <!-- CSS Implementing Plugins -->    
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/plugins/flexslider/flexslider.css">    	
-    <link rel="stylesheet" href="assets/plugins/bxslider/jquery.bxslider.css">
-    <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css"> 
-    <link rel="stylesheet" href="assets/plugins/revolution_slider/rs-plugin/css/settings.css" type="text/css" media="screen">
-    <!-- CSS Theme -->    
-    <link rel="stylesheet" href="assets/css/pages/page_one.css">
-    <!-- CSS Theme -->    
-    <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color">
-</head>	
-
-<body>
-	
-<%= render "layouts/partials/headerunify" %>
-
-
 <!--=== Slider ===-->
 <div class="fullwidthbanner-container">
     <div class="fullwidthbanner">
@@ -570,36 +534,3 @@
 </div><!--/one-page-->
 <!-- End Content Part -->
 
-<%= render "layouts/partials/footerunify" %>
-
-
-<!-- JS Global Compulsory -->			
-<script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="assets/plugins/hover-dropdown.min.js"></script> 
-<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-<script type="text/javascript" src="assets/plugins/less-1.4.1.min.js"></script>
-<!-- JS Implementing Plugins -->           
-<script type="text/javascript" src="assets/plugins/flexslider/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="assets/plugins/bxslider/jquery.bxslider.js"></script>
-<script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<!-- JS Page Level -->           
-<script type="text/javascript" src="assets/js/app.js"></script>
-<script type="text/javascript" src="assets/js/pages/index.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-      	App.init();
-        App.initSliders();
-        App.initFancybox();
-        App.initBxSlider();
-        Index.initRevolutionSlider();                                
-    });
-</script>
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-<![endif]-->
-
-</body>
-</html>	

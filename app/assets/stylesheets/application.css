@@ -10,7 +10,7 @@
  *
  *= require bootstrap
  *= require_self
- *= require_tree .
+ *= require_tree ./application
  */
 a.navigation:hover {
 	color: #333333;
