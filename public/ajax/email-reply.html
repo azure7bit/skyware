@@ -207,18 +207,14 @@
 	
 	$(".table-wrap [rel=tooltip]").tooltip();
 	
-	/*
-	 * SUMMERNOTE EDITOR
-	 */
-	loadScript("js/plugin/summernote/summernote.js", iniEmailBody);
 
-	function iniEmailBody() {
+
 		$('#emailbody').summernote({
 			height : 250,
 			focus : true,
 			tabsize : 2
 		});
-	}
+	
 	
 	$(".show-next").click(function(){
 		$this = $(this);
@@ -237,7 +233,7 @@
 
 			
 			// Load inbox once send is complete
-			loadInbox();
+			loadURL("ajax/email/email-list.html", $('#inbox-content > .table-wrap'))
             
          }, 1000); // how long do you want the delay to be? 
 	});

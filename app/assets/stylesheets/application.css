@@ -12,20 +12,5 @@
  *= require_self
  *= require_tree .
  */
-a.navigation:hover {
-	color: #333333;
-	background-color: white;
-}
 
-html,body{
-    height: 100%
-}
-
-.smallMenuItems {
-	margin-top: 30px;
-}
-
-.footer {
-	margin-top: 70px;
-}
 
