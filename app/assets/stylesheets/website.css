@@ -1,5 +1,6 @@
 /*
 *= require bootstrap
+*= require ./website/style
 *= require ./website/header1
 *= require ./website/responsive
 *= require ./website/flexslider
