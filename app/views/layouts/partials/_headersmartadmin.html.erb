@@ -50,33 +50,6 @@
                 <!-- END AJAX-DROPDOWN -->
             </div>
 
-            <!-- projects dropdown -->
-            <div id="project-context">
-
-                <span class="label">Projects:</span>
-                <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
-
-                <!-- Suggestion: populate this list with fetch and push technique -->
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="/javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
-                    </li>
-                    <li>
-                        <a href="/javascript:void(0);">Notes on pipeline upgradee</a>
-                    </li>
-                    <li>
-                        <a href="/javascript:void(0);">Assesment Report for merchant account</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="/javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
-                    </li>
-                </ul>
-                <!-- end dropdown-menu-->
-
-            </div>
-            <!-- end projects dropdown -->
-
             <!-- pulled right: nav area -->
             <div class="pull-right">
 
@@ -88,7 +61,7 @@
 
                 <!-- logout button -->
                 <div id="logout" class="btn-header transparent pull-right">
-                    <span> <a href="/login.html" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
+                    <span> <a href="/logout" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
                 </div>
                 <!-- end logout button -->
 
@@ -100,7 +73,7 @@
 
                 <!-- input: search field -->
                 <form action="#search.html" class="header-search pull-right">
-                    <input type="text" placeholder="Find reports and more" id="search-fld">
+                    <input type="text" placeholder="Search" id="search-fld">
                     <button type="submit">
                         <i class="fa fa-search"></i>
                     </button>
@@ -120,7 +93,7 @@
 
             <!-- User info -->
             <div class="login-info">
-                <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <img src="/img/avatars/sunny.png" alt="me" class="online" /> <a href="/javascript:void(0);" id="show-shortcut">john.doe <i class="fa fa-angle-down"></i></a> </span>
+                <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <img src="/img/avatars/sunny.png" alt="me" class="online" /> <a href="/javascript:void(0);" id="show-shortcut">Admin <i class="fa fa-angle-down"></i></a> </span>
             </div>
             <!-- end user info -->
 
@@ -144,7 +117,7 @@
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Team HQ</span></a></li>
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Vendors HQ</span></a></li>
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Customers HQ</span></a></li>
-                    <li><a href="/conversations"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge">14</span></a></li>
+                    <li><a href="/conversations"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
                         <ul>
                              <li><a href="/admin_profile/13">My Profile</a></li>
