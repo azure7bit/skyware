@@ -7,6 +7,6 @@ class WebsitesController < ApplicationController
   end
   
   def home
-    render 'websites/home', :layout => false
+    render 'websites/home', layout: 'website'
   end
 end
