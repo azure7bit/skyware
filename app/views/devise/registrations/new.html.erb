@@ -10,6 +10,7 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Basic Styles -->
+		<%= csrf_meta_tags %>
         <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css">
         <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
@@ -35,6 +36,11 @@
         <div id="main" role="main">
             <!-- MAIN CONTENT -->
             <div id="content" class="container">
+             <% flash.each do |key, value| %>
+	        <div id="alert">
+	            <%= content_tag :div, value, :class => "alert flash #{key}" unless value.blank? %>
+	        </div>
+	        <% end %>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
                         <h1 class="txt-color-red login-header-big">SkyHQ</h1>

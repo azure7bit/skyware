@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 
   def create
     #raise auth_profile.to_yaml
-
     if @super_admin = SuperAdmin.from_omniauth(auth_profile)
       if @super_admin.valid?
         @super_admin.save if @super_admin.new_record?
