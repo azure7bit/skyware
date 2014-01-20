@@ -8,6 +8,6 @@
 //= require ./website/jquery.fancybox.pack
 //= require ./website/jquery.themepunch.revolution.min
 //= require ./website/app
-//= require ./website/index
+//= require ./website/new_index
 //= require ./website/gmap
 //= require ./website/contact
