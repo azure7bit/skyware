@@ -1,18 +1,23 @@
-<h1>Listing company_forums</h1>
+<h1>Listing Company Forums</h1>
 
 <table>
   <tr>
+  	<th></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @company_forums.each do |company_forum| %>
-  <tr>
-    <td><%= link_to 'Show', company_forum %></td>
-    <td><%= link_to 'Edit', edit_company_forum_path(company_forum) %></td>
-    <td><%= link_to 'Destroy', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% if @company_forums != nil%>
+	<% @company_forums.each do |company_forum| %>
+	  <tr>
+	  	<td><% company_forum.title %></td>
+	    <td><%= link_to 'Show', company_forum %></td>
+	    <td><%= link_to 'Edit', edit_company_forum_path(company_forum) %></td>
+	    <td><%= link_to 'Destroy', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+<% else %>
+    No forums found.
 <% end %>
 </table>
 

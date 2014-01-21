@@ -1,21 +1,21 @@
 class CompanyForumsController < ApplicationController
   # GET /company_forums
   # GET /company_forums.json
-  # def index
-  #   @company_forums = CompanyForum.all
-
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @company_forums }
-  #   end
-  # end
+   def index
+     @company_forums = CompanyForum.all
+     respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @company_forums }
+     end
+   end
 
   # GET /company_forums/1
   # GET /company_forums/1.json
   def show
     @company_forum = current_super_admin.company_forum
+    if @company_forum != nil
     @company_forum_topics = @company_forum.company_forum_topics
-
+    end 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @company_forum }

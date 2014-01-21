@@ -1,5 +1,9 @@
 class GeneralPagesController < ApplicationController
   layout 'website'  
+  def index
+    render 'general_pages/index'
+  end
+  
   def about
     render 'general_pages/about'
   end

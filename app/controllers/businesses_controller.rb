@@ -1,17 +1,17 @@
 class BusinessesController < ApplicationController
-  before_filter :authenticate_super_admin!, :only => [:new, :create, :update, :destroy]
+  before_filter :authenticate_super_admin!, :only => [:index, :new, :create, :update, :destroy]
 
-  # before_filter :authenticate_employee!
   # GET /businesses
   # GET /businesses.json
-  # def index
-  #   @businesses = Business.all
+  def index
+    @businesses = current_super_admin.businesses
+    @json = Business.all.to_gmaps4rails
 
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @businesses }
-  #   end
-  # end
+     respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @businesses }
+     end
+  end
 
   # GET /businesses/1
   # GET /businesses/1.json
