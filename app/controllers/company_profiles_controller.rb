@@ -26,7 +26,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/new.json
   def new
     @company_profile = CompanyProfile.new
-    @super_admin = SuperAdmin.find_by_id(params[:super_admin_id])
+    @super_admin = current_super_admin
 
     respond_to do |format|
       format.html # new.html.erb

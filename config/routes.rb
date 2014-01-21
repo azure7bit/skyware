@@ -38,7 +38,7 @@ SkyhqNew::Application.routes.draw do
     resources :managers 
     resources :employees
   end
-
+  
 
   devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" } 
 
