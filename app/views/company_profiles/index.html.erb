@@ -53,7 +53,7 @@
                         <% @company_profiles.each do |company_profile| %>
                         <tr>
                             <td>
-                                <%= company_profile.super_admin_id %>
+                                <%= company_profile.super_admin.name %>
                             </td>
                             <td>
                                 <%= company_profile.company_name %>
