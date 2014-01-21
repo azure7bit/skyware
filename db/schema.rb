@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121120815) do
+ActiveRecord::Schema.define(:version => 20140121131125) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
