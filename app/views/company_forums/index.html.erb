@@ -1,26 +1,31 @@
-<h1>Listing Company Forums</h1>
-
-<table>
-  <tr>
-  	<th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% if @company_forums != nil%>
-	<% @company_forums.each do |company_forum| %>
-	  <tr>
-	  	<td><% company_forum.title %></td>
-	    <td><%= link_to 'Show', company_forum %></td>
-	    <td><%= link_to 'Edit', edit_company_forum_path(company_forum) %></td>
-	    <td><%= link_to 'Destroy', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
-	<% end %>
-<% else %>
-    No forums found.
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Company forum', new_company_forum_path %>
+<div class="table-responsive">
+    <h3>Company Forums: </h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Forum
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+		<tbody>
+        <% if @company_forums != nil %>
+        <% @company_forums.each do |company_forum| %>
+        <tr>
+            <td>
+                <% company_forum.title %>
+            </td>
+            <td>
+                <%= link_to 'Show', company_forum %> | <%= link_to 'Edit', edit_company_forum_path(company_forum) %> | <%= link_to 'Remove', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+        </tr>
+        <% end %>
+        <% else %>
+        No forums found.<% end %>
+        </tbody>
+    </table>
+    <br/>
+    <%= link_to 'New Company forum', new_company_forum_path %>
