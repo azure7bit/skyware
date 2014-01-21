@@ -1,47 +1,50 @@
-<div class="row">
-    <div class="col-md-3">
-        <div class="well sidebar-nav">
-            <ul class="nav">
-                <li>
-                    Navigation
-                </li>
-                <li>
-                    <%= link_to 'New Store', new_online_store_path %>
-                </li>
-            </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to 'New Store', new_online_store_path %>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <!-- End Sidebar --><!-- Begin Content -->
-    <div class="col-md-9">
-        <div class="row margin-bottom-10">
-            <div class="table-responsive">
-                <h3>Stores:</h3>
-                <table id="businesses" class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                Store Name
-                            </th>
-                            <th>
-                                Actions
-                            </th>
-                        </tr>
-                    </thead>
-                    <% if @online_stores != nil %>
-                    <% @online_stores.each do |online_store| %>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <%= link_to "#{online_store.name}", online_store %>
-                            </td>
-                            <td>
-                                <%= link_to 'Edit', edit_online_store_path(online_store) %> | <%= link_to 'Remove', online_store, method: :delete, data: { confirm: 'Are you sure?' } %>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <% end %>
-                    <% end %>
-                </table>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
+                <div class="table-responsive">
+                    <h3>Stores:</h3>
+                    <table id="businesses" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Store Name
+                                </th>
+                                <th>
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <% if @online_stores != nil %>
+                        <% @online_stores.each do |online_store| %>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <%= link_to "#{online_store.name}", online_store %>
+                                </td>
+                                <td>
+                                    <%= link_to 'Edit', edit_online_store_path(online_store) %> | <%= link_to 'Remove', online_store, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <% end %>
+                        <% end %>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+</div>

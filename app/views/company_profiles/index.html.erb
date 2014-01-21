@@ -1,92 +1,94 @@
-<div class="row">
-    <div class="col-md-3">
-        <div class="well sidebar-nav">
-            <ul class="nav">
-                <li>
-                    Navigation
-                </li>
-                <li>
-                    <%= link_to 'New Company profile', new_company_profile_path %>
-                </li>
-            </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to 'New Company profile', new_company_profile_path %>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <!-- End Sidebar --><!-- Begin Content -->
-    <div class="col-md-9">
-        <div class="row margin-bottom-10">
-            <div class="table-responsive">
-                <h1>Company Profiles:</h1>
-                <table class="table table-striped">
-                    <thead>
-                        <th>
-                            Admin
-                        </th>
-                        <th>
-                            Company
-                        </th>
-                        <th>
-                            Website
-                        </th>
-                        <th>
-                            Street
-                        </th>
-                        <th>
-                            City
-                        </th>
-                        <th>
-                            State
-                        </th>
-                        <th>
-                            Zip
-                        </th>
-                        <th>
-                            Country
-                        </th>
-                        <th>
-                            Est.
-                        </th>
-                        <th>
-                            Actions
-                        </th>
-                    </thead>
-                    <% @company_profiles.each do |company_profile| %>
-                    <tr>
-                        <td>
-                            <%= company_profile.super_admin_id %>
+        <!-- End Sidebar --><!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="row margin-bottom-10">
+                <div class="table-responsive">
+                    <h1>Company Profiles:</h1>
+                    <table class="table table-striped">
+                        <thead>
+                            <th>
+                                Admin
+                            </th>
+                            <th>
+                                Company
+                            </th>
+                            <th>
+                                Website
+                            </th>
+                            <th>
+                                Street
+                            </th>
+                            <th>
+                                City
+                            </th>
+                            <th>
+                                State
+                            </th>
+                            <th>
+                                Zip
+                            </th>
+                            <th>
+                                Country
+                            </th>
+                            <th>
+                                Est.
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </thead>
+                        <% @company_profiles.each do |company_profile| %>
+                        <tr>
+                            <td>
+                                <%= company_profile.super_admin_id %>
+                            </td>
+                            <td>
+                                <%= company_profile.company_name %>
+                            </td>
+                            <td>
+                                <%= company_profile.website %>
+                            </td>
+                            <td>
+                                <%= company_profile.hq_street_address %>
+                            </td>
+                            <td>
+                                <%= company_profile.hq_city %>
+                            </td>
+                            <td>
+                                <%= company_profile.hq_state %>
+                            </td>
+                            <td>
+                                <%= company_profile.hq_zipcode %>
+                            </td>
+                            <td>
+                                <%= company_profile.hq_country %>
+                            </td>
+                            <td>
+                                <%= company_profile.company_establishment_date %>
+                            </td>
+                            <td>
+                            <%= link_to 'Show', company_profile %>
+                            </br>
+                            <%= link_to 'Edit', edit_company_profile_path(company_profile) %>
+                            <%= link_to 'Remove', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
                         </td>
-                        <td>
-                            <%= company_profile.company_name %>
-                        </td>
-                        <td>
-                            <%= company_profile.website %>
-                        </td>
-                        <td>
-                            <%= company_profile.hq_street_address %>
-                        </td>
-                        <td>
-                            <%= company_profile.hq_city %>
-                        </td>
-                        <td>
-                            <%= company_profile.hq_state %>
-                        </td>
-                        <td>
-                            <%= company_profile.hq_zipcode %>
-                        </td>
-                        <td>
-                            <%= company_profile.hq_country %>
-                        </td>
-                        <td>
-                            <%= company_profile.company_establishment_date %>
-                        </td>
-                        <td>
-                        <%= link_to 'Show', company_profile %>
-                        </br>
-                        <%= link_to 'Edit', edit_company_profile_path(company_profile) %>
-                        <%= link_to 'Remove', company_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </td>
-                    </tr>
-                    <% end %>
-                </table class="table">
+                        </tr>
+                        <% end %>
+                    </table class="table">
+                </div>
             </div>
         </div>
     </div>
