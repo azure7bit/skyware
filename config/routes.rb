@@ -40,7 +40,10 @@ SkyhqNew::Application.routes.draw do
   end
   
 
-  devise_for :super_admins, :controllers => { :omniauth_callbacks => "super_admins/omniauth_callbacks" } 
+  devise_for :super_admins, :controllers => { 
+    :omniauth_callbacks => "super_admins/omniauth_callbacks",
+    registrations: 'super_admins/registrations'
+  }
 
   devise_scope :super_admin do
     get "login",    to: "devise/sessions#new"

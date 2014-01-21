@@ -37,6 +37,8 @@ SkyhqNew::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 
   ENV['GOOGLE_APP_ID'] = '989261022210.apps.googleusercontent.com'
   ENV['GOOGLE_APP_SECRET'] = 'c9gGp-DAcb3MgZhhAvHSiWnw'

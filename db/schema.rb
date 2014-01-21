@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802161828) do
+ActiveRecord::Schema.define(:version => 20140121131125) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -186,6 +186,10 @@ ActiveRecord::Schema.define(:version => 20130802161828) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "super_admins", ["email"], :name => "index_super_admins_on_email", :unique => true
