@@ -1,11 +1,11 @@
 <div class="container">
-    <p>
+    <h3>
         <b>Name:</b>
         <%= @product.name %>
-    </p>
-    <p>
+    </h3>
+	<h3>
         <b>Price:</b>
         <%= @product.price %>
-    </p>
-    <%= link_to 'Edit', edit_online_store_product_path(@product) %>|<%= link_to 'Back', online_store_products_path %>
+    </h3> 
+    <%= link_to 'Edit', edit_online_store_product_path(@product) %> | <%= link_to 'Back', online_stores_path %>
 </div>

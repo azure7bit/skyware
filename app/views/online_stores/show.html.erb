@@ -9,7 +9,6 @@
                     <li>
                         <%= link_to "Add Products", new_online_store_product_path(@online_store) %>
                         <%= link_to 'Edit', edit_online_store_path(@online_store) %>
-                        <%= link_to 'Back', online_stores_path %>
                     </li>
                 </ul>
             </div>
@@ -17,17 +16,28 @@
         <!-- End Sidebar --><!-- Begin Content -->
         <div class="col-md-9">
             <div class="row margin-bottom-10">
-                <p>
-                    <b>Super admin:</b>
-                    <%= @online_store.super_admin_id %>
-                </p>
-                <ul>
-                    <% @products.each do |product| %>
-                    <li>
-                        <%= link_to "#{product.name}", online_store_product_path(product) %>
-                    </li>
-                    <% end %>
-                </ul>
+            	<div class="table-responsive">
+                <h3>Store: <%= @online_store.name %></h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Products
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @products.each do |product| %>
+                        <tr>
+                            <td>
+                                 <%= link_to "#{product.name}", online_store_product_path(product) %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+                <%= link_to 'Back', online_stores_path, :class => "btn btn-warning" %>
             </div>
         </div>
     </div>

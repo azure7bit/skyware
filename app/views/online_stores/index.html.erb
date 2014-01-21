@@ -7,7 +7,7 @@
                         Navigation
                     </li>
                     <li>
-                        <%= link_to 'New Online store', new_online_store_path %>
+                        <%= link_to 'New Store', new_online_store_path %>
                     </li>
                 </ul>
             </div>
@@ -15,35 +15,31 @@
         <!-- End Sidebar --><!-- Begin Content -->
         <div class="col-md-9">
             <div class="row margin-bottom-10">
-                <h1>Listing Orders</h1>
-                <table>
+                <div class="table-responsive">
+                <h3>Stores:</h3>
+                <table id="businesses" class="table table-striped">
+                	<thead>
                     <tr>
                         <th>
-                            Super admin
+                            Store Name
                         </th>
                         <th>
-                        </th>
-                        <th>
-                        </th>
-                        <th>
+                        	Actions
                         </th>
                     </tr>
+					</thead>
                     <% @online_stores.each do |online_store| %>
+					<tbody>
                     <tr>
                         <td>
-                            <%= online_store.super_admin_id %>
+                            <%= link_to "#{online_store.name}", online_store %>
                         </td>
                         <td>
-                            <%= link_to 'Show', online_store %>
-                        </td>
-                        <td>
-                            <%= link_to 'Edit', edit_online_store_path(online_store) %>
-                        </td>
-                        <td>
-                            <%= link_to 'Destroy', online_store, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <%= link_to 'Edit', edit_online_store_path(online_store) %> | <%= link_to 'Remove', online_store, method: :delete, data: { confirm: 'Are you sure?' } %>
                         </td>
                     </tr>
                     <% end %>
+					</tbody>
                 </table>
             </div>
         </div>
