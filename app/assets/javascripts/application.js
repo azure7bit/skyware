@@ -17,7 +17,7 @@
 //= require holder
 //= require html5shiv
 //= require respond.min
-//= require gmaps4rails/gmaps4rails.base
-//= require gmaps4rails/gmaps4rails.googlemaps
+//= require ./application/gmaps4rails/gmaps4rails.base
+//= require ./application/gmaps4rails/gmaps4rails.googlemaps
 //= require_self
-//= require_tree .
+//= require_tree ./application
