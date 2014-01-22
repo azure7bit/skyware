@@ -73,7 +73,7 @@ SkyhqNew::Application.configure do
     :authentication => :plain
   }
   ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'www.skyhq.com'}
+  config.action_mailer.default_url_options = { host: 'www.skyhq.net'}
 
   ENV['AWS_BUCKET'] = 'skyhq-prod'
   ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJIVNCEZEJGZSFZUA'
