@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
   end
 
   def new
-    @Location = Location.new
+    @location = Location.new
 
     respond_to do |format|
       format.html # new.html.erb
