@@ -64,6 +64,16 @@ SkyhqNew::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  ActionMailer::Base.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      ENV['MANDRILL_USERNAME'],
+    :password =>       ENV['MANDRILL_APIKEY'],
+    :domain =>         'heroku.com',
+    :authentication => :plain
+  }
+  ActionMailer::Base.delivery_method = :smtp
+
   ENV['AWS_BUCKET'] = 'skyhq-prod'
   ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJIVNCEZEJGZSFZUA'
   ENV['AWS_SECRET_ACCESS_KEY'] = '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'
