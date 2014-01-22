@@ -21,8 +21,8 @@ SkyhqNew::Application.routes.draw do
     resources :company_forum_topics do
       resources :forum_posts
     end
-    resources :company_docs
   end
+  resources :company_docs, path: 'docs'
 
   resources :company_profiles, :path => "public"
   

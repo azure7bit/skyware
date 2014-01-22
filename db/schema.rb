@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140122112400) do
+ActiveRecord::Schema.define(:version => 20140122144321) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20140122112400) do
     t.datetime "company_document_updated_at"
     t.integer  "uploader_id"
     t.string   "uploader_type"
-    t.integer  "company_forum_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

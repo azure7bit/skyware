@@ -2,8 +2,7 @@ class CompanyDocsController < ApplicationController
   # GET /company_docs
   # GET /company_docs.json
   def index
-    @company_forum = CompanyForum.find(params[:company_forum_id])
-    @company_docs = @company_forum.company_docs
+    @company_docs = CompanyDoc.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +24,6 @@ class CompanyDocsController < ApplicationController
   # GET /company_docs/new
   # GET /company_docs/new.json
   def new
-    @company_forum = CompanyForum.find(params[:company_forum_id])
     @company_doc = CompanyDoc.new uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type
 
     respond_to do |format|
@@ -36,19 +34,17 @@ class CompanyDocsController < ApplicationController
 
   # GET /company_docs/1/edit
   def edit
-    @company_forum = CompanyForum.find(params[:company_forum_id])
     @company_doc = CompanyDoc.find(params[:id])
   end
 
   # POST /company_docs
   # POST /company_docs.json
   def create
-    @company_forum = CompanyForum.find(params[:company_forum_id])
-    @company_doc = @company_forum.company_docs.build(params[:company_doc].merge({uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type}))
+    @company_doc = CompanyDoc.new(params[:company_doc].merge({uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type}))
 
     respond_to do |format|
       if @company_doc.save
-        format.html { redirect_to company_forum_company_docs_path(@company_forum), notice: 'Company document was successfully uploaded.' }
+        format.html { redirect_to company_docs_path, notice: 'Company document was successfully uploaded.' }
         format.json { render json: @company_doc, status: :created, location: @company_doc }
       else
         format.html { render action: "new" }
@@ -76,12 +72,11 @@ class CompanyDocsController < ApplicationController
   # DELETE /company_docs/1
   # DELETE /company_docs/1.json
   def destroy
-    @company_forum = CompanyForum.find(params[:id])
     @company_doc = CompanyDoc.find(params[:id])
     @company_doc.destroy
 
     respond_to do |format|
-      format.html { redirect_to company_docs_path(@company_forum) }
+      format.html { redirect_to company_docs_path }
       format.json { head :no_content }
     end
   end
