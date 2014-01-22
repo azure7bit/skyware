@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121131125) do
+ActiveRecord::Schema.define(:version => 20140122112400) do
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -19,22 +19,6 @@ ActiveRecord::Schema.define(:version => 20140121131125) do
     t.string   "email"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-  end
-
-  create_table "businesses", :force => true do |t|
-    t.integer  "super_admin_id"
-    t.string   "name"
-    t.string   "location"
-    t.string   "longitude"
-    t.string   "latitude"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.string   "country"
-    t.string   "gmaps"
   end
 
   create_table "categories", :force => true do |t|
@@ -101,11 +85,27 @@ ActiveRecord::Schema.define(:version => 20140121131125) do
     t.datetime "updated_at",             :null => false
   end
 
+  create_table "locations", :force => true do |t|
+    t.integer  "super_admin_id"
+    t.string   "name"
+    t.string   "location"
+    t.string   "longitude"
+    t.string   "latitude"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "country"
+    t.string   "gmaps"
+  end
+
   create_table "managers", :force => true do |t|
     t.string   "email"
     t.string   "password"
     t.string   "password_confirmation"
-    t.integer  "business_id"
+    t.integer  "location_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"

@@ -11,7 +11,7 @@ class SuperAdmin < ActiveRecord::Base
 
   acts_as_messageable
 
-  has_many :businesses
+  has_many :locations
 
   has_one :online_store
 
@@ -21,7 +21,7 @@ class SuperAdmin < ActiveRecord::Base
 
   has_many :forum_posts, :as => :postable
 
-  has_many :employees, :through => :business
+  has_many :employees, :through => :locations
 
   
 

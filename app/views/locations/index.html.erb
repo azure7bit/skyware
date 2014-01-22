@@ -7,7 +7,7 @@
                         Navigation
                     </li>
                     <li>
-                        <%= link_to "Add business location".html_safe, new_business_path %>
+                        <%= link_to "Add business location".html_safe, new_location_path %>
                     </li>
                 </ul>
             </div>
@@ -16,7 +16,7 @@
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
-                <% if @businesses.present? %>
+                <% if @locations.present? %>
                 <div class="table-responsive">
                     <h3>Business Locations:</h3>
                     <table id="businesses" class="table table-striped">
@@ -34,16 +34,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% @businesses.each do |business| %>
+                            <% @locations.each do |location| %>
                             <tr>
                                 <td>
-                                    <%= link_to "#{business.name}", business_path(business) %>
+                                    <%= link_to "#{location.name}", location_path(location) %>
                                 </td>
                                 <td>
-                                    <%= link_to "#{business.gmaps4rails_address}", business_path(business) %>
+                                    <%= link_to "#{location.gmaps4rails_address}", location_path(location) %>
                                 </td>
                                 <td>
-                                    <%= link_to "Edit" ,edit_business_path(business) %> | <%= link_to "Remove", business_path(business), :data => { :confirm => "Are you sure?" }, :method => :delete %>
+                                    <%= link_to "Edit" ,edit_location_path(location) %> | <%= link_to "Remove", location_path(location), :data => { :confirm => "Are you sure?" }, :method => :delete %>
                                 </td>
                             </tr>
                             <% end %>
@@ -52,7 +52,7 @@
                 </div>
                 <% else %>
                 <h3 class="text-center">
-                Add up to 10 business locations. <%= link_to "Add a business location.".html_safe, new_business_path %>
+                Add up to 10 business locations. <%= link_to "Add a business location.".html_safe, new_location_path %>
                 <% end %>
             </div>
         </div>

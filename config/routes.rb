@@ -1,7 +1,7 @@
 SkyhqNew::Application.routes.draw do
 
   authenticated :super_admin do
-    root :to => 'Businesses#index'
+    root :to => 'Locations#index'
   end
   root :to => 'general_pages#index'
 
@@ -34,7 +34,7 @@ SkyhqNew::Application.routes.draw do
 
   resources :business_messengers, :path => "messengers"
 
-  resources :businesses, :path => "locations" do
+  resources :locations do
     resources :managers 
     resources :employees
   end

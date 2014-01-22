@@ -7,8 +7,8 @@
                         Navigation
                     </li>
                     <li>
-                        <%= link_to "Add Manager".html_safe, new_business_manager_path(@business) %>
-                        <%= link_to 'Edit Location', edit_business_path(@business) %>
+                        <%= link_to "Add Manager".html_safe, new_location_manager_path(@location) %>
+                        <%= link_to 'Edit Location', edit_location_path(@location) %>
                     </li>
                 </ul>
             </div>
@@ -17,8 +17,8 @@
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
-                <h3><b>Location Name: </b><%= @business.name %></h3>
-                <h3><b>Location: </b><%= @business.gmaps4rails_address %></h3>
+                <h3><b>Location Name: </b><%= @location.name %></h3>
+                <h3><b>Location: </b><%= @location.gmaps4rails_address %></h3>
                 <% unless @managers.nil? %>
                 <h2 style="text-decoration:underline;">Managers</h2>
                 <div class="table-responsive">
@@ -40,13 +40,13 @@
                             <% @managers.each do |manager| %>
                             <tr>
                                 <td>
-                                    <%= link_to "#{manager.name}", business_manager_path(@business, manager) %>
+                                    <%= link_to "#{manager.name}", location_manager_path(@location, manager) %>
                                 </td>
                                 <td>
-                                    <%= link_to "#{manager.title}", business_manager_path(@business, manager) %>
+                                    <%= link_to "#{manager.title}", location_manager_path(@location, manager) %>
                                 </td>
                                 <td>
-                                    <%= link_to "Cancel Manager's Account", business_manager_path(@business, manager), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger" %>
+                                    <%= link_to "Cancel Manager's Account", location_manager_path(@location, manager), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger" %>
                                 </td>
                             </tr>
                             <% end %>
@@ -62,7 +62,7 @@
                     <%# end %>
                 </ul>
                 <div class="smallMenuItems">
-                    <%= link_to 'Go Back', businesses_path, :class => "btn btn-warning" %>
+                    <%= link_to 'Go Back', locations_path, :class => "btn btn-warning" %>
                     <%#= link_to 'Create New Employee', new_business_employee_path(@business) %>
                 </div>
                 <% end %>
