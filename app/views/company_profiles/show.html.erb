@@ -1,19 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <a>Send Message</a>
-                        <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Sidebar --><!-- Begin Content -->
+        <!-- Begin Content -->
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <h1><%= @company_profile.try(:company_name) %>
@@ -37,5 +24,19 @@
                 </div>
             </div>
         </div>
+		<div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <a>Send Message</a>
+                        <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar -->
     </div>
 </div>

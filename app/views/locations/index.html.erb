@@ -1,18 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <%= link_to "Add business location".html_safe, new_location_path %>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Sidebar --><!-- Begin Content -->
+        <!-- Begin Content -->
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
@@ -56,5 +44,18 @@
                 <% end %>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to "Add business location".html_safe, new_location_path %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar -->
     </div>
 </div>

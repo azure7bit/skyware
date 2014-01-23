@@ -1,28 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="well sidebar-nav">
-                <ul class="nav">
-                    <li>
-                        Navigation
-                    </li>
-                    <li>
-                        <%= link_to "Add Manager".html_safe, new_location_manager_path(@location) %>
-                        <%= link_to 'Edit Location', edit_location_path(@location) %>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Sidebar --><!-- Begin Content -->
+        <!-- Begin Content -->
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
                 <h3><b>Location Name: </b><%= @location.name %></h3>
                 <h3><b>Location: </b><%= @location.gmaps4rails_address %></h3>
                 <% unless @managers.nil? %>
-                <h2 style="text-decoration:underline;">Managers</h2>
+                <h2>Managers:</h2>
                 <div class="table-responsive">
-                    <table id="businesses" class="table table-striped">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>
@@ -53,7 +40,7 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- <h2>Staff/Employees</h2> -->
+                <h2>Staff/Employees</h2> 
                 <ul>
                     <%# @employees.each do |employee| %>
                     <li>
@@ -62,11 +49,24 @@
                     <%# end %>
                 </ul>
                 <div class="smallMenuItems">
-                    <%= link_to 'Go Back', locations_path, :class => "btn btn-warning" %>
                     <%#= link_to 'Create New Employee', new_business_employee_path(@business) %>
                 </div>
                 <% end %>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+                <ul class="nav">
+                    <li>
+                        Navigation
+                    </li>
+                    <li>
+                        <%= link_to "Add Manager".html_safe, new_location_manager_path(@location) %>
+                        <%= link_to 'Edit Location', edit_location_path(@location) %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Sidebar -->
     </div>
 </div>
