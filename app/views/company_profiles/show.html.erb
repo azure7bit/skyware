@@ -1,30 +1,25 @@
 <div class="container">
     <div class="row">
         <!-- Begin Content -->
-        <div class="col-md-9">
-            <div class="row margin-bottom-10">
-                <h1><%= @company_profile.try(:company_name) %>
-                </h1>
-                <h4>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h4>
-                <a href="http://maps.google.com/maps?q=<%= @company_profile.full_address %>" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @company_profile.full_address %>&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C<%= @company_profile.full_address %>&sensor=false" alt="Map"/></a>
-                <address>
-                    <%= @company_profile.try(:hq_street_address) %>
-                    <br>
-                    <%= @company_profile.try(:hq_city) %>, <%= @company_profile.try(:hq_state) %><%= @company_profile.try(:hq_zipcode) %><%= @company_profile.try(:hq_country) %>
-                    <br>
-                    <abbr title="Phone">
-                        P:
-                    </abbr>
-                    (123) 456-7890
-                    <br>
-                    <%= link_to @company_profile.try(:website), @company_profile.try(:website), target: "_blank" %>
-                </address>
-                <div class="smallMenuItems">
-                    <%= link_to 'Go Back', :back, :class => "btn btn-danger" %>
-                </div>
-            </div>
+        <div class="col-md-9 text-center">
+            <h1><%= @company_profile.try(:company_name) %>
+            </h1>
+            <h4>Established: <%= @company_profile.try(:company_establishment_date).strftime("%b %d, %Y") %></h4>
+            <a href="http://maps.google.com/maps?q=<%= @company_profile.full_address %>" target="_blank"><img class="text-center" src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @company_profile.full_address %>&zoom=13&size=200x200&maptype=roadmap&markers=color:blue%7Clabel:S%7C<%= @company_profile.full_address %>&sensor=false" alt="Map"/></a>
+			<address>
+                <%= @company_profile.try(:hq_street_address) %>
+                <br>
+                <%= @company_profile.try(:hq_city) %>, <%= @company_profile.try(:hq_state) %> <%= @company_profile.try(:hq_zipcode) %><%= @company_profile.try(:hq_country) %>
+                <br>
+                <abbr title="Phone">
+                    Phone Number:
+                </abbr>
+                (123) 456-7890
+                <br>
+                <%= link_to @company_profile.try(:website), @company_profile.try(:website), target: "_blank" %>
+            </address>
         </div>
-		<div class="col-md-3">
+        <div class="col-md-3">
             <div class="well sidebar-nav">
                 <ul class="nav">
                     <li>
@@ -32,7 +27,7 @@
                     </li>
                     <li>
                         <a>Send Message</a>
-                        <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "small-header-text" %>
+                        <%= link_to 'Edit Companys Profile', edit_company_profile_path(@company_profile), class: "small-header-text" %>
                     </li>
                 </ul>
             </div>

@@ -21,15 +21,16 @@
                             <% @company_forums.each do |company_forum| %>
                             <tr>
                                 <td>
-                                    <%= company_forum.title %>
+                                    <%= link_to "#{company_forum.title}", company_forum %>
                                 </td>
                                 <td>
-                                    <%= link_to 'Show', company_forum %> | <%= link_to 'Edit', edit_company_forum_path(company_forum) %> | <%= link_to 'Remove', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                    <%= link_to 'Edit', edit_company_forum_path(company_forum) %> | <%= link_to 'Remove', company_forum, method: :delete, data: { confirm: 'Are you sure?' } %>
                                 </td>
                             </tr>
                             <% end %>
                             <% else %>
-                            No forums found.<% end %>
+                            <h3 class="text-center">No forums found.</h3>
+                            <% end %>
                         </tbody>
                     </table>
                 </div>
@@ -47,6 +48,6 @@
                 </ul>
             </div>
         </div>
-        <!-- End Sidebar -->		
+        <!-- End Sidebar -->
     </div>
 </div>

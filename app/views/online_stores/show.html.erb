@@ -5,6 +5,7 @@
             <div class="row margin-bottom-10">
                 <div class="table-responsive">
                     <h3>Store: <%= @online_store.name %></h3>
+                    <% if @products.present? %>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -23,8 +24,11 @@
                             <% end %>
                         </tbody>
                     </table>
+                    <% else %>
+                    <h3 class="text-center">
+                    <%= link_to "No products, add a product here!".html_safe, new_online_store_product_path(@online_store) %>
+                    <% end %>
                 </div>
-                <%= link_to 'Back', online_stores_path, :class => "btn btn-warning" %>
             </div>
         </div>
         <div class="col-md-3">
@@ -35,7 +39,7 @@
                     </li>
                     <li>
                         <%= link_to "Add Products", new_online_store_product_path(@online_store) %>
-                        <%= link_to 'Edit', edit_online_store_path(@online_store) %>
+                        <%= link_to 'Edit Store', edit_online_store_path(@online_store) %>
                     </li>
                 </ul>
             </div>

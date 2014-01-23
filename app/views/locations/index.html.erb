@@ -4,9 +4,9 @@
         <div class="col-md-9">
             <div class="row margin-bottom-10">
                 <%= gmaps4rails(@json) %>
-                <% if @locations.present? %>
                 <div class="table-responsive">
                     <h3>Business Locations:</h3>
+                    <% if @locations.present? %>
                     <table id="businesses" class="table table-striped">
                         <thead>
                             <tr>

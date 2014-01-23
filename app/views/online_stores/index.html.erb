@@ -5,6 +5,7 @@
             <div class="row margin-bottom-10">
                 <div class="table-responsive">
                     <h3>Stores:</h3>
+                    <% if @online_stores.present? %>
                     <table id="businesses" class="table table-striped">
                         <thead>
                             <tr>
@@ -16,7 +17,6 @@
                                 </th>
                             </tr>
                         </thead>
-                        <% if @online_stores != nil %>
                         <% @online_stores.each do |online_store| %>
                         <tbody>
                             <tr>
@@ -29,12 +29,15 @@
                             </tr>
                         </tbody>
                         <% end %>
+                        <% else %>
+                        <h3 class="text-center">
+                        <%= link_to "Create a store!".html_safe, new_online_store_path %>
                         <% end %>
                     </table>
                 </div>
             </div>
         </div>
-		<div class="col-md-3">
+        <div class="col-md-3">
             <div class="well sidebar-nav">
                 <ul class="nav">
                     <li>

@@ -6,9 +6,9 @@
                 <%= gmaps4rails(@json) %>
                 <h3><b>Location Name: </b><%= @location.name %></h3>
                 <h3><b>Location: </b><%= @location.gmaps4rails_address %></h3>
-                <% unless @managers.nil? %>
-                <h2>Managers:</h2>
                 <div class="table-responsive">
+                    <h2>Managers:</h2>
+					<% if @managers.present?  %>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -39,19 +39,38 @@
                             <% end %>
                         </tbody>
                     </table>
+					<% else %>
+					<h3 class="text-center">No managers :(</h3>
+					<% end %>
                 </div>
-                <h2>Staff/Employees</h2> 
-                <ul>
-                    <%# @employees.each do |employee| %>
-                    <li>
-                        <%#= link_to "#{employee.name}", business_employee_path(employee) %>
-                    </li>
-                    <%# end %>
-                </ul>
+                <div class="table-responsive">
+                    <h2>Staff/Employees:</h2>
+					<% if @employees.present? %>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @employees.each do |employee| %>
+                            <tr>
+                                <td>
+                                    <%= link_to "#{employee.name}", business_employee_path(employee) %>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+					<% else %>
+					   <h3 class="text-center">No staff/employees :(</h3>
+                    <% end %>
+                </div>
                 <div class="smallMenuItems">
                     <%#= link_to 'Create New Employee', new_business_employee_path(@business) %>
                 </div>
-                <% end %>
             </div>
         </div>
         <div class="col-md-3">

@@ -1,7 +1,4 @@
 <div class="container">
-    <h1>Editing Company Profile:</h1>
+    <h1>Editing Company Profile: <%= @company_profile.company_name %></h1>
     <%= render 'form' %>
-    <div class="smallMenuItems">
-        <%= link_to 'Show', @company_profile %> | <%= link_to 'Back', company_profiles_path %>
-    </div>
 </div>
