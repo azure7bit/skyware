@@ -8,6 +8,11 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.14.1"
+  gem "factory_girl_rails", "~> 4.3.0"
+end
+
 group :production do 
   gem 'pg'
   gem 'rails_12factor'
