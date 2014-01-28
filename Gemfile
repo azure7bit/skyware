@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 group :development do
   gem 'sqlite3'
 end
-
+gem 'mysql2'
 group :development, :test do
   gem "rspec-rails", "~> 2.14.1"
   gem "factory_girl_rails", "~> 4.3.0"

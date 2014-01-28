@@ -111,6 +111,7 @@ GEM
     mini_portile (0.5.0)
     multi_json (1.6.1)
     multipart-post (1.2.0)
+    mysql2 (0.3.11)
     newrelic_rpm (3.6.3.104)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -227,6 +228,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mailboxer
+  mysql2
   newrelic_rpm
   omniauth-google-oauth2
   paperclip
