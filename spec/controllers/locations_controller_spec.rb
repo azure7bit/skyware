@@ -19,6 +19,18 @@ describe LocationsController do
 				get :index
 				expect(assigns(:locations)).to include(location1, location2)
 				expect(assigns(:locations).count).to eq(2)
+				expect(response).to render_template('locations/index')
+				expect(response).to render_template('layouts/application')
+			end
+			it "should show only the locations created by current super admin" do
+				location1 = create(:location, super_admin: super_admin)
+				location2 = create(:location)
+				get :index
+				expect(assigns(:locations)).to include(location1)
+				expect(assigns(:locations).count).to eq(1)
+				expect(Location.count).to eq(2)
+				expect(response).to render_template('locations/index')
+				expect(response).to render_template('layouts/application')
 			end
 		end
 	end

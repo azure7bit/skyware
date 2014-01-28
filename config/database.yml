@@ -25,4 +25,6 @@ production:
   pool: 5
   timeout: 5000
   host: localhost
+  username: sasi
+  password: Passw@rd
   port: 5432
