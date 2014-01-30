@@ -4,7 +4,7 @@
         <!--<span id="logo"></span>-->
         <div id="logo-group">
             <span id="logo"><img src="/img/logo.png" alt="SmartAdmin"></span><!-- END AJAX-DROPDOWN -->
-        </div><span id="login-header-space"><h4 class="hidden-mobile">Already registered?</h4><a href="login.html" class="btn btn-danger">Sign In</a></span>
+        </div><span id="login-header-space"><h4 class="hidden-mobile">Already registered?</h4><a href="login.html" class="btn btn-success">Sign In</a></span>
     </header>
     <div id="main" role="main">
         <!-- MAIN CONTENT -->
@@ -12,13 +12,13 @@
             <%= flash_messages %>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
-                    <h1 class="txt-color-red login-header-big">SkyHQ</h1>
+                    <h1 class="txt-color-green login-header-big">SkyHQ</h1>
                     <div class="hero">
                         <div class="pull-left login-desc-box-l">
                             <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SkyHQ, everywhere you go!</h4>
                             <div class="login-app-icons">
-                                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
-                                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
+                                <a href="javascript:void(0);" class="btn btn-success btn-sm">Frontend Template</a>
+                                <a href="javascript:void(0);" class="btn btn-success btn-sm">Find out more</a>
                             </div>
                         </div>
                         <img src="/img/demo/iphoneview.png" class="pull-right display-image" width="210px">
@@ -88,14 +88,6 @@
                     <p class="note text-center">
                         *FREE Registration ends on October 2015.
                     </p>
-                    <h5 class="text-center">- Or sign in using -</h5>
-                    <ul class="list-inline text-center">
-                        <%- if devise_mapping.omniauthable? %>
-                        <%- resource_class.omniauth_providers.each do |provider| %>
-                        <%= link_to "Google", omniauth_authorize_path(resource_name, provider) %>
-                        <br/>
-                        <% end -%>
-                        <% end -%>
                         <!--
                         <li>
                         <a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
@@ -364,7 +356,7 @@
                                             <i class="fa fa-check"></i>
                                             I Agree
                                         </button>
-                                        <button type="button" class="btn btn-danger pull-left" id="print">
+                                        <button type="button" class="btn btn-success pull-left" id="print">
                                             <i class="fa fa-print"></i>
                                             Print
                                         </button>

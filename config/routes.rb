@@ -12,7 +12,7 @@ SkyhqNew::Application.routes.draw do
   match '/testimonials' => 'general_pages#testimonials'
   match '/pricing' => 'general_pages#pricing'
   match '/services' => 'general_pages#services'
-  match '/terms-of-service' => 'general_pages#tos'
+  match '/tos' => 'general_pages#tos'
   match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
