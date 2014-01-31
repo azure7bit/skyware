@@ -49,6 +49,7 @@ SkyhqNew::Application.routes.draw do
     get "login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
+    get "reset",    to: "devise/passwords#new"
   end
   
   get("/inbox/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})
