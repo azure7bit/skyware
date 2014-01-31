@@ -1,1 +1,0 @@
-var Contact=function(){return{initMap:function(){var e;jQuery(document).ready(function(){e=new GMaps({div:"#map",lat:40.748866,lng:-73.988366});var t=e.addMarker({lat:40.748866,lng:-73.988366,title:"Loop, Inc."})})}}}();
