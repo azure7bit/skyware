@@ -1,5 +1,11 @@
 SkyhqNew::Application.routes.draw do
 
+  devise_for :users
+
+  authenticated :user do
+    root to: 'company_forums#index'
+  end
+
   authenticated :super_admin do
     root :to => 'Locations#index'
   end
@@ -40,8 +46,12 @@ SkyhqNew::Application.routes.draw do
   end
   
 
-  devise_for :super_admins, :controllers => { 
-    :omniauth_callbacks => "super_admins/omniauth_callbacks",
+  devise_for :users, :controllers => { 
+    :omniauth_callbacks => "users/omniauth_callbacks",
+    registrations: 'users/registrations'
+  }
+
+  devise_for :super_admins, controllers: { 
     registrations: 'super_admins/registrations'
   }
 
@@ -49,7 +59,14 @@ SkyhqNew::Application.routes.draw do
     get "login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
-    get "reset",    to: "devise/passwords#new"
+    get "business/reset",    to: "devise/passwords#new"
+  end
+
+  devise_scope :user do
+    get "user/login",    to: "devise/sessions#new"
+    get "logout",   to: "devise/sessions#destroy"
+    get "user/register", to: "devise/registrations#new"
+    get "user/reset",    to: "devise/passwords#new"
   end
   
   get("/inbox/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})

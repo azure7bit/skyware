@@ -11,4 +11,8 @@ module ApplicationHelper
 		end
 		nil
 	end
+
+	def current_common_user
+	    current_super_admin or current_user
+	end
 end
