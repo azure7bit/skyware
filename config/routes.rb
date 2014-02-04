@@ -1,8 +1,6 @@
 SkyhqNew::Application.routes.draw do
 
-  devise_for :users
-
-  authenticated :user do
+  authenticated :citizen do
     root to: 'company_forums#index'
   end
 
@@ -46,9 +44,9 @@ SkyhqNew::Application.routes.draw do
   end
   
 
-  devise_for :users, :controllers => { 
-    :omniauth_callbacks => "users/omniauth_callbacks",
-    registrations: 'users/registrations'
+  devise_for :citizens, :controllers => { 
+    :omniauth_callbacks => "citizens/omniauth_callbacks",
+    registrations: 'citizens/registrations'
   }
 
   devise_for :super_admins, controllers: { 
@@ -59,10 +57,10 @@ SkyhqNew::Application.routes.draw do
     get "login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
-    get "business/reset",    to: "devise/passwords#new"
+    get "reset",    to: "devise/passwords#new"
   end
 
-  devise_scope :user do
+  devise_scope :citizen do
     get "user/login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "user/register", to: "devise/registrations#new"

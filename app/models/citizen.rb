@@ -1,5 +1,4 @@
-class User < ActiveRecord::Base
-	# rename Citizen
+class Citizen < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

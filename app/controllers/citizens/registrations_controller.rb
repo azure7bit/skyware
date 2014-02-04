@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class Citizens::RegistrationsController < Devise::RegistrationsController
 	def create
 		build_resource
 
@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		else
 			clean_up_passwords resource
 			flash[:error] = resource.errors.full_messages.join(', ')
-			redirect_to new_user_registration_url
+			redirect_to user_register_url
 		end
 	end
 end
