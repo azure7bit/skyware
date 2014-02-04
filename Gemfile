@@ -25,6 +25,7 @@ end
 gem 'jquery-rails'
 
 gem 'devise'
+gem "cancan"
 gem "omniauth-google-oauth2"
 gem 'simple_form'
 # gem 'tire'
