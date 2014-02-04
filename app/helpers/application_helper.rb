@@ -12,7 +12,4 @@ module ApplicationHelper
 		nil
 	end
 
-	def current_user
-	    current_super_admin or current_citizen
-	end
 end
