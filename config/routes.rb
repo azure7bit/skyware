@@ -53,6 +53,8 @@ SkyhqNew::Application.routes.draw do
     registrations: 'super_admins/registrations'
   }
 
+  mount Blogit::Engine => "/blog"
+  
   devise_scope :super_admin do
     get "login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"

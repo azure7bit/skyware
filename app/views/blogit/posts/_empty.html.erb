@@ -1,0 +1,7 @@
+<div class="blogit_empty_message">
+	<% if params[:tag] %>
+		<%=t :there_are_no_posts_about, scope: 'blogit.posts', tag: params[:tag] %>
+	<% else %>
+		<%= t :there_are_no_posts, scope: 'blogit.posts' %>
+	<% end %>
+</div>

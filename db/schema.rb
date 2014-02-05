@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140204172242) do
+ActiveRecord::Schema.define(:version => 20140205100625) do
+
+  create_table "blogit_comments", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.string   "website"
+    t.text     "body",       :null => false
+    t.integer  "post_id",    :null => false
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "blogit_comments", ["post_id"], :name => "index_blog_comments_on_post_id"
+
+  create_table "blogit_posts", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.text     "body",                          :null => false
+    t.integer  "blogger_id"
+    t.string   "blogger_type"
+    t.integer  "comments_count", :default => 0, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "blogit_posts", ["blogger_type", "blogger_id"], :name => "index_blog_posts_on_blogger_type_and_blogger_id"
 
   create_table "business_messengers", :force => true do |t|
     t.integer  "super_admin_id"
@@ -213,5 +238,22 @@ ActiveRecord::Schema.define(:version => 20140204172242) do
 
   add_index "super_admins", ["email"], :name => "index_super_admins_on_email", :unique => true
   add_index "super_admins", ["reset_password_token"], :name => "index_super_admins_on_reset_password_token", :unique => true
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
 end

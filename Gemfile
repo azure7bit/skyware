@@ -30,7 +30,7 @@ gem "omniauth-google-oauth2"
 gem 'simple_form'
 # gem 'tire'
 gem "font-awesome-rails"
-
+gem "blogit", github: "KatanaCode/blogit", branch: "master"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
