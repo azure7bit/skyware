@@ -19,7 +19,7 @@ Blogit.configure do |config|
   config.current_blogger_method = :current_citizen
 
   # What method do we call on blogger to show who they are?
-  # config.blogger_display_name_method = :username
+  config.blogger_display_name_method = :email
 
   # Which DateTime::FORMATS format do we use to display blog and comment publish time
   # config.datetime_format = :short

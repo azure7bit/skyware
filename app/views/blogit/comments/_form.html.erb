@@ -5,12 +5,6 @@
 
   <p><%=t :leave_a_comment, scope: 'blogit.comments'%></p>
 
-  <%= field class: "hidden" do %>
-    <%= f.label :nickname %>
-    <%= f.text_field :nickname %>
-    Hide me using CSS
-  <% end %>
-
   <%= field do %>
     <%= f.label :name, t(:name, scope: 'blogit.comments') %><br>
     <%= f.text_field :name %>
