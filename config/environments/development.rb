@@ -40,8 +40,8 @@ SkyhqNew::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
 
-  ENV['GOOGLE_APP_ID'] = '989261022210.apps.googleusercontent.com'
-  ENV['GOOGLE_APP_SECRET'] = 'c9gGp-DAcb3MgZhhAvHSiWnw'
+  ENV['GOOGLE_APP_ID'] = '65276596025-541tfg7nvjcftlnbt9p38at9tkbvvb0l.apps.googleusercontent.com'
+  ENV['GOOGLE_APP_SECRET'] = 'Wik1RvRe2PybEU3pOLr0LO33'
 
   ENV['AWS_BUCKET'] = 'skyhq-dev'
   ENV['AWS_ACCESS_KEY_ID'] = 'AKIAJIVNCEZEJGZSFZUA'

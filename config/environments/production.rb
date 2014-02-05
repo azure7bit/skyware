@@ -82,8 +82,8 @@ SkyhqNew::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  ENV['GOOGLE_APP_ID'] = '989261022210-5965965mim0ed5a5snsgs9u2lul1nr8f.apps.googleusercontent.com'
-  ENV['GOOGLE_APP_SECRET'] = 'G3Ymx3vuTdBAr7i4B_HUtcoH'
+  ENV['GOOGLE_APP_ID'] = '65276596025-9b6oahp9i11lncntbdh498838dv3ia41.apps.googleusercontent.com'
+  ENV['GOOGLE_APP_SECRET'] = 'ijewPxt4gXnkPM4jjFRXz8qL'
   config.paperclip_defaults = { storage: :s3, s3_credentials: { bucket: 'skyhq-live', access_key_id: 'AKIAJBJNGQPG5Z6Q5WWQ', secret_access_key:  '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'}, s3_host_name: 's3.amazonaws.com' }  
 
 end
