@@ -19,12 +19,14 @@ module Blogit
     blogit_authenticate(except: [:index, :show, :tagged])
 
     def index
+      subdomain = request.subdomain
+      user = Citizen.where(subdomain: subdomain).first
       respond_to do |format|
         format.xml {
           @posts = Post.order('created_at DESC')
         }
         format.html {
-          @posts = Post.where(blogger_id: current_blogger.id).for_index(params[Kaminari.config.param_name])
+          @posts = Post.where(blogger_id: user.id).for_index(params[Kaminari.config.param_name])
         }
         format.rss {
           @posts = Post.order('created_at DESC')

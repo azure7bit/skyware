@@ -1,13 +1,34 @@
+class WWWSubdomain
+  def matches?(request)
+    request.subdomain.present? and (request.subdomain == 'www')
+  end
+end
+
+class Subdomain
+  def matches?(request)
+    request.subdomain.present? and (request.subdomain != 'www')
+  end
+end
+
 SkyhqNew::Application.routes.draw do
 
   authenticated :citizen do
-    root to: 'company_forums#index'
+    root to: Blogit::Engine
   end
+
 
   authenticated :super_admin do
     root :to => 'Locations#index'
   end
+  
   root :to => 'general_pages#index'
+  constraints(WWWSubdomain.new) do
+    root :to => 'general_pages#index'
+  end
+
+  constraints(Subdomain.new) do
+    root to: Blogit::Engine
+  end
 
   match '/home' => 'general_pages#index'
   match '/about' => 'general_pages#about'
@@ -53,7 +74,6 @@ SkyhqNew::Application.routes.draw do
     registrations: 'super_admins/registrations'
   }
 
-  mount Blogit::Engine => "/blog"
   
   devise_scope :super_admin do
     get "login",    to: "devise/sessions#new"

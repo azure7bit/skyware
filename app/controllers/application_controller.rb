@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :ensure_subdomain_redirect
   before_filter :populate_tags
   helper_method :current_user
   
@@ -26,15 +25,15 @@ class ApplicationController < ActionController::Base
       current_super_admin or current_citizen
   end
 
-  protected
-  def ensure_subdomain_redirect
-    if current_user and current_user.subdomain.present? and !(request.subdomain.eql?(current_user.subdomain))
-      return redirect_to request.url.gsub(request.subdomain, current_user.subdomain)
-    end
-  end
-
   private
   def after_sign_out_path_for(resource_or_scope)
     root_url(subdomain: 'www')
+  end
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope.class == Citizen
+      root_url(subdomain: resource_or_scope.subdomain)
+    else
+      super
+    end
   end
 end
