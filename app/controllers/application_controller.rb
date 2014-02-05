@@ -30,4 +30,9 @@ class ApplicationController < ActionController::Base
       return redirect_to request.url.gsub(request.subdomain, current_user.subdomain)
     end
   end
+
+  private
+  def after_sign_out_path_for(resource_or_scope)
+    root_url(subdomain: 'www')
+  end
 end
