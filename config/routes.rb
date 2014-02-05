@@ -17,7 +17,7 @@ SkyhqNew::Application.routes.draw do
   match '/pricing' => 'general_pages#pricing'
   match '/services' => 'general_pages#services'
   match '/tos' => 'general_pages#tos'
-  match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"
+  # match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
 
@@ -58,6 +58,7 @@ SkyhqNew::Application.routes.draw do
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
     get "reset",    to: "devise/passwords#new"
+    get "profile", to: "devise/registrations#edit"
   end
 
   devise_scope :citizen do
@@ -65,6 +66,7 @@ SkyhqNew::Application.routes.draw do
     get "logout",   to: "devise/sessions#destroy"
     get "user/register", to: "devise/registrations#new"
     get "user/reset",    to: "devise/passwords#new"
+    get "user/profile", to: "devise/registrations#edit"
   end
   
   get("/inbox/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})

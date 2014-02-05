@@ -15,7 +15,7 @@ class SuperAdmins::RegistrationsController < Devise::RegistrationsController
 		else
 			clean_up_passwords resource
 			flash[:error] = resource.errors.full_messages.join(', ')
-			redirect_to new_super_aadmin_registration_url
+			redirect_to new_super_admin_registration_url
 		end
 	end
 end

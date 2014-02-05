@@ -121,7 +121,9 @@
                     <li><a href="/inbox"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
                         <ul>
-                             <li><a href="/profile">My Profile</a></li>
+                             <li>
+                                <%= link_to "My Profile", current_citizen ? user_profile_path : profile_path %>
+                             </li>
                              <li><a href="/logout">Sign Out</a></li>
                         </ul>
                     </li>                       
