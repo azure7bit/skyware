@@ -21,7 +21,6 @@ SkyhqNew::Application.routes.draw do
     root :to => 'Locations#index'
   end
   
-  root :to => 'general_pages#index'
   constraints(WWWSubdomain.new) do
     root :to => 'general_pages#index'
   end
@@ -29,6 +28,7 @@ SkyhqNew::Application.routes.draw do
   constraints(Subdomain.new) do
     root to: Blogit::Engine
   end
+  root :to => 'general_pages#index'
 
   match '/home' => 'general_pages#index'
   match '/about' => 'general_pages#about'
