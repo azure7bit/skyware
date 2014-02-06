@@ -1,18 +1,59 @@
 <h2>Sign up</h2>
+<!--=== Content Part ===-->
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <link rel="stylesheet" href="registration/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="registration/css/style.css">
+    <link rel="stylesheet" href="registration/css/headers/header1.css">
+    <link rel="stylesheet" href="registration/css/responsive.css">
+    <link rel="shortcut icon" href="favicon.ico">        
+    <!-- CSS Implementing Plugins -->    
+    <link rel="stylesheet" href="registration/plugins/font-awesome/css/font-awesome.css">
+    <!-- CSS Style Page -->    
+    <link rel="stylesheet" href="registration/css/pages/page_log_reg_v1.css">
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href="registration/css/themes/default.css" id="style_color">
+    <link rel="stylesheet" href="registration/css/themes/headers/default.css" id="style_color-header-1">    
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+                <div class="reg-header">
+                    <h2>Register a new account</h2>
+                    <p>Already Signed Up? Click <a href="page_login.html" class="color-green">Sign In</a> to login your account.</p>                    
+                </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :subdomain, label: "HQ ID ( ___.skyhq.com )" %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-  </div>
+              
+               
+                <%= f.input :email, :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>                            
+                <%= f.input :subdomain, label: "HQ ID ( ___.skyhq.com )" %>
+                <%= f.input :password, :required => true ,:class=>"form-control margin-bottom-20" %>
+                <%= f.input :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20" %>
+                <%= f.button :submit, "Sign up" %>
+                 
+            <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+            <%= render "citizens/shared/links" %>
 
-<%= render "citizens/shared/links" %>
+        </div>
+    </div>
+</div><!--/container-->   
+<!--=== End Content Part ===-->
+
+
+<!-- JS Global Compulsory -->           
+<script type="text/javascript" src="registration/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="registration/plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="registration/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="registration/plugins/hover-dropdown.min.js"></script> 
+<script type="text/javascript" src="registration/plugins/back-to-top.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="registration/js/app.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+<![endif]-->

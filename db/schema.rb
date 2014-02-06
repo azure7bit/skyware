@@ -256,4 +256,8 @@ ActiveRecord::Schema.define(:version => 20140205100625) do
     t.string "name"
   end
 
+  add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
+
+  add_foreign_key "receipts", "notifications", :name => "receipts_on_notification_id"
+
 end

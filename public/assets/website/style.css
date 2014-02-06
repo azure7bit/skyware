@@ -1,0 +1,1766 @@
+@import url(/assets/website/app.css);
+@import url(http://fonts.googleapis.com/css?family=Monda:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/*   
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio and Blog Theme.
+ * Version: 1.3
+ * Author: Html Stream
+ * Website: http://htmlstream.com/preview/unify
+*/
+/*Import app.css*/
+/*Import Google Fonts*/
+/*Block Headline*/
+/* line 18, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.headline {
+  display: block;
+  margin: 10px 0 25px 0;
+  border-bottom: 1px dotted #e4e9f0;
+}
+
+/* line 25, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.headline h2,
+.headline h3,
+.headline h4 {
+  color: #585f69;
+  margin: 0 0 -2px 0;
+  padding-bottom: 5px;
+  display: inline-block;
+  border-bottom: 2px solid #72c02c;
+}
+
+/* line 32, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.headline h2 {
+  font-size: 23px;
+}
+
+/* line 36, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.headline-md h2 {
+  font-size: 21px;
+}
+
+/* line 40, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.headline-md {
+  margin-bottom: 15px;
+}
+
+/*Purchase Block*/
+/* line 45, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.purchase {
+  padding: 30px 0;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 4px #eeeeee;
+  background: url(../img/breadcrumbs.png) repeat;
+}
+
+/* line 51, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.purchase p {
+  margin-bottom: 0;
+}
+
+/* line 54, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.purchase span {
+  color: #666;
+  display: block;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 35px;
+  margin-bottom: 12px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* line 63, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.purchase a.btn-buy {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 22px;
+  font-weight: bold;
+  background: #72c02c;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 28px 9px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #51a00b;
+}
+
+/* line 76, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.purchase a.btn-buy:hover {
+  color: #fff;
+  background: #68af28;
+  text-decoration: none;
+  box-shadow: 0 0 5px #c0c2c1;
+}
+
+/*Service*/
+/* line 84, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service {
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 15px 15px 10px;
+}
+
+/* line 89, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service:hover {
+  background: #fcfcfc;
+  box-shadow: 0 0 5px #dddddd;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* line 97, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service:hover i {
+  color: #656565;
+}
+
+/* line 101, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service .desc {
+  padding: 0 15px;
+  overflow: hidden;
+}
+
+/* line 105, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service .desc h4 {
+  font-size: 22px;
+  line-height: 25px;
+}
+
+/* line 110, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service .service-icon {
+  float: left;
+  padding: 10px;
+  color: #72c02c;
+  font-size: 45px;
+  text-align: center;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* line 121, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service .service-icon.icon-cogs {
+  font-size: 37px;
+}
+
+/* line 124, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service .service-icon.icon-plane {
+  font-size: 43px;
+}
+
+/* Recent Work  */
+/* line 129, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a {
+  text-align: center;
+  background: #fcfcfc;
+  display: inline-block;
+}
+
+/* line 135, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a:hover {
+  text-decoration: none;
+}
+
+/* line 139, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a:hover strong {
+  color: #555;
+}
+
+/* line 143, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work em.overflow-hidden {
+  display: block;
+}
+
+/* line 147, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a span {
+  display: block;
+  padding: 10px;
+  border-bottom: solid 2px #eeeeee;
+}
+
+/* line 153, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a strong {
+  color: #555;
+  display: block;
+}
+
+/* line 158, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a i {
+  color: #777;
+}
+
+/* line 162, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a img {
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+/* line 170, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a:hover img {
+  opacity: 0.8;
+  -webkit-transform: scale(1.2) rotate(3deg);
+  -moz-transform: scale(1.2) rotate(3deg);
+  -o-transform: scale(1) rotate(3deg);
+  -ms-transform: scale(1.2) rotate(3deg);
+  transform: scale(1.2) rotate(3deg);
+}
+
+/* line 179, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.recent-work a:hover span {
+  border-bottom: solid 2px #72c02c;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/*Blockquote*/
+/* line 188, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+blockquote p {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+/* line 193, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+blockquote:hover {
+  border-left-color: #72c02c;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* line 200, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.hero {
+  padding: 18px;
+  margin: 20px 0;
+  color: #566c8a;
+  font-size: 16px;
+  background: #fcfcfc;
+  border-left: 4px solid #94c564;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* line 209, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.hero h1, .hero p {
+  text-shadow: 1px 1px 0 white;
+}
+
+/* line 213, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.hero-unify p {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+/* Work */
+/* line 219, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.work {
+  margin-top: 6px;
+}
+
+/* line 222, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.work .details {
+  padding: 10px;
+}
+
+/* line 225, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.work .caption {
+  display: block;
+  padding-top: 5px;
+  color: #585f69 !important;
+  font-size: 18px !important;
+}
+
+/* line 231, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.work .caption:hover {
+  cursor: pointer;
+  color: #444444 !important;
+  text-decoration: underline;
+}
+
+/*Footer*/
+/* line 238, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer {
+  color: #dadada;
+  margin-top: 40px;
+  padding: 20px 0 30px;
+  background: #585f69;
+}
+
+/* line 245, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer.margin-top-0 {
+  margin-top: 0;
+}
+
+/* line 253, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5 {
+  text-shadow: none;
+  font-weight: normal !important;
+}
+
+/* line 259, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer p,
+.footer a {
+  font-size: 14px;
+}
+
+/* line 262, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer p {
+  color: #dadada;
+}
+
+/* line 266, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer a {
+  color: #72c02c;
+}
+
+/* line 269, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer a:hover {
+  color: #a8f85f;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* line 279, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer h2,
+.footer h3,
+.footer h4 {
+  color: #e4e4e4;
+  background: none;
+  text-shadow: none;
+}
+
+/*Footer Subsribe*/
+/* line 286, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .footer-subsribe {
+  width: 85%;
+}
+
+/*Blog Posts*/
+/* line 291, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .blog-list {
+  margin: 0;
+  padding: 0;
+  color: #dadada;
+  list-style: none;
+}
+
+/* line 298, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .blog-list li {
+  padding: 0 0;
+  margin-bottom: 7px;
+}
+
+/* line 302, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .blog-list li span {
+  color: #818488;
+}
+
+/* line 307, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .dl-horizontal,
+.footer .dl-horizontal:hover {
+  border: none !important;
+  background: none !important;
+}
+
+/* line 311, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .dl-horizontal a {
+  color: #dadada;
+}
+
+/* line 314, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .dl-horizontal a:hover {
+  color: #a8f85f !important;
+}
+
+/* line 317, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.footer .dl-horizontal img {
+  border-color: #888888 !important;
+}
+
+/*Copyright*/
+/* line 322, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.copyright {
+  font-size: 12px;
+  padding: 11px 0 7px;
+  background: #3e4753;
+  border-top: solid 1px #777777;
+}
+
+/* line 329, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.copyright p {
+  color: #dadada;
+}
+
+/* line 333, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.copyright p.copyright-space {
+  margin-top: 12px;
+}
+
+/* line 337, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.copyright a {
+  margin: 0 5px;
+  color: #72c02c;
+}
+
+/* line 341, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.copyright a:hover {
+  color: #a8f85f;
+}
+
+/*Page (Features)
+------------------------------------*/
+/*Thumbnail*/
+/* line 348, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+a.thumbnail {
+  padding: 0;
+  border: none;
+  margin-bottom: 15px;
+}
+
+/* line 354, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+/* line 358, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style:hover {
+  box-shadow: 0 0 8px #dddddd;
+  -webkit-transition: box-shadow 0.2s ease-in-out;
+  -moz-transition: box-shadow 0.2s ease-in-out;
+  -o-transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* line 365, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style h3 {
+  margin: 5px 0 0 0;
+}
+
+/* line 368, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style h3 a {
+  font-size: 20px;
+}
+
+/* line 371, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style h3 a:hover {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/* line 375, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style .thumbnail-img {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* line 379, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style a.btn-more {
+  right: -10px;
+  bottom: 10px;
+  color: #fff;
+  padding: 1px 6px;
+  position: absolute;
+  background: #72c02c;
+  display: inline-block;
+}
+
+/* line 388, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style a.btn-more:hover {
+  text-decoration: none;
+  box-shadow: 0 0 0 2px #377500;
+}
+
+/* line 392, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-style:hover a.btn-more {
+  right: 10px;
+}
+
+/* line 396, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-kenburn img {
+  left: 10px;
+  margin-left: -10px;
+  position: relative;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  -o-transition: all 0.8s ease-in-out;
+  -ms-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+/* line 406, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.thumbnail-kenburn:hover img {
+  -webkit-transform: scale(1.2) rotate(2deg);
+  -moz-transform: scale(1.2) rotate(2deg);
+  -o-transform: scale(1.2) rotate(2deg);
+  -ms-transform: scale(1.2) rotate(2deg);
+  transform: scale(1.2) rotate(2deg);
+}
+
+/*Servive Blocks*/
+/* line 415, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in {
+  padding: 20px 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  background: #fafafa;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* line 425, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in:hover {
+  box-shadow: 0 0 8px #dddddd;
+}
+
+/* line 429, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in h4 {
+  line-height: 25px;
+}
+
+/* line 433, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in h4 a:hover {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/* line 439, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in:hover h4,
+.servive-block .servive-block-in:hover i {
+  color: #72c02c;
+}
+
+/* line 443, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-in i {
+  color: #565656;
+  font-size: 40px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* line 452, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-red {
+  background: #e74c3c;
+}
+
+/* line 455, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-sea {
+  background: #1abc9c;
+}
+
+/* line 458, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-blue {
+  background: #3498db;
+}
+
+/* line 461, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-grey {
+  background: #95a5a6;
+}
+
+/* line 464, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-yellow {
+  background: #f1c40f;
+}
+
+/* line 467, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-orange {
+  background: #e67e22;
+}
+
+/* line 470, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-green {
+  background: #2ecc71;
+}
+
+/* line 478, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-colored i,
+.servive-block .servive-block-colored p,
+.servive-block .servive-block-colored h4,
+.servive-block .servive-block-colored:hover i,
+.servive-block .servive-block-colored:hover h4 {
+  color: #fff;
+}
+
+/* line 482, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.servive-block .servive-block-colored:hover {
+  opacity: 0.8;
+  box-shadow: none;
+}
+
+/*Service Alternative Block*/
+/* line 488, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service-alternative .service:hover {
+  background: #76ca2c;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/* line 497, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service-alternative .service:hover i,
+.service-alternative .service:hover p,
+.service-alternative .service:hover h4 {
+  color: #fff;
+}
+
+/*Servive Block Versions*/
+/* line 502, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service-v1 h2 {
+  margin: 15px 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* line 508, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.service-v1 p {
+  text-align: justify;
+}
+
+/*Posts*/
+/* line 513, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+/* line 518, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dt {
+  width: 60px;
+  float: left;
+}
+
+/* line 523, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dt img {
+  width: 60px;
+  height: 60px;
+  padding: 2px;
+  margin-top: 2px;
+  border: solid 1px #dddddd;
+}
+
+/* line 531, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dd {
+  margin-left: 70px;
+}
+
+/* line 535, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dd p {
+  margin: 0;
+}
+
+/* line 539, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dd a {
+  font-size: 14px;
+  line-height: 16px !important;
+}
+
+/* line 544, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal dd a:hover {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/* line 550, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.posts .dl-horizontal:hover dt img,
+.posts .dl-horizontal:hover dd a {
+  color: #72c02c;
+  border-color: #72c02c !important;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+/*Breadcrumbs*/
+/* line 560, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.breadcrumbs {
+  padding: 10px 0 6px;
+  box-shadow: inset 0 0 4px #eeeeee;
+  background: url(../img/breadcrumbs.png) repeat;
+}
+
+/* line 565, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.breadcrumbs h1 {
+  color: #686868;
+  font-size: 26px;
+  margin-top: 12px;
+}
+
+/* line 571, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.breadcrumb {
+  top: 9px;
+  padding-right: 0;
+  background: none;
+  position: relative;
+}
+
+/* line 577, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.breadcrumb a {
+  color: #777;
+}
+
+/* line 581, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.breadcrumb li.active,
+.breadcrumb li a:hover {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/*Pegination*/
+/* line 587, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.pagination li a {
+  color: #777;
+  padding: 5px 15px;
+}
+
+/* Testimonials */
+/* line 593, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials {
+  margin-bottom: 10px;
+}
+
+/* line 597, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .testimonial-info {
+  color: #72c02c;
+  font-size: 16px;
+  padding: 0 15px;
+  margin-top: 18px;
+}
+
+/* line 604, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .testimonial-info span {
+  top: 3px;
+  position: relative;
+}
+
+/* line 609, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .testimonial-info em {
+  color: #777;
+  display: block;
+  font-size: 13px;
+}
+
+/* line 615, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .testimonial-info img {
+  width: 60px;
+  float: left;
+  height: 60px;
+  padding: 2px;
+  margin-right: 15px;
+  border: solid 1px #cccccc;
+  border-radius: 50% !important;
+}
+
+/* line 625, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .testimonial-author {
+  overflow: hidden;
+}
+
+/* line 629, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-arrow {
+  top: -65px;
+  position: relative;
+}
+
+/* line 634, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-arrow i {
+  color: #777;
+  font-size: 20px;
+  padding: 2px 8px;
+  background: #fafafa;
+}
+
+/* line 641, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-arrow i:hover {
+  color: #fff;
+  background: #72c02c;
+}
+
+/* line 646, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-control {
+  opacity: 1;
+  width: 100%;
+  text-align: right;
+  text-shadow: none;
+  position: absolute;
+}
+
+/* line 654, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-control.left {
+  right: 27px;
+  left: auto;
+}
+
+/* line 658, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials .carousel-control.right {
+  right: 0px;
+}
+
+/* line 662, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v1 .item p {
+  padding: 15px;
+  font-size: 14px;
+  font-style: italic;
+  position: relative;
+  background: #fafafa;
+}
+
+/* line 671, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v1 .item p:after,
+.testimonials.testimonials-v1 .item p:before {
+  width: 0;
+  height: 0;
+  left: 80px;
+  content: " ";
+  bottom: -20px;
+  display: block;
+  position: absolute;
+}
+
+/* line 681, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v1 .item p:after {
+  border-top: 22px solid #fafafa;
+  border-left: 0 solid transparent;
+  border-right: 22px solid transparent;
+  border-left-style: inset;
+  /*FF fixes*/
+  border-right-style: inset;
+  /*FF fixes*/
+}
+
+/* line 689, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v2 .testimonial-info {
+  padding: 0 20px;
+}
+
+/* line 693, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v2 p {
+  padding: 15px;
+  font-size: 14px;
+  font-style: italic;
+  background: #fafafa;
+  padding-bottom: 15px;
+}
+
+/* line 701, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v2 .carousel-arrow {
+  top: -55px;
+}
+
+/* line 706, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v2 .item p:after,
+.testimonials.testimonials-v2 .item p:before {
+  width: 0;
+  height: 0;
+  left: 8%;
+  content: " ";
+  bottom: 45px;
+  display: block;
+  position: absolute;
+}
+
+/* line 716, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.testimonials.testimonials-v2 .item p:after {
+  border-top: 20px solid #fafafa;
+  border-left: 25px solid transparent;
+  border-right: 0px solid transparent;
+  border-left-style: inset;
+  /*FF fixes*/
+  border-right-style: inset;
+  /*FF fixes*/
+}
+
+/*Tabs v1*/
+/* line 725, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .nav-tabs {
+  border: none;
+  background: none;
+  border-bottom: solid 2px #72c02c;
+}
+
+/* line 731, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .nav-tabs a {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+/* line 738, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .nav-tabs > .active > a,
+.tab-v1 .nav-tabs > .active > a:hover,
+.tab-v1 .nav-tabs > .active > a:focus {
+  color: #fff;
+  border: none;
+  background: #72c02c;
+}
+
+/* line 744, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .nav-tabs > li > a {
+  border: none;
+}
+
+/* line 747, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .nav-tabs > li > a:hover {
+  color: #fff;
+  background: #72c02c;
+}
+
+/* line 752, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .tab-content {
+  padding: 10px 0;
+}
+
+/* line 756, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .tab-content img {
+  margin-top: 4px;
+  margin-bottom: 15px;
+}
+
+/* line 761, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v1 .tab-content img.img-tab-space {
+  margin-top: 7px;
+}
+
+/*Tabs v2*/
+/* line 766, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v2 .nav-tabs {
+  border-bottom: none;
+}
+
+/* line 770, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v2 .nav-tabs li a {
+  padding: 9px 16px;
+  background: none;
+  border: none;
+}
+
+/* line 776, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v2 .nav-tabs li.active a {
+  background: #fff;
+  padding: 7px 15px 9px;
+  border: solid 1px #eeeeee;
+  border-top: solid 2px #72c02c;
+  border-bottom: none !important;
+}
+
+/* line 784, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v2 .tab-content {
+  padding: 10px 16px;
+  border: solid 1px #eeeeee;
+}
+
+/*Tabs v3*/
+/* line 790, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v3 .nav-pills li a {
+  color: #777;
+  font-size: 17px;
+  padding: 4px 8px;
+  margin-bottom: 3px;
+  background: #fafafa;
+  border: solid 1px #eeeeee;
+}
+
+/* line 800, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v3 .nav-pills li a:hover,
+.tab-v3 .nav-pills li.active a {
+  color: #fff;
+  background: #72c02c;
+  border: solid 1px #68af28;
+}
+
+/* line 806, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v3 .nav-pills li i {
+  width: 1.25em;
+  margin-right: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* line 813, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tab-v3 .tab-content {
+  padding: 15px;
+  background: #fafafa;
+  border: solid 1px #eeeeee;
+}
+
+/*Accardion v1*/
+/* line 820, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.acc-v1 .panel-heading {
+  padding: 0;
+  box-shadow: none;
+}
+
+/* line 825, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.acc-v1 .panel-heading a {
+  display: block;
+  font-size: 14px;
+  padding: 5px 15px;
+  background: #fefefe;
+}
+
+/* line 832, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.acc-icon a.accordion-toggle i {
+  color: #585f69;
+  margin-right: 8px;
+}
+
+/* line 836, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.acc-icon a.accordion-toggle:hover i {
+  color: #39414c;
+}
+
+/*Carousel v1*/
+/* line 841, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 7px 15px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* line 849, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-caption p {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* line 854, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-arrow a.carousel-control {
+  opacity: 1;
+  font-size: 30px;
+  height: inherit;
+  width: inherit;
+  background: none;
+  text-shadow: none;
+  position: inherit;
+}
+
+/* line 864, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-arrow a i {
+  top: 50%;
+  opacity: 0.6;
+  background: #000;
+  margin-top: -18px;
+  padding: 2px 12px;
+  position: absolute;
+}
+
+/* line 872, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-arrow a i:hover {
+  opacity: 0.8;
+}
+
+/* line 876, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-arrow a.left i {
+  left: 0;
+}
+
+/* line 879, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.carousel-v1 .carousel-arrow a.right i {
+  right: 0;
+}
+
+/*About Page
+------------------------------------*/
+/* line 885, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team ul.team-socail {
+  text-align: right;
+}
+
+/* line 888, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team ul.team-socail li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* line 894, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team ul.team-socail li a,
+.team ul.team-socail li a:hover {
+  text-decoration: none;
+}
+
+/* line 898, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team ul.team-socail li i {
+  color: #aaa;
+  padding: 3px;
+  min-width: 30px;
+  font-size: 20px;
+  text-align: center;
+  background: #f7f7f7;
+  display: inline-block;
+}
+
+/* line 907, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team ul.team-socail li i:hover {
+  color: #fff;
+  background: #72c02c;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 916, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team .thumbnail-style {
+  padding: 12px;
+}
+
+/* line 920, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team .thumbnail-style small {
+  display: block;
+  font-size: 12px;
+}
+
+/* line 925, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team .thumbnail-style h3 {
+  margin-bottom: 10px;
+}
+
+/* line 928, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.team .thumbnail-style:hover h3 a {
+  color: #72c02c !important;
+}
+
+/*Gallery Page
+------------------------------------*/
+/* line 935, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.gallery-page .thumbnail,
+.gallery-page .thumbnail:hover {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* line 940, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.gallery-page .thumbnails {
+  margin-bottom: 6px;
+}
+
+/*Privacy Page
+------------------------------------*/
+/* line 946, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.privacy a {
+  text-decoration: underline;
+}
+
+/* line 949, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.privacy a:hover {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/*Portfolio Item Page v1
+------------------------------------*/
+/* line 956, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item h2 {
+  color: #555;
+  font-size: 24px;
+  margin: 0 0 15px;
+}
+
+/* line 961, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item li {
+  padding: 3px 0;
+}
+
+/* line 964, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item p a {
+  text-decoration: underline;
+}
+
+/* line 967, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item p a:hover {
+  text-decoration: none;
+}
+
+/*Portfolio Item v1*/
+/* line 972, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item1 ul {
+  margin: 10px 0 20px;
+}
+
+/* line 976, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item1 li {
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+/* line 981, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.portfolio-item1 li i {
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+/*Sidebar Features
+------------------------------------*/
+/*Blog Tags*/
+/* line 989, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+ul.blog-tags li {
+  display: inline-block;
+}
+
+/* line 993, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+ul.blog-tags a {
+  font-size: 13px;
+  padding: 2px 7px;
+  background: #f7f7f7;
+  margin: 0 3px 6px 0;
+  display: inline-block;
+}
+
+/* line 1001, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+ul.blog-tags a i {
+  color: #666;
+}
+
+/* line 1005, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+ul.blog-tags a:hover {
+  background: #72c02c;
+}
+
+/* line 1010, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+ul.blog-tags a:hover,
+ul.blog-tags a:hover i {
+  color: white !important;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/*Blog Photo Stream*/
+/* line 1020, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-photos li {
+  display: inline;
+}
+
+/* line 1023, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-photos li img {
+  opacity: 0.6;
+  width: 58px;
+  height: 58px;
+  margin: 0 2px 8px;
+}
+
+/* line 1029, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-photos li img:hover {
+  opacity: 1;
+  box-shadow: 0 0 0 2px #72c02c;
+}
+
+/*Blog Latest Tweets*/
+/* line 1035, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner {
+  padding: 10px;
+  position: relative;
+  background: #fafafa;
+  margin-bottom: 15px;
+  border-top: solid 2px #eeeeee;
+}
+
+/* line 1045, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner,
+.blog-twitter .blog-twitter-inner:after,
+.blog-twitter .blog-twitter-inner:before {
+  transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+/* line 1054, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner:after,
+.blog-twitter .blog-twitter-inner:before {
+  width: 0;
+  height: 0;
+  right: 0px;
+  bottom: 0px;
+  content: " ";
+  display: block;
+  position: absolute;
+}
+
+/* line 1064, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner:after {
+  border-top: 15px solid #f0f0f0;
+  border-right: 15px solid transparent;
+  border-left: 0px solid transparent;
+  border-left-style: inset;
+  /*FF fixes*/
+  border-right-style: inset;
+  /*FF fixes*/
+}
+
+/* line 1071, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner:before {
+  border-bottom: 15px solid white;
+  border-right: 0 solid transparent;
+  border-left: 15px solid transparent;
+  border-left-style: inset;
+  /*FF fixes*/
+  border-bottom-style: inset;
+  /*FF fixes*/
+}
+
+/* line 1079, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner:hover {
+  border-color: #72c02c;
+  border-top-color: #72c02c;
+}
+
+/* line 1083, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner:hover:after {
+  border-top-color: #72c02c;
+}
+
+/* line 1087, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner span {
+  color: #777;
+  display: block;
+  font-size: 11px;
+}
+
+/* line 1093, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner a {
+  color: #72c02c;
+  text-decoration: none;
+}
+
+/* line 1097, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner a:hover {
+  text-decoration: underline;
+}
+
+/* line 1101, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.blog-twitter .blog-twitter-inner i.icon-twitter {
+  top: 2px;
+  color: #bbb;
+  font-size: 18px;
+  position: relative;
+}
+
+/*Choose Block*/
+/* line 1109, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.who li {
+  margin-bottom: 6px;
+}
+
+/* line 1112, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.who li i {
+  top: 2px;
+  color: #72c02c;
+  font-size: 18px;
+  margin-right: 8px;
+  position: relative;
+}
+
+/* line 1120, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.who li:hover i,
+.who li:hover a {
+  color: #777;
+}
+
+/* line 1123, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.who li:hover a:hover {
+  text-decoration: none;
+}
+
+/*Sidebar Menu
+------------------------------------*/
+/*Sidebar Menu v1*/
+/* line 1130, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 li {
+  padding: 0;
+}
+
+/* line 1134, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 li a {
+  display: block;
+  padding: 8px 30px 8px 10px;
+}
+
+/* line 1139, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 li a:hover {
+  text-decoration: none;
+}
+
+/* line 1144, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 li.active,
+.sidebar-nav-v1 li.active:hover {
+  background: #f5f5f5;
+  border-color: #ddd;
+}
+
+/* line 1149, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 li.active a {
+  color: #555;
+}
+
+/* line 1153, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 span.badge {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+/* line 1158, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 span.badge-green {
+  background: #2ecc71;
+}
+
+/* line 1161, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 span.badge-red {
+  background: #e74c3c;
+}
+
+/* line 1164, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 span.badge-blue {
+  background: #3498db;
+}
+
+/* line 1167, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.sidebar-nav-v1 span.badge-sea {
+  background: #1abc9c;
+}
+
+/*Tag Boxes
+------------------------------------*/
+/* line 1173, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box {
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/* line 1178, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box h2 {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+/* line 1183, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box p {
+  margin-bottom: 0;
+}
+
+/*Tag Boxes v1*/
+/* line 1188, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v1 {
+  border: solid 1px #eeeeee;
+  border-top: solid 2px #72c02c;
+}
+
+/*Tag Boxes v2*/
+/* line 1194, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v2 {
+  background: #fafafa;
+  border: solid 1px #eeeeee;
+  border-left: solid 2px #72c02c;
+}
+
+/*Tag Boxes v3*/
+/* line 1201, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v3 {
+  border: solid 2px #eeeeee;
+}
+
+/*Tag Boxes v4*/
+/* line 1206, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v4 {
+  border: dashed 1px #bbbbbb;
+}
+
+/*Tag Boxes v5*/
+/* line 1211, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v5 {
+  margin: 20px 0;
+  text-align: center;
+  border: dashed 1px #cccccc;
+}
+
+/* line 1217, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v5 span {
+  color: #555;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+/*Tag Boxes v6*/
+/* line 1224, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v6 {
+  background: #fafafa;
+  border: solid 1px #eeeeee;
+}
+
+/*Tag Boxes v7*/
+/* line 1230, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.tag-box-v7 {
+  border: solid 1px #eeeeee;
+  border-bottom: solid 2px #72c02c;
+}
+
+/*Panels (Portlets)
+------------------------------------*/
+/*Panel Table*/
+/* line 1238, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel .table {
+  margin-bottom: 0;
+}
+
+/*Panel Blue*/
+/* line 1243, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-blue {
+  border-color: #3498db;
+}
+
+/* line 1247, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-blue > .panel-heading {
+  color: #fff;
+  background: #3498db;
+}
+
+/*Panel Red*/
+/* line 1253, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-red {
+  border-color: #e74c3c;
+}
+
+/* line 1257, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-red > .panel-heading {
+  color: #fff;
+  background: #e74c3c;
+}
+
+/*Panel Green*/
+/* line 1263, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-green {
+  border-color: #2ecc71;
+}
+
+/* line 1267, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-green > .panel-heading {
+  color: #fff;
+  background: #2ecc71;
+}
+
+/*Panel Sea*/
+/* line 1273, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-sea {
+  border-color: #1abc9c;
+}
+
+/* line 1277, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-sea > .panel-heading {
+  color: #fff;
+  background: #1abc9c;
+}
+
+/*Panel Orange*/
+/* line 1283, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-orange {
+  border-color: #e67e22;
+}
+
+/* line 1287, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-orange > .panel-heading {
+  color: #fff;
+  background: #e67e22;
+}
+
+/*Panel Yellow*/
+/* line 1293, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-yellow {
+  border-color: #f1c40f;
+}
+
+/* line 1297, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-yellow > .panel-heading {
+  color: #fff;
+  background: #f1c40f;
+}
+
+/*Panel Grey*/
+/* line 1303, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-grey {
+  border-color: #95a5a6;
+}
+
+/* line 1307, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.panel-grey > .panel-heading {
+  color: #fff;
+  background: #95a5a6;
+}
+
+/*Promo Page
+------------------------------------*/
+/*Slider Part*/
+/* line 1315, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.fullwidthbanner-container.slider-promo {
+  max-height: 460px !important;
+}
+
+/* line 1319, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.slider-promo-info-bg {
+  padding: 25px 20px 20px;
+  background: url(../img/bg-black.png) repeat;
+}
+
+/* line 1324, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.slider-promo-info span.big-size {
+  color: #fff;
+  display: block;
+  font-size: 30px;
+  margin-bottom: 25px;
+  text-shadow: 0 !important;
+}
+
+/* line 1332, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.slider-promo-info p {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+/*Promo Box*/
+/* line 1339, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-box {
+  padding: 20px;
+  margin: 25px 0 20px;
+  text-align: center;
+}
+
+/* line 1345, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-box i {
+  display: block;
+  font-size: 50px;
+}
+
+/* line 1350, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-box p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* line 1356, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-box strong,
+.promo-box strong a {
+  color: #555;
+  font-size: 20px;
+  display: block;
+  margin: 20px 0 15px;
+  font-weight: 200;
+}
+
+/* line 1365, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-box:hover strong,
+.promo-box:hover strong a {
+  color: #e74c3c;
+}
+
+/*Promo Service*/
+/* line 1370, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-service {
+  margin-bottom: 20px;
+}
+
+/* line 1374, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.promo-service a.btn-u {
+  margin: 0 20px 10px 0;
+}
+
+/*Promo Elements*/
+/* line 1379, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.title-box {
+  margin: 20px 0;
+  padding: 40px 0;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: solid 1px #eeeeee;
+}
+
+/* line 1387, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.title-box .title-box-text {
+  color: #555;
+  display: block;
+  font-size: 35px;
+  font-weight: 200;
+}
+
+/* line 1394, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.block-blockquote {
+  margin: 20px 0;
+  text-align: center;
+  border: dashed 1px #cccccc;
+}
+
+/* line 1400, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.block-blockquote-inner {
+  padding: 15px;
+}
+
+/* line 1404, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.block-blockquote p {
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+/*Info Blocks*/
+/* line 1410, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks {
+  margin-bottom: 15px;
+}
+
+/* line 1414, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks:hover i.icon-info-blocks {
+  color: #72c02c;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 1422, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks i.icon-info-blocks {
+  float: left;
+  color: #777;
+  font-size: 40px;
+  margin-top: 5px;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* line 1431, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks .info-blocks-in {
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+/* line 1436, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks .info-blocks-in h3 {
+  color: #555;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* line 1442, ../../../app/assets/stylesheets/website/style.css.scss.erb */
+.info-blocks .info-blocks-in p {
+  font-size: 12px;
+}
