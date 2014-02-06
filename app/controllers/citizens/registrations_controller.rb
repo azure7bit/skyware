@@ -1,4 +1,6 @@
 class Citizens::RegistrationsController < Devise::RegistrationsController
+
+	
 	def create
 		build_resource
 

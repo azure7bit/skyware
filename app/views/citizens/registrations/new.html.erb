@@ -1,35 +1,47 @@
-<h2>Sign up</h2>
+
 <!--=== Content Part ===-->
 
-  <link rel="stylesheet" href="registration/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="registration/css/style.css">
-    <link rel="stylesheet" href="registration/css/headers/header1.css">
-    <link rel="stylesheet" href="registration/css/responsive.css">
+  <link rel="stylesheet" href="../assets/registration/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/registration/css/style.css">
+    <link rel="stylesheet" href="../assets/registration/css/headers/header1.css">
+    <link rel="stylesheet" href="../assets/registration/css/responsive.css">
     <link rel="shortcut icon" href="favicon.ico">        
     <!-- CSS Implementing Plugins -->    
-    <link rel="stylesheet" href="registration/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../assets/registration/plugins/font-awesome/css/font-awesome.css">
     <!-- CSS Style Page -->    
-    <link rel="stylesheet" href="registration/css/pages/page_log_reg_v1.css">
+    <link rel="stylesheet" href="../assets/registration/css/pages/page_log_reg_v1.css">
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="registration/css/themes/default.css" id="style_color">
-    <link rel="stylesheet" href="registration/css/themes/headers/default.css" id="style_color-header-1">    
+    <link rel="stylesheet" href="../assets/registration/css/themes/default.css" id="style_color">
+    <link rel="stylesheet" href="../assets/registration/css/themes/headers/default.css" id="style_color-header-1"> 
+    <body> 
+    <%= render "layouts/partials/headerunify" %>
+  
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "reg-page"}) do |f| %>
               <%= f.error_notification %>
                 <div class="reg-header">
                     <h2>Register a new account</h2>
-                    <p>Already Signed Up? Click <a href="page_login.html" class="color-green">Sign In</a> to login your account.</p>                    
+                    <p>Already Signed Up? Click <a href="<%=user_login_path%>" class="color-green">Sign In</a> to login your account.</p>                    
                 </div>
+                 <label>Email Address <span class="color-red">*</span></label>
+                <%= f.email_field :email, :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>  
+                <label>HQ ID ( ___.skyhq.com ) <span class="color-red">*</span></label>                      
+                <%= f.text_field :subdomain ,:class=>"form-control margin-bottom-20"%>
 
-              
-               
-                <%= f.input :email, :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>                            
-                <%= f.input :subdomain, label: "HQ ID ( ___.skyhq.com )" %>
-                <%= f.input :password, :required => true ,:class=>"form-control margin-bottom-20" %>
-                <%= f.input :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20" %>
-                <%= f.button :submit, "Sign up" %>
+                <div class="row">
+                    <div class="col-sm-6">
+                      <label>Password <span class="color-red">*</span></label>
+                      <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20" %>
+                    </div>  
+                 <div class="col-sm-6">
+                  <label>Confirmation <span class="color-red">*</span></label>
+                  <%= f.password_field :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20" %>
+                </div>
+                  <div class="col-lg-6 text-right" style="float: right;">
+                   <%= f.button :submit, "Register",:class=>"btn-u" %>                       
+                  </div>
                  
             <% end %>
 
@@ -38,22 +50,18 @@
         </div>
     </div>
 </div><!--/container-->   
-<!--=== End Content Part ===-->
 
-
-<!-- JS Global Compulsory -->           
-<script type="text/javascript" src="registration/plugins/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="registration/plugins/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="registration/plugins/bootstrap/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="registration/plugins/hover-dropdown.min.js"></script> 
-<script type="text/javascript" src="registration/plugins/back-to-top.js"></script>
+<%= render "layouts/partials/footerunify" %>
+<script type="text/javascript" src="../assets/registration/plugins/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../assets/registration/plugins/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../assets/registration/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="../assets/registration/plugins/hover-dropdown.min.js"></script> 
+<script type="text/javascript" src="../assets/registration/plugins/back-to-top.js"></script>
 <!-- JS Page Level -->           
-<script type="text/javascript" src="registration/js/app.js"></script>
+<script type="text/javascript" src="../assets/registration/js/app.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
     });
 </script>
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-<![endif]-->
+</body>
