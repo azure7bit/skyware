@@ -1,15 +1,88 @@
-<h2>Sign in</h2>
 
+<head>
+    <title>Unify | Coming Soon Page..</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS Global Compulsory-->
+    <link rel="stylesheet" href="../assets/registration/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/registration/style.css">
+    <link rel="stylesheet" href="../assets/registration/header1.css">
+    <link rel="stylesheet" href="../assets/registration/responsive.css">
+    <link rel="shortcut icon" href="favicon.ico">        
+    <!-- CSS Implementing Plugins -->    
+    <link rel="stylesheet" href="../assets/registration/font-awesome.css">
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="../assets/registration/page_log_reg_v2.css">    
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href="../assets/registration/default.css" id="style_color">
+</head> 
+
+<body>
+<!--=== Style Switcher ===-->    
+<i class="style-switcher-btn icon-cogs hidden-xs"></i>
+<div class="style-switcher">
+    <div class="theme-close"><i class="icon-remove"></i></div>
+    <div class="theme-heading"></div>
+    <ul class="list-unstyled">
+        <li class="theme-default theme-active" data-style="default" data-header="light"></li>
+        <li class="theme-blue" data-style="blue" data-header="light"></li>
+        <li class="theme-orange" data-style="orange" data-header="light"></li>
+        <li class="theme-red" data-style="red" data-header="light"></li>
+        <li class="theme-light last" data-style="light" data-header="light"></li>
+    </ul>
+    <div class="style-switcher-logo"><a href="index.html"><new_img src="../assets/new_img/logo2-default.png" width="71" heigt="26" alt=""></a></div>
+</div><!--/style-switcher-->
+<!--=== End Style Switcher ===-->    
+
+    
+<div class="container">
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div class="reg-block-header">
+            <h2>Sign In</h2>
+           
+        </div>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  </div>
+              <%= f.error_notification %>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= f.text_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-lock"></i></span>
+            <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+        </div>
+         <label class="checkbox">
+           <%= f.check_box  :remember_me, :as => :boolean,:class=>"form-control margin-bottom-20" if devise_mapping.rememberable? %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
-<% end %>
+            <p>Remmeber Me</p>
+        </label>
+        
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <%= f.button :submit, "Sign in" ,:class=>"btn-u btn-block" %>                                       
+            </div>
+        </div>
 
-<%= render "citizens/shared/links" %>
+        <% end %>
+                    <%= render "citizens/shared/links" %>
+
+    </div>
+    <!--End Reg Block-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+
+
+<!-- JS Page Level -->           
+
+<!--[if lt IE 9]>
+    <script src="assets/plugins/respond.js"></script>
+<![endif]-->
+
+</body>
+</html> 
