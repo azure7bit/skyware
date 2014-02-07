@@ -21,6 +21,9 @@ SkyhqNew::Application.configure do
   config.assets.digest = true
 
   config.assets.precompile += %w( devise.css )
+
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w( .svg .eot .woff .ttf)
   
 
   # Defaults to nil and saved in location specified by config.assets.prefix

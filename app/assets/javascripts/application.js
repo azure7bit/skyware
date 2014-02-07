@@ -17,6 +17,7 @@
 //= require holder
 //= require html5shiv
 //= require respond.min
+//= require live_validation
 //= require_tree ./application/libraries
 //= require_self
 //= require_directory ./application

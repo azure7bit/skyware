@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="../assets/registration/page_log_reg_v2.css">    
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="../assets/registration/default.css" id="style_color">
+
+    <script type="text/javascript" src="../assets/live_validation.js"></script>
 </head> 
 
 <body>
@@ -54,12 +56,13 @@
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "reg-page"}) do |f| %>
               <%= f.error_notification %>
         <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <span class="input-group-addon"><i class="icon-envelope"></i></span>
              <%= f.text_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
         </div>
+
         <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-envelope"></i></span>
-            <%= f.text_field :subdomain ,:class=>"form-control margin-bottom-20",:placeholder=>"Subdomain"%>
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <%= f.text_field :subdomain ,:class=>"form-control margin-bottom-20",:placeholder=>"HQ ID (_____.skyhq.com)"%>
         </div>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-lock"></i></span>
@@ -88,6 +91,22 @@
     <!--End Reg Block-->
 </div><!--/container-->
 <!--=== End Content Part ===-->
+
+<script>
+    var f1 = new LiveValidation('citizen_email');
+    f1.add( Validate.Presence );
+    f1.add( Validate.Email );
+
+    var f2 = new LiveValidation('citizen_subdomain');
+    f2.add( Validate.Presence );
+
+
+    var f3 = new LiveValidation('citizen_password');
+    f3.add( Validate.Presence );
+
+    var f19 = new LiveValidation('citizen_password_confirmation');
+    f19.add( Validate.Confirmation, { match: 'citizen_password' } );
+</script>
 
 
 <!-- JS Page Level -->           
