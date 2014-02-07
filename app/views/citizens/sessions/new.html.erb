@@ -20,8 +20,6 @@
     <link rel="stylesheet" href="../assets/registration/page_log_reg_v2.css">    
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="../assets/registration/default.css" id="style_color">
-
-    <script type="text/javascript" src="../assets/live_validation.js"></script>
 </head> 
 
 <body>
@@ -43,8 +41,9 @@
             <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
         </div>
         <hr>
+
          <label class="checkbox">
-           <%= f.check_box  :remember_me, :as => :boolean,:class=>"form-control margin-bottom-20" if devise_mapping.rememberable? %>
+           <%= f.check_box  :remember_me, :as => :boolean if devise_mapping.rememberable? %>
 
             <p>Remember Me</p>
         </label>
@@ -62,19 +61,5 @@
     <!--End Reg Block-->
 </div><!--/container-->
 <!--=== End Content Part ===-->
-
-<!-- JS Page Level --> 
-<script>
-	var f20 = new LiveValidation('citizen_email');
-	f20.add( Validate.Presence );
-	f20.add( Validate.Email );
-
-	var f19 = new LiveValidation('citizen_password');
-	f19.add( Validate.Presence );
-</script>         
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-<![endif]-->
-
 </body>
 </html> 
