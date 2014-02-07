@@ -20,4 +20,7 @@ class Citizens::RegistrationsController < Devise::RegistrationsController
 			redirect_to user_register_url
 		end
 	end
+
+
+
 end

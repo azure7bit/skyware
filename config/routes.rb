@@ -38,6 +38,13 @@ SkyhqNew::Application.routes.draw do
   match '/pricing' => 'general_pages#pricing'
   match '/services' => 'general_pages#services'
   match '/tos' => 'general_pages#tos'
+  match '/edit_citizen_password' => 'blogit/posts#edit_citizen_password'
+  match '/save_citizen_password' => 'blogit/posts#save_citizen_password'
+
+
+  
+  # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'
+  
   # match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
@@ -67,7 +74,8 @@ SkyhqNew::Application.routes.draw do
 
   devise_for :citizens, :controllers => { 
     :omniauth_callbacks => "citizens/omniauth_callbacks",
-    registrations: 'citizens/registrations'
+    registrations: 'citizens/registrations',
+
   }
 
   devise_for :super_admins, controllers: { 

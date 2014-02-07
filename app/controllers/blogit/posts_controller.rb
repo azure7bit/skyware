@@ -20,18 +20,41 @@ module Blogit
 
     def index
       subdomain = request.subdomain
-      user = Citizen.where(subdomain: subdomain).first
+      @user = Citizen.where(subdomain: subdomain).first
       respond_to do |format|
         format.xml {
           @posts = Post.order('created_at DESC')
         }
         format.html {
-          @posts = Post.where(blogger_id: user.id).for_index(params[Kaminari.config.param_name])
+          @posts = Post.where(blogger_id: @user.id).for_index(params[Kaminari.config.param_name])
         }
         format.rss {
           @posts = Post.order('created_at DESC')
         }
       end
+    end
+
+    def edit_citizen_password
+      subdomain = request.subdomain
+      @resource = Citizen.where(subdomain: subdomain).first
+      @user = current_citizen
+    end
+    def save_citizen_password
+      if  params[:citizen][:password] ==  params[:citizen][:password_confirmation]
+        current_user.password = params[:citizen][:password]
+        current_user.password_confirmation = params[:citizen][:password_confirmation]
+        current_user.save
+        if  current_user.save
+         flash[:notice] = "Password change successfully"
+         redirect_to blog_root_path
+       else
+          flash[:notice] = "There is some problem please try again"
+          redirect_to :back
+       end
+      else
+         flash[:notice] = "Password and Password confirmation did not match"
+         redirect_to :back
+       end
     end
 
     def show
