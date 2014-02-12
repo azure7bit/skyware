@@ -8,7 +8,7 @@ group :development do
   gem 'sqlite3'
   gem 'mysql2'
 end
-#gem 'mysql2'
+gem 'mysql2'
 gem 'simplecov', :require => false, :group => :test
 group :development, :test do
   gem "rspec-rails", "~> 2.14.1"
