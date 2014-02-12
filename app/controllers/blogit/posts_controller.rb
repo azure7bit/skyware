@@ -18,7 +18,7 @@ module Blogit
 
     blogit_authenticate(except: [:index, :show, :tagged])
 
-    def index
+    def index    
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
       respond_to do |format|

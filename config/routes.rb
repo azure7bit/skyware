@@ -57,7 +57,7 @@ SkyhqNew::Application.routes.draw do
   resources :company_docs, path: 'docs'
 
   resources :company_profiles, :path => "public"
-  
+ 
   resources :online_stores, :path => "orders" do
     resources :products
   end
