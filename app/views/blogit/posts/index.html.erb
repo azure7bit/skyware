@@ -132,14 +132,7 @@
           <div id="togglesidebar" class="btn btn-primary pull-right">
             <i class="fa fa-bars"></i>
           </div>
-          <%if !@user.nil? %>
-            <div id="togglesidebar" class="btn btn-primary pull-right">
-             <%= link_to "Logout", destroy_citizen_session_path %>
-             </div>&nbsp;
-             <div id="togglesidebar" class="btn btn-primary pull-right">
-             <%= link_to "Edit Password", edit_citizen_password_path %>
-            </div>  
-          <% end %>
+          
 
         </header> <!-- /header -->
 
