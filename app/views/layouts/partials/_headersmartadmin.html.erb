@@ -111,7 +111,7 @@
                 
                 <ul>
                     <% if current_citizen %>
-                        <li class=""><a href="#" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog HQ</span></a></li>
+                        <li class=""><a href="/blog" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog HQ</span></a></li>
                     <% end %>
                     <% if current_super_admin %>
                         <li class=""><a href="/locations" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
@@ -121,8 +121,9 @@
                     <% end %>
                     <% if current_super_admin %>
                         <li><a href="/comms"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>
+                          <li><a href="/public"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
                     <% end %>
-                    <li><a href="/public"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
+                  
                     <% if current_super_admin %>
                         <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Team HQ</span></a></li>
                     <% end %>
@@ -135,7 +136,9 @@
                     <% if current_super_admin %>
                         <li><a href="/docs"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
                     <% end %>
+                    <% if current_super_admin %>
                     <li><a href="/inbox"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
+                    <%end%>
                     <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
                         <ul>
                              <li>

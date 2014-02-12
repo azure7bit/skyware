@@ -13,7 +13,7 @@ end
 SkyhqNew::Application.routes.draw do
 
   authenticated :citizen do
-    root to: Blogit::Engine
+    root to: 'company_profiles#index'
   end
 
 
@@ -40,7 +40,7 @@ SkyhqNew::Application.routes.draw do
   match '/tos' => 'general_pages#tos'
   match '/edit_citizen_password' => 'blogit/posts#edit_citizen_password'
   match '/save_citizen_password' => 'blogit/posts#save_citizen_password'
-
+  match '/blog' => 'blogit/posts#index'
 
   
   # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'
