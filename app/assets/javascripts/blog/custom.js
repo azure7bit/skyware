@@ -18,4 +18,20 @@ $(function(){
 		}
 	});
 
+	var toggleSidebar = $("#togglesidebar-1");
+
+	toggleSidebar.on("click", function(){
+
+		if(primary.hasClass("col-sm-8")){
+			primary.removeClass("col-sm-8");
+			primary.addClass("col-sm-12");
+			secondary.css('display', 'none');
+		}
+		else {
+			primary.removeClass("col-sm-12");
+			primary.addClass("col-sm-8");
+			secondary.css('display', 'inline-block');
+		}
+	});
+
 });

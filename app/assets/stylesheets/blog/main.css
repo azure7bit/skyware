@@ -168,15 +168,16 @@ a, a:focus, a:hover {
 /* Sidebar */
 .sidebar {
   background: #1C171E;
-	height: 100%;
+	height: auto;
 	position: fixed;
   right: 0;
   overflow-y: auto;
 }
 
 .sidebar aside {
-  color: #C1C0C0;
-  margin: 2em 1em;
+  background: none;
+  width: 100%;
+  margin-top: 0px;
 }
 
 .sidebar aside p {

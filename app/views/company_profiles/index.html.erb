@@ -187,13 +187,53 @@
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-sidebar -->
+          <div style="max-width:275px;">
+            <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
+              <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
+              <br>
+              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post"></textarea>
+              <br>
+              <p align="right"><%= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success" %></p>
+            <% end -%>
+          </div>
         </div>
 
       </aside>
     </div> <!-- /#secondary -->
 
+  <div class="row">
     <div id="primary" class="col-sm-12">
       <div class="content">    
+        <header class="header">
+          <hgroup class="pull-left">
+            <h1 class="site-title">
+              <a rel="home" title="Von" href="/">
+                MY HQ ID
+              </a>
+            </h1>
+          </hgroup>
+          <div id="togglesidebar-1" class="btn btn-primary pull-right">
+            <i class="fa fa-bars"></i>
+          </div>
+
+        </header> <!-- /header -->
+
+        <% @posts.each do |post| %>
+          <section class="post" >
+          <header class="entry-header">
+            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
+            <h2 class="entry-title"><a href="single.html"><%= post.title %></a></h2>
+            <p class="entry-meta">
+              Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags <a class="label label-danger" href="tag.html">CSS3</a>
+            </p>
+          </header>
+          <div class="entry-description">
+            <p>
+            <%= post.body%>
+            </p>
+          </div>
+        </section> <!-- /.post -->
+        <% end %>
 
         <section class="post" >
           <header class="entry-header">
@@ -243,6 +283,7 @@
        
       </div>
     </div> <!-- /#primary -->
+  </div>
 
     <!-- Scripts -->
     <script src="../assets/blog/jquery-1.11.0.min.js"></script>
@@ -289,5 +330,32 @@
           </div> <!-- /.socials-footer -->
         </footer> <!-- /footer -->
 
- 
+ <script type="text/javascript">
+   function checkFormVal(){
+     var topic = $("#topic").val();
+     var content = $("#content-post").val();
+
+     if(topic != "" && content != ""){
+       if(topic.length < 10 && content.length < 10){
+         alert("Topic and Content are too short (minimum is 10 characters)..."); 
+       }
+       else if(topic.length < 10){
+         alert("Topic is too short (minimum is 10 characters)..."); 
+       }
+       else if(content.length < 10) {
+         alert("Content is too short (minimum is 10 characters)..."); 
+       }
+       else { $("#form-post").submit(); }
+     }
+     else if(topic=="" && content==""){
+       alert("Topic and Content can not be blank...");
+     }
+     else if(topic==""){
+       alert("Topic can not be blank...");
+     }
+     else{
+       alert("Content can not be blank...");
+     }
+   };
+ </script>
 <%end%>

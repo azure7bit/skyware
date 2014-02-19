@@ -31,5 +31,11 @@ class GeneralPagesController < ApplicationController
   def tos
     render 'general_pages/tos'
   end
+
+  def save_post
+    @post = Blogit::Post.new(params[:post].merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
+    @post.save
+    redirect_to root_url(subdomain: current_user.subdomain)
+  end
   
 end

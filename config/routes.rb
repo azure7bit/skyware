@@ -27,6 +27,7 @@ SkyhqNew::Application.routes.draw do
 
   constraints(Subdomain.new) do
     root to: Blogit::Engine
+    match "/post/save" => 'general_pages#save_post', :via => :post
   end
   root :to => 'general_pages#index'
 

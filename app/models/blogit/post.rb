@@ -1,6 +1,6 @@
 module Blogit
   class Post < ActiveRecord::Base
-    attr_accessible :title, :body, :tag_list
+    attr_accessible :title, :body, :tag_list, :blogger_id, :blogger_type
     require "acts-as-taggable-on"
     require "kaminari"
 
