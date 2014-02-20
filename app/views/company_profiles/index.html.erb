@@ -125,14 +125,21 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
-
+<style type="text/css">
+  .sidebar aside {
+  background: none;
+  width: 100%;
+  margin-top: 0px;
+  padding: 0px 35px 0px 0px;
+}
+</style>
 
     <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
       <aside>
 
-        <div class="about">
+        <div class="about" style="margin-bottom:-10px;">
           <h4>About us</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <p style="font-size:11px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </div>
 
         <div class="tags">
@@ -148,7 +155,7 @@
         </div>
 
         <div class="socialmedia">
-          <h4>Share</h4>
+          <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
           <div class="socials-sidebar">
             <a class="btn btn-facebook" href="#" title="Facebook">
               <i class="fa fa-facebook"></i>
@@ -187,15 +194,14 @@
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-sidebar -->
-          <div style="max-width:275px;">
             <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
               <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
               <br>
-              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post"></textarea>
+              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
               <br>
               <p align="right"><%= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success" %></p>
             <% end -%>
-          </div>
+            <br>
         </div>
 
       </aside>
@@ -208,7 +214,7 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="/">
-                MY HQ ID
+                <%= current_user.subdomain%>
               </a>
             </h1>
           </hgroup>
@@ -282,12 +288,9 @@
 
        
       </div>
-    </div> <!-- /#primary -->
-  </div>
+  
 
-    <!-- Scripts -->
-    <script src="../assets/blog/jquery-1.11.0.min.js"></script>
-    <script src="../assets/blog/custom.js"></script>
+    
         <footer class="footer">
           <p>© Von 2013. All right reserved.</p>
           <div class="socials-footer">
@@ -330,6 +333,11 @@
           </div> <!-- /.socials-footer -->
         </footer> <!-- /footer -->
 
+    </div> <!-- /#primary -->
+    </div>
+<!-- Scripts -->
+ <script src="../assets/blog/jquery-1.11.0.min.js"></script>
+ <script src="../assets/blog/custom.js"></script>
  <script type="text/javascript">
    function checkFormVal(){
      var topic = $("#topic").val();

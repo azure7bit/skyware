@@ -2,17 +2,17 @@
   <%= link_to t(:new_blog_post, scope: 'blogit.posts'), new_post_path ,:style=>"font-size:30px; margin-left:245px"%>
 <% end %>
 
-<%# if @posts.any? %>
+<% if @posts.any? %>
 
   <%#= render partial: "blogit/posts/post",
     collection: @posts,
     spacer_template: "blog_post_spacer",
     locals: {show_comments_count: (Blogit.configuration.include_comments == :active_records) }  %>
-<%# else %>
+<% else %>
 
   <%= render partial: "blogit/posts/empty" %>
 
-<%# end %>
+<% end %>
 
 <%#= render "pagination" %>
 
@@ -56,9 +56,9 @@
     <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
       <aside>
 
-        <div class="about">
+        <div class="about" style="margin-bottom:-10px;">
           <h4>About us</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <p style="font-size:11px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         </div>
 
         <div class="tags">
@@ -74,7 +74,7 @@
         </div>
 
         <div class="socialmedia">
-          <h4>Share</h4>
+          <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
           <div class="socials-sidebar">
             <a class="btn btn-facebook" href="#" title="Facebook">
               <i class="fa fa-facebook"></i>
@@ -113,6 +113,7 @@
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-sidebar -->
+          
         </div>
 
       </aside>
@@ -125,7 +126,6 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="index.html">
-                <i class="fa fa-lemon-o"></i> Von
               </a>
             </h1>
           </hgroup>
