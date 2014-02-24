@@ -33,7 +33,6 @@ class GeneralPagesController < ApplicationController
   end
 
   def save_post
-    debugger
     @post = Blogit::Post.new(params[:post].merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
     @post.save
     redirect_to root_url(subdomain: current_user.subdomain)
