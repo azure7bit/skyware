@@ -1,5 +1,6 @@
 class CompanyProfilesController < ApplicationController
   before_filter :authenticate_super_admin!, :only => [:admin_profile]
+  skip_before_filter :verify_authenticity_token, :only => [:save_tagline]
   # GET /company_profiles
   # GET /company_profiles.json
   def index
