@@ -49,3 +49,44 @@ $(function(){
 	});
 
 });
+
+$(document).ready(function() {
+    var showChar = 355;
+    var showChar2 = 200;
+    var ellipsestext = "...";
+    var moretext = "More";
+    var lesstext = "Less";
+    $('.more').each(function() {
+        var content = $(this).html();if(showChar < content.length) {
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar-1, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+    });
+ 	 $('.more_about').each(function() {
+        var content = $(this).html();
+        if(showChar2 < content.length) {
+            var c = content.substr(0, showChar2);
+            var h = content.substr(showChar2-1, content.length - showChar2);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+    });
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});

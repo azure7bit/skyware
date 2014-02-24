@@ -14,3 +14,22 @@
   *= require_tree ./blog
  */
 
+a {
+    color: #0254EB
+}
+a:visited {
+    /*color: #0254EB*/
+}
+a.morelink {
+    text-decoration:none;
+    outline: none;
+}
+.morecontent span {
+    display: none;
+}
+.comment {
+    width: 100%;
+}
+.click form{
+	color: #000;
+}

@@ -6,7 +6,7 @@ module Blogit
 
     include ::ActionView::Helpers::TextHelper
 
-    acts_as_taggable
+    acts_as_taggable_on :tags
 
     self.paginates_per Blogit.configuration.posts_per_page
 

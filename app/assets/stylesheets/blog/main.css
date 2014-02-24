@@ -65,6 +65,7 @@ a, a:focus, a:hover {
 -------------------------------------------------------- */
 #primary {
   margin: 0 auto;
+  margin-top: -30px;
 }
 
 .header {
@@ -125,7 +126,7 @@ a, a:focus, a:hover {
 }
 
 .entry-avatar {
-  border-radius: 50%;
+  border-radius: 4%;
   float: right;
   margin-left: 1em;
 }
@@ -244,4 +245,20 @@ a, a:focus, a:hover {
     display: inline-block;
 	}
 
+}
+a {
+    color: #0254EB
+}
+a:visited {
+    /*color: #0254EB*/
+}
+a.morelink {
+    text-decoration:none;
+    outline: none;
+}
+.morecontent span {
+    display: none;
+}
+.comment {
+    width: 100%;
 }

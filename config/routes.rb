@@ -28,6 +28,7 @@ SkyhqNew::Application.routes.draw do
   constraints(Subdomain.new) do
     root to: Blogit::Engine
     match "/post/save" => 'general_pages#save_post', :via => :post
+    post "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
   end
   root :to => 'general_pages#index'
 
@@ -109,5 +110,4 @@ SkyhqNew::Application.routes.draw do
       post :untrash
     end
   end
-
 end

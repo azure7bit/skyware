@@ -8,6 +8,7 @@
     collection: @posts,
     spacer_template: "blog_post_spacer",
     locals: {show_comments_count: (Blogit.configuration.include_comments == :active_records) }  %>
+
 <% else %>
 
   <%= render partial: "blogit/posts/empty" %>
@@ -17,48 +18,15 @@
 <%#= render "pagination" %>
 
 
-
- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Paul Laros">
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <title>Von - Minimalist Blog Theme</title>
-
-    <!-- Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C400italic%2C700" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/blog/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/blog/font-awesome.min.css" rel="stylesheet">
-    <link href="../assets/blog/bootstrap-social.css" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="../assets/blog/main.css" rel="stylesheet">
-
-    <!-- Loading bar -->
-    <script src="../assets/blog/pace.min.js"></script>
-
-    <!-- HTML5 shiv for IE8 support -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
     <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
       <aside>
 
         <div class="about" style="margin-bottom:-10px;">
-          <h4>About us</h4>
-          <p style="font-size:11px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <% title = !@user.title_tagline.blank? ? @user.title_tagline : "About Us"  %>
+          <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
+          <% tagline = !@user.tagline.blank? ? @user.tagline : tagline  %>
+          <h4><%= title %></h4>
+          <p><%= tagline %></p>
         </div>
 
         <div class="tags">
@@ -126,6 +94,7 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="index.html">
+                <%= request.subdomain %>
               </a>
             </h1>
           </hgroup>
@@ -142,14 +111,13 @@
             <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
             <h2 class="entry-title"><a href="single.html"><%= post.title %></a></h2>
             <p class="entry-meta">
-              Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags <a class="label label-danger" href="tag.html">CSS3</a>
+              Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
+              <% post.tags.each do |tag| %>
+                <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+              <% end %>
             </p>
           </header>
-          <div class="entry-description">
-            <p>
-            <%= post.body%>
-            </p>
-          </div>
+          <div class="entry-description comment more"><%= post.body%></div>
         </section> <!-- /.post -->
         <% end %>
         <% end %> 
@@ -200,7 +168,7 @@
         </section> <!-- /.post -->
 
         <footer class="footer">
-          <p>© Von 2013. All right reserved.</p>
+          <p>© SkyHQ 2014. All right reserved.</p>
           <div class="socials-footer">
             <a class="btn btn-facebook" href="#" title="Facebook">
               <i class="fa fa-facebook"></i>
@@ -243,10 +211,3 @@
 
       </div>
     </div> <!-- /#primary -->
-
-    <!-- Scripts -->
-    <script src="../assets/blog/jquery-1.11.0.min.js"></script>
-    <script src="../assets/blog/custom.js"></script>
-
-  </body>
-</html>

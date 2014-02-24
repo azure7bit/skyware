@@ -31,12 +31,22 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
+    <style type="text/css">
+    .sidebar {
+      top: 0!important;
+    }
+    .header{
+      height: 30px;
+    }
+    </style>
   </head>
 
   <body>
 
   <%= yield %>
 
-
+  <!-- Scripts -->
+  <script src="../assets/blog/jquery-1.11.0.min.js"></script>
+  <script src="../assets/blog/custom.js"></script>
   </body>
 </html>

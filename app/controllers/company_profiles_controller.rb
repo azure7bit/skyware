@@ -91,4 +91,19 @@ class CompanyProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def save_tagline
+    @citizen = Citizen.find(params[:id])
+    if !params[:title].nil?
+      @citizen.update_attributes(title_tagline: params[:title])
+      text = @citizen.title_tagline
+    else
+      @citizen.update_attributes(tagline: params[:tagline])
+      text = @citizen.tagline
+    end
+    
+    sign_in(@citizen, :bypass => true)
+
+    render :text => text
+  end
 end
