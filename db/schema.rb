@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140205100625) do
+ActiveRecord::Schema.define(:version => 20140224082608) do
 
   create_table "blogit_comments", :force => true do |t|
     t.string   "name",       :null => false
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20140205100625) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "subdomain"
+    t.string   "title_tagline"
+    t.text     "tagline"
   end
 
   add_index "citizens", ["email"], :name => "index_users_on_email", :unique => true
@@ -256,8 +258,8 @@ ActiveRecord::Schema.define(:version => 20140205100625) do
     t.string "name"
   end
 
-  add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
+  add_foreign_key "notifications", "conversations", name: "notifications_on_conversation_id"
 
-  add_foreign_key "receipts", "notifications", :name => "receipts_on_notification_id"
+  add_foreign_key "receipts", "notifications", name: "receipts_on_notification_id"
 
 end

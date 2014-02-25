@@ -86,19 +86,19 @@ SkyhqNew::Application.routes.draw do
 
   
   devise_scope :super_admin do
+    get "business/login",    to: "devise/sessions#new"
+    get "business/logout",   to: "devise/sessions#destroy"
+    get "business/register", to: "devise/registrations#new"
+    get "business/reset",    to: "devise/passwords#new"
+    get "business/profile", to: "devise/registrations#edit"
+  end
+
+  devise_scope :citizen do
     get "login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
     get "reset",    to: "devise/passwords#new"
     get "profile", to: "devise/registrations#edit"
-  end
-
-  devise_scope :citizen do
-    get "user/login",    to: "devise/sessions#new"
-    get "logout",   to: "devise/sessions#destroy"
-    get "user/register", to: "devise/registrations#new"
-    get "user/reset",    to: "devise/passwords#new"
-    get "user/profile", to: "devise/registrations#edit"
   end
   
   get("/inbox/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})

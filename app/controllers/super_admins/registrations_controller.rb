@@ -1,6 +1,6 @@
 class SuperAdmins::RegistrationsController < Devise::RegistrationsController
 	def create
-		build_resource
+		build_resource(sign_up_params)
 
 		if resource.save
 			if resource.active_for_authentication?

@@ -4,7 +4,7 @@
         <!--<span id="logo"></span>-->
         <div id="logo-group">
             <span id="logo"><a href="/home"><img src="/img/logo.png" alt="SmartAdmin"></a></span><!-- END AJAX-DROPDOWN -->
-        </div><span id="login-header-space"><h4 class="hidden-mobile">Need an account?</h4><a href="/register.html" class="btn btn-success">Create account</a></span>
+        </div><span id="login-header-space"><h4 class="hidden-mobile">Need an account?</h4><a href="<%= business_register_path %>" class="btn btn-success">Create account</a></span>
     </header>
     <div id="main" role="main">
         <!-- MAIN CONTENT -->
@@ -59,7 +59,7 @@
                                     <input type="password" id="super_admin_password" name="super_admin[password]"><b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i>Enter your password</b>
                                 </label>
                                 <div class="note">
-                                    <a href="/reset">Forgot password?</a>
+                                    <a href="<%= business_reset_path %>">Forgot password?</a>
                                 </div>
                             </section>
                             <section>
