@@ -36,7 +36,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'compass-h5bp'
-  gem "therubyracer"
   gem "less-rails"
 end
 
@@ -67,4 +66,4 @@ gem 'country_select'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'
