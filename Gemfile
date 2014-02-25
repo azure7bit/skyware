@@ -36,6 +36,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'compass-h5bp'
+  gem "therubyracer"
   gem "less-rails"
 end
 
