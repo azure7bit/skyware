@@ -43,7 +43,7 @@
                 <li><a href="#"><i class="icon-twitter icon-round icon-round-sm icon-color-grey"></i></a></li>
                 <li><a href="#"><i class="icon-rss icon-round icon-round-sm icon-color-grey"></i></a></li>
             </ul>
-            <p>Already Signed Up? Click <a class="color-green" href="<%=user_login_path%>">Sign In</a> to login your account.</p>
+            <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
         </div>
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "reg-page"}) do |f| %>
               <%= f.error_notification %>
