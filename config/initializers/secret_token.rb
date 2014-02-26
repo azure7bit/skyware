@@ -1,7 +1,12 @@
 # Be sure to restart your server when you modify this file.
 
-# Your secret key for verifying the integrity of signed cookies.
+# Your secret key is used for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
+
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-SkyhqNew::Application.config.secret_token = '6573b5b1e0188093c9b2be611f61c3053a6b903734e7a4b12df8d62b0529d7e369e930d942afc211a60fc997564042c82a4ecc966e20c871972513bac3325e4b'
+# You can use `rake secret` to generate a secure secret key.
+
+# Make sure your secret_key_base is kept private
+# if you're sharing your code publicly.
+SkyhqNew::Application.config.secret_key_base = 'df6adbc0a28ed17de38a92aaef781cdcdbc198d153dcb9c5b93c00559292e3a888a238f372179f3b7e02ff336f84f89a76adbd08d29a0a2deaca194bb9f7ad52'
