@@ -16,6 +16,14 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+
+  def devise_parameter_sanitizer
+    if resource_class == Citizen
+      Citizen::ParameterSanitizer.new(Citizen, :citizen, params)
+    else
+      super
+    end
+  end
   
   def populate_tags
     @super_admin = current_super_admin

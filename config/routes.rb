@@ -12,25 +12,25 @@ end
 
 SkyhqNew::Application.routes.draw do
 
-  # authenticated :citizen do
-  #   root to: 'company_profiles#index'
-  # end
+  authenticated :citizen do
+    get '/' => 'company_profiles#index'
+  end
 
 
-  # authenticated :super_admin do
-  #   root :to => 'locations#index'
-  # end
+  authenticated :super_admin do
+    get '/' => 'locations#index'
+  end
   
   constraints(WWWSubdomain.new) do
-    root :to => 'general_pages#index'
+    get '/' => 'general_pages#index'
   end
 
   constraints(Subdomain.new) do
-    # root to: Blogit::Engine
+    get '/' => Blogit::Engine
     match "/post/save" => 'general_pages#save_post', :via => :post
     post "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
   end
-  # root :to => 'general_pages#index'
+  root :to => 'general_pages#index'
 
   get '/home' => 'general_pages#index'
   get '/about' => 'general_pages#about'
