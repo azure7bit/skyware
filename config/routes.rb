@@ -101,7 +101,7 @@ SkyhqNew::Application.routes.draw do
     get "profile", to: "devise/registrations#edit"
   end
   
-  get("/inbox/new/:super_admin_id", { :controller => "Conversations", :action => 'new', :as => 'message_company'})
+  get("/inbox/new/:super_admin_id", { :controller => "conversations", :action => 'new', :as => 'message_company'})
   
   resources :conversations, :path => "inbox", only: [:index, :show, :new, :create] do
     member do

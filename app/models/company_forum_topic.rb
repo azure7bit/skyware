@@ -1,5 +1,5 @@
 class CompanyForumTopic < ActiveRecord::Base
-  attr_accessible :company_forum_id, :topic_title, :user_type, :topic_creator_id
+  # attr_accessible :company_forum_id, :topic_title, :user_type, :topic_creator_id
 
   belongs_to :company_forum, dependent: :destroy
 

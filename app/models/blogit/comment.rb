@@ -1,6 +1,6 @@
 module Blogit
   class Comment < ActiveRecord::Base
-    attr_accessible :name, :email, :body, :website
+    # attr_accessible :name, :email, :body, :website
     # require custom validators
     require "validators"
     include Validators

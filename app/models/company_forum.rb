@@ -1,5 +1,5 @@
 class CompanyForum < ActiveRecord::Base
-  attr_accessible :super_admin_id, :title
+  # attr_accessible :super_admin_id, :title
 
   belongs_to :super_admin
 
