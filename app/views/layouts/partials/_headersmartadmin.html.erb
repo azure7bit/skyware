@@ -97,7 +97,7 @@
 
     <!-- User info -->
     <div class="login-info">
-        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <img src="/img/avatars/sunny.png" alt="me" class="online" /> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.name %> <i class="fa fa-angle-down"></i></a> </span>
+        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.name %> <i class="fa fa-angle-down"></i></a> </span>
     </div>
     <!-- end user info -->
 

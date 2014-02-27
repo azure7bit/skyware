@@ -3,7 +3,9 @@
     <header id="header">
         <!--<span id="logo"></span>-->
         <div id="logo-group">
-            <span id="logo"><a href="/home"><img src="/img/logo.png" alt="SmartAdmin"></a></span><!-- END AJAX-DROPDOWN -->
+            <span id="logo"><a href="/home">
+                <%= image_tag 'img/logo.png', alt: 'SmartAdmin' %>
+            </a></span><!-- END AJAX-DROPDOWN -->
         </div><span id="login-header-space"><h4 class="hidden-mobile">Already registered?</h4><a href="login.html" class="btn btn-success">Sign In</a></span>
     </header>
     <div id="main" role="main">
@@ -17,7 +19,7 @@
                         <div class="pull-left login-desc-box-l">
                             <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SkyHQ, everywhere you go!</h4>
                         </div>
-                        <img src="/img/demo/iphoneview.png" class="pull-right display-image" width="210px">
+                        <%= image_tag 'img/demo/iphoneview.png', class: 'pull-right display-image', width: '210px' %>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
