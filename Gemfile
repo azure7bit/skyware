@@ -19,7 +19,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 3.1.0"
+gem "jquery-ui-rails", "~> 4.2.0"
 
 gem 'devise'
 gem "cancan"
