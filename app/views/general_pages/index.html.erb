@@ -3,10 +3,8 @@
     <div class="fullwidthbanner">
         <ul>
             <!-- THE SECOND SLIDE -->
-            <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300" data-thumb="assets/img/sliders/revolution/thumbs/thumb1.jpg">
-
+            <li data-transition="3dcurtain-vertical" data-slotamount="10" data-masterspeed="300" data-thumb="<%= asset_path 'img/sliders/revolution/thumbs/thumb1.jpg' %>">
                 <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                <!-- <img src="assets/img/sliders/revolution/bg1.jpg"> -->
                 <%= image_tag 'img/sliders/revolution/bg1.jpg' %>
 
                 <div class="caption large_text sfb bg-black-opacity"
@@ -26,7 +24,7 @@
                      data-speed="600"
                      data-start="1100"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p1.jpg" alt="Image 2">
+                     <%= image_tag 'img/sliders/revolution/p1.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -35,7 +33,7 @@
                      data-speed="600"
                      data-start="1200"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p2.jpg" alt="Image 3">
+                     <%= image_tag 'img/sliders/revolution/p2.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -44,7 +42,7 @@
                      data-speed="600"
                      data-start="1300"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p6.jpg" alt="Image 4">
+                     <%= image_tag 'img/sliders/revolution/p6.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -53,7 +51,7 @@
                      data-speed="300"
                      data-start="1400"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p4.jpg" alt="Image 5">
+                     <%= image_tag 'img/sliders/revolution/p4.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -62,7 +60,7 @@
                      data-speed="600"
                      data-start="1500"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p5.jpg" alt="Image 6">
+                     <%= image_tag 'img/sliders/revolution/p5.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -71,7 +69,7 @@
                      data-speed="300"
                      data-start="1600"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p3.jpg" alt="Image 7">
+                     <%= image_tag 'img/sliders/revolution/p3.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -80,7 +78,7 @@
                      data-speed="300"
                      data-start="1700"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p4.jpg" alt="Image 8">
+                     <%= image_tag 'img/sliders/revolution/p4.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -89,7 +87,7 @@
                      data-speed="300"
                      data-start="1800"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p8.jpg" alt="Image 9">
+                     <%= image_tag 'img/sliders/revolution/p8.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -98,7 +96,7 @@
                      data-speed="300"
                      data-start="1900"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p10.jpg" alt="Image 10">
+                     <%= image_tag 'img/sliders/revolution/p10.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -107,7 +105,7 @@
                      data-speed="300"
                      data-start="2000"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p5.jpg" alt="Image 11">
+                     <%= image_tag 'img/sliders/revolution/p5.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -116,7 +114,7 @@
                      data-speed="300"
                      data-start="2100"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p9.jpg" alt="Image 12">
+                     <%= image_tag 'img/sliders/revolution/p9.jpg', class: 'img-border' %>
                 </div>
 
                 <div class="caption randomrotate"
@@ -125,16 +123,15 @@
                      data-speed="300"
                      data-start="2200"
                      data-easing="easeOutExpo">
-                     <img class="img-border" src="assets/img/sliders/revolution/p7.jpg" alt="Image 13">
+                     <%= image_tag 'img/sliders/revolution/p7.jpg', class: 'img-border' %>
                 </div>
             </li>
 
             <!-- THE FOURTH SLIDE -->
-            <li data-transition="flyin" data-slotamount="1" data-masterspeed="300" data-thumb="assets/img/sliders/revolution/thumbs/thumb4.jpg">
+            <li data-transition="flyin" data-slotamount="1" data-masterspeed="300" data-thumb="<%= asset_path 'img/sliders/revolution/thumbs/thumb4.jpg' %>">
                 
                 <!-- THE MAIN IMAGE IN THE FOURTH SLIDE -->                                
-                <img src="assets/img/sliders/revolution/bg4.jpg" >
-
+                <%= image_tag 'img/sliders/revolution/bg4.jpg' %>
                 <div class="caption lfb boxshadow" 
                      data-x="20" 
                      data-y="120" 
@@ -205,7 +202,7 @@
                 <p>SkyHQ is coming soon and can be your very own headquarters in the cloud. The digital world is getting more complex every day. We're here to help you simplify and centralize your digital presence and get organized! Hopefully you'll have some fun along the way :)</p>
             </div>            
             <div class="col-md-3">
-                <a href="/register" class="btn-buy hover-effect">Sign Up Now</a>            
+                <%= link_to "Sign Up Now", register_path, class: 'btn-buy hover-effect' %>
             </div>
         </div>
     </div>
@@ -224,7 +221,7 @@
                     <a class="btn-u btn-u-large btn-u-green one-page-btn"><i class="icon-bolt"></i> What's different?</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="assets/img/new/img5.jpg" class="img-responsive margin-bottom-10" alt="">
+                    <%= image_tag 'img/new/img5.jpg', class: 'img-responsive margin-bottom-10' %>
                 </div>
             </div>
         </div>
@@ -235,7 +232,7 @@
             <h1>Connecting your digital presence into your own central HQ</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <img src="assets/img/new/img1.jpg" class="margin-bottom-10 img-responsive" alt="">
+                    <%= image_tag 'img/new/img1.jpg', class: "margin-bottom-10 img-responsive" %>
                 </div>
                 <div class="col-md-6">
                     <p>Social networks are all over, you may have a presence on Facebook, Twitter, Google+, Youtube, various messaging apps and the list goes on and on. It's a mess and it's not the way it should be.</p> 
@@ -255,12 +252,12 @@
                     <a class="btn-u btn-u-large btn-u-blue one-page-btn"><i class="icon-bullhorn"></i> Get me my bullhorn already!</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="assets/img/new/img7.jpg" class="img-responsive" alt="">
+                    <%= image_tag 'img/new/img7.jpg', class: 'img-responsive' %>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <img src="assets/img/new/img6.jpg" class="margin-bottom-20 img-responsive" alt="">
+                    <%= image_tag 'img/new/img6.jpg', class: 'margin-bottom-20 img-responsive' %>
                 </div>
                 <div class="col-md-6">
                    <h1>Connecting is nice, but I want to do more, what else can you offer? What sort of context are you referring to?</h1>
@@ -280,7 +277,7 @@
                     <a class="btn-u btn-u-large btn-u-green one-page-btn"><i class="icon-comments-alt"></i> Communicate with Confidence</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="assets/img/new/img10.jpg" class="img-responsive margin-bottom-10" alt="">
+                    <%= image_tag 'img/new/img10.jpg', class: 'img-responsive margin-bottom-10' %>
                 </div>
             </div>
         </div>
@@ -291,46 +288,48 @@
             <h1>Dear businesses: it's time to be relevant again. </h1>
             <div class="row">
                 <div class="col-md-6">
-                    <img src="assets/img/main/8.jpg" class="img-responsive margin-bottom-10" alt="">
+                    <%= image_tag 'img/main/8.jpg', class: 'img-responsive margin-bottom-10' %>
                 </div>
                 <div class="col-md-6">
                     <p>Connect with your customers in ways they will enjoy. We're putting everyone in the same boat. But business/companies are fundamentally and structurally different, so we're providing you with a different toolkit.</p> 
                     <p>For starters, corporations aren't people. We're pretty sure about that one. But they're filled with lots of great people and we're focused on getting all levels of your organization involved in your engagement efforts. Everyone from the shift workers to the global CEO should have a stake, and we're showing how you can leverage our tools to create big wins for you, your team and your customers.</p>
                     <div class="row margin-bottom-20">
                         <div class="col-md-3">
-                            <a href="assets/img/main/1.jpg" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
+                            <a href="<%= asset_path 'img/main/1.jpg' %>" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
                                 <span class="overlay-zoom">  
-                                    <img class="img-responsive" src="assets/img/main/1.jpg" alt="" />
+                                    <%= image_tag 'img/main/1.jpg', class: 'img-responsive' %>
                                     <div class="zoom-icon"></div>                   
                                 </span>                                              
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="assets/img/main/2.jpg" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
+                            <a href="<%= asset_path 'img/main/2.jpg' %>" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
                                 <span class="overlay-zoom">  
-                                    <img class="img-responsive" src="assets/img/main/2.jpg" alt="" />
+                                    <%= image_tag 'img/main/2.jpg', class: 'img-responsive' %>
                                     <div class="zoom-icon"></div>                   
                                 </span>                                              
                             </a>                                                                                    
                         </div>
                         <div class="col-md-3">
-                            <a href="assets/img/main/3.jpg" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
+                            <a href="<%= 'img/main/3.jpg' %>" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
                                 <span class="overlay-zoom">  
-                                    <img class="img-responsive" src="assets/img/main/3.jpg" alt="" />
+                                    <%= image_tag 'img/main/3.jpg', class: 'img-responsive' %>
                                     <div class="zoom-icon"></div>                   
                                 </span>                                              
                             </a>                                                                                    
                         </div>
                         <div class="col-md-3">
-                            <a href="assets/img/main/4.jpg" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
+                            <a href="<%= asset_path 'img/main/4.jpg' %>" title="Project #2" data-rel="fancybox-button" class="thumbnail fancybox-button zoomer">
                                 <span class="overlay-zoom">  
-                                    <img class="img-responsive" src="assets/img/main/4.jpg" alt="" />
+                                    <%= image_tag 'img/main/4.jpg', class: "img-responsive" %>
                                     <div class="zoom-icon"></div>                   
                                 </span>                                              
                             </a>                                                                                    
                         </div>
                     </div>
-                    <a href="/business/register"class="btn-u btn-u-large btn-u-red one-page-btn"><i class="icon-briefcase"></i>Business Signup</a>
+                    <%= link_to business_register_path, class: 'btn-u btn-u-large btn-u-red one-page-btn' do %>
+                        <i class="icon-briefcase"></i>Business Signup
+                    <% end %>
                 </div>
             </div>
             <hr>
