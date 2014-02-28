@@ -262,3 +262,9 @@ a.morelink {
 .comment {
     width: 100%;
 }
+.entry-button {
+  border-radius: 4%;
+  float: right;
+  margin-left: 1em;
+  margin-top: -30px;
+}

@@ -29,6 +29,7 @@ SkyhqNew::Application.routes.draw do
     get '/' => Blogit::Engine
     match "/post/save" => 'general_pages#save_post', :via => :post
     post "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
+    delete "public/:id", to: "general_pages#destroy_post", as: "delete_post"
   end
   root :to => 'general_pages#index'
 

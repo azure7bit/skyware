@@ -204,7 +204,7 @@
               <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
               <br>
               <p>
-                <input type="text" placeholder="CSS,HTML,Java" class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
+                <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
                 <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
                 <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
               </p>
@@ -222,7 +222,7 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="/">
-                <%= current_user.subdomain%>
+                <%= "#{current_user.subdomain.capitalize} | SkyHQ" %>
               </a>
             </h1>
           </hgroup>
@@ -234,6 +234,7 @@
 
         <% @posts.each do |post| %>
           <section class="post" >
+          <%= link_to "delete", delete_post_path(post.id), method: :delete, class: "btn btn-xs btn-danger entry-button" %>
           <header class="entry-header">
             <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
             <h2 class="entry-title"><a href="single.html"><%= post.title %></a></h2>
@@ -243,6 +244,7 @@
                 <a class="label label-danger" href="tag.html"><%= tag.name %></a>
               <% end %>
             </p>
+            
           </header>
           <div class="entry-description comment more"><%= post.body%></div>
         </section> <!-- /.post -->

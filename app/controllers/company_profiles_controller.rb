@@ -5,7 +5,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles.json
   def index
     @company_profiles = CompanyProfile.all
-    @posts = Blogit::Post.where(:blogger_id => current_user.id, :blogger_type => current_user.class).order("created_at desc")
+    @posts = Blogit::Post.where(:blogger_id => current_user.id, :blogger_type => current_user.class).order("created_at desc").except(:order)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -107,4 +107,7 @@ class CompanyProfilesController < ApplicationController
 
     render :text => text
   end
+
+
+  
 end
