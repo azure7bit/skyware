@@ -14,7 +14,7 @@
             <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
         </div>
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "reg-page"}) do |f| %>
-              <%= f.error_notification %>
+        <%= flash_messages %>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-envelope"></i></span>
              <%= f.text_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
@@ -58,3 +58,4 @@
     <script src="assets/plugins/respond.js"></script>
 <![endif]-->
 
+<%= javascript_include_tag :bootstrap %>
