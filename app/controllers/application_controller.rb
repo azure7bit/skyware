@@ -10,8 +10,10 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller? and current_user
       "application"
-    elsif devise_controller?
+    elsif devise_controller? and resource_class == SuperAdmin
       "devise_layout"
+    elsif devise_controller? and resource_class == Citizen
+      "citizen_devise"
     else
       "application"
     end

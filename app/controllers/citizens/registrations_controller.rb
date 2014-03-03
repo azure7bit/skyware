@@ -17,7 +17,7 @@ class Citizens::RegistrationsController < Devise::RegistrationsController
 		else
 			clean_up_passwords resource
 			flash[:error] = resource.errors.full_messages.join(', ')
-			redirect_to user_register_url
+			redirect_to register_url
 		end
 	end
 

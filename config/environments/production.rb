@@ -10,6 +10,8 @@ SkyhqNew::Application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.assets.precompile += ['website.js', 'website.css', 'citizen.css']
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -21,6 +23,9 @@ SkyhqNew::Application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
+
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w( .svg .eot .woff .ttf)
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -78,8 +83,8 @@ SkyhqNew::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-  # config.assets.precompile += %w( .svg .eot .woff .ttf)
+  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+  config.assets.precompile += %w( .svg .eot .woff .ttf)
 
   ActionMailer::Base.smtp_settings = {
     :port =>           '587',

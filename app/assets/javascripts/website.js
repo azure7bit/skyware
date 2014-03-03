@@ -11,3 +11,12 @@
 //= require ./website/new_index
 //= require ./website/gmap
 //= require ./website/contact
+
+$(function(){
+    App.init();
+    App.initSliders();
+    App.initFancybox();
+    App.initBxSlider();
+    Index.initRevolutionSlider();
+    Contact.initMap();
+})
