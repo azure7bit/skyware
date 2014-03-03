@@ -1,4 +1,3 @@
-
 <% if current_super_admin %>
 <div class="container">
     <div class="row">
@@ -231,23 +230,50 @@
           </div>
 
         </header> <!-- /header -->
-
-        <% @posts.each do |post| %>
+        <% @posts.each_with_index do |post, i| %>
           <section class="post" >
-          <%= link_to "delete", delete_post_path(post.id), method: :delete, class: "btn btn-xs btn-danger entry-button" %>
-          <header class="entry-header">
-            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
-            <h2 class="entry-title"><a href="single.html"><%= post.title %></a></h2>
-            <p class="entry-meta">
-              Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
-              <% post.tags.each do |tag| %>
-                <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+            <!-- Single button -->
+            <div class="btn-group entry-button pull-right">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
+                <li><%= link_to "delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+            <div class="post-content" data-id="<%= post.id %>">
+              <header class="entry-header">
+                <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
+                <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
+                <p class="entry-meta">
+                  Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
+                  <% post.tags.each do |tag| %>
+                    <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+                  <% end %>
+                </p>            
+              </header>
+              <div class="entry-description comment more" ><%= post.body%></div>
+            </div>
+            <div class="form-post-content" data-id="<%= post.id %>">
+              <%= form_for post, url: company_edit_post_path(post.id, current_user.id, current_user.class) do |f| %>
+                <div class="form-group">
+                  <%= f.label :title, "Topic" %>
+                  <%= f.text_field :title, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Tags" %>
+                  <%= f.text_field :tag_list, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Post Content" %>
+                  <%= f.text_area :body, class: "form-control", rows: "5" %>
+                </div>
+                <%= f.submit "Change Post", class: "btn btn-success" %>
+                <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
               <% end %>
-            </p>
-            
-          </header>
-          <div class="entry-description comment more"><%= post.body%></div>
-        </section> <!-- /.post -->
+            </div>
+            </section> <!-- /.post -->
         <% end %>
 
         <section class="post" >
@@ -335,24 +361,51 @@
 
  <script src="../assets/blog/jquery-1.11.0.min.js"></script> 
  <script src="../assets/blog/custom.js"></script> 
+ <script src="../assets/blog/bootstrap.js"></script>
  <script type="text/javascript">
   $(document).ready(function() {
       var get_id = $(".click").data("id");
       $(".click").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
       indicator : "<img src='/assets/assets/loader.gif'>",
       tooltip   : "Click to edit...",
-      id         : 'save_tagline',
+      id        : 'save_tagline',
       style     : "inherit",
   });
       $(".editable_textile").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
       indicator : "<img src='/assets/assets/loader.gif'>",
       type      : "textarea",
-      id         : 'save_tagline',
+      id        : 'save_tagline',
       name      : "tagline",
       submit    : "OK",
       cancel    : "Cancel",
       tooltip   : "Click to edit..."
   });
+
+      for ( var i = 0; i < <%= @posts.count %>; i++ ) {
+        $("#post-form-" + i).hide();
+        $("button.post-edit-"+i).click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+        $("button.post-edit-0").click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+      }
+      
+      $(".form-post-content").hide();
+      
+      $( ".post-edit").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").hide("slow");
+        $(".form-post-content[data-id='"+id+"']").show("slow");
+      });
+      $(".post-cancel").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").show("slow");
+        $(".form-post-content[data-id='"+id+"']").hide("slow");
+      });
+      
  });
  
 

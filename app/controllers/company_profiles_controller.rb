@@ -108,6 +108,15 @@ class CompanyProfilesController < ApplicationController
     render :text => text
   end
 
+  def edit_post
+    @post = Blogit::Post.find(params[:id])
+    @post.update_attributes(params_post.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
 
-  
+    redirect_to root_url(subdomain: current_user.subdomain)
+  end
+
+  private
+  def params_post
+    params.require(:post).permit(:title, :tag_list, :body)
+  end 
 end

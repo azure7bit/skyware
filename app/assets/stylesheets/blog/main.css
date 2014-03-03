@@ -268,3 +268,40 @@ a.morelink {
   margin-left: 1em;
   margin-top: -30px;
 }
+.entry-button.open .dropdown-toggle{
+  background: none;
+  -webkit-box-shadow: none;
+  -mz-box-shadow: none;
+  box-shadow: none;
+  color: #34495e;
+}
+.editable_textile form textarea{
+  height: 120px!important;
+}
+.editable_textile form button{
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 15px;
+  border:none;
+  background: none;
+  color: #ecf0f1;
+}
+.editable_textile form button[type=submit]{
+  background-color: #2ecc71;
+}
+.editable_textile form button[type=submit]:hover{
+  background-color: #27ae60;
+}
+.editable_textile form button[type=cancel]{
+  background-color: #e67e22;
+}
+.editable_textile form button[type=cancel]:hover{
+  background-color: #d35400;
+}
+.click form input{
+  width: 100%;
+  border:none;
+  padding: 5px;
+  font-size: 12px;
+  color: #7f8c8d;
+}
