@@ -239,7 +239,8 @@
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
-                <li><%= link_to "delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
               </ul>
             </div>
             <div class="post-content" data-id="<%= post.id %>">
