@@ -94,9 +94,12 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="index.html">
-                <%= request.subdomain %> | SkyHQ
+                <%= request.subdomain.capitalize %>
               </a>
             </h1>
+            <% content_for :title_subdomain do  %>
+              <%= request.subdomain.capitalize %>
+            <% end %>
           </hgroup>
           <div id="togglesidebar" class="btn btn-primary pull-right">
             <i class="fa fa-bars"></i>
