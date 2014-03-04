@@ -10,6 +10,9 @@ class Citizen < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :subdomain, :title_tagline, :tagline
   # attr_accessible :title, :body
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/profile-placeholder.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
   blogs
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)

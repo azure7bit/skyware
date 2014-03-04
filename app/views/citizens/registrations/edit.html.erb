@@ -21,6 +21,11 @@
                             <b class="tooltip tooltip-bottom-right">Needed to enter the Subdomain</b> </label>
                     </section>
                     <section>
+                        <label class="input"> <i class="icon-append fa fa-user"></i>
+                             <%= f.file_field :avatar %>                                       
+                            <b class="tooltip tooltip-bottom-right">Needed to enter the Subdomain</b> </label>
+                    </section>
+                    <section>
                         <label class="input"> <i class="icon-append fa fa-lock"></i>
                             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                             <div>
