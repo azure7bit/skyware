@@ -364,9 +364,9 @@
     </div> <!-- /#primary -->
     </div>
 
- <script src="../assets/blog/jquery-1.11.0.min.js"></script> 
- <script src="../assets/blog/custom.js"></script> 
- <script src="../assets/blog/bootstrap.js"></script>
+  <%= javascript_include_tag "blog/jquery-1.11.0.min" %>
+  <%= javascript_include_tag "blog/custom" %>
+  <%= javascript_include_tag "bootstrap" %>
  <script type="text/javascript">
   $(document).ready(function() {
       var get_id = $(".click").data("id");
