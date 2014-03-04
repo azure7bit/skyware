@@ -9,6 +9,8 @@ class Citizen < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :subdomain, :title_tagline, :tagline
   # attr_accessible :title, :body
+  
+  attr_accessor :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/profile-placeholder.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
