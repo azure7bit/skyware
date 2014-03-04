@@ -17,15 +17,20 @@
     <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/blog/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../assets/blog/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/blog/font-awesome.min.css" rel="stylesheet">
-    <link href="../assets/blog/bootstrap-social.css" rel="stylesheet">
+    <link href="../assets/blog/bootstrap-social.css" rel="stylesheet"> -->
+    <%= stylesheet_link_tag :blog %>
+    <%= stylesheet_link_tag 'blog/bootstrap-social.css' %>
 
     <!-- Styles -->
-    <link href="../assets/blog/main.css" rel="stylesheet">
+    <!-- <link href="../assets/blog/main.css" rel="stylesheet"> -->
+    <%= stylesheet_link_tag 'blog/main.css' %>
 
     <!-- Loading bar -->
-    <script src="../assets/blog/pace.min.js"></script>
+    <!-- <script src="../assets/blog/pace.min.js"></script> -->
+
+    <%= javascript_include_tag 'blog/pace.min' %>
 
     <!-- HTML5 shiv for IE8 support -->
     <!--[if lt IE 9]>
@@ -46,7 +51,8 @@
   <%= yield %>
 
   <!-- Scripts -->
-  <script src="../assets/blog/jquery-1.11.0.min.js"></script>
-  <script src="../assets/blog/custom.js"></script>
+  <!-- <script src="../assets/blog/jquery-1.11.0.min.js"></script>
+  <script src="../assets/blog/custom.js"></script> -->
+  <%= javascript_include_tag :blog %>
   </body>
 </html>
