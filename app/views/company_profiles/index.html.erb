@@ -260,7 +260,7 @@
               </header>
               <div class="entry-description comment more" ><%= post.body%></div>
             </div>
-            <div class="form-post-content" data-id="<%= post.id %>">
+            <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
               <%= form_for post, url: company_edit_post_path(post.id, current_user.id, current_user.class) do |f| %>
                 <div class="form-group">
                   <%= f.label :title, "Topic" %>
@@ -397,8 +397,6 @@
           $("#post-form-" + i).show();
         });
       }
-      
-      $(".form-post-content").hide();
       
       $( ".post-edit").click(function() {
         var id =$(this).data("id");
