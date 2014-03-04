@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "no-reply@skyhq.net"
+  config.mailer_sender = "noreply@skyhq.com"
    config.secret_key = '7e85caec9343ac9cf7492f6d3000f7b687ae1d0f5b8f7c058ec924354f9b26a5e4170086c8fa26c356f2b6f4c58061021ab8197a2ec4e172428eba23812ff12b'
 
   # Configure the class responsible to send e-mails.
