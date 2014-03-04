@@ -9,7 +9,7 @@ class Citizen < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :subdomain, :title_tagline, :tagline
   # attr_accessible :title, :body
-  
+
   attr_accessor :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/profile-placeholder.png"
@@ -35,6 +35,6 @@ class Citizen::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar)
   end
 end
