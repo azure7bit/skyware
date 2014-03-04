@@ -248,8 +248,8 @@
             </div>
             <div class="post-content" data-id="<%= post.id %>">
               <header class="entry-header">
-                <% url = current_user.avatar.blank? ? "/assets/profile-placeholder.png" : current_user.avatar.url %>
-                <%= image_tag(url , :height => "52", :width => "52", class: "entry-avatar") %>
+                <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
+                <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
                 <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
                 <p class="entry-meta">
                   Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
