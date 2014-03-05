@@ -26,6 +26,7 @@ class Citizen < ActiveRecord::Base
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
+    return nil unless conditions[:email].present?
     where('email = ? OR subdomain = ?', conditions[:email], conditions[:email]).first
   end
 
