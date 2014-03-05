@@ -104,22 +104,26 @@
 <html lang="en">
   
 
-    <title>Von - Minimalist Blog Theme</title>
+    <!-- <title>Von - Minimalist Blog Theme</title> -->
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C400italic%2C700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/blog/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../assets/blog/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/blog/font-awesome.min.css" rel="stylesheet">
-    <link href="../assets/blog/bootstrap-social.css" rel="stylesheet">
+    <link href="../assets/blog/bootstrap-social.css" rel="stylesheet"> -->
+    <%#= stylesheet_link_tag "blog/bootstrap.min" %>
+    <%#= stylesheet_link_tag "blog/font-awesome.min" %>
+    <%#= stylesheet_link_tag "blog/font-awesome.min" %>
 
     <!-- Styles -->
-    <link href="../assets/blog/main.css" rel="stylesheet">
+    <!-- <link href="../assets/blog/main.css" rel="stylesheet"> -->
+    <%= stylesheet_link_tag "blog/main" %>
 
-    <!-- Loading bar -->
-    <script src="../assets/blog/pace.min.js"></script>
+    <!-- Loading bar 
+    <script src="../assets/blog/pace.min.js"></script> -->
 
     <!-- HTML5 shiv for IE8 support -->
     <!--[if lt IE 9]>
@@ -367,6 +371,7 @@
   <%= javascript_include_tag "blog/jquery-1.11.0.min" %>
   <%= javascript_include_tag "blog/custom" %>
   <%= javascript_include_tag "bootstrap" %>
+  
  <script type="text/javascript">
   $(document).ready(function() {
       var get_id = $(".click").data("id");
