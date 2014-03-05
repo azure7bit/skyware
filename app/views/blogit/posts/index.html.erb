@@ -2,7 +2,7 @@
   <%= link_to t(:new_blog_post, scope: 'blogit.posts'), new_post_path ,:style=>"font-size:30px; margin-left:245px"%>
 <% end %>
 
-<% if @posts.any? %>
+<% if !@posts.any? %>
 
   <%#= render partial: "blogit/posts/post",
     collection: @posts,
@@ -10,8 +10,8 @@
     locals: {show_comments_count: (Blogit.configuration.include_comments == :active_records) }  %>
 
 <% else %>
-
-  <%= render partial: "blogit/posts/empty" %>
+  
+    <%#= render partial: "blogit/posts/empty" %>
 
 <% end %>
 
@@ -107,7 +107,7 @@
           
 
         </header> <!-- /header -->
-      <% if @posts.any? %>
+      <%- if !@posts.any? %>
         <% @posts.each do |post| %>
           <section class="post" >
           <header class="entry-header">
@@ -123,52 +123,13 @@
           <div class="entry-description comment more"><%= post.body%></div>
         </section> <!-- /.post -->
         <% end %>
-        <% end %> 
-
-        <section class="post">
-          <header class="entry-header">
-            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
-            <h2 class="entry-title"><a href="single.html">Von - Minimalist Blog Theme</a></h2>
-            <p class="entry-meta">
-              Posted on <a class="entry-date" href="date.html">July 19, 2013</a> | By <a class="entry-author" href="author.html">Paul Laros</a> | Tags <a class="label label-danger" href="tag.html">CSS3</a>
-            </p>
-          </header>
-          <div class="entry-description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
+      <%- else %>
+        <div class="row" style="margin: 50px;">
+          <div class="col-lg-12">
+            <h1 style="color: #95a5a6">There Are No Posts</h1>
           </div>
-        </section> <!-- /.post -->
-
-        <section class="post">
-          <header class="entry-header">
-            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
-            <h2 class="entry-title"><a href="single.html">Just another Bootstrap theme</a></h2>
-            <p class="entry-meta">
-              Posted on <a class="entry-date" href="date.html">July 8, 2013</a> | By <a class="entry-author" href="author.html">Paul Laros</a> | Tags <a class="label label-primary" href="tag.html">HTML5</a>
-            </p>
-          </header>
-          <div class="entry-description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-        </section> <!-- /.post -->
-
-        <section class="post">
-          <header class="entry-header">
-            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
-            <h2 class="entry-title"><a href="single.html">Why should designers learn how to code</a></h2>
-            <p class="entry-meta">
-              Posted on <a class="entry-date" href="date.html">July 2, 2013</a> | By <a class="entry-author" href="author.html">Paul Laros</a> | Tags <a class="label label-primary" href="tag.html">HTML5</a>
-            </p>
-          </header>
-          <div class="entry-description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-        </section> <!-- /.post -->
+        </div>
+      <%- end %> 
 
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
