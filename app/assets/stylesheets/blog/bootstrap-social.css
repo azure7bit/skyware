@@ -55,3 +55,237 @@
 .btn-vk{color:#fff;background-color:#587ea3;border-color:rgba(0,0,0,0.2)}.btn-vk:hover,.btn-vk:focus,.btn-vk:active,.btn-vk.active,.open .dropdown-toggle.btn-vk{color:#fff;background-color:#4a6a89;border-color:rgba(0,0,0,0.2)}
 .btn-vk:active,.btn-vk.active,.open .dropdown-toggle.btn-vk{background-image:none}
 .btn-vk.disabled,.btn-vk[disabled],fieldset[disabled] .btn-vk,.btn-vk.disabled:hover,.btn-vk[disabled]:hover,fieldset[disabled] .btn-vk:hover,.btn-vk.disabled:focus,.btn-vk[disabled]:focus,fieldset[disabled] .btn-vk:focus,.btn-vk.disabled:active,.btn-vk[disabled]:active,fieldset[disabled] .btn-vk:active,.btn-vk.disabled.active,.btn-vk[disabled].active,fieldset[disabled] .btn-vk.active{background-color:#587ea3;border-color:rgba(0,0,0,0.2)}
+
+
+.btn-facebook-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 7px;
+	background: transparent!important;
+	border: 2px solid;
+	border-color: #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-facebook-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(31, 130, 196, 0.5) 0%, rgba(31, 130, 196, 0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(31, 130, 196, 0.5)), color-stop(50%, rgba(31, 130, 196, 0.5)), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(31, 130, 196, 0.5) 0%, rgba(31, 130, 196, 0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(31, 130, 196, 0.5) 0%, rgba(31, 130, 196, 0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(31, 130, 196, 0.5) 0%, rgba(31, 130, 196, 0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(31, 130, 196, 0.5) 0%, rgba(31, 130, 196, 0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(155, 195, 222, 0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #1F82C4;
+	border-color: #1F82C4!important;
+}
+.btn-twitter-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-twitter-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(95,185,245,0.5) 0%, rgba(95,185,245,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(95,185,245,0.5)), color-stop(50%, rgba(95,185,245,0.5)), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(95,185,245,0.5) 0%, rgba(95,185,245,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(95,185,245,0.5) 0%, rgba(95,185,245,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(95,185,245,0.5) 0%, rgba(95,185,245,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(95,185,245,0.5) 0%, rgba(95,185,245,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(95,185,245,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #5FB9F5;
+	border-color: #5FB9F5!important;
+}
+.btn-linkedin-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-linkedin-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(155,195,222,0.5) 0%, rgba(155,195,222,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(155,195,222,0.5)), color-stop(50%, rgba(155,195,222,0.5)), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(155,195,222,0.5) 0%, rgba(155,195,222,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(155,195,222,0.5) 0%, rgba(155,195,222,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(155,195,222,0.5) 0%, rgba(155,195,222,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(155,195,222,0.5) 0%, rgba(155,195,222,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(155,195,222,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #005f8d;
+	border-color: #005f8d!important;
+}
+.btn-flickr-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-flickr-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(209,180,195,0.5) 0%, rgba(209,180,195,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(209,180,195,0.5)), color-stop(50%, rgba(209,180,195,0.5)), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(209,180,195,0.5) 0%, rgba(209,180,195,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(209,180,195,0.5) 0%, rgba(209,180,195,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(209,180,195,0.5) 0%, rgba(209,180,195,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(209,180,195,0.5) 0%, rgba(209,180,195,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(209,180,195,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #d6006f;
+	border-color: #d6006f!important;
+}
+.btn-pinterest-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-pinterest-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(168,26,32,0.5) 0%, rgba(168,26,32,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(168,26,32,0.5)), color-stop(50%, rgba(168,26,32,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(168,26,32,0.5) 0%, rgba(168,26,32,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(168,26,32,0.5) 0%, rgba(168,26,32,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(168,26,32,0.5) 0%, rgba(168,26,32,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(168,26,32,0.5) 0%, rgba(168,26,32,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(168,26,32,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #a81a20;
+	border-color: #a81a20;
+}
+.btn-tumblr-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-tumblr-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(31,51,70,0.5) 0%, rgba(31,51,70,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(31,51,70,0.5)), color-stop(50%, rgba(31,51,70,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(31,51,70,0.5) 0%, rgba(31,51,70,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(31,51,70,0.5) 0%, rgba(31,51,70,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(31,51,70,0.5) 0%, rgba(31,51,70,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(31,51,70,0.5) 0%, rgba(31,51,70,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(31,51,70,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #1f3346;
+	border-color: #1f3346!important;
+}
+.btn-dropbox-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-dropbox-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(13,112,183,0.5) 0%, rgba(13,112,183,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(13,112,183,0.5)), color-stop(50%, rgba(13,112,183,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(13,112,183,0.5) 0%, rgba(13,112,183,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(13,112,183,0.5) 0%, rgba(13,112,183,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(13,112,183,0.5) 0%, rgba(13,112,183,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(13,112,183,0.5) 0%, rgba(13,112,183,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ABD7F7', endColorstr='transparent', GradientType=1 )!important;
+	color: #0d70b7;
+	border-color: #0d70b7!important;
+}
+.btn-google-plus-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-google-plus-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(202,53,35,0.5) 0%, rgba(202,53,35,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(202,53,35,0.5)), color-stop(50%, rgba(202,53,35,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(202,53,35,0.5) 0%, rgba(202,53,35,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(202,53,35,0.5) 0%, rgba(202,53,35,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(202,53,35,0.5) 0%, rgba(202,53,35,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(202,53,35,0.5) 0%, rgba(202,53,35,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(202,53,35,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #ca3523;
+	border-color: #ca3523!important;
+}
+.btn-instagram-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-instagram-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(68,106,137,0.5) 0%, rgba(68,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(68,106,137,0.5)), color-stop(50%, rgba(68,106,137,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(68,106,137,0.5) 0%, rgba(68,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(68,106,137,0.5) 0%, rgba(68,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(68,106,137,0.5) 0%, rgba(68,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(68,106,137,0.5) 0%, rgba(68,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(68,106,137,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #446a89;
+	border-color: #446a89!important;
+}
+.btn-github-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-github-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(48,48,48,0.5) 0%, rgba(48,48,48,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(48,48,48,0.5)), color-stop(50%, rgba(48,48,48,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(48,48,48,0.5) 0%, rgba(48,48,48,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(48,48,48,0.5) 0%, rgba(48,48,48,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(48,48,48,0.5) 0%, rgba(48,48,48,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(48,48,48,0.5) 0%, rgba(48,48,48,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(48,48,48,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #303030;
+	border-color: #303030!important;
+}
+.btn-bitbucket-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-bitbucket-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(24,60,96,0.5) 0%, rgba(24,60,96,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(24,60,96,0.5)), color-stop(50%, rgba(24,60,96,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(24,60,96,0.5) 0%, rgba(24,60,96,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(24,60,96,0.5) 0%, rgba(24,60,96,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(24,60,96,0.5) 0%, rgba(24,60,96,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(24,60,96,0.5) 0%, rgba(24,60,96,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(24,60,96,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #183c60;
+	border-color: #183c60!important;
+}
+.btn-vk-t{
+	color: #7f8c8d;
+	border-radius: 50%!important;
+	padding: 7px 0;
+	background: transparent!important;
+	border: 2px solid #7f8c8d!important;
+	-webkit-transition: all 0.5s;
+}
+.btn-vk-t:hover{
+	background: -moz-linear-gradient(-45deg, rgba(74,106,137,0.5) 0%, rgba(74,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(74,106,137,0.5)), color-stop(50%, rgba(74,106,137,0.5)	), color-stop(51%, transparent), color-stop(71%, #2F5DBD), color-stop(100%, #2757BA))!important;
+	background: -webkit-linear-gradient(-45deg, rgba(74,106,137,0.5) 0%, rgba(74,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -o-linear-gradient(-45deg, rgba(74,106,137,0.5) 0%, rgba(74,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: -ms-linear-gradient(-45deg, rgba(74,106,137,0.5) 0%, rgba(74,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	background: linear-gradient(135deg, rgba(74,106,137,0.5) 0%, rgba(74,106,137,0.5) 50%, transparent 51%, transparent 71%, transparent 100%)!important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(74,106,137,0.5)', endColorstr='transparent', GradientType=1 )!important;
+	color: #4a6a89;
+	border-color: #4a6a89!important;
+}
+.white-hover:hover{
+	color: rgba(240,240,240,0.7)!important;
+}

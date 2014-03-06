@@ -2,7 +2,7 @@
   <%= link_to t(:new_blog_post, scope: 'blogit.posts'), new_post_path ,:style=>"font-size:30px; margin-left:245px"%>
 <% end %>
 
-<% if !@posts.any? %>
+<% if @posts.any? %>
 
   <%#= render partial: "blogit/posts/post",
     collection: @posts,
@@ -21,12 +21,12 @@
     <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
       <aside>
 
-        <div class="about" style="margin-bottom:-10px;">
+        <div class="about " style="margin-bottom:-10px;">
           <% title = !@user.title_tagline.blank? ? @user.title_tagline : "About Us"  %>
           <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
           <% tagline = !@user.tagline.blank? ? @user.tagline : tagline  %>
           <h4><%= title %></h4>
-          <p><%= tagline %></p>
+          <p class="comment more_about"><%= tagline %></p>
         </div>
 
         <div class="tags">
@@ -44,40 +44,40 @@
         <div class="socialmedia">
           <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
           <div class="socials-sidebar">
-            <a class="btn btn-facebook" href="#" title="Facebook">
+            <a class="btn btn-facebook-t" href="#" title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
-            <a class="btn btn-twitter" href="#" title="Twitter">
+            <a class="btn btn-twitter-t" href="#" title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="btn btn-linkedin" href="#" title="LinkedIn">
+            <a class="btn btn-linkedin-t" href="#" title="LinkedIn">
               <i class="fa fa-linkedin"></i>
             </a>
-            <a class="btn btn-flickr" href="#" title="Flickr">
+            <a class="btn btn-flickr-t" href="#" title="Flickr">
               <i class="fa fa-flickr"></i>
             </a>
-            <a class="btn btn-pinterest" href="#" title="Pinterest">
+            <a class="btn btn-pinterest-t" href="#" title="Pinterest">
               <i class="fa fa-pinterest"></i>
             </a>
-            <a class="btn btn-tumblr" href="#" title="Tumblr">
+            <a class="btn btn-tumblr-t" href="#" title="Tumblr">
               <i class="fa fa-tumblr"></i>
             </a>
-            <a class="btn btn-dropbox" href="#" title="Dropbox">
+            <a class="btn btn-dropbox-t" href="#" title="Dropbox">
               <i class="fa fa-dropbox"></i>
             </a>
-            <a class="btn btn-google-plus" href="#" title="Google+">
+            <a class="btn btn-google-plus-t white-hover" href="#" title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
-            <a class="btn btn-instagram" href="#" title="Instagram">
+            <a class="btn btn-instagram-t white-hover" href="#" title="Instagram">
               <i class="fa fa-instagram"></i>
             </a>
-            <a class="btn btn-github" href="#" title="GitHub">
+            <a class="btn btn-github-t white-hover" href="#" title="GitHub">
               <i class="fa fa-github"></i>
             </a>
-            <a class="btn btn-bitbucket" href="#" title="Bitbucket">
+            <a class="btn btn-bitbucket-t white-hover" href="#" title="Bitbucket">
               <i class="fa fa-bitbucket"></i>
             </a>
-            <a class="btn btn-vk" href="#" title="VK">
+            <a class="btn btn-vk-t white-hover" href="#" title="VK">
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-sidebar -->
@@ -107,11 +107,14 @@
           
 
         </header> <!-- /header -->
-      <%- if !@posts.any? %>
+
+      <%- if @posts.any? %>
         <% @posts.each do |post| %>
           <section class="post" >
           <header class="entry-header">
-            <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52">
+            <!-- <img class="entry-avatar" alt="Paul Laros" height="52" width="52" src="http://www.gravatar.com/avatar/ea67e860739cd91fe40b6797e97e6820.jpg?s=52"> -->
+            <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
+            <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
             <h2 class="entry-title"><a href="single.html"><%= post.title %></a></h2>
             <p class="entry-meta">
               Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
@@ -134,40 +137,40 @@
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
           <div class="socials-footer">
-            <a class="btn btn-facebook" href="#" title="Facebook">
+            <a class="btn btn-facebook-t" href="#" title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
-            <a class="btn btn-twitter" href="#" title="Twitter">
+            <a class="btn btn-twitter-t" href="#" title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
-            <a class="btn btn-linkedin" href="#" title="LinkedIn">
+            <a class="btn btn-linkedin-t" href="#" title="LinkedIn">
               <i class="fa fa-linkedin"></i>
             </a>
-            <a class="btn btn-flickr" href="#" title="Flickr">
+            <a class="btn btn-flickr-t" href="#" title="Flickr">
               <i class="fa fa-flickr"></i>
             </a>
-            <a class="btn btn-pinterest" href="#" title="Pinterest">
+            <a class="btn btn-pinterest-t" href="#" title="Pinterest">
               <i class="fa fa-pinterest"></i>
             </a>
-            <a class="btn btn-tumblr" href="#" title="Tumblr">
+            <a class="btn btn-tumblr-t" href="#" title="Tumblr">
               <i class="fa fa-tumblr"></i>
             </a>
-            <a class="btn btn-dropbox" href="#" title="Dropbox">
+            <a class="btn btn-dropbox-t" href="#" title="Dropbox">
               <i class="fa fa-dropbox"></i>
             </a>
-            <a class="btn btn-google-plus" href="#" title="Google+">
+            <a class="btn btn-google-plus-t" href="#" title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
-            <a class="btn btn-instagram" href="#" title="Instagram">
+            <a class="btn btn-instagram-t" href="#" title="Instagram">
               <i class="fa fa-instagram"></i>
             </a>
-            <a class="btn btn-github" href="#" title="GitHub">
+            <a class="btn btn-github-t" href="#" title="GitHub">
               <i class="fa fa-github"></i>
             </a>
-            <a class="btn btn-bitbucket" href="#" title="Bitbucket">
+            <a class="btn btn-bitbucket-t" href="#" title="Bitbucket">
               <i class="fa fa-bitbucket"></i>
             </a>
-            <a class="btn btn-vk" href="#" title="VK">
+            <a class="btn btn-vk-t" href="#" title="VK">
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-footer -->

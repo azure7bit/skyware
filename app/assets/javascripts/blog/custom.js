@@ -86,7 +86,7 @@ $(document).ready(function() {
             $(this).html(lesstext);
         }
         $(this).parent().prev().toggle();
-        $(this).prev().toggle();
+        $(this).prev().toggle("slow");
         return false;
     });
 });

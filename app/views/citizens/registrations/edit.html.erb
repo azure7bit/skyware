@@ -21,9 +21,9 @@
                             <b class="tooltip tooltip-bottom-right">Needed to enter the Subdomain</b> </label>
                     </section>
                     <section>
-                        <label class="input"> <i class="icon-append fa fa-user"></i>
+                        <label class="input"> <i class="icon-append fa fa-camera"></i>
                              <%= f.file_field :avatar %>                                       
-                            <b class="tooltip tooltip-bottom-right">Needed to enter the Subdomain</b> </label>
+                            <b class="tooltip tooltip-bottom-right">Needed to change your photo</b> </label>
                     </section>
                     <section>
                         <label class="input"> <i class="icon-append fa fa-lock"></i>
@@ -55,10 +55,12 @@
                     <%= f.submit "Update",:class=>"btn btn-primary" %>                                
                        
                 </footer>
-            <%end%>                     
-            <span class="widget-icon">  </span>
+            <%end%>  
+            <div class="container">
+                <span class="widget-icon">  </span>
             <h2>Cancel my account</h2>
-            <p> Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %> </p>    <%= link_to "Back", :back,:class=>"btn btn-primary" %>
+            <p> Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %> </p>    <%= link_to "Back", :back,:class=>"btn btn-primary",style: "margin-bottom: 10px;" %>
+            </div>
         </div>
         <!-- end widget content -->
         
