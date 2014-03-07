@@ -12,6 +12,8 @@ class Citizen < ActiveRecord::Base
 
   attr_accessor :avatar
 
+  acts_as_messageable
+
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
@@ -32,6 +34,14 @@ class Citizen < ActiveRecord::Base
 
   def name
   	email
+  end
+
+  def mailboxer_email(object)
+    #Check if an email should be sent for that object
+    #if true
+    return self.email
+    #if false
+    #return nil
   end
 end
 

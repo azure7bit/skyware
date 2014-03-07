@@ -5,7 +5,9 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles.json
   def index
     @company_profiles = CompanyProfile.all
-    @posts = Blogit::Post.where(:blogger_id => current_user.id, :blogger_type => current_user.class).order("created_at desc").except(:order)
+    @user = Citizen.where(subdomain: request.subdomain).first
+    raise ActionController::RoutingError.new('Not Found') unless @user
+    @posts = Blogit::Post.where(:blogger_id => @user.id, :blogger_type => @user.class).order("created_at desc").except(:order)
 
     respond_to do |format|
       format.html # index.html.erb

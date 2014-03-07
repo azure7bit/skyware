@@ -31,12 +31,12 @@
 
 	<h2 class="box_title"> Inbox</h2>
 	<!-- get all messages that have not been read -->
-	<ul id="inbox-messages"><%= render mailbox.inbox %></ul>
+	<ul id="inbox-messages"><%= render current_user.mailbox.inbox %></ul>
 	
 	<h2 class="box_title">SentBox</h2>
-	<ul id="outbox-messages"><%= render mailbox.sentbox %></ul> 
+	<ul id="outbox-messages"><%= render current_user.mailbox.sentbox %></ul> 
 	<!-- <h2>Trash</h2> -->
-	<ul><%= render mailbox.trash %></ul>
+	<ul><%= render current_user.mailbox.trash %></ul>
 
 	<%= link_to 'Start Conversation', :new_conversation, :class => "btn btn-primary", :style => "margin-top:10px; float:right;" %>
 	</div>

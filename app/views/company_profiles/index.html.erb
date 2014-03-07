@@ -101,6 +101,6 @@
  <% if current_citizen %>
   <%= render "bloggit_page" %>
   <% content_for :title_subdomain do %>
-    <%= "#{current_user.subdomain.capitalize}" %>
+    <%= @user.subdomain.capitalize %>
   <% end %>
 <% end %>

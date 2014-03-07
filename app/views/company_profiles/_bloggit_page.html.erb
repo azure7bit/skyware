@@ -3,10 +3,10 @@
       <aside>
 
         <div class="about" style="margin-bottom:-15px;">
-          <% title = !current_user.title_tagline.blank? ? current_user.title_tagline : "About Us" %>
+          <% title = !@user.title_tagline.blank? ? @user.title_tagline : "About Us" %>
           <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
-          <% tagline = !current_user.tagline.blank? ? current_user.tagline : tagline %>
-          <h4 class="click" data-id="<%= current_user.id %>" data-domain ="<%= current_user.subdomain %>"><%= title.capitalize %></h4>
+          <% tagline = !@user.tagline.blank? ? @user.tagline : tagline %>
+          <h4 class="click" data-id="<%= @user.id %>" data-domain ="<%= @user.subdomain %>"><%= title.capitalize %></h4>
           <p style="font-size:12px;margin-top: 8px;" class="editable_textile comment more_about"><%= tagline %></p>
         </div>
 
@@ -62,18 +62,22 @@
               <i class="fa fa-vk"></i>
             </a>
           </div> <!-- /.socials-sidebar -->
-            <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
-              <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
+            <% if current_user == @user %>
+              <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
+                <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
+                <br>
+                <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
+                <br>
+                <p>
+                  <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
+                  <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
+                  <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
+                </p>
+              <% end -%>
               <br>
-              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
-              <br>
-              <p>
-                <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
-                <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
-                <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
-              </p>
-            <% end -%>
-            <br>
+            <% else %>
+              <%= render 'conversations/form', show_cancel: false %>
+            <% end %>
         </div>
 
       </aside>
@@ -86,7 +90,7 @@
           <hgroup class="pull-left">
             <h1 class="site-title">
               <a rel="home" title="Von" href="/">
-                <%= "#{current_user.subdomain.capitalize}" rescue "Bussines" %>
+                <%= "#{@user.subdomain.capitalize}" rescue "Bussines" %>
               </a>
             </h1>
           </hgroup>

@@ -4,25 +4,25 @@
 			<h2 id="conversation_subject">Subject: <%= conversation.subject %></h2>
 
 			<ul id="conversation_message" style="padding-bottom:0px;">
-			  <%= content_tag_for(:li, conversation.receipts_for(current_super_admin)) do |receipt| %>
+			  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
 			    <% message = receipt.message %>
-			    <% super_admin = SuperAdmin.find_by_id(message.sender_id) %>
+			    <% user = SuperAdmin.find_by_id(message.sender_id) %>
 			    <div id="time_sent" style="float:right; padding-top:5px; padding-right:10px; font-size:14px;">
 			    	Sent <%= time_ago_in_words(message.created_at) %> ago.
 			    </div>
 			    
-				    <div class="sender_picture">
-				    	<%= super_admin.name.titleize %>
-							<% unless super_admin.image? %>
-								<%= image_tag("profile-placeholder.png", :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-							<% else %>
-								<% if super_admin.uploaded_image? %>
-									<%= image_tag(super_admin.super_admin_uploaded_image.url(:bigger_thumb), :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-								<% else %>
-									<%= image_tag('profile-placeholder.png', :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-								<% end %>
-							<% end %>
-						</div>
+			    <div class="sender_picture">
+			    	<%= user.name.titleize %>
+					<% unless user.image? %>
+						<%= image_tag("profile-placeholder.png", :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+					<% else %>
+						<% if user.uploaded_image? %>
+							<%= image_tag(user.super_admin_uploaded_image.url(:bigger_thumb), :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+						<% else %>
+							<%= image_tag('profile-placeholder.png', :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
+						<% end %>
+					<% end %>
+				</div>
 					
 			    <h4 id="message_subject"><%= message.subject %></h4>
 			    <p id="message_body"><%= message.body %></p>

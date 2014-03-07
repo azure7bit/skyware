@@ -1,9 +1,9 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_super_admin!
+  # before_filter :authenticate_super_admin!
   helper_method :mailbox, :conversation
 
   def index
-    current_super_admin.mailbox
+    current_user.mailbox
     respond_to do |format|
       format.html
     end
@@ -28,9 +28,9 @@ class ConversationsController < ApplicationController
 
   def create
     recipient_emails = conversation_params(:recipients).split(',')
-    recipients = SuperAdmin.where(email: recipient_emails).all
+    recipients = Citizen.where(email: recipient_emails).all
 
-    conversation = current_super_admin.
+    conversation = current_user.
       send_message(recipients, *conversation_params(:body, :subject)).conversation
 
     redirect_to conversation
@@ -54,7 +54,7 @@ class ConversationsController < ApplicationController
   private
 
   def mailbox
-    @mailbox ||= current_super_admin.mailbox
+    @mailbox ||= current_user.mailbox
   end
 
   def conversation
