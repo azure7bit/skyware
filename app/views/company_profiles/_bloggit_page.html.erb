@@ -1,0 +1,270 @@
+
+    <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
+      <aside>
+
+        <div class="about" style="margin-bottom:-15px;">
+          <% title = !current_user.title_tagline.blank? ? current_user.title_tagline : "About Us" %>
+          <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
+          <% tagline = !current_user.tagline.blank? ? current_user.tagline : tagline %>
+          <h4 class="click" data-id="<%= current_user.id %>" data-domain ="<%= current_user.subdomain %>"><%= title.capitalize %></h4>
+          <p style="font-size:12px;margin-top: 8px;" class="editable_textile comment more_about"><%= tagline %></p>
+        </div>
+
+        <div class="tags">
+          <h4>Tags</h4>
+          <ul>
+            <li>
+              <a href="tag.html" class="label label-danger">CSS3</a>
+            </li>
+            <li>
+              <a href="tag.html" class="label label-primary">HTML5</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="socialmedia">
+          <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
+          <div class="socials-sidebar">
+            <a class="btn btn-facebook-t" href="#" title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-twitter-t" href="#" title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-linkedin-t" href="#" title="LinkedIn">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="btn btn-flickr-t" href="#" title="Flickr">
+              <i class="fa fa-flickr"></i>
+            </a>
+            <a class="btn btn-pinterest-t" href="#" title="Pinterest">
+              <i class="fa fa-pinterest"></i>
+            </a>
+            <a class="btn btn-tumblr-t white-hover" href="#" title="Tumblr">
+              <i class="fa fa-tumblr"></i>
+            </a>
+            <a class="btn btn-dropbox-t" href="#" title="Dropbox">
+              <i class="fa fa-dropbox"></i>
+            </a>
+            <a class="btn btn-google-plus-t" href="#" title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a class="btn btn-instagram-t white-hover" href="#" title="Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a class="btn btn-github-t white-hover" href="#" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+            <a class="btn btn-bitbucket-t white-hover" href="#" title="Bitbucket">
+              <i class="fa fa-bitbucket"></i>
+            </a>
+            <a class="btn btn-vk-t white-hover" href="#" title="VK">
+              <i class="fa fa-vk"></i>
+            </a>
+          </div> <!-- /.socials-sidebar -->
+            <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
+              <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
+              <br>
+              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
+              <br>
+              <p>
+                <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
+                <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
+                <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
+              </p>
+            <% end -%>
+            <br>
+        </div>
+
+      </aside>
+    </div> <!-- /#secondary -->
+
+  <div class="row">
+    <div id="primary" class="col-sm-12">
+      <div class="content">    
+        <header class="header">
+          <hgroup class="pull-left">
+            <h1 class="site-title">
+              <a rel="home" title="Von" href="/">
+                <%= "#{current_user.subdomain.capitalize}" rescue "Bussines" %>
+              </a>
+            </h1>
+          </hgroup>
+          <div id="togglesidebar-1" class="btn btn-primary pull-right">
+            <i class="fa fa-bars"></i>
+          </div>
+
+        </header> <!-- /header -->
+        <% @posts.each_with_index do |post, i| %>
+          <section class="post" >
+            <!-- Single button -->
+            <div class="btn-group entry-button pull-right">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
+                <li class="divider"></li>
+                <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+            <div class="post-content" data-id="<%= post.id %>">
+              <header class="entry-header">
+                <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
+                <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+                <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
+                <p class="entry-meta">
+                  Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
+                  <% post.tags.each do |tag| %>
+                    <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+                  <% end %>
+                </p>            
+              </header>
+              <div class="entry-description comment more" ><%= post.body%></div>
+            </div>
+            <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
+              <%= form_for post, url: company_edit_post_path(post.id, current_user.id, current_user.class) do |f| %>
+                <div class="form-group">
+                  <%= f.label :title, "Topic" %>
+                  <%= f.text_field :title, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Tags" %>
+                  <%= f.text_field :tag_list, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Post Content" %>
+                  <%= f.text_area :body, class: "form-control", rows: "5" %>
+                </div>
+                <%= f.submit "Change Post", class: "btn btn-success" %>
+                <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
+              <% end %>
+            </div>
+            </section> <!-- /.post -->
+        <% end %>       
+      </div>
+  
+
+    
+        <footer class="footer">
+          <p>© SkyHQ 2014. All right reserved.</p>
+          <div class="socials-footer">
+            <a class="btn btn-facebook-t" href="#" title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-twitter-t" href="#" title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-linkedin-t" href="#" title="LinkedIn">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="btn btn-flickr-t" href="#" title="Flickr">
+              <i class="fa fa-flickr"></i>
+            </a>
+            <a class="btn btn-pinterest-t" href="#" title="Pinterest">
+              <i class="fa fa-pinterest"></i>
+            </a>
+            <a class="btn btn-tumblr-t" href="#" title="Tumblr">
+              <i class="fa fa-tumblr"></i>
+            </a>
+            <a class="btn btn-dropbox-t" href="#" title="Dropbox">
+              <i class="fa fa-dropbox"></i>
+            </a>
+            <a class="btn btn-google-plus-t" href="#" title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a class="btn btn-instagram-t" href="#" title="Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a class="btn btn-github-t" href="#" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+            <a class="btn btn-bitbucket-t" href="#" title="Bitbucket">
+              <i class="fa fa-bitbucket"></i>
+            </a>
+            <a class="btn btn-vk-t" href="#" title="VK">
+              <i class="fa fa-vk"></i>
+            </a>
+          </div> <!-- /.socials-footer -->
+        </footer> <!-- /footer -->
+
+    </div> <!-- /#primary -->
+    </div>
+
+  <%= javascript_include_tag "blog/jquery-1.11.0.min" %>
+  <%= javascript_include_tag "blog/custom" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= stylesheet_link_tag "blog/main" %>
+
+ <script type="text/javascript">
+  $(document).ready(function() {
+      var get_id = $(".click").data("id");
+      $(".click").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
+      indicator : "<img src='/assets/assets/loader.gif'>",
+      tooltip   : "Click to edit...",
+      id        : 'save_tagline',
+      style     : "inherit",
+  });
+      $(".editable_textile").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
+      indicator : "<img src='/assets/assets/loader.gif'>",
+      type      : "textarea",
+      id        : 'save_tagline',
+      name      : "tagline",
+      submit    : "OK",
+      cancel    : "Cancel",
+      tooltip   : "Click to edit..."
+  });
+
+      for ( var i = 0; i < <%= @posts.count %>; i++ ) {
+        $("#post-form-" + i).hide();
+        $("button.post-edit-"+i).click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+        $("button.post-edit-0").click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+      }
+      
+      $( ".post-edit").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").hide("slow");
+        $(".form-post-content[data-id='"+id+"']").show("slow");
+      });
+      $(".post-cancel").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").show("slow");
+        $(".form-post-content[data-id='"+id+"']").hide("slow");
+      });
+      
+ });
+ 
+
+   function checkFormVal(){
+     var topic = $("#topic").val();
+     var content = $("#content-post").val();
+
+     if(topic != "" && content != ""){
+       if(topic.length < 10 && content.length < 10){
+         alert("Topic and Content are too short (minimum is 10 characters)..."); 
+       }
+       else if(topic.length < 10){
+         alert("Topic is too short (minimum is 10 characters)..."); 
+       }
+       else if(content.length < 10) {
+         alert("Content is too short (minimum is 10 characters)..."); 
+       }
+       else { $("#form-post").submit(); }
+     }
+     else if(topic=="" && content==""){
+       alert("Topic and Content can not be blank...");
+     }
+     else if(topic==""){
+       alert("Topic can not be blank...");
+     }
+     else{
+       alert("Content can not be blank...");
+     }
+   };
+ </script>
