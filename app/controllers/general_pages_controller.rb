@@ -3,6 +3,31 @@ class GeneralPagesController < ApplicationController
   def index
     render 'general_pages/index'
   end
+
+  def check_email
+    if params[:citizen]
+      user = Citizen.where(email: params[:citizen][:email]).first
+      if user
+        render json: nil
+      else
+        render json: true
+      end
+    elsif params[:super_admin]
+    end
+  end
+
+  def check_subdomain
+    if params[:citizen]
+      user1 = Citizen.where(subdomain: params[:citizen][:subdomain]).first
+      user2 = SuperAdmin.where(subdomain: params[:citizen][:subdomain]).first
+      if (user1 or user2)
+        render json: nil
+      else
+        render json: true
+      end
+    elsif params[:super_admin]
+    end
+  end
   
   def about
     render 'general_pages/about'

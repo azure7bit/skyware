@@ -1,5 +1,5 @@
 /*
-*= require bootstrap
+*= require ./citizen/bootstrap
 *= require ./citizen/style
 *= require ./citizen/header1
 *= require ./citizen/responsive
@@ -7,3 +7,7 @@
 *= require ./citizen/page_log_reg_v2
 *= require ./citizen/default.css
 */
+
+.citizen.reg-page .has-feedback .form-control-feedback{
+	top: 0px;
+}

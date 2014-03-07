@@ -13,24 +13,31 @@
             </ul>
             <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
         </div>
-      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "reg-page"}) do |f| %>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "citizen reg-page"}) do |f| %>
         <%= flash_messages %>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-envelope"></i></span>
-             <%= f.text_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
+        <div class='form-group'>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                 <%= f.email_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
+            </div>
         </div>
-
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-user"></i></span>
-            <%= f.text_field :subdomain ,:class=>"form-control margin-bottom-20",:placeholder=>"HQ ID (_____.skyhq.com)"%>
+        <div class='form-group'>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-user"></i></span>
+                <%= f.text_field :subdomain ,:class=>"form-control margin-bottom-20",:placeholder=>"HQ ID (_____.skyhq.com)"%>
+            </div>
         </div>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-lock"></i></span>
-            <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+        <div class='form-group'>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+            </div>
         </div>
-        <div class="input-group margin-bottom-30">
-            <span class="input-group-addon"><i class="icon-key"></i></span>
-             <%= f.password_field :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password Confirmation" %>
+        <div class='form-group'>
+            <div class="input-group margin-bottom-30">
+                <span class="input-group-addon"><i class="icon-key"></i></span>
+                 <%= f.password_field :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password Confirmation" %>
+            </div>
         </div>
         <hr>
         <label class="checkbox">
@@ -40,7 +47,7 @@
                                 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                               <%= f.button :submit, "Register",:class=>"btn-u btn-block" %>                                       
+               <%= f.button :submit, "Register",:class=>"btn-u btn-block" %>
             </div>
         </div>
 
@@ -57,5 +64,3 @@
 <!--[if lt IE 9]>
     <script src="assets/plugins/respond.js"></script>
 <![endif]-->
-
-<%= javascript_include_tag :bootstrap %>

@@ -46,6 +46,8 @@ SkyhqNew::Application.routes.draw do
   get  '/pricing' => 'general_pages#pricing'
   get  '/services' => 'general_pages#services'
   get  '/tos' => 'general_pages#tos'
+  post '/check-email' => 'general_pages#check_email'
+  post '/check-subdomain' => 'general_pages#check_subdomain'
   get  '/edit_citizen_password' => 'blogit/posts#edit_citizen_password'
   post '/save_citizen_password' => 'blogit/posts#save_citizen_password'
   get  '/blog' => 'blogit/posts#index'
