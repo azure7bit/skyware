@@ -307,3 +307,11 @@ a.morelink {
   font-size: 12px;
   color: #7f8c8d;
 }
+.sidebar aside {
+    padding: 0!important;
+  }
+  @media(max-width: 768px){
+    .sidebar aside{
+      padding: 10px!important;
+    }
+  }

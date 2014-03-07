@@ -35,14 +35,15 @@ class GeneralPagesController < ApplicationController
   def save_post
     @post = Blogit::Post.new(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
     @post.save
-    redirect_to root_url(subdomain: current_user.subdomain)
+    # redirect_to root_url(subdomain: current_user.subdomain)
+    redirect_to :back
   end
 
   def destroy_post
     # @post = Blogit::Post.where(params[:id], :blogger_id => current_user.id, :blogger_type => current_user.class.to_s)
     @post = Blogit::Post.find(params[:id])
     @post.destroy
-    redirect_to root_url(subdomain: current_user.subdomain)
+    redirect_to :back
   end
   private
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -24,6 +24,14 @@ class CompanyProfilesController < ApplicationController
     end
   end
 
+  def blog
+    @posts = Blogit::Post.where(:blogger_id => current_user.id, :blogger_type => current_user.class).order("created_at desc").except(:order)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @company_profiles }
+    end
+  end
+
   # GET /company_profiles/new
   # GET /company_profiles/new.json
   def new
@@ -94,17 +102,17 @@ class CompanyProfilesController < ApplicationController
   end
 
   def save_tagline
-    @citizen = Citizen.find(params[:id])
-    if !params[:title].nil?
-      @citizen.update_attributes(title_tagline: params[:title])
-      text = @citizen.title_tagline
-    else
-      @citizen.update_attributes(tagline: params[:tagline])
-      text = @citizen.tagline
+    if !current_user.blank?
+      @user = current_user
+      if !params[:title].nil?
+        @user.update_attributes(title_tagline: params[:title])
+        text = @user.title_tagline
+      else
+        @user.update_attributes(tagline: params[:tagline])
+        text = @user.tagline
+      end
+      sign_in(@user, :bypass => true)
     end
-    
-    sign_in(@citizen, :bypass => true)
-
     render :text => text
   end
 
@@ -112,7 +120,7 @@ class CompanyProfilesController < ApplicationController
     @post = Blogit::Post.find(params[:id])
     @post.update_attributes(params_post.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
 
-    redirect_to root_url(subdomain: current_user.subdomain)
+    redirect_to :back
   end
 
   private
