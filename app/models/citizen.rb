@@ -33,7 +33,7 @@ class Citizen < ActiveRecord::Base
   end
 
   def name
-  	email
+  	subdomain or email
   end
 
   def mailboxer_email(object)

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :populate_tags
   helper_method :current_user
+  after_filter :flash_to_headers
   
   protected 
   
@@ -46,4 +47,26 @@ class ApplicationController < ActionController::Base
       super
     end
   end
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = flash_message
+    response.headers["X-Message-Type"] = flash_type.to_s
+    flash.discard
+  end
+
+  def flash_message
+    [:error, :success, :notice].each do |type|
+      return flash[type] unless flash[type].blank?
+    end
+    return ''
+  end
+ 
+  def flash_type
+    [:error, :success, :notice, :keep].each do |type|
+      return type unless flash[type].blank?
+    end
+    return :empty
+  end
+
 end

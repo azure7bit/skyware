@@ -22,3 +22,4 @@
 //= require_self
 //= require_directory ./application
 //= require_directory ./blog
+//= require flash

@@ -76,7 +76,9 @@
 
             <!-- MAIN CONTENT -->
             <div id="content">
-                <%= flash_messages %>
+                <div class='flash_msg_container'>
+                    <%= flash_messages %>
+                </div>
                 
                 <%= yield  %>
             </div>
@@ -151,7 +153,6 @@
 
        <!-- <script src="/assets/jquery.jeditable.js"></script>  -->
         <%= javascript_include_tag "jquery.jeditable" %>
-
         <!--[if IE 7]>
 
         <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>

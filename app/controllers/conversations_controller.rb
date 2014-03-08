@@ -32,8 +32,12 @@ class ConversationsController < ApplicationController
 
     conversation = current_user.
       send_message(recipients, *conversation_params(:body, :subject)).conversation
-
-    redirect_to conversation
+    respond_to do |format|
+      format.html { redirect_to conversation }
+      format.js{
+        flash[:notice] = "Message sent successfully to #{recipients.first.name}"
+      }
+    end
   end
 
   def reply
