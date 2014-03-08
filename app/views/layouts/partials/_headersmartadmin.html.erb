@@ -12,7 +12,7 @@
 
         <!-- Note: The activity badge color changes when clicked and resets the number to 0
         Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-        <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
+        <!-- <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span> -->
 
         <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
         <div class="ajax-dropdown">
@@ -97,7 +97,7 @@
 
     <!-- User info -->
     <div class="login-info">
-        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.name %> <i class="fa fa-angle-down"></i></a> </span>
+        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%#= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.subdomain.capitalize %> <i class="fa fa-angle-down"></i></a> </span>
     </div>
     <!-- end user info -->
 
@@ -146,14 +146,14 @@
             <% if current_user %>
             <li><a href="/inbox"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
             <%end%>
-            <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
+            <!-- <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
                 <ul>
                      <li>
                         <%= link_to "My Profile", current_citizen ? profile_path : business_profile_path %>
                      </li>
                      <li><a href="/logout">Sign Out</a></li>
                 </ul>
-            </li>                       
+            </li> -->                       
         </ul>
     </nav>
     <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
