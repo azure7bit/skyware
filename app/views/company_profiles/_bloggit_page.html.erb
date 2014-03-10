@@ -158,42 +158,14 @@
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
           <div class="socials-footer">
-            <a class="btn btn-facebook" href="#" title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a class="btn btn-twitter" href="#" title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-linkedin" href="#" title="LinkedIn">
-              <i class="fa fa-linkedin"></i>
-            </a>
-            <a class="btn btn-flickr" href="#" title="Flickr">
-              <i class="fa fa-flickr"></i>
-            </a>
-            <a class="btn btn-pinterest" href="#" title="Pinterest">
-              <i class="fa fa-pinterest"></i>
-            </a>
-            <a class="btn btn-tumblr" href="#" title="Tumblr">
-              <i class="fa fa-tumblr"></i>
-            </a>
-            <a class="btn btn-dropbox" href="#" title="Dropbox">
-              <i class="fa fa-dropbox"></i>
-            </a>
-            <a class="btn btn-google-plus" href="#" title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-            <a class="btn btn-instagram" href="#" title="Instagram">
-              <i class="fa fa-instagram"></i>
-            </a>
-            <a class="btn btn-github" href="#" title="GitHub">
-              <i class="fa fa-github"></i>
-            </a>
-            <a class="btn btn-bitbucket" href="#" title="Bitbucket">
-              <i class="fa fa-bitbucket"></i>
-            </a>
-            <a class="btn btn-vk" href="#" title="VK">
-              <i class="fa fa-vk"></i>
-            </a>
+            <% [:facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk].each do |s| %>
+              <% if @user.send(s).present? %>
+                <% class_name = s.to_s.gsub('_','-') %>
+                <a class="btn btn-<%= class_name %>" href="<%= @user.send(s) %>" title="<%= s.to_s.titleize %>">
+                  <i class="fa fa-<%= class_name %>"></i>
+                </a>
+              <% end %>
+            <% end %>
           </div> <!-- /.socials-footer -->
         </footer> <!-- /footer -->
         

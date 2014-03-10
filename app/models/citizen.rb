@@ -51,6 +51,6 @@ class Citizen::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
   def account_update
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk)
   end
 end
