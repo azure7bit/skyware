@@ -121,7 +121,10 @@
                 <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
                 <p class="entry-meta">
                   Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
-                  <% post.tags.each do |tag| %>
+                  <% post.dollar_tags.each do |tag| %>
+                    <a class="label label-success" href="tag.html"><%= tag.name %></a>
+                  <% end %>
+                  <% post.non_dollar_tags.each do |tag| %>
                     <a class="label label-danger" href="tag.html"><%= tag.name %></a>
                   <% end %>
                 </p>            
