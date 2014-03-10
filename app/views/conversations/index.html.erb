@@ -1,4 +1,4 @@
-<%# set_meta_tags :site => 'MusicMind', :title => 'Inbox', :reverse => true %>
+<!-- <%# set_meta_tags :site => 'MusicMind', :title => 'Inbox', :reverse => true %>
 <style type="text/css">
 	li.conversation{
 		background-color: #e8e9eb;
@@ -30,14 +30,35 @@
 	<h3>Messages</h3> 
 
 	<h2 class="box_title"> Inbox</h2>
-	<!-- get all messages that have not been read -->
 	<ul id="inbox-messages"><%= render current_user.mailbox.inbox %></ul>
 	
 	<h2 class="box_title">SentBox</h2>
 	<ul id="outbox-messages"><%= render current_user.mailbox.sentbox %></ul> 
-	<!-- <h2>Trash</h2> -->
 	<ul><%= render current_user.mailbox.trash %></ul>
 
 	<%= link_to 'Start Conversation', :new_conversation, :class => "btn btn-primary", :style => "margin-top:10px; float:right;" %>
 	</div>
-</section>
+</section> -->
+
+<div id="primary" class="col-sm-12">
+	<div class="content">
+		<% current_user.mailbox.inbox.each do |conversation| %>
+			<% message = conversation.messages.first %>
+			<% user = Citizen.find(message.sender_id) %>
+			<section class="post" >
+	          <header class="entry-header">
+	          	<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+	          	<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+	          	<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
+	          	<p class="entry-meta">
+	              Sent on <a class="entry-date" href="date.html"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="author.html"><%= user.subdomain %></a> | Tags 
+	              <% ['tag1', 'tag2'].each do |tag| %>
+	                <a class="label label-danger" href="tag.html"><%= tag %></a>
+	              <% end %>
+	            </p>
+	          </header>
+	          <div class="entry-description comment more"><%= message.body %></div>
+	        </section>
+        <% end %>
+	</div>
+</div>
