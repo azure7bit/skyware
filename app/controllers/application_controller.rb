@@ -43,9 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_correct_subdomain
-    if current_user.nil? and request.subdomain != 'www'
-      redirect_to root_url(subdomain: 'www')
-    elsif current_user and request.subdomain.empty?
+    if current_user and request.subdomain.empty?
       redirect_to root_url(subdomain: current_user.subdomain)
     end
   end
