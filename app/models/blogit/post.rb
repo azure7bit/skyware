@@ -46,6 +46,14 @@ module Blogit
     def to_param
       "#{id}-#{title.parameterize}"
     end
+
+    def dollar_tags
+      tags.where("name LIKE :name", name: "$%")
+    end
+
+    def non_dollar_tags
+      tags.where.not("name LIKE :name", name: "$%")
+    end
     
     def short_body
       truncate(body, length: 400, separator: "\n")

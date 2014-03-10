@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :populate_tags
+  before_filter :ensure_correct_subdomain
   helper_method :current_user
   after_filter :flash_to_headers
-  
+
   protected 
   
   layout :layout_by_resource
@@ -40,6 +41,13 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     root_url(subdomain: 'www')
   end
+
+  def ensure_correct_subdomain
+    if current_user and request.subdomain.empty?
+      redirect_to root_url(subdomain: current_user.subdomain)
+    end
+  end
+
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.class == Citizen
       root_url(subdomain: resource_or_scope.subdomain)

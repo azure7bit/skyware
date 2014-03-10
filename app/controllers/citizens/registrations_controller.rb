@@ -47,7 +47,7 @@ class Citizens::RegistrationsController < Devise::RegistrationsController
   private
 
   def params_citizen
-  	params.require(:citizen).permit(:email, :subdomain, :password, :password_confirmation, :avatar)
+  	params.require(:citizen).permit(:email, :subdomain, :password, :password_confirmation, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk)
   end
 
 end
