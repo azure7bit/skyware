@@ -66,3 +66,14 @@ class SuperAdmin < ActiveRecord::Base
 
 
 end
+
+
+class SuperAdmin::ParameterSanitizer < Devise::ParameterSanitizer
+  def sign_up
+    default_params.permit(:subdomain, :email, :password, :password_confirmation)
+  end
+
+  def account_update
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk)
+  end
+end

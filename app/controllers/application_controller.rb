@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == Citizen
       Citizen::ParameterSanitizer.new(Citizen, :citizen, params)
-    else
-      super
+    elsif resource_class == SuperAdmin
+      SuperAdmin::ParameterSanitizer.new(SuperAdmin, :super_admin, params)
     end
   end
   
