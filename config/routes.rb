@@ -94,7 +94,7 @@ SkyhqNew::Application.routes.draw do
   
   devise_scope :super_admin do
     get "business/login",    to: "devise/sessions#new"
-    get "business/logout",   to: "devise/sessions#destroy"
+    get "logout",   to: "devise/sessions#destroy"
     get "business/register", to: "devise/registrations#new"
     get "business/reset",    to: "devise/passwords#new"
     get "business/profile", to: "devise/registrations#edit"

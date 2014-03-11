@@ -1,19 +1,22 @@
 <div class='row'>
     <div class='col-md-1'>
-        <% image = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
+        <% image = commentor.avatar.blank? ? "img/profile-placeholder.png" : commentor.avatar.url %>
         <%= image_tag image , :height => "52", :width => "52" %>
     </div>
     <div class='col-md-11'>
         <%= simple_form_for(:conversation, url: :conversations,remote: true, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
         <form role="form">
-            <% if @user.present? %>
-                <%= f.hidden_field :recipients, :value => @user.email %>
+            <% if recipient.present? %>
+                <%= f.hidden_field :recipients, :value => recipient.email %>
+            <% end %>
+            <% if conversation_id %>
+                <%= f.hidden_field :conversation_id, value: conversation_id %>
             <% end %>
             <div class="form-group">
-                <%= f.hidden_field :subject, value: post.title %>
+                <%= f.hidden_field :subject, value: title %>
             </div>
             <div class="form-group">
-                <%= f.text_area :body, :rows => 3, :class => "form-control", placeholder: "POST CONTENT" %>
+                <%= f.text_area :body, :rows => 3, :class => "form-control", placeholder: "MESSAGE CONTENT" %>
             </div>
             <div class="smallMenuItems">
                 <%= f.submit "Reply", class: 'btn btn-success' %>

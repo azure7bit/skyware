@@ -58,6 +58,7 @@
 	            </p>
 	          </header>
 	          <div class="entry-description comment more"><%= message.body %></div>
+	          <%= render 'comment_conversation_form', commentor: current_user, recipient: user, title: message.subject, conversation_id: conversation.id %>
 	        </section>
         <% end %>
 	</div>

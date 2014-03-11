@@ -150,7 +150,7 @@
               <% end %>
             </div>
             <% if @user != current_user && !current_user.blank? %>
-              <%= render 'conversations/comment_conversation_form', post: post, image: url %>
+              <%= render 'conversations/comment_conversation_form', title: post.title, image: url, commentor: current_user, recipient: @user %>
             <% end %>
             </section> <!-- /.post -->
         <% end %>       
