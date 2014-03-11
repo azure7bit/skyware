@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     if current_user and request.subdomain.empty?
       redirect_to root_url(subdomain: current_user.subdomain)
     elsif current_user and devise_controller?
-      redirect_to root_url(subdomain: current_user.subdomain)
+      redirect_to root_url(subdomain: current_user.subdomain) if !params[:action].eql?("destroy")
     end
   end
 
