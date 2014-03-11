@@ -160,6 +160,7 @@
     
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
+          <% if !current_user.class.eql?(SuperAdmin) %>
           <div class="socials-footer">
             <% [:facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk].each do |s| %>
               <% if @user.send(s).present? %>
@@ -170,6 +171,7 @@
               <% end %>
             <% end %>
           </div> <!-- /.socials-footer -->
+          <% end %>
         </footer> <!-- /footer -->
         
     </div> <!-- /#primary -->

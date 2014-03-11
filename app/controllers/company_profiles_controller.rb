@@ -27,6 +27,7 @@ class CompanyProfilesController < ApplicationController
   end
 
   def blog
+    @user = current_user
     @posts = Blogit::Post.where(:blogger_id => current_user.id, :blogger_type => current_user.class).order("created_at desc").except(:order)
     respond_to do |format|
       format.html # index.html.erb
