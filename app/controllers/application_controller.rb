@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   def ensure_correct_subdomain
     if current_user and request.subdomain.empty?
       redirect_to root_url(subdomain: current_user.subdomain)
-    elsif current_user and devise_controller? and (params[:action] != 'destroy')
+    elsif current_user and devise_controller? and (params[:action] == 'new')
       redirect_to root_url(subdomain: current_user.subdomain)
     end
   end

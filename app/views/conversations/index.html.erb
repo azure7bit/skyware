@@ -44,9 +44,10 @@
 	<div class="content">
 		<% current_user.mailbox.inbox.each do |conversation| %>
 			<section class="post" >
-				<% user = Citizen.find(conversation.messages.first.sender_id) %>
+				<% other_user = ((Citizen.where(id: conversation.messages.collect(&:sender_id)).to_a) - [current_user]).first %>
 				<% conversation.messages.limit(3).reverse.each do |message| %>
 					<header class="entry-header">
+						<% user = Citizen.find(message.sender_id) %>
 						<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
 						<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
 						<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
@@ -60,7 +61,7 @@
 		          <div class="entry-description comment more"><%= message.body %></div>
 		          <hr>
 				<% end %>
-	          <%= render 'inbox_reply_form', commentor: current_user, recipient: user, conversation: conversation, title: "Re : "+conversation.subject %>
+	          <%= render 'inbox_reply_form', commentor: current_user, recipient: other_user, conversation: conversation, title: "Re : "+conversation.subject %>
 	        </section>
         <% end %>
 	</div>
