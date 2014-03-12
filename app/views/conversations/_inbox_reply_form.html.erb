@@ -4,11 +4,8 @@
         <%= image_tag image , :height => "52", :width => "52" %>
     </div>
     <div class='col-md-11'>
-        <%= simple_form_for(:conversation, url: :conversations,remote: true, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+        <%= simple_form_for(:message, url: reply_conversation_path(conversation), :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
         <form role="form">
-            <% if recipient.present? %>
-                <%= f.hidden_field :recipients, :value => recipient.email %>
-            <% end %>
             <div class="form-group">
                 <%= f.hidden_field :subject, value: title %>
             </div>
@@ -16,7 +13,7 @@
                 <%= f.text_area :body, :rows => 3, :class => "form-control", placeholder: "MESSAGE CONTENT" %>
             </div>
             <div class="smallMenuItems">
-                <%= f.submit "Message", class: 'btn btn-success' %>
+                <%= f.submit "Reply", class: 'btn btn-success' %>
             </div>
         </form>
         <% end %>

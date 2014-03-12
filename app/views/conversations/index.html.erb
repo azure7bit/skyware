@@ -43,22 +43,24 @@
 <div id="primary" class="col-sm-12">
 	<div class="content">
 		<% current_user.mailbox.inbox.each do |conversation| %>
-			<% message = conversation.messages.first %>
-			<% user = Citizen.find(message.sender_id) %>
 			<section class="post" >
-	          <header class="entry-header">
-	          	<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
-	          	<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-	          	<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
-	          	<p class="entry-meta">
-	              Sent on <a class="entry-date" href="date.html"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="author.html"><%= user.subdomain %></a> | Tags 
-	              <% ['tag1', 'tag2'].each do |tag| %>
-	                <a class="label label-danger" href="tag.html"><%= tag %></a>
-	              <% end %>
-	            </p>
-	          </header>
-	          <div class="entry-description comment more"><%= message.body %></div>
-	          <%= render 'comment_conversation_form', commentor: current_user, recipient: user, title: message.subject, conversation_id: conversation.id %>
+				<% user = Citizen.find(conversation.messages.first.sender_id) %>
+				<% conversation.messages.limit(3).reverse.each do |message| %>
+					<header class="entry-header">
+						<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+						<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+						<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
+						<p class="entry-meta">
+						Sent on <a class="entry-date" href="date.html"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="author.html"><%= user.subdomain %></a> | Tags 
+						<% ['tag1', 'tag2'].each do |tag| %>
+							<a class="label label-danger" href="tag.html"><%= tag %></a>
+						<% end %>
+						</p>
+		          </header>
+		          <div class="entry-description comment more"><%= message.body %></div>
+		          <hr>
+				<% end %>
+	          <%= render 'inbox_reply_form', commentor: current_user, recipient: user, conversation: conversation, title: "Re : "+conversation.subject %>
 	        </section>
         <% end %>
 	</div>

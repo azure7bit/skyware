@@ -41,8 +41,8 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    current_super_admin.reply_to_conversation(conversation, *message_params(:body, :subject))
-    redirect_to conversation
+    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    redirect_to conversations_path
   end
 
   def trash
