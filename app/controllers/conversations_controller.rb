@@ -20,10 +20,6 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    Conversation.find_by_id(params[:id])
-    respond_to do |format|
-      format.html
-    end
   end
 
   def create
@@ -42,7 +38,7 @@ class ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-    redirect_to conversations_path
+    redirect_to :back
   end
 
   def trash

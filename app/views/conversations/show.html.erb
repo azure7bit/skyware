@@ -1,37 +1,24 @@
-<section class="wrapper" id="inbox">
-	<div class="container margin-bottom margin-top">
-		<div class="column_10 offset_2">
-			<h2 id="conversation_subject">Subject: <%= conversation.subject %></h2>
-
-			<ul id="conversation_message" style="padding-bottom:0px;">
-			  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-			    <% message = receipt.message %>
-			    <% user = SuperAdmin.find_by_id(message.sender_id) %>
-			    <div id="time_sent" style="float:right; padding-top:5px; padding-right:10px; font-size:14px;">
-			    	Sent <%= time_ago_in_words(message.created_at) %> ago.
-			    </div>
-			    
-			    <div class="sender_picture">
-			    	<%= user.name.titleize %>
-					<% unless user.image? %>
-						<%= image_tag("profile-placeholder.png", :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-					<% else %>
-						<% if user.uploaded_image? %>
-							<%= image_tag(user.super_admin_uploaded_image.url(:bigger_thumb), :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-						<% else %>
-							<%= image_tag('profile-placeholder.png', :height => "50px", :width => "50px", :style => "float:left; margin-right:20px;padding-bottom: 50px;") %>
-						<% end %>
+<div id="primary" class="col-sm-12">
+	<div class="content">
+		<section class="post" >
+			<% other_user = ((Citizen.where(id: conversation.messages.collect(&:sender_id)).to_a) - [current_user]).first %>
+			<% conversation.messages.reverse.each do |message| %>
+				<header class="entry-header">
+					<% user = Citizen.find(message.sender_id) %>
+					<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+					<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+					<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
+					<p class="entry-meta">
+					Sent on <a class="entry-date" href="date.html"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="author.html"><%= user.subdomain %></a> | Tags 
+					<% ['tag1', 'tag2'].each do |tag| %>
+						<a class="label label-danger" href="tag.html"><%= tag %></a>
 					<% end %>
-				</div>
-					
-			    <h4 id="message_subject"><%= message.subject %></h4>
-			    <p id="message_body"><%= message.body %></p>
-			    
-			  <% end %>
-			</ul>
-			<div id="send_message_form">
-				<%= render 'conversations/form', conversation: conversation %>
-			</div>
-		</div>
+					</p>
+		      </header>
+		      <div class="entry-description comment more"><%= message.body %></div>
+		      <hr>
+			<% end %>
+			<%= render 'inbox_reply_form', commentor: current_user, recipient: other_user, conversation: conversation, title: "Re : "+conversation.subject %>
+		</section>
 	</div>
-</section>
+</div>

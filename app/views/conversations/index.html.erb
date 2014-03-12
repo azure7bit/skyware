@@ -61,7 +61,8 @@
 		          <div class="entry-description comment more"><%= message.body %></div>
 		          <hr>
 				<% end %>
-	          <%= render 'inbox_reply_form', commentor: current_user, recipient: other_user, conversation: conversation, title: "Re : "+conversation.subject %>
+				<h5><small><%= link_to "View Full Conversation", conversation %></small></h5>
+				<%= render 'inbox_reply_form', commentor: current_user, recipient: other_user, conversation: conversation, title: "Re : "+conversation.subject %>
 	        </section>
         <% end %>
 	</div>
