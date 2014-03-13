@@ -51,11 +51,11 @@ class ApplicationController < ActionController::Base
     citizen = Citizen.find_by(subdomain: request.subdomain)
     super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
     if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
-      redirect_to root_url(subdomain: current_user.subdomain)
+      redirect_to root_path
     elsif current_user and devise_controller? and (params[:action] == 'new')
-      redirect_to root_url(subdomain: current_user.subdomain)
+      redirect_to root_path
     elsif current_user.nil? and request.subdomain.empty?
-      redirect_to root_url(subdomain: 'www')
+      redirect_to root_path
     end
   end
 
