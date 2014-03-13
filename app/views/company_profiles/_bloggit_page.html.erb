@@ -63,7 +63,7 @@
             </a>
           </div> <!-- /.socials-sidebar -->
             <% if current_user == @user %>
-              <%= form_tag(post_save_path(:subdomain => current_user.subdomain), :method => :POST, :id => "form-post") do -%>
+              <%= form_tag(post_save_path, :method => :POST, :id => "form-post") do -%>
                 <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
                 <br>
                 <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
