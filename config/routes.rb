@@ -13,12 +13,12 @@ end
 SkyhqNew::Application.routes.draw do
 
   authenticated :citizen do
-    get '/' => 'company_profiles#index'
+    get '/' => 'blogit/posts#index'
   end
 
 
   authenticated :super_admin do
-    get '/' => 'locations#index'
+    get '/' => 'blogit/posts#index'
   end
   
   constraints(WWWSubdomain.new) do
@@ -36,6 +36,7 @@ SkyhqNew::Application.routes.draw do
   post    "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
   patch   "public/:id/edit/", to: "company_profiles#edit_post", as: "company_edit_post"
   delete  "public/:id", to: "general_pages#destroy_post", as: "delete_post"
+  get "public", to: "blogit/posts#index"
 
   get  '/home' => 'general_pages#index'
   get  '/about' => 'general_pages#about'
@@ -64,8 +65,8 @@ SkyhqNew::Application.routes.draw do
   end
   resources :company_docs, path: 'docs'
 
-  resources :company_profiles, :path => "public"
- 
+  resources :company_profiles
+
   resources :online_stores, :path => "orders" do
     resources :products
   end

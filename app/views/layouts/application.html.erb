@@ -21,6 +21,7 @@
         
 		<%= stylesheet_link_tag "application", :media => "all" %>
         <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag "blog" %>
         <%= csrf_meta_tags %>
 
         <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
@@ -75,7 +76,7 @@
             <!-- END RIBBON -->
 
             <!-- MAIN CONTENT -->
-            <div id="content" style="overflow-y:scroll;">
+            <div id="content" style="overflow-y:auto; overflow-x:hidden;">
                 <div class='flash_msg_container'>
                     <%= flash_messages %>
                 </div>

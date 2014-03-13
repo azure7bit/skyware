@@ -163,7 +163,6 @@
     
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
-          <% if !current_user.class.eql?(SuperAdmin) %>
           <div class="socials-footer">
             <% [:facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk].each do |s| %>
               <% if @user.send(s).present? %>
@@ -174,19 +173,18 @@
               <% end %>
             <% end %>
           </div> <!-- /.socials-footer -->
-          <% end %>
         </footer> <!-- /footer -->
         
     </div> <!-- /#primary -->
     </div>
 
-  <%= javascript_include_tag "blog/jquery-1.11.0.min" %>
-  <%= javascript_include_tag "blog/custom" %>
-  <%= javascript_include_tag "bootstrap" %>
-  <%= stylesheet_link_tag "blog/main" %>
+  <%#= javascript_include_tag "blog/jquery-1.11.0.min" %>
+  <%#= javascript_include_tag "blog/custom" %>
+  <%#= javascript_include_tag "bootstrap" %>
+  <%#= stylesheet_link_tag "blog/main" %>
 
  <script type="text/javascript">
- <% if !current_user.blank? %>
+ <% if current_user.present? %>
     $(document).ready(function() {
         var get_id = $(".click").data("id");
         $(".click").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>.js", { 

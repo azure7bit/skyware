@@ -44,6 +44,15 @@
                             
                             <b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
                     </section>
+                    <section>
+                        <% [:facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk].each do |s| %>
+                            <% class_name = s.to_s.gsub('_','-') %>
+                            <label class='input'> <i class='icon-append fa fa-<%= class_name %>'></i>
+                                <%= f.text_field s, placeholder: s.to_s.titleize %>
+                                <b class='tooltip tooltip-bottom-right'><%= "For linking your #{s.to_s.titleize} Account to your blog." %></b>
+                            </label>
+                        <% end %>
+                    </section>
                 </fieldset>
 
                 <footer>
