@@ -54,6 +54,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_url(subdomain: current_user.subdomain)
     elsif current_user and devise_controller? and (params[:action] == 'new')
       redirect_to root_url(subdomain: current_user.subdomain)
+    elsif current_user.nil? and request.subdomain.empty?
+      redirect_to root_url(subdomain: 'www')
     end
   end
 
