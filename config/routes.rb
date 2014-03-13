@@ -32,7 +32,6 @@ SkyhqNew::Application.routes.draw do
   
   root :to => 'general_pages#index'
 
-  get     '/blogs' => 'company_profiles#blog', as: :super_admin_blog
   match   "/post/save" => 'general_pages#save_post', :via => :post
   post    "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
   patch   "public/:id/edit/", to: "company_profiles#edit_post", as: "company_edit_post"

@@ -27,6 +27,7 @@ module Blogit
         }
         format.html {
           @posts = Post.where(blogger_id: @user.id).for_index(params[Kaminari.config.param_name])
+          render :index, layout: current_user ? 'application' : 'blog'
         }
         format.rss {
           @posts = Post.order('created_at DESC')

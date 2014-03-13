@@ -43,10 +43,16 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_correct_subdomain
+    citizen = Citizen.find_by(subdomain: request.subdomain)
+    super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
     if current_user and request.subdomain.empty?
       redirect_to root_url(subdomain: current_user.subdomain)
     elsif current_user and devise_controller? and (params[:action] == 'new')
       redirect_to root_url(subdomain: current_user.subdomain)
+    elsif current_user and current_user.class.eql?(SuperAdmin)
+      redirect_to blog_path if  super_admin.nil? and citizen.present? and request.path != '/blog'
+    elsif current_user and current_user.class.eql?(Citizen)
+      redirect_to blog_path if  citizen.nil? and super_admin.present? and request.path != '/blog'
     end
   end
 
