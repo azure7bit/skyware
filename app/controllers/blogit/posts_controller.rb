@@ -21,6 +21,7 @@ module Blogit
     def index    
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
+      @user ||= SuperAdmin.where(subdomain: subdomain).first
       respond_to do |format|
         format.xml {
           @posts = Post.order('created_at DESC')
