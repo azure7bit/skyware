@@ -2,22 +2,7 @@
   <%= link_to t(:new_blog_post, scope: 'blogit.posts'), new_post_path ,:style=>"font-size:30px; margin-left:245px"%>
 <% end %>
 
-<% if @posts.any? %>
-
-  <%#= render partial: "blogit/posts/post",
-    collection: @posts,
-    spacer_template: "blog_post_spacer",
-    locals: {show_comments_count: (Blogit.configuration.include_comments == :active_records) }  %>
-  <%= render "/company_profiles/bloggit_page" %>
-
-<% else %>
-  
-    <%= render partial: "blogit/posts/empty" %>
-
-<% end %>
-
-<div class="">
-</div>
+<%= render "/company_profiles/bloggit_page" %>
 
 <% content_for :title_subdomain do %>
   <%= @user.subdomain.capitalize %>

@@ -23,13 +23,14 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    recipient_emails = conversation_params(:recipients).split(',')
-    recipients = Citizen.where(email: recipient_emails).all
+    recipient_email = conversation_params(:recipient).split(',')
+    recipient = Citizen.find_by(email: recipient_email)
+    recipient ||= SuperAdmin.find_by(email: recipient_email)
 
     conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
+      send_message(recipient, *conversation_params(:body, :subject)).conversation
     respond_to do |format|
-      format.html { redirect_to conversation }
+      format.html { redirect_to :back, notice: 'Message sent successfully to #{recipients.first.name}.' }
       format.js{
         flash[:notice] = "Message sent successfully to #{recipients.first.name}"
       }
@@ -38,7 +39,7 @@ class ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-    redirect_to :back
+    redirect_to :back, notice: 'Message sent successfully to #{recipients.first.name}.'
   end
 
   def trash

@@ -22,12 +22,13 @@ module Blogit
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
       @user ||= SuperAdmin.where(subdomain: subdomain).first
+
       respond_to do |format|
         format.xml {
           @posts = Post.order('created_at DESC')
         }
         format.html {
-          @posts = Post.where(blogger_id: @user.id).for_index(params[Kaminari.config.param_name])
+          @posts = Post.where(blogger: @user).for_index(params[Kaminari.config.param_name])
           render :index, layout: current_user ? 'application' : 'blog'
         }
         format.rss {

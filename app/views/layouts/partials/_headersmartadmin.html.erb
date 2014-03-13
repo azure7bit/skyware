@@ -4,7 +4,7 @@
 
         <!-- PLACE YOUR LOGO HERE -->
         <span id="logo">
-            <a href="/">
+            <a href="<%= root_path %>">
                 <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
             </a>
         </span>
@@ -115,37 +115,23 @@
         
         <ul>
             <% if current_citizen %>
-                <li class=""><a href="/public" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog HQ</span></a></li>
+                <li class=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
             <% end %>
             <% if current_super_admin %>
-                <li><a href="/blogs"><i class="fa fa-lg fa-fw fa-bookmark"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                <li><a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
             <% end %>
             <% if current_user %>
-                <li><a href="/inbox"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
+                <li><a href="<%= conversations_path %>"><i class="fa fa-lg fa-fw fa-inbox"></i>  <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge"></span></a></li>
             <%end%>
             <% if current_super_admin %>
-                <li class=""><a href="/locations" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
-            <% end %>
-            <% if current_super_admin %>
-                <li><a href="/orders"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>  <span class="menu-item-parent">Orders HQ</span></a></li>
-            <% end %>
-            <% if current_super_admin %>
-                <li><a href="/comms"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>
-                  <li><a href="/public"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
-            <% end %>
-          
-            <% if current_super_admin %>
+                <li class=""><a href="<%= locations_path %>" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
+                <li><a href="<%= online_stores_path %>"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>  <span class="menu-item-parent">Orders HQ</span></a></li>
+                <li><a href="<%= company_forums_path %>"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>
+                  <li><a href="<%= public_path %>"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
                 <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Team HQ</span></a></li>
-            <% end %>
-            
-            <% if current_super_admin %>
                 <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Vendors HQ</span></a></li>
-            <% end %>
-            <% if current_super_admin %>
                 <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Customers HQ</span></a></li>
-            <% end %>
-            <% if current_super_admin %>
-                <li><a href="/docs"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
+                <li><a href="<%= company_docs_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
             <% end %>
             <!-- <li><a href="#"><i class="fa fa-lg fa-fw fa-windows"></i>  <span class="menu-item-parent">Miscellaneous</span></a>
                 <ul>

@@ -1,14 +1,14 @@
 <% show_cancel = show_cancel.nil? ? true : false %>
-<%= simple_form_for(:conversation, url: :conversations,remote: true, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+<%= simple_form_for(:conversation, url: :conversations, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
 <form role="form">
     <% if @user.present? %>
-        <%= f.hidden_field :recipients, :value => @user.email %>
+        <%= f.hidden_field :recipient, :value => @user.email %>
     <% end %>
     <div class="form-group">
         <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
-        <%= f.text_area :body, :rows => 7, :class => "form-control", placeholder: "POST CONTENT" %>
+        <%= f.text_area :body, :rows => 7, :class => "form-control", placeholder: "POST MESSAGE" %>
     </div>
     <div class="smallMenuItems">
         <%= f.submit "POST TO HQ", class: 'btn btn-success' %>

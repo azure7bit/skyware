@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   after_filter :flash_to_headers
 
+  def url_options
+    {subdomain: (current_user.try(:subdomain) or 'www'), only_path: false}.merge(super)
+  end
+
   protected 
   
   layout :layout_by_resource
@@ -33,6 +37,7 @@ class ApplicationController < ActionController::Base
     @super_admin = current_super_admin
   end
 
+
   def current_user
       current_super_admin or current_citizen
   end
@@ -45,14 +50,10 @@ class ApplicationController < ActionController::Base
   def ensure_correct_subdomain
     citizen = Citizen.find_by(subdomain: request.subdomain)
     super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
-    if current_user and request.subdomain.empty?
+    if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
       redirect_to root_url(subdomain: current_user.subdomain)
     elsif current_user and devise_controller? and (params[:action] == 'new')
       redirect_to root_url(subdomain: current_user.subdomain)
-    elsif current_user and current_user.class.eql?(SuperAdmin)
-      redirect_to blog_path if  super_admin.nil? and citizen.present? and request.path != '/blog'
-    elsif current_user and current_user.class.eql?(Citizen)
-      redirect_to blog_path if  citizen.nil? and super_admin.present? and request.path != '/blog'
     end
   end
 

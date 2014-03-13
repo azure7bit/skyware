@@ -102,61 +102,65 @@
           </div>
 
         </header> <!-- /header -->
-        <% @posts.each_with_index do |post, i| %>
-          <section class="post" >
-            <!-- Single button -->
-            <% if current_user == @user %>
-              <div class="btn-group entry-button pull-right">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-              </div>
-            <% end %>
-            <div class="post-content" data-id="<%= post.id %>">
-              <header class="entry-header">
-                <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
-                <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-                <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
-                <p class="entry-meta">
-                  Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
-                  <% post.dollar_tags.each do |tag| %>
-                    <a class="label label-success" href="tag.html"><%= tag.name %></a>
-                  <% end %>
-                  <% post.non_dollar_tags.each do |tag| %>
-                    <a class="label label-danger" href="tag.html"><%= tag.name %></a>
-                  <% end %>
-                </p>            
-              </header>
-              <div class="entry-description comment more" ><%= post.body%></div>
-            </div>
-            <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
-              <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
-                <div class="form-group">
-                  <%= f.label :title, "Topic" %>
-                  <%= f.text_field :title, class: "form-control" %>
+        <% if @posts.present? %>
+          <% @posts.each_with_index do |post, i| %>
+            <section class="post" >
+              <!-- Single button -->
+              <% if current_user == @user %>
+                <div class="btn-group entry-button pull-right">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  </ul>
                 </div>
-                <div class="form-group">
-                  <%= f.label :title, "Tags" %>
-                  <%= f.text_field :tag_list, class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :title, "Post Content" %>
-                  <%= f.text_area :body, class: "form-control", rows: "5" %>
-                </div>
-                <%= f.submit "Change Post", class: "btn btn-success" %>
-                <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
               <% end %>
-            </div>
-            <% if @user != current_user && !current_user.blank? %>
-              <%= render 'conversations/comment_conversation_form', title: post.title, commentor: current_user, recipient: @user %>
-            <% end %>
-            </section> <!-- /.post -->
-        <% end %>       
+              <div class="post-content" data-id="<%= post.id %>">
+                <header class="entry-header">
+                  <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
+                  <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+                  <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
+                  <p class="entry-meta">
+                    Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
+                    <% post.dollar_tags.each do |tag| %>
+                      <a class="label label-success" href="tag.html"><%= tag.name %></a>
+                    <% end %>
+                    <% post.non_dollar_tags.each do |tag| %>
+                      <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+                    <% end %>
+                  </p>            
+                </header>
+                <div class="entry-description comment more" ><%= post.body%></div>
+              </div>
+              <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
+                <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
+                  <div class="form-group">
+                    <%= f.label :title, "Topic" %>
+                    <%= f.text_field :title, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :title, "Tags" %>
+                    <%= f.text_field :tag_list, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :title, "Post Content" %>
+                    <%= f.text_area :body, class: "form-control", rows: "5" %>
+                  </div>
+                  <%= f.submit "Change Post", class: "btn btn-success" %>
+                  <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
+                <% end %>
+              </div>
+              <% if @user != current_user && !current_user.blank? %>
+                <%= render 'conversations/comment_conversation_form', title: post.title, commentor: current_user, recipient: @user %>
+              <% end %>
+              </section> <!-- /.post -->
+          <% end %>
+        <% else %>
+          <%= render partial: "blogit/posts/empty" %>
+        <% end %>
       </div>
   
 
