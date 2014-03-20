@@ -1,4 +1,4 @@
-
+<!--
     <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
       <aside>
 
@@ -61,7 +61,7 @@
             <a class="btn btn-vk" href="#" title="VK">
               <i class="fa fa-vk"></i>
             </a>
-          </div> <!-- /.socials-sidebar -->
+          </div>
             <% if current_user == @user %>
               <%= form_tag(post_save_path, :method => :POST, :id => "form-post") do -%>
                 <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
@@ -84,24 +84,48 @@
         </div>
 
       </aside>
-    </div> <!-- /#secondary -->
-
+    </div>
+-->
   <div class="row">
     <div id="primary" class="col-sm-12">
       <div class="content">    
         <header class="header">
-          <hgroup class="pull-left">
-            <h1 class="site-title">
+          <hgroup>
+            <h1 class="site-title text-center">
               <a rel="home" title="Von" href="/">
                 <%= "#{@user.subdomain.capitalize}" rescue "Bussines" %>
               </a>
             </h1>
           </hgroup>
-          <div id="togglesidebar-1" class="btn btn-primary pull-right">
-            <i class="fa fa-bars"></i>
-          </div>
+          <% if current_user == @user %>
+            <div id='create-new-post-btn' class="btn btn-primary pull-right">
+              <i class="fa fa-pencil-square-o"></i>
+            </div>
+          <% end %>
 
         </header> <!-- /header -->
+        <% if current_user == @user %>
+          <section class='new-post post' style="display:none">
+            <div class="form-post-content">
+                <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+                  <div class="form-group">
+                    <%= f.label :title, "Topic" %>
+                    <%= f.text_field :title, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :title, "Tags" %>
+                    <%= f.text_field :tag_list, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :title, "Post Content" %>
+                    <%= f.text_area :body, class: "form-control", rows: "5" %>
+                  </div>
+                  <%= f.submit "Create Post", class: "btn btn-success" %>
+                  <button type="button" class="btn btn-warning post-cancel">Cancel</button>
+                <% end %>
+              </div>
+          </section>
+        <% end %>
         <% if @posts.present? %>
           <% @posts.each_with_index do |post, i| %>
             <section class="post" >
