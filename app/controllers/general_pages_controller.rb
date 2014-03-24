@@ -59,9 +59,11 @@ class GeneralPagesController < ApplicationController
 
   def save_post
     @post = Blogit::Post.new(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
-    @post.save
-    # redirect_to root_url(subdomain: current_user.subdomain)
-    redirect_to :back
+    if @post.save
+      redirect_to root_url(subdomain: current_user.subdomain)
+    else
+      render :index
+    end
   end
 
   def destroy_post

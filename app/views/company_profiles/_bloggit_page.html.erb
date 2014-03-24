@@ -92,43 +92,43 @@
         <header class="header">
           <hgroup>
             <h1 class="site-title text-center">
-              <a rel="home" title="Von" href="/">
-                <%= "#{@user.subdomain.capitalize}" rescue "Bussines" %>
+              <a rel="home" title="<%= "#{@user.subdomain.capitalize}" %>" href="/">
+                <strong style="color: #235A9F;"><%= "#{@user.subdomain.capitalize}" rescue "Bussines" %></strong>
               </a>
             </h1>
+            <% if current_user == @user %>
+              <div id='create-new-post-btn' class="btn btn-primary pull-right">
+                <i class="fa fa-pencil-square-o"></i>
+              </div>
+            <% end %>
           </hgroup>
-          <% if current_user == @user %>
-            <div id='create-new-post-btn' class="btn btn-primary pull-right">
-              <i class="fa fa-pencil-square-o"></i>
-            </div>
-          <% end %>
 
         </header> <!-- /header -->
         <% if current_user == @user %>
           <section class='new-post post' style="display:none">
             <div class="form-post-content">
-                <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
-                  <div class="form-group">
-                    <%= f.label :title, "Topic" %>
-                    <%= f.text_field :title, class: "form-control" %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :title, "Tags" %>
-                    <%= f.text_field :tag_list, class: "form-control" %>
-                  </div>
-                  <div class="form-group">
-                    <%= f.label :title, "Post Content" %>
-                    <%= f.text_area :body, class: "form-control", rows: "5" %>
-                  </div>
-                  <%= f.submit "Create Post", class: "btn btn-success" %>
-                  <button type="button" class="btn btn-warning post-cancel">Cancel</button>
-                <% end %>
-              </div>
+              <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+                <div class="form-group">
+                  <%= f.label :title, "Topic" %>
+                  <%= f.text_field :title, class: "form-control", :required => true %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Tags" %>
+                  <%= f.text_field :tag_list, class: "form-control", :required => true %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :title, "Post Content" %>
+                  <%= f.text_area :body, class: "form-control", rows: "5", :required => true %>
+                </div>
+                <%= f.submit "Create Post", class: "btn btn-success" %>
+                <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
+              <% end %>
+            </div>
           </section>
         <% end %>
         <% if @posts.present? %>
           <% @posts.each_with_index do |post, i| %>
-            <section class="post" >
+            <section class="post" id="new-post">
               <!-- Single button -->
               <% if current_user == @user %>
                 <div class="btn-group entry-button pull-right">
@@ -146,18 +146,29 @@
                 <header class="entry-header">
                   <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
                   <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-                  <h2 class="entry-title"><a href="single.html" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a></h2>
+                  <h2 class="entry-title">
+                    <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a>
+                  </h2>
                   <p class="entry-meta">
-                    Posted on <a class="entry-date" href="date.html"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="author.html"><%= post.blogger.subdomain%></a> | Tags 
+                    Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
                     <% post.dollar_tags.each do |tag| %>
-                      <a class="label label-success" href="tag.html"><%= tag.name %></a>
+                      <a class="label label-success" href="#"><%= tag.name %></a>
                     <% end %>
                     <% post.non_dollar_tags.each do |tag| %>
-                      <a class="label label-danger" href="tag.html"><%= tag.name %></a>
+                      <a class="label label-danger" href="#"><%= tag.name %></a>
                     <% end %>
                   </p>            
                 </header>
                 <div class="entry-description comment more" ><%= post.body%></div>
+                <!-- <div class="form-post-content reply" data-id="<%= post.id %>" hidden="true">
+                  <%= form_for post, url: post_comments_path(post.id) do |f| %>
+                    <%= f.submit "Replay", class: "btn btn-success pull-right" %>
+                    <br /><br />
+                    <div class="form-group">
+                      <%= text_area_tag :reply, nil, class: "form-control", rows: "5" %>
+                    </div>
+                  <% end %>
+                </div> -->
               </div>
               <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
                 <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
@@ -180,7 +191,7 @@
               <% if @user != current_user && !current_user.blank? %>
                 <%= render 'conversations/comment_conversation_form', title: post.title, commentor: current_user, recipient: @user %>
               <% end %>
-              </section> <!-- /.post -->
+            </section> <!-- /.post -->
           <% end %>
         <% else %>
           <%= render partial: "blogit/posts/empty" %>
@@ -253,7 +264,12 @@
           $(".post-content[data-id='"+id+"']").show("slow");
           $(".form-post-content[data-id='"+id+"']").hide("slow");
         });
-        
+
+        var side_height = $("aside#left-panel").height();
+        document.getElementById("main").style.minHeight = side_height+"px";
+
+        var max_post_content = $('div.post-content').width();
+        $('div.entry-description').width(max_post_content);
    });
   <% end %>
   
@@ -290,9 +306,17 @@
     var ellipsestext = "...";
     var moretext = "More";
     var lesstext = "Less";
+    var max_post_content = $('div.post-content').width();
     $('.more').each(function() {
-        var content = $(this).html();if(showChar < content.length) {
-            var c = content.substr(0, showChar);
+        var content = $(this).html();
+          if(showChar < content.length) {
+            if(hasWhiteSpace(content)){
+              var c = content.substr(0, showChar2);
+            }else{
+              content = $.trim(content);
+              var c = content.substr(0, showChar2/2);
+            }
+
             var h = content.substr(showChar, content.length - showChar);
  
             var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
@@ -323,5 +347,19 @@
         $(this).prev().toggle();
         return false;
     });
+
+    $("#cancel-post").click(function(){
+      $('#create-new-post-btn').click();
+    });
+
+    function hasWhiteSpace(s) {
+      return /\s/g.test(s);
+    }
+
+    // $('.morelink').each(function(){
+    //   $(this).click(function(){
+    //     $('.reply').show();
+    //   });
+    // });
 });
  </script>
