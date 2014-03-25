@@ -4,6 +4,7 @@ module Blogit
     blogit_authenticate except: [:create]
 
     def create
+      params[:comment] = {:name => current_user.name, :email => current_user.email, :body => params[:reply]}
       @comment = post.comments.new(comment_parameters)
       respond_to do |format|
         format.js {
@@ -13,7 +14,8 @@ module Blogit
 
         format.html {
           if @comment.save
-            redirect_to(post, notice: t(:successfully_added_comment, scope: 'blogit.comments'))
+            # redirect_to(post, notice: t(:successfully_added_comment, scope: 'blogit.comments'))
+            redirect_to root_url
           else
             render "blogit/posts/show"
           end
@@ -40,7 +42,7 @@ module Blogit
     
     def comment_parameters
       params[:comment]
-      # params.require(:comment).permit(:name, :email, :body, :website)
+      params.require(:comment).permit(:name, :email, :body, :website)
     end
     
   end

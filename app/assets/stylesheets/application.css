@@ -41,3 +41,7 @@ a.morelink {
 .entry-title a{
 	font-family: 'Varela Round', sans-serif;
 }
+
+.btn_reply{ margin-bottom: 10px; margin-top: 8px; }
+
+p.comment-list{ margin-top: 10px; margin-left: 10px; }

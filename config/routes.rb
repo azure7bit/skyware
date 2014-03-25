@@ -52,6 +52,9 @@ SkyhqNew::Application.routes.draw do
   post '/save_citizen_password' => 'blogit/posts#save_citizen_password'
   get  '/blog' => 'blogit/posts#index'
 
+  post 'reply_comment/:post_id' => 'blogit/comments#create', :as => 'reply_comment'
+
+
   # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'
   
   # match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"
