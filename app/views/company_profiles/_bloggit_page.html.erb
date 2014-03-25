@@ -162,8 +162,8 @@
                   </p>            
                 </header>
                 <div class="entry-description comment more" ><%= post.body%></div>
-                <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
                 <% if post.comments.any? %>
+                  <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
                   <% post.comments.each do |comment| %>
                     <div class="post-content post-comment" data-id="<%= post.id %>" hidden="true">
                       <p class="entry-meta comment-list">
