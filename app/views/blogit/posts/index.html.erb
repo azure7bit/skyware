@@ -5,7 +5,7 @@
 <%= render "/company_profiles/bloggit_page" %>
 
 <% content_for :title_subdomain do %>
-  <%= @user.subdomain.capitalize %>
+  <%= @user.subdomain.capitalize if request.subdomain == @user.subdomain %>
 <% end %>
  <%#= javascript_include_tag "blog/jquery-1.11.0.min" %>
   <%#= javascript_include_tag "blog/custom" %>
