@@ -77,6 +77,7 @@ class GeneralPagesController < ApplicationController
     citizens = Citizen.select(:subdomain)
     render :json => citizens.map{ |c| c.subdomain}
   end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params

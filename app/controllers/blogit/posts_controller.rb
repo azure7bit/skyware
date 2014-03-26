@@ -29,8 +29,7 @@ module Blogit
         }
         format.html {
           @posts = Post.where(blogger: @user, :post_type => nil).for_index(params[Kaminari.config.param_name])
-          @sticky_posts = Post.where(blogger: @user, :post_type => "Sticky").limit(2)
-          # for_index(params[Kaminari.config.param_name])
+          @sticky_posts = Post.where(blogger: @user, :post_type => "Sticky").for_index(params[Kaminari.config.param_name])
           render :index, layout: current_user ? 'application' : 'blog'
         }
         format.rss {

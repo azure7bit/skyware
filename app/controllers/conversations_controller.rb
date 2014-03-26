@@ -58,6 +58,8 @@ class ConversationsController < ApplicationController
     redirect_to :conversations
   end
 
+  def sticky_post;end
+
   private
 
   def mailbox

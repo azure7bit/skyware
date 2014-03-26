@@ -58,6 +58,8 @@ SkyhqNew::Application.routes.draw do
 
   match '/posts' => 'blogit/posts#index', :via => :get
 
+  get '/sticky_post' => 'conversations#sticky_post', :as => 'sticky_post'
+
   # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'
   
   # match '/profile' => "company_profiles#admin_profile", :as => "admin_profile"

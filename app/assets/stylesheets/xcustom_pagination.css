@@ -1,12 +1,12 @@
 .pagination {
   /*height: 36px;*/
   /*margin: 18px 0;*/
-  min-width: 250px;
- /* margin-left: 100px;
-  margin-right: 100px;*/
+  min-width: 700px;
+  margin-left: 100px;
+  /*margin-right: 100px;*/
 }
 .pagination ul {
-  display: inline-block;
+  display: block;
   *display: inline;
   /* IE7 inline-block hack */
 
@@ -66,11 +66,11 @@
 
 li.current{
   background-color: #fff;
-  padding: 10px 16px;
-  font-size: 18px;
+  /*padding: 10px 16px;*/
+  /*font-size: 18px;*/
   position: relative;
   float: left;
-  padding: 10px 12px;
+  padding: 6px 12px;
   line-height: 1.428571429;
   text-decoration: none;
   background-color: #eeeee;
