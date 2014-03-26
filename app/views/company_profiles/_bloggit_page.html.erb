@@ -62,7 +62,8 @@
                   <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
                   <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
                   <h2 class="entry-title">
-                    <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>"><%= post.title %></a>
+                    <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
+                    <strong><%= post.title %></strong></a>
                   </h2>
                   <p class="entry-meta">
                     Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
@@ -121,12 +122,22 @@
               <% end %>
             </section> <!-- /.post -->
           <% end %>
-          <section><%= paginate @posts %> </section>
         <% else %>
           <%= render partial: "blogit/posts/empty" %>
         <% end %>
       </div>
-  
+      <div class="content">
+        <div class="post-content">
+          <div class="row">
+          <div class="col-sm-12"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <%= paginate @posts %>
+            </div>
+            <div class="col-sm-4"></div>
+            </div>
+          </div>
+        </div>
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
           <div class="socials-footer">
@@ -140,6 +151,8 @@
             <% end %>
           </div> <!-- /.socials-footer -->
         </footer> <!-- /footer -->
+      </div>
+        
         
     </div> <!-- /#primary -->
 
@@ -155,7 +168,7 @@
         </div>
 
         <div class="tags">
-          <h4>List</h4>
+          <h4>Recent Sticky Post</h4>
           <ul>
             <!-- <li>
               <a href="tag.html" class="label label-danger">CSS3</a>
@@ -167,7 +180,7 @@
             <li>
               <h4 class="click" title="<%= post.title %>"><%= "#{i+1} - #{post.title}" %></h4>
               <p class="entry-meta">
-                Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
+                Tags 
                 <% post.dollar_tags.each do |tag| %>
                   <a class="label label-success" href="#"><%= tag.name %></a>
                 <% end %>
