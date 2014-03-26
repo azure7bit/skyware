@@ -1,0 +1,29 @@
+<div class="container">
+  <h4><strong>New Sticky Post</strong></h4>
+  <br /><br />
+  <%# if current_user == @user %>
+    <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+      <div class="form-group">
+        <%#= f.label :title, "Topic" %>
+        <%= f.text_field :title, class: "form-control", :required => true, :placeholder=>"TOPIC" %>
+      </div>
+      <div class="form-group">
+        <%#= f.label :title, "Tags" %>
+        <%= f.text_field :tag_list, class: "form-control", :required => true, :placeholder=>"TAGS" %>
+      </div>
+      <div class="form-group">
+        <%#= f.label :title, "Post Content" %>
+        <%= f.text_area :body, class: "form-control", rows: "5", :required => true, :placeholder=>"CONTENT" %>
+        <%= f.hidden_field :post_type, :value => "Sticky" %>
+      </div>
+      <%= f.submit "Create Sticky Post", class: "btn btn-success" %>
+      <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
+    <% end %>
+    <br>
+  <%# elsif current_user.nil? %>
+    <%#= link_to "Login", login_path, class: 'btn btn-primary' %>
+    <%#= link_to "Register", register_path, class: 'btn btn-danger' %>
+  <%# else %>
+    <%#= render 'conversations/form', show_cancel: false %>
+  <%# end %>
+</div>
