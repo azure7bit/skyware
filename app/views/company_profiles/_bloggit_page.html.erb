@@ -233,6 +233,13 @@
               <i class="fa fa-vk"></i>
             </a>
           </div> -->
+          <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
+          <div clas="social-sidebar">
+                        <!-- Google Map -->
+            <div id="map" class="map map-box map-box-space1 margin-bottom-40">
+            </div><!---/map-->
+            <!-- End Google Map -->
+          </div>
           <% if current_user == @user %>
             <%#= form_tag(post_save_path, :method => :POST, :id => "form-post") do -%>
               <!-- <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
@@ -269,8 +276,6 @@
           <% else %>
             <%= render 'conversations/form', show_cancel: false %>
           <% end %>
-                    <!-- Google Map -->
-           <div id="map" style='width: 200px; height: 200px;'></div>
         </div>
 
       </aside>
