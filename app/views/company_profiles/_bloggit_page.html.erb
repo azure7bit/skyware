@@ -1,93 +1,6 @@
-<!--
-    <div id="secondary" class="col-sm-3 sidebar" style="display: none;">
-      <aside>
-
-        <div class="about" style="margin-bottom:-15px;">
-          <% title = !@user.title_tagline.blank? ? @user.title_tagline : "About Us" %>
-          <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
-          <% tagline = !@user.tagline.blank? ? @user.tagline : tagline %>
-          <h4 class="click" data-id="<%= @user.id %>" data-domain ="<%= @user.subdomain %>"><%= title.capitalize %></h4>
-          <p style="font-size:12px;margin-top: 8px;" class="editable_textile comment more_about"><%= tagline %></p>
-        </div>
-
-        <div class="tags">
-          <h4>Tags</h4>
-          <ul>
-            <li>
-              <a href="tag.html" class="label label-danger">CSS3</a>
-            </li>
-            <li>
-              <a href="tag.html" class="label label-primary">HTML5</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="socialmedia">
-          <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
-          <div class="socials-sidebar">
-            <a class="btn btn-facebook" href="#" title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a class="btn btn-twitter" href="#" title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-linkedin" href="#" title="LinkedIn">
-              <i class="fa fa-linkedin"></i>
-            </a>
-            <a class="btn btn-flickr" href="#" title="Flickr">
-              <i class="fa fa-flickr"></i>
-            </a>
-            <a class="btn btn-pinterest" href="#" title="Pinterest">
-              <i class="fa fa-pinterest"></i>
-            </a>
-            <a class="btn btn-tumblr" href="#" title="Tumblr">
-              <i class="fa fa-tumblr"></i>
-            </a>
-            <a class="btn btn-dropbox" href="#" title="Dropbox">
-              <i class="fa fa-dropbox"></i>
-            </a>
-            <a class="btn btn-google-plus" href="#" title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-            <a class="btn btn-instagram" href="#" title="Instagram">
-              <i class="fa fa-instagram"></i>
-            </a>
-            <a class="btn btn-github" href="#" title="GitHub">
-              <i class="fa fa-github"></i>
-            </a>
-            <a class="btn btn-bitbucket" href="#" title="Bitbucket">
-              <i class="fa fa-bitbucket"></i>
-            </a>
-            <a class="btn btn-vk" href="#" title="VK">
-              <i class="fa fa-vk"></i>
-            </a>
-          </div>
-            <% if current_user == @user %>
-              <%= form_tag(post_save_path, :method => :POST, :id => "form-post") do -%>
-                <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
-                <br>
-                <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
-                <br>
-                <p>
-                  <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
-                  <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
-                  <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
-                </p>
-              <% end -%>
-              <br>
-            <% elsif current_user.nil? %>
-              <%= link_to "Login", login_path, class: 'btn btn-primary' %>
-              <%= link_to "Register", register_path, class: 'btn btn-danger' %>
-            <% else %>
-              <%= render 'conversations/form', show_cancel: false %>
-            <% end %>
-        </div>
-
-      </aside>
-    </div>
--->
   <div class="row">
-    <div id="primary" class="col-sm-12">
+
+    <div id="primary" class="col-sm-8">
       <div class="content">    
         <header class="header">
           <hgroup>
@@ -162,17 +75,17 @@
                   </p>
                 </header>
                 <div class="entry-description comment more"><%= post.body%></div>
-               <!--  <%# if post.comments.any? %>
-                  <%#= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
-                  <%# post.comments.reverse.each do |comment| %>
+                <% if post.comments.any? %>
+                  <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
+                  <% post.comments.reverse.each do |comment| %>
                     <div class="post-content post-comment" data-id="<%= post.id %>" hidden="true">
                       <p class="entry-meta comment-list">
-                        <div class="entry-description comment more" ><%#= comment.body %></div>
-                        Posted on <a class="entry-date" href="#"><%#= comment.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%#= comment.name %></a>
+                        <div class="entry-description comment more" ><%= comment.body %></div>
+                        Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
                       </p>
                     </div>
-                  <%# end %>
-                <%# end %> -->
+                  <% end %>
+                <% end %>
                 <div class="reply" data-id="<%= post.id %>" hidden="true">
                   <% if current_user %>
                   <%= form_for post, url: reply_comment_path(post.id), method: :post do |f| %>
@@ -208,14 +121,12 @@
               <% end %>
             </section> <!-- /.post -->
           <% end %>
-          <%= paginate @posts %> 
+          <section><%= paginate @posts %> </section>
         <% else %>
           <%= render partial: "blogit/posts/empty" %>
         <% end %>
       </div>
   
-
-    
         <footer class="footer">
           <p>© SkyHQ 2014. All right reserved.</p>
           <div class="socials-footer">
@@ -231,7 +142,125 @@
         </footer> <!-- /footer -->
         
     </div> <!-- /#primary -->
+
+        <div id="secondary" class="col-sm-3 sidebar">
+      <aside>
+
+        <div class="about" style="margin-bottom:-15px;">
+          <% title = !@user.title_tagline.blank? ? @user.title_tagline : "About Us" %>
+          <% tagline = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus." %>
+          <% tagline = !@user.tagline.blank? ? @user.tagline : tagline %>
+          <h4 class="click" data-id="<%= @user.id %>" data-domain ="<%= @user.subdomain %>"><%= title.capitalize %></h4>
+          <p style="font-size:12px;margin-top: 8px;" class="editable_textile comment more_about"><%= tagline %></p>
+        </div>
+
+        <div class="tags">
+          <h4>List</h4>
+          <ul>
+            <!-- <li>
+              <a href="tag.html" class="label label-danger">CSS3</a>
+            </li>
+            <li>
+              <a href="tag.html" class="label label-primary">HTML5</a>
+            </li> -->
+            <% @sticky_posts.each_with_index do |post, i| %>
+            <li>
+              <h4 class="click" title="<%= post.title %>"><%= "#{i+1} - #{post.title}" %></h4>
+              <p class="entry-meta">
+                Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
+                <% post.dollar_tags.each do |tag| %>
+                  <a class="label label-success" href="#"><%= tag.name %></a>
+                <% end %>
+                <% post.non_dollar_tags.each do |tag| %>
+                  <a class="label label-danger" href="#"><%= tag.name %></a>
+                <% end %>
+              </p>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="socialmedia">
+<!--           <h4 style="margin-bottom:-20px;margin-top:-10px;">Share</h4>
+          <div class="socials-sidebar">
+            <a class="btn btn-facebook" href="#" title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-twitter" href="#" title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-linkedin" href="#" title="LinkedIn">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="btn btn-flickr" href="#" title="Flickr">
+              <i class="fa fa-flickr"></i>
+            </a>
+            <a class="btn btn-pinterest" href="#" title="Pinterest">
+              <i class="fa fa-pinterest"></i>
+            </a>
+            <a class="btn btn-tumblr" href="#" title="Tumblr">
+              <i class="fa fa-tumblr"></i>
+            </a>
+            <a class="btn btn-dropbox" href="#" title="Dropbox">
+              <i class="fa fa-dropbox"></i>
+            </a>
+            <a class="btn btn-google-plus" href="#" title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a class="btn btn-instagram" href="#" title="Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a class="btn btn-github" href="#" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+            <a class="btn btn-bitbucket" href="#" title="Bitbucket">
+              <i class="fa fa-bitbucket"></i>
+            </a>
+            <a class="btn btn-vk" href="#" title="VK">
+              <i class="fa fa-vk"></i>
+            </a>
+          </div> -->
+          <% if current_user == @user %>
+            <%#= form_tag(post_save_path, :method => :POST, :id => "form-post") do -%>
+              <!-- <input type="text" placeholder="TOPIC" class="form-control" name="post[title]" id="topic">
+              <br>
+              <textarea placeholder="POST CONTENT" class="form-control" name="post[body]" id="content-post" rows="7"></textarea>
+              <br>
+              <p>
+                <input type="text" placeholder="Tag1,Tag2,Tag3..." class="form-control pull-left" style="max-width: 58%;" name="post[tag_list]" id="tag">
+                <%#= link_to 'POST TO HQ', "#", :onclick => "checkFormVal();",:class => "btn btn-success pull-right" %>
+                <input type="submit" onclick="checkFormVal();" class="btn btn-success pull-right" value="POST TO HQ">
+              </p> -->
+            <%# end -%>
+            <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+              <div class="form-group">
+                <%#= f.label :title, "Topic" %>
+                <%= f.text_field :title, class: "form-control", :required => true, :placeholder=>"TOPIC" %>
+              </div>
+              <div class="form-group">
+                <%#= f.label :title, "Tags" %>
+                <%= f.text_field :tag_list, class: "form-control", :required => true, :placeholder=>"TAGS" %>
+              </div>
+              <div class="form-group">
+                <%#= f.label :title, "Post Content" %>
+                <%= f.text_area :body, class: "form-control", rows: "5", :required => true, :placeholder=>"CONTENT" %>
+                <%= f.hidden_field :post_type, :value => "Sticky" %>
+              </div>
+              <%= f.submit "Create Sticky Post", class: "btn btn-success" %>
+              <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
+            <% end %>
+            <br>
+          <% elsif current_user.nil? %>
+            <%= link_to "Login", login_path, class: 'btn btn-primary' %>
+            <%= link_to "Register", register_path, class: 'btn btn-danger' %>
+          <% else %>
+            <%= render 'conversations/form', show_cancel: false %>
+          <% end %>
+        </div>
+
+      </aside>
     </div>
+  </div>
 
   <%#= javascript_include_tag "blog/jquery-1.11.0.min" %>
   <%#= javascript_include_tag "blog/custom" %>

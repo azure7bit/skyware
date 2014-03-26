@@ -37,7 +37,7 @@ SkyhqNew::Application.routes.draw do
   patch   "public/:id/edit/", to: "company_profiles#edit_post", as: "company_edit_post"
   delete  "public/:id", to: "general_pages#destroy_post", as: "delete_post"
   get "public", to: "blogit/posts#index"
-
+  get '/get_citizens' => 'general_pages#get_citizen'
   get  '/home' => 'general_pages#index'
   get  '/about' => 'general_pages#about'
   get  '/contact' => 'general_pages#contact'

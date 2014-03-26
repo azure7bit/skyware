@@ -72,10 +72,15 @@ class GeneralPagesController < ApplicationController
     @post.destroy
     redirect_to :back
   end
+
+  def get_citizen
+    citizens = Citizen.select(:subdomain)
+    render :json => citizens.map{ |c| c.subdomain}
+  end
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :tag_list)
+      params.require(:post).permit(:title, :body, :tag_list, :post_type)
     end
   
 end

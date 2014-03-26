@@ -252,24 +252,7 @@ $(document).ready(function(){
                 
 $('#conversation_user_id').triggeredAutocomplete({
   hidden: '#hidden_conversation_user_id',
-  source: [
-   "Asp",
-   "BASIC",
-   "COBOL",
-   "ColdFusion",
-   "Erlang",
-   "Fortran",
-   "Groovy",
-   "Java",
-   "JavaScript",
-   "Lisp",
-   "Perl",
-   "PHP",
-   "Python",
-   "Ruby",
-   "Scala",
-   "Scheme"
-  ],
+  source: '/get_citizens',
   trigger: "@" 
 });
 });

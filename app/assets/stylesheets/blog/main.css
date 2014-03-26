@@ -163,7 +163,7 @@ a, a:focus, a:hover {
 /* Secondary 
 -------------------------------------------------------- */
 #secondary {
-  display: none;
+  /*display: none;*/
 }
 
 /* Sidebar */
