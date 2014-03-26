@@ -54,6 +54,9 @@ SkyhqNew::Application.routes.draw do
 
   post 'reply_comment/:post_id' => 'blogit/comments#create', :as => 'reply_comment'
 
+  match '/posts/page/:page' => 'blogit/posts#index', :via => :get
+
+  match '/posts' => 'blogit/posts#index', :via => :get
 
   # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'
   

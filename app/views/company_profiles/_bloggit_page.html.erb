@@ -208,6 +208,7 @@
               <% end %>
             </section> <!-- /.post -->
           <% end %>
+          <%= paginate @posts %> 
         <% else %>
           <%= render partial: "blogit/posts/empty" %>
         <% end %>
@@ -291,7 +292,7 @@
         document.getElementById("main").style.minHeight = side_height+"px";
 
         var max_post_content = $('div.post-content').width();
-        $('div.entry-description').width(max_post_content);
+        $('div.entry-description').css('max-width',max_post_content + "px");
    });
   <% end %>
   

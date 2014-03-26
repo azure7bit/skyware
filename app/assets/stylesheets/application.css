@@ -46,8 +46,11 @@ p.comment-list{ margin-top: 10px; margin-left: 10px; }
 
 /*p.entry-meta{ word-wrap: break-word !important;}*/
 
-html { 
-  -ms-word-break: break-all !important;  
-  word-break: break-all !important; 
-  word-break: break-word !important; /* old webkit */ 
+html, div.entry-description { 
+  white-space: pre-wrap !important;      /* CSS3 */
+  white-space: -moz-pre-wrap !important; /* Firefox */
+  white-space: -pre-wrap !important;     /* Opera <7 */
+  white-space: -o-pre-wrap !important;   /* Opera 7 */
+  word-wrap: break-word !important;
 }
+

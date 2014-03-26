@@ -23,3 +23,5 @@
 //= require_directory ./application
 //= require_directory ./blog
 //= require flash
+//= require jquery-ui.1.8
+//= require autocomplete

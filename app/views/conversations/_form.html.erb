@@ -5,6 +5,9 @@
         <%= f.hidden_field :recipient, :value => @user.email %>
     <% end %>
     <div class="form-group">
+        <%= f.text_field :user_id, :class => "form-control", placeholder: "TO" %>
+    </div>
+    <div class="form-group">
         <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
