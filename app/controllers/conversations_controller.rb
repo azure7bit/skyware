@@ -23,16 +23,21 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    recipient_email = conversation_params(:recipient).split(',')
-    recipient = Citizen.find_by(email: recipient_email)
+    recipient_email = conversation_params(:recipient).split(',') if conversation_params(:recipient)
+    # recipient = Citizen.find_by(email: recipient_email)
+    recipient_subdomain = conversation_params(:user_id).split(',').map{ |d| d.strip.gsub('@','') }
+    recipient = Citizen.where("subdomain in (?) or email = ?", recipient_subdomain, recipient_email)
     recipient ||= SuperAdmin.find_by(email: recipient_email)
 
+    recipient.map{|recipient| 
     conversation = current_user.
       send_message(recipient, *conversation_params(:body, :subject)).conversation
+    }
+    @recipient_name = recipient.map{|recipient| recipient.name}
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Message sent successfully to #{recipients.first.name}.' }
+      format.html { redirect_to :back, notice: 'Message sent successfully.' }
       format.js{
-        flash[:notice] = "Message sent successfully to #{recipients.first.name}"
+        flash[:notice] = "Message sent successfully"
       }
     end
   end

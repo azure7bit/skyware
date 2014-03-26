@@ -15,8 +15,7 @@ $(document).ready(function(){
       this.stopLength = -1;
       this.contents = '';
       this.cursorPos = 0;
-        
-      /** Fixes some events improperly handled by ui.autocomplete */
+
       this.element.bind('keydown.autocomplete.fix', function (e) {
         switch (e.keyCode) {
           case $.ui.keyCode.ESCAPE:
@@ -31,8 +30,6 @@ $(document).ready(function(){
         }
       });
 
-      // Check for the id_map as an attribute.  This is for editing.
-
       var id_map_string = this.element.attr('id_map');
       if(id_map_string) this.id_map = jQuery.parseJSON(id_map_string);
 
@@ -41,15 +38,9 @@ $(document).ready(function(){
 
       this.updateHidden();
 
-        // Select function defined via options.
       this.options.select = function(event, ui) {
           var contents = self.contents;
           var cursorPos = self.cursorPos;
-
-          // Save everything following the cursor (in case they went back to add a mention)
-          // Separate everything before the cursor
-          // Remove the trigger and search
-          // Rebuild: start + result + end
 
           var end = contents.substring(cursorPos, contents.length);
           var start = contents.substring(0, cursorPos);
@@ -58,8 +49,6 @@ $(document).ready(function(){
           var top = self.element.scrollTop();
           this.value = start + self.options.trigger+ui.item.label+' ' + end;
           self.element.scrollTop(top);
-
-          // Create an id map so we can create a hidden version of this string with id's instead of labels.
 
           self.id_map[ui.item.label] = ui.item.value;
           self.updateHidden();

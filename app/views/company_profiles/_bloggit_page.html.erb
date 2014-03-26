@@ -256,6 +256,8 @@
           <% else %>
             <%= render 'conversations/form', show_cancel: false %>
           <% end %>
+                    <!-- Google Map -->
+           <div id="map" style='width: 200px; height: 200px;'></div>
         </div>
 
       </aside>
@@ -266,7 +268,6 @@
   <%#= javascript_include_tag "blog/custom" %>
   <%#= javascript_include_tag "bootstrap" %>
   <%#= stylesheet_link_tag "blog/main" %>
-
  <script type="text/javascript">
  <% if current_user.present? %>
     $(document).ready(function() {
@@ -415,5 +416,7 @@
         e.preventDefault();
       });
     });
+
+    $('ul.compose_message').show();
 });
  </script>
