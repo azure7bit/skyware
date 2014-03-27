@@ -4,7 +4,7 @@
 <%= simple_form_for(:conversation, url: :conversations, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
 <form role="form">
     <div class="form-group">
-        <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
+        <%= f.hidden_field :subject, :class => "form-control", placeholder: "TOPIC", :value => "Direct Message" %>
     </div>
     <div class="form-group">
         <%= text_area :body_message, nil, :rows => 7, :class => "form-control", placeholder: "POST MESSAGE" %>
