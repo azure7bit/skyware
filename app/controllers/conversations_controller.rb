@@ -24,16 +24,26 @@ class ConversationsController < ApplicationController
 
   def create
     recipient_email = conversation_params(:recipient).split(',') if conversation_params(:recipient)
-    # recipient = Citizen.find_by(email: recipient_email)
-    recipient_subdomain = conversation_params(:user_id).split(',').map{ |d| d.strip.gsub('@','') }
-    recipient = Citizen.where("subdomain in (?) or email = ?", recipient_subdomain, recipient_email)
+    if conversation_params(:user_id)
+      recipient = conversation_params(:user_id).split(',').map{ |d| d.strip.gsub('@','') }
+    elsif recipient_email
+      recipient = Citizen.find_by(email: recipient_email)
+    else
+      recipient = Citizen.find_by(subdomain: request.subdomain)
+    end
+    recipient = Citizen.where("subdomain in (?) or email = ?", recipient, recipient_email) if conversation_params(:user_id)
     recipient ||= SuperAdmin.find_by(email: recipient_email)
 
-    recipient.map{|recipient| 
-    conversation = current_user.
-      send_message(recipient, *conversation_params(:body, :subject)).conversation
-    }
-    @recipient_name = recipient.map{|recipient| recipient.name}
+    if conversation_params(:user_id)
+      recipient.map{|recipient|
+        conversation = current_user.
+          send_message(recipient, *conversation_params(:body, :subject)).conversation
+      }
+      @recipient_name = recipient.map{|recipient| recipient.name}
+    else
+      conversation = current_user.
+          send_message(recipient, *conversation_params(:body, :subject)).conversation
+    end
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Message sent successfully.' }
       format.js{
@@ -59,6 +69,25 @@ class ConversationsController < ApplicationController
   end
 
   def sticky_post;end
+
+  def new_direct_message
+    @conversation = Conversation.new
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  # def direct_message
+  #   # params[:conversation][:body] = params[:body_message].first
+  #   conv = {:body => params[:body_message].first, :subject => params[:conversation][:subject]}
+  #   conversation = current_user.send_message(request.subdomain, *conv(:body, :subject)).conversation
+  #   respond_to do |format|
+  #     format.html { redirect_to :back, notice: 'Message sent successfully.' }
+  #     format.js{
+  #       flash[:notice] = "Message sent successfully"
+  #     }
+  #   end
+  # end
 
   private
 

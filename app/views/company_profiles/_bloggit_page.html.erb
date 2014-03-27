@@ -21,7 +21,9 @@
           <!-- <header class="entry-header"> -->
           <!-- <section class="post" id="new-post"> -->
           <br /><br /><br />
+            <% if @sticky_posts.any? %>
             <h4><strong>Recent Sticky Post</strong></h4>
+            <% end %>
             <% @sticky_posts.each_with_index do |post, i| %>
             <section class="post" id="new-post">
               <div class="post-content" data-id="<%= post.id %>">
