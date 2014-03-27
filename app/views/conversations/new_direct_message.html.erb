@@ -4,6 +4,11 @@
 <%= simple_form_for(:conversation, url: :conversations, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
 <form role="form">
     <div class="form-group">
+        <%= f.label :recipient %>
+        <%= text_field_tag :to_user, nil, :class => "form-control", placeholder: "TOPIC", :value => "#{request.subdomain}", :readonly => true %>
+    </div>
+
+    <div class="form-group">
         <%= f.hidden_field :subject, :class => "form-control", placeholder: "TOPIC", :value => "Direct Message" %>
     </div>
     <div class="form-group">
