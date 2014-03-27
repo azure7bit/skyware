@@ -28,7 +28,7 @@
                 <header class="entry-header">
                   <h2 class="entry-title">
                     <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
-                    <%= post.title %></a>
+                    <strong><%= post.title %></strong></a>
                   </h2>
                   <p class="entry-meta">
                     Tags 
@@ -190,17 +190,18 @@
   <%#= javascript_include_tag "blog/custom" %>
   <%#= javascript_include_tag "bootstrap" %>
   <%#= stylesheet_link_tag "blog/main" %>
- <script type="text/javascript">
- <% if current_user.present? %>
+
+<script type="text/javascript">
+  <% if current_user.present? %>
     $(document).ready(function() {
-        var get_id = $(".click").data("id");
+      var get_id = $(".click").data("id");
         $(".click").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>.js", { 
         indicator : "<img src='/assets/assets/loader.gif'>",
         tooltip   : "Click to edit...",
         id        : 'save_tagline',
         style     : "inherit",
-    });
-        $(".editable_textile").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
+      });
+      $(".editable_textile").editable("<%= company_tagline_path(:id => current_user.id, :subdomain => current_user.subdomain) %>", { 
         indicator : "<img src='/assets/assets/loader.gif'>",
         type      : "textarea",
         id        : 'save_tagline',
@@ -208,72 +209,72 @@
         submit    : "OK",
         cancel    : "Cancel",
         tooltip   : "Click to edit..."
-    });
+      });
 
-        for ( var i = 0; i < <%= @posts.count %>; i++ ) {
-          $("#post-form-" + i).hide();
-          $("button.post-edit-"+i).click(function(){
-            $("#post-" + i).hide();
-            $("#post-form-" + i).show();
-          });
-          $("button.post-edit-0").click(function(){
-            $("#post-" + i).hide();
-            $("#post-form-" + i).show();
-          });
-        }
+      for ( var i = 0; i < <%= @posts.count %>; i++ ) {
+        $("#post-form-" + i).hide();
+        $("button.post-edit-"+i).click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+        $("button.post-edit-0").click(function(){
+          $("#post-" + i).hide();
+          $("#post-form-" + i).show();
+        });
+      }
         
-        $( ".post-edit").click(function() {
-          var id =$(this).data("id");
-          $(".post-content[data-id='"+id+"']").hide("slow");
-          $(".form-post-content[data-id='"+id+"']").show("slow");
-        });
+      $( ".post-edit").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").hide("slow");
+        $(".form-post-content[data-id='"+id+"']").show("slow");
+      });
 
-        $( ".post-reply").click(function(e) {
-          var id =$(this).data("id");
-          $(".reply[data-id='"+id+"']").toggle();
-          e.preventDefault();
-        });
+      $( ".post-reply").click(function(e) {
+        var id =$(this).data("id");
+        $(".reply[data-id='"+id+"']").toggle();
+        e.preventDefault();
+      });
 
-        $(".post-cancel").click(function() {
-          var id =$(this).data("id");
-          $(".post-content[data-id='"+id+"']").show("slow");
-          $(".form-post-content[data-id='"+id+"']").hide("slow");
-        });
+      $(".post-cancel").click(function() {
+        var id =$(this).data("id");
+        $(".post-content[data-id='"+id+"']").show("slow");
+        $(".form-post-content[data-id='"+id+"']").hide("slow");
+      });
 
-        var side_height = $("aside#left-panel").height();
-        document.getElementById("main").style.minHeight = side_height+"px";
+      var side_height = $("aside#left-panel").height();
+      document.getElementById("main").style.minHeight = side_height+"px";
 
-        var max_post_content = $('div.post-content').width();
-        $('div.entry-description').css('max-width',max_post_content + "px");
-   });
+      var max_post_content = $('div.post-content').width();
+      $('div.entry-description').css('max-width',max_post_content + "px");
+    });
   <% end %>
   
-   function checkFormVal(){
-     var topic = $("#topic").val();
-     var content = $("#content-post").val();
+  function checkFormVal(){
+    var topic = $("#topic").val();
+    var content = $("#content-post").val();
 
-     if(topic != "" && content != ""){
-       if(topic.length < 10 && content.length < 10){
-         alert("Topic and Content are too short (minimum is 10 characters)..."); 
-       }
-       else if(topic.length < 10){
-         alert("Topic is too short (minimum is 10 characters)..."); 
-       }
-       else if(content.length < 10) {
-         alert("Content is too short (minimum is 10 characters)..."); 
-       }
-       else { $("#form-post").submit(); }
+    if(topic != "" && content != ""){
+     if(topic.length < 10 && content.length < 10){
+      alert("Topic and Content are too short (minimum is 10 characters)..."); 
      }
-     else if(topic=="" && content==""){
-       alert("Topic and Content can not be blank...");
+     else if(topic.length < 10){
+      alert("Topic is too short (minimum is 10 characters)..."); 
      }
-     else if(topic==""){
-       alert("Topic can not be blank...");
+     else if(content.length < 10) {
+      alert("Content is too short (minimum is 10 characters)..."); 
      }
-     else{
-       alert("Content can not be blank...");
-     }
-   };
+     else { $("#form-post").submit(); }
+    }
+    else if(topic=="" && content==""){
+      alert("Topic and Content can not be blank...");
+    }
+    else if(topic==""){
+      alert("Topic can not be blank...");
+    }
+    else{
+      alert("Content can not be blank...");
+    }
+  };
 
   $(document).ready(function() {
     var showChar = 355;
@@ -283,44 +284,44 @@
     var lesstext = "Less";
     var max_post_content = $('div.post-content').width();
     $('.more').each(function() {
-        var content = $(this).html();
-          if(showChar < content.length) {
-            if(hasWhiteSpace(content)){
-              var c = content.substr(0, showChar2);
-            }else{
-              content = $.trim(content);
-              var c = content.substr(0, showChar2/2);
-            }
+      var content = $(this).html();
+      if(showChar < content.length) {
+        if(hasWhiteSpace(content)){
+          var c = content.substr(0, showChar2);
+        }else{
+          content = $.trim(content);
+          var c = content.substr(0, showChar2/2);
+        }
 
-            var h = content.substr(showChar, content.length - showChar);
- 
-            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
- 
-            $(this).html(html);
-        }
+        var h = content.substr(showChar, content.length - showChar);
+
+        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+        $(this).html(html);
+      }
     });
-   $('.more_about').each(function() {
-        var content = $(this).html();
-        if(showChar2 < content.length) {
-            var c = content.substr(0, showChar2);
-            var h = content.substr(showChar2-1, content.length - showChar2);
- 
-            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
- 
-            $(this).html(html);
-        }
+    $('.more_about').each(function() {
+      var content = $(this).html();
+      if(showChar2 < content.length) {
+        var c = content.substr(0, showChar2);
+        var h = content.substr(showChar2-1, content.length - showChar2);
+
+        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+        $(this).html(html);
+      }
     });
     $(".morelink").click(function(){
-        if($(this).hasClass("less")) {
-            $(this).removeClass("less");
-            $(this).html(moretext);
-        } else {
-            $(this).addClass("less");
-            $(this).html(lesstext);
-        }
-        $(this).parent().prev().toggle();
-        $(this).prev().toggle();
-        return false;
+      if($(this).hasClass("less")) {
+        $(this).removeClass("less");
+        $(this).html(moretext);
+      } else {
+        $(this).addClass("less");
+        $(this).html(lesstext);
+      }
+      $(this).parent().prev().toggle();
+      $(this).prev().toggle();
+      return false;
     });
 
     $("#cancel-post").click(function(){
@@ -340,5 +341,5 @@
     });
 
     $('ul.compose_message').show();
-});
- </script>
+  });
+</script>
