@@ -50,11 +50,11 @@
 						<% user = message.sender %>
 						<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
 						<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-						<h2 class="entry-title"><a href="single.html"><%= message.subject %></a></h2>
+						<h2 class="entry-title"><a href="#"><%= message.subject %></a></h2>
 						<p class="entry-meta">
-						Sent on <a class="entry-date" href="date.html"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="author.html"><%= user.subdomain %></a> | Tags 
+						Sent on <a class="entry-date" href="#"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="#"><%= user.subdomain %></a> | Tags 
 						<% ['tag1', 'tag2'].each do |tag| %>
-							<a class="label label-danger" href="tag.html"><%= tag %></a>
+							<a class="label label-danger" href="#"><%= tag %></a>
 						<% end %>
 						</p>
 		          </header>
