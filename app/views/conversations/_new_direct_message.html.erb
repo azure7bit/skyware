@@ -5,11 +5,11 @@
     <form role="form">
     <div class="form-group">
         <%= f.label :recipient %>
-        <%= text_field_tag :to_user, nil, :class => "form-control", placeholder: "TOPIC", :value => "#{request.subdomain}", :readonly => true %>
+        <%= text_field_tag :to_user, nil, :class => "form-control", :value => "#{request.subdomain}", :readonly => true %>
     </div>
 
     <div class="form-group">
-        <%= f.hidden_field :subject, :class => "form-control", placeholder: "TOPIC", :value => "Direct Message" %>
+        <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
         <%= text_area :body_message, nil, :rows => 7, :class => "form-control", placeholder: "POST MESSAGE" %>
