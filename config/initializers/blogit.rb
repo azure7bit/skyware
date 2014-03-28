@@ -28,7 +28,7 @@ Blogit.configure do |config|
   # config.cache_pages = false
 
   # No. of posts to show per page
-  config.posts_per_page = 2
+  config.posts_per_page = 10
 
   # The name of the before filter we'll call to authenticate the current user.
   config.authentication_method = :authenticate_citizen!

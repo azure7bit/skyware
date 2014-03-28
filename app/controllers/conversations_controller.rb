@@ -41,7 +41,7 @@ class ConversationsController < ApplicationController
       }
       @recipient_name = recipient.map{|recipient| recipient.name}
     else
-      params[:conversation][:body] = params[:body_message].first
+      params[:conversation][:body] = params[:body_message].first if params[:body_message]
       conversation = current_user.
           send_message(recipient, *conversation_params(:body, :subject)).conversation
     end
