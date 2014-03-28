@@ -59,6 +59,7 @@ class GeneralPagesController < ApplicationController
 
   def save_post
     @post = Blogit::Post.new(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
+    @post.post_type = "Sticky" if params[:post][:post_type]
     if @post.save
       redirect_to root_url(subdomain: current_user.subdomain)
     else

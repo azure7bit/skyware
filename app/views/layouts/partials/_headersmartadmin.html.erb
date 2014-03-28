@@ -103,13 +103,13 @@
                         <span class="badge pull-right inbox-badge"></span>
                     </a>    
                 </li>
-                <li>
-                    <a href="<%= sticky_post_path %>">
+                <!-- <li>
+                    <a href="<%#= sticky_post_path %>">
                         <i class="fa fa-lg fa-fw fa-inbox"></i>
                         <span class="menu-item-parent">New Sticky Post</span>
                         <span class="badge pull-right inbox-badge"></span>
                     </a>    
-                </li>
+                </li> -->
                 <% if current_user.subdomain != request.subdomain %>
                 <li>
                     <a href="<%= new_direct_message_path %>">
