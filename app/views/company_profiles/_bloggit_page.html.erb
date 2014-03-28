@@ -18,12 +18,6 @@
       </header> 
 
         <p class="text-muted">
-          <% if @sticky_posts.any? %>
- <!--            <div class="pull-left">
-              <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Back To Top</a></i>
-            </div>
-            <br /><br /> -->
-          <% end %>
           <% @sticky_posts.each_with_index do |post, i| %>
           <section class="post" id="new-post">
             <div class="post-content" data-id="<%= post.id %>">
@@ -167,11 +161,13 @@
             <%= paginate @posts %>
           </div>
           <div class="col-sm-1"></div>
-                <br />
-        <div class="pull-left">
-          <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Go To Sticky</a></i>
-        </div>
-        <br />
+          <% if @sticky_posts.any? %>
+            <br />
+            <div class="pull-left">
+              <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Go To Sticky</a></i>
+            </div>
+            <br />
+          <% end %>
         </div>
       </div>
     </div>

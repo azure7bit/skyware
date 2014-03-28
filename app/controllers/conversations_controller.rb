@@ -41,6 +41,7 @@ class ConversationsController < ApplicationController
       }
       @recipient_name = recipient.map{|recipient| recipient.name}
     else
+      params[:conversation][:body] = params[:body_message].first
       conversation = current_user.
           send_message(recipient, *conversation_params(:body, :subject)).conversation
     end
@@ -71,7 +72,7 @@ class ConversationsController < ApplicationController
   def sticky_post;end
 
   def new_direct_message
-    @conversation = Conversation.new
+    Conversation.new
     respond_to do |format|
       format.html
     end
