@@ -42,7 +42,7 @@
               <div class="form-group">
                   <%= f.check_box :post_type %>Is Sticky Post
                 </div>
-              <%= f.submit "Create Post", class: "btn btn-success" %>
+              <%= f.submit "Create Post", class: "btn btn-success", :id => "button-new-post" %>
               <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
             <% end %>
           </div>
@@ -345,6 +345,7 @@
     else{
       alert("Content can not be blank...");
     }
+    return true;
   };
 
   $(document).ready(function() {
@@ -446,6 +447,16 @@
     //   $('html, body').animate({scrollTop:0}, 'slow');
     //   return false;
     // });
+
+    $('#button-new-post').click(function(e){1
+      var topic = $("#post_title").val();
+      var body = $('#post_body').val();
+      if(topic.length < 10 || body.length < 10){
+        alert("Topic or Content are too short (minimum is 10 characters)...");
+        e.stopPropagation();
+        return false;
+      }else{return true}
+    });
 
   });
 </script>
