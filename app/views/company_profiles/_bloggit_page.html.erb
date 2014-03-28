@@ -15,6 +15,10 @@
             <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
               <i class="fa fa-pencil-square-o"></i>
             </div>
+          <% else %>
+            <div id='create-new-dm-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
+              <i class="fa fa-pencil-square-o"></i>
+            </div>
           <% end %>
         </hgroup>
       </header> 
@@ -38,6 +42,7 @@
                   <% end %>
                 </p>
               </header>
+              <div class="entry-description comment more"><%= post.body%></div>
             </div>
           </section>
           <% end %>
@@ -359,6 +364,10 @@
     $('#back-top').click(function(){
       $('html, body').animate({scrollTop:0}, 'slow');
       return false;
+    });
+
+    $('#hit-menu').click(function(){
+      $('.hit').click();
     });
 
   });
