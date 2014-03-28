@@ -57,7 +57,7 @@
 
       <p class="text-muted">
         <% @sticky_posts.each_with_index do |post, i| %>
-        <section class="post" id="new-post">
+        <section class="post" id="new-post-<%= post.id %>" >
           <% if current_user == @user %>
             <div class="btn-group entry-button pull-right">
               <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -94,7 +94,7 @@
             <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
               <div class="form-group">
                 <%= f.label :title, "Topic" %>
-                <%= f.text_field :title, class: "form-control" %>
+                <%= f.text_field :title, class: "form-control", :id => "title_post_#{post.id}" %>
               </div>
               <div class="form-group">
                 <%= f.label :title, "Tags" %>
@@ -117,7 +117,7 @@
 
       <% if @posts.present? %>
         <% @posts.each_with_index do |post, i| %>
-          <section class="post" id="new-post">
+          <section class="post" id="new-post-<%= post.id %>">
             <!-- Single button -->
             <% if current_user == @user %>
               <div class="btn-group entry-button pull-right">
@@ -179,7 +179,7 @@
               <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
                 <div class="form-group">
                   <%= f.label :title, "Topic" %>
-                  <%= f.text_field :title, class: "form-control" %>
+                  <%= f.text_field :title, class: "form-control", :id => "title_post_#{post.id}" %>
                 </div>
                 <div class="form-group">
                   <%= f.label :title, "Tags" %>
@@ -282,16 +282,20 @@
         });
       }
         
-      $( ".post-edit").click(function() {
-        var id =$(this).data("id");
+      $( ".post-edit").click(function(e) {
+        var id = $(this).data("id");
         $(".post-content[data-id='"+id+"']").hide("slow");
         $(".form-post-content[data-id='"+id+"']").show("slow");
+        document.getElementById("title_post_"+id).focus();
+        e.preventDefault();
       });
 
-      $( ".sticky-edit").click(function() {
+      $( ".sticky-edit").click(function(e) {
         var id =$(this).data("id");
         $(".sticky-content[data-id='"+id+"']").hide("slow");
         $(".form-sticky-content[data-id='"+id+"']").show("slow");
+        document.getElementById("title_post_"+id).focus();
+        e.preventDefault();
       });
 
       $( ".post-reply").click(function(e) {
