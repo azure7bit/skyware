@@ -55,65 +55,65 @@
         </section>
       <% end %>
 
-        <p class="text-muted">
-          <% @sticky_posts.each_with_index do |post, i| %>
-          <section class="post" id="new-post">
-            <% if current_user == @user %>
-              <div class="btn-group entry-button pull-right">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-              </div>
-            <% end %>
-            <div class="post-content" data-id="<%= post.id %>" id="more-less">
-              <header class="entry-header">
-                <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
-                <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-                <h2 class="entry-title">
-                  <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
-                  <strong><%= post.title %></strong></a>
-                </h2>
-                <p class="entry-meta">
-                  By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
-                  <% post.dollar_tags.each do |tag| %>
-                    <a class="label label-success" href="#"><%= tag.name %></a>
-                  <% end %>
-                  <% post.non_dollar_tags.each do |tag| %>
-                    <a class="label label-danger" href="#"><%= tag.name %></a>
-                  <% end %>
-                </p>
-              </header>
-              <div class="entry-description comment more"><%= post.body%></div>
+      <p class="text-muted">
+        <% @sticky_posts.each_with_index do |post, i| %>
+        <section class="post" id="new-post">
+          <% if current_user == @user %>
+            <div class="btn-group entry-button pull-right">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" class="sticky-edit" data-id="<%= post.id %>">Edit</a></li>
+                <li class="divider"></li>
+                <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
             </div>
-            <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
-              <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
-                <div class="form-group">
-                  <%= f.label :title, "Topic" %>
-                  <%= f.text_field :title, class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :title, "Tags" %>
-                  <%= f.text_field :tag_list, class: "form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :title, "Post Content" %>
-                  <%= f.text_area :body, class: "form-control", rows: "5" %>
-                </div>
-                <div class="form-group">
-                  <%= f.check_box :post_type %> Is Sticky Post
-                </div>
-                <%= f.submit "Change Post", class: "btn btn-success" %>
-                <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
-              <% end %>
-            </div>
-          </section>
           <% end %>
-        </p>
+          <div class="sticky-content" data-id="<%= post.id %>" id="more-less">
+            <header class="entry-header">
+              <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
+              <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+              <h2 class="entry-title">
+                <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
+                <strong><%= post.title %></strong></a>
+              </h2>
+              <p class="entry-meta">
+                By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
+                <% post.dollar_tags.each do |tag| %>
+                  <a class="label label-success" href="#"><%= tag.name %></a>
+                <% end %>
+                <% post.non_dollar_tags.each do |tag| %>
+                  <a class="label label-danger" href="#"><%= tag.name %></a>
+                <% end %>
+              </p>
+            </header>
+            <div class="entry-description comment more"><%= post.body%></div>
+          </div>
+          <div class="form-sticky-content" data-id="<%= post.id %>" hidden="true">
+            <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
+              <div class="form-group">
+                <%= f.label :title, "Topic" %>
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :title, "Tags" %>
+                <%= f.text_field :tag_list, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :title, "Post Content" %>
+                <%= f.text_area :body, class: "form-control", rows: "5" %>
+              </div>
+              <div class="form-group">
+                <%= f.check_box :post_type %> Is Sticky Post
+              </div>
+              <%= f.submit "Change Post", class: "btn btn-success" %>
+              <button type="button" class="btn btn-warning sticky-cancel" data-id="<%= post.id %>">Cancel</button>
+            <% end %>
+          </div>
+        </section>
+        <% end %>
+      </p>
 
       <% if @posts.present? %>
         <% @posts.each_with_index do |post, i| %>
@@ -288,6 +288,12 @@
         $(".form-post-content[data-id='"+id+"']").show("slow");
       });
 
+      $( ".sticky-edit").click(function() {
+        var id =$(this).data("id");
+        $(".sticky-content[data-id='"+id+"']").hide("slow");
+        $(".form-sticky-content[data-id='"+id+"']").show("slow");
+      });
+
       $( ".post-reply").click(function(e) {
         var id =$(this).data("id");
         $(".reply[data-id='"+id+"']").toggle();
@@ -298,6 +304,12 @@
         var id =$(this).data("id");
         $(".post-content[data-id='"+id+"']").show("slow");
         $(".form-post-content[data-id='"+id+"']").hide("slow");
+      });
+
+      $(".sticky-cancel").click(function() {
+        var id =$(this).data("id");
+        $(".sticky-content[data-id='"+id+"']").show("slow");
+        $(".form-sticky-content[data-id='"+id+"']").hide("slow");
       });
 
       var side_height = $("aside#left-panel").height();
@@ -414,6 +426,14 @@
         $content.focus();
         // e.preventDefault();
       });
+    });
+
+    $('#post_post_type').on("click", function(){
+      if($("input:checked")){
+        this.value = "Sticky";
+      }else{
+        this.value = null;
+      }
     });
 
     // $('#goto-sticky').click(function(e){

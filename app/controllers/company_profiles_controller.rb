@@ -118,6 +118,11 @@ class CompanyProfilesController < ApplicationController
 
   def edit_post
     @post = Blogit::Post.find(params[:id])
+    if params[:post][:post_type] == "0"
+      params[:post][:post_type] = nil
+    else
+      params[:post][:post_type] = "Sticky"
+    end
     @post.update_attributes(params_post.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
 
     redirect_to :back
@@ -125,6 +130,6 @@ class CompanyProfilesController < ApplicationController
 
   private
   def params_post
-    params.require(:post).permit(:title, :tag_list, :body)
+    params.require(:post).permit(:title, :tag_list, :body, :post_type)
   end 
 end
