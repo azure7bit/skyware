@@ -59,16 +59,10 @@ class GeneralPagesController < ApplicationController
 
   def save_post
     @post = Blogit::Post.new(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
-    if params[:post][:post_type] != "0"
-      @post.post_type = "Sticky"
-    else
-      @post.post_type = nil
-    end
-    if @post.save
-      redirect_to root_url(subdomain: current_user.subdomain)
-    else
-      render :index
-    end
+    @post.post_type = params[:post][:post_type] != "0" ? "Sticky" : nil    
+    message =  @post.save ? "Post successfully created" : "Post failed created, topic or post content must be minimum 11 characters and maximum 66 characters"
+    flash[:notice] = message
+    redirect_to root_url(subdomain: current_user.subdomain)
   end
 
   def destroy_post
