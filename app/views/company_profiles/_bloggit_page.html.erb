@@ -15,16 +15,37 @@
             </div>
           <% end %>
         </hgroup>
+      </header> 
 
-      </header> <!-- /header -->
-
-        <!-- <header class="entry-header"> -->
-        <!-- <section class="post" id="new-post"> -->
-<!--         <br /><br />
-
-        <br /><br /> -->
-          <!-- </section> -->
-        <!-- </header> -->
+        <p class="text-muted">
+          <% if @sticky_posts.any? %>
+ <!--            <div class="pull-left">
+              <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Back To Top</a></i>
+            </div>
+            <br /><br /> -->
+          <% end %>
+          <% @sticky_posts.each_with_index do |post, i| %>
+          <section class="post" id="new-post">
+            <div class="post-content" data-id="<%= post.id %>">
+              <header class="entry-header">
+                <h2 class="entry-title">
+                  <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
+                  <strong><%= post.title %></strong></a>
+                </h2>
+                <p class="entry-meta">
+                  Sticky Post | Tags 
+                  <% post.dollar_tags.each do |tag| %>
+                    <a class="label label-success" href="#"><%= tag.name %></a>
+                  <% end %>
+                  <% post.non_dollar_tags.each do |tag| %>
+                    <a class="label label-danger" href="#"><%= tag.name %></a>
+                  <% end %>
+                </p>
+              </header>
+            </div>
+          </section>
+          <% end %>
+        </p>
 
       <% if current_user == @user %>
         <section class='new-post post' style="display:none">
@@ -48,6 +69,8 @@
           </div>
         </section>
       <% end %>
+
+
       <% if @posts.present? %>
         <% @posts.each_with_index do |post, i| %>
           <section class="post" id="new-post">
@@ -138,41 +161,20 @@
     <div class="content">
       <div class="post-content">
         <div class="row">
-        <div class="col-sm-12"></div>
+          <div class="col-sm-12"></div>
           <div class="col-sm-1"></div>
           <div class="col-sm-10">
             <%= paginate @posts %>
           </div>
           <div class="col-sm-1"></div>
-          </div>
+                <br />
+        <div class="pull-left">
+          <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Go To Sticky</a></i>
         </div>
-                <p class="text-muted">
-          <% if @sticky_posts.any? %>
-          <h4><strong>Recent Sticky Post</strong></h4>
-          <% end %>
-          <% @sticky_posts.each_with_index do |post, i| %>
-          <section class="post" id="new-post">
-            <div class="post-content" data-id="<%= post.id %>">
-              <header class="entry-header">
-                <h2 class="entry-title">
-                  <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
-                  <strong><%= post.title %></strong></a>
-                </h2>
-                <p class="entry-meta">
-                  Tags 
-                  <% post.dollar_tags.each do |tag| %>
-                    <a class="label label-success" href="#"><%= tag.name %></a>
-                  <% end %>
-                  <% post.non_dollar_tags.each do |tag| %>
-                    <a class="label label-danger" href="#"><%= tag.name %></a>
-                  <% end %>
-                </p>
-              </header>
-            </div>
-          </section>
-          <% end %>
-        </p>
+        <br />
+        </div>
       </div>
+    </div>
       <footer class="footer">
         <p>© SkyHQ 2014. All right reserved.</p>
         <div class="socials-footer">
@@ -188,7 +190,7 @@
       </footer> <!-- /footer -->
 
 
-    </div>
+  </div>
       
       
   </div> <!-- /#primary -->
@@ -349,5 +351,17 @@
     });
 
     $('ul.compose_message').show();
+
+    $('#goto-sticky').click(function(e){
+      $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+      e.preventDefault();
+      return false
+    });
+
+    $('#back-top').click(function(){
+      $('html, body').animate({scrollTop:0}, 'slow');
+      return false;
+    });
+
   });
 </script>
