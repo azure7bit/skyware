@@ -15,13 +15,45 @@
             <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
               <i class="fa fa-pencil-square-o"></i>
             </div>
-          <% else %>
-            <div id='create-new-dm-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
+          <% elsif current_user %>
+            <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
               <i class="fa fa-pencil-square-o"></i>
             </div>
           <% end %>
         </hgroup>
       </header> 
+
+       <% if current_user == @user %>
+        <section class='new-post post' style="display:none">
+          <div class="form-post-content">
+            <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+              <div class="form-group">
+                <%= f.label :title, "Topic" %>
+                <%= f.text_field :title, class: "form-control", :required => true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :title, "Tags" %>
+                <%= f.text_field :tag_list, class: "form-control", :required => true %>
+              </div>
+              <div class="form-group">
+                <%= f.label :title, "Post Content" %>
+                <%= f.text_area :body, class: "form-control", rows: "5", :required => true %>
+              </div>
+              <div class="form-group">
+                  <%= f.check_box :post_type %>Is Sticky Post
+                </div>
+              <%= f.submit "Create Post", class: "btn btn-success" %>
+              <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
+            <% end %>
+          </div>
+        </section>
+        <% else %>
+        <section class='new-post post' style="display:none">
+          <div class="form-post-content">
+            <%= render 'conversations/new_direct_message' %>
+          </div>
+        </section>
+      <% end %>
 
         <p class="text-muted">
           <% @sticky_posts.each_with_index do |post, i| %>
@@ -73,7 +105,7 @@
                   <%= f.text_area :body, class: "form-control", rows: "5" %>
                 </div>
                 <div class="form-group">
-                  <%= f.check_box :post_type %>
+                  <%= f.check_box :post_type %> Is Sticky Post
                 </div>
                 <%= f.submit "Change Post", class: "btn btn-success" %>
                 <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
@@ -82,33 +114,6 @@
           </section>
           <% end %>
         </p>
-
-      <% if current_user == @user %>
-        <section class='new-post post' style="display:none">
-          <div class="form-post-content">
-            <%= form_for Blogit::Post.new, url: post_save_path, remote: true do |f| %>
-              <div class="form-group">
-                <%= f.label :title, "Topic" %>
-                <%= f.text_field :title, class: "form-control", :required => true %>
-              </div>
-              <div class="form-group">
-                <%= f.label :title, "Tags" %>
-                <%= f.text_field :tag_list, class: "form-control", :required => true %>
-              </div>
-              <div class="form-group">
-                <%= f.label :title, "Post Content" %>
-                <%= f.text_area :body, class: "form-control", rows: "5", :required => true %>
-              </div>
-              <div class="form-group">
-                  <%= f.check_box :post_type %>Is Sticky Post
-                </div>
-              <%= f.submit "Create Post", class: "btn btn-success" %>
-              <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
-            <% end %>
-          </div>
-        </section>
-      <% end %>
-
 
       <% if @posts.present? %>
         <% @posts.each_with_index do |post, i| %>
@@ -183,6 +188,9 @@
                 <div class="form-group">
                   <%= f.label :title, "Post Content" %>
                   <%= f.text_area :body, class: "form-control", rows: "5" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :post_type %> Is Sticky Post
                 </div>
                 <%= f.submit "Change Post", class: "btn btn-success" %>
                 <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
@@ -346,7 +354,7 @@
 
         var h = content.substr(showChar, content.length - showChar);
 
-        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="#" class="morelink">' + moretext + '</a></span>';
 
         $(this).html(html);
       }
@@ -362,7 +370,7 @@
         $(this).html(html);
       }
     });
-    $(".morelink").click(function(){
+    $(".morelink").click(function(e){
       if($(this).hasClass("less")) {
         $(this).removeClass("less");
         $(this).html(moretext);
@@ -372,7 +380,8 @@
       }
       $(this).parent().prev().toggle();
       $(this).prev().toggle();
-      return false;
+      e.preventDefault();
+      // return false;
     });
 
     $("#cancel-post").click(function(){
@@ -403,10 +412,6 @@
     //   $('html, body').animate({scrollTop:0}, 'slow');
     //   return false;
     // });
-
-    $('#hit-menu').click(function(){
-      $('.hit').click();
-    });
 
   });
 </script>
