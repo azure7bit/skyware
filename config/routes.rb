@@ -60,7 +60,7 @@ SkyhqNew::Application.routes.draw do
 
   get '/sticky_post' => 'conversations#sticky_post', :as => 'sticky_post'
 
-  get 'new_direct_message' => 'conversations#new_direct_message'
+  # get 'new_direct_message' => 'conversations#new_direct_message'
   # post 'direct_message' => 'conversations#direct_message', :as => 'direct_message'
 
   # post '/update_citizen_password' => 'blogit/posts#update_citizen_password'

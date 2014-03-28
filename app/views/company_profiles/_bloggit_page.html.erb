@@ -70,7 +70,7 @@
                 </ul>
               </div>
             <% end %>
-            <div class="post-content" data-id="<%= post.id %>">
+            <div class="post-content" data-id="<%= post.id %>" id="more-less">
               <header class="entry-header">
                 <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
                 <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
@@ -354,7 +354,7 @@
 
         var h = content.substr(showChar, content.length - showChar);
 
-        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="#" class="morelink">' + moretext + '</a></span>';
+        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="#more-less" class="morelink" id="less-page">' + moretext + '</a></span>';
 
         $(this).html(html);
       }
@@ -365,7 +365,7 @@
         var c = content.substr(0, showChar2);
         var h = content.substr(showChar2-1, content.length - showChar2);
 
-        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+        var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="#" class="morelink">' + moretext + '</a></span>';
 
         $(this).html(html);
       }
@@ -374,14 +374,17 @@
       if($(this).hasClass("less")) {
         $(this).removeClass("less");
         $(this).html(moretext);
+        e.preventDefault();
       } else {
         $(this).addClass("less");
         $(this).html(lesstext);
+        e.preventDefault();
       }
+      document.getElementById("main").style.Height = "auto";
       $(this).parent().prev().toggle();
       $(this).prev().toggle();
+      return false;
       e.preventDefault();
-      // return false;
     });
 
     $("#cancel-post").click(function(){
@@ -401,6 +404,17 @@
     });
 
     $('ul.compose_message').show();
+
+    $('.less').each(function(){
+      $(this).click(function(){
+        var side_height = $("aside#left-panel").height();
+        document.getElementById("main").style.minHeight = side_height+"px";
+        $content = $(this).closest('div.entry-description').prev();
+        // $(this).closest('div.entry-description').focus();
+        $content.focus();
+        // e.preventDefault();
+      });
+    });
 
     // $('#goto-sticky').click(function(e){
     //   $('html, body').animate({scrollTop:$(document).height()}, 'slow');

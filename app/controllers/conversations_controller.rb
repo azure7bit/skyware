@@ -71,12 +71,12 @@ class ConversationsController < ApplicationController
 
   def sticky_post;end
 
-  def new_direct_message
-    Conversation.new
-    respond_to do |format|
-      format.html
-    end
-  end
+  # def new_direct_message
+  #   Conversation.new
+  #   respond_to do |format|
+  #     format.html
+  #   end
+  # end
 
   # def direct_message
   #   # params[:conversation][:body] = params[:body_message].first
