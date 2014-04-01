@@ -1,35 +1,71 @@
-    
 <div class="container">
     <!--Reg Block-->
     <div class="reg-block">
         <div class="reg-block-header">
             <h2>Sign In</h2>
         </div>
-		  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-        <%= flash_messages %>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon" style="height:10px"><i class="icon-envelope"></i></span>
-             <%= f.text_field :email,:placeholder=>"Email or HQ ID", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>
-        </div>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="icon-lock"></i></span>
-            <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
-        </div>
-        <hr>
 
-         <label class="checkbox">
-           <%= f.check_box  :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#citizen-tab" data-toggle="tab">Citizen</a></li>
+          <li><a href="#business-tab" data-toggle="tab">Business</a></li>
+        </ul>
 
-            <p>Remember Me</p>
-        </label>
-        
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <%= f.button :submit, "Log In" ,:class=>"btn-u btn-block" %>                                       
+        <div class="tab-content">
+          <div class="tab-pane active" id="citizen-tab">
+            <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <%= flash_messages %>
+              <div class="input-group margin-bottom-20">
+                  <span class="input-group-addon" style="height:10px"><i class="icon-envelope"></i></span>
+                   <%= f.text_field :email,:placeholder=>"Email or HQ ID", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+              </div>
+              <div class="input-group margin-bottom-20">
+                  <span class="input-group-addon"><i class="icon-lock"></i></span>
+                  <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+              </div>
+              <hr>
+
+               <label class="checkbox">
+                 <%= f.check_box  :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+
+                  <p>Remember Me</p>
+              </label>
+              
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                    <%= f.button :submit, "Log In" ,:class=>"btn-u btn-block" %>                                       
+                  </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="tab-pane" id="business-tab">
+            <%= simple_form_for(SuperAdmin.new, :html => {id: 'login-form', class: 'smart-form client-form' }, as: :super_admin, url: session_path(:super_admin)) do |f| %>
+            <%= flash_messages %>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon" style="height:10px"><i class="icon-envelope"></i></span>
+                 <%= f.text_field :email,:placeholder=>"Email or HQ ID", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>
             </div>
-        </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+            </div>
+            <hr>
 
-        <% end %>
+             <label class="checkbox">
+               <%= f.check_box  :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+
+                <p>Remember Me</p>
+            </label>
+             <%= hidden_field_tag :tag, "businnes" %>
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <%= f.button :submit, "Log In" ,:class=>"btn-u btn-block" %>                                       
+                </div>
+            </div>
+
+            <% end %>
+
+          </div>
+        </div>      
         <%= render "citizens/shared/links" %>
 
     </div>
