@@ -742,6 +742,7 @@ pre code {
     width: 750px;
   }
 }
+
 @media (min-width: 992px) {
   .container {
     width: 970px;
@@ -5728,6 +5729,7 @@ td.visible-sm {
     display: table-cell !important;
   }
 }
+
 .visible-md,
 tr.visible-md,
 th.visible-md,

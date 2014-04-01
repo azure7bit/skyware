@@ -171,6 +171,11 @@ a.btn-u-lg {
    }
 }
 
+@media (min-width: 800px) { 
+.container {
+   width: 970px;
+} }
+
 /*Buttons Color*/
 .btn-u-blue {
    background: #3498db !important;

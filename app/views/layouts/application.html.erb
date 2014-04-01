@@ -23,6 +23,7 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+
         <!-- Basic Styles -->
         <!-- <link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css"> -->
         
@@ -52,6 +53,14 @@
             }
             /*#left-panel{display: none;}*/
         </style>
+
+        <script type="text/javascript">
+            $(function(){
+                if($('body').hasClass('mobile-view-activated')){
+                $('span.visible-sm').show();
+            }else{$('div.visible-sm').hide();}
+            })
+        </script>
     </head>
     <body class="">
         <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
@@ -183,15 +192,11 @@
         <script type="text/javascript">
         // DO NOT REMOVE : GLOBAL FUNCTIONS!
         $(document).ready(function() {
-            console.log($('div#main').width());
+            // console.log($('div#main').width());
             pageSetUp();
             $('#hit-menu').click(function(){
               $('.hit').click();
             });
-            // if($('div#main').width() < 778){
-            //     $('.hit').click();
-            //     $('.hit').hide();
-            // }else{$('.hit').show();}
         });
         </script>
 
