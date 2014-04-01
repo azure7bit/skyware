@@ -70,7 +70,7 @@ end
 
 class SuperAdmin::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:subdomain, :email, :password, :password_confirmation)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :user_type, :first_name, :last_name)
   end
 
   def account_update
