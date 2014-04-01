@@ -1,7 +1,7 @@
     
 <div class="container">
     <!--Reg Block-->
-    <div class="reg-block">
+    <div class="reg-block" style="width: 600px;">
         <div class="reg-block-header">
             <h2>Sign Up</h2>
             <ul class="list-inline style-icons text-center">
@@ -16,10 +16,44 @@
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "citizen reg-page"}) do |f| %>
         <%= flash_messages %>
         <div class='form-group'>
-            <div class="input-group margin-bottom-20">
-                <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                 <%= f.email_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
-            </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= select_tag :user_type, options_for_select([["--Select Business Type--",nil],["Restaurant","Restaurant"], ["Automotive", "Automotive"]]), :placeholder=>"Business Type", :required => true, :class=>"form-control margin-bottom-20" %> 
+          </div>
+        </div>
+        
+        <div class='form-group super-admin'>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= text_field_tag :business_name, nil, :placeholder=>"Business Name", :class=>"form-control margin-bottom-20" %> 
+          </div>
+        </div>
+
+        <div class='form-group super-admin'>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= text_field_tag :username, nil, :placeholder=>"username", :class=>"form-control margin-bottom-20" %> 
+          </div>
+        </div>
+
+        <div class='form-group super-admin'>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= text_field_tag :first_name, nil, :placeholder=>"first_name", :class=>"form-control margin-bottom-20" %> 
+          </div>
+        </div>
+        <div class='form-group super-admin'>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+             <%= text_field_tag :last_name, nil, :placeholder=>"last_name", :class=>"form-control margin-bottom-20" %> 
+          </div>
+        </div>
+        
+        <div class='form-group'>
+          <div class="input-group margin-bottom-20">
+              <span class="input-group-addon"><i class="icon-envelope"></i></span>
+               <%= f.email_field :email,:placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
+          </div>
         </div>
         <div class='form-group'>
             <div class="input-group margin-bottom-20">
@@ -52,6 +86,7 @@
         </div>
 
         <% end %>
+        <br >
         <%= render "citizens/shared/links" %>
 
     </div>

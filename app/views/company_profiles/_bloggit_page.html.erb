@@ -5,18 +5,18 @@
       <header class="header">
         <hgroup>
           <h1 class="site-title text-center">
-            <center style="position: absolute;">
+            <center style="position: absolute; margin-top: 6px;">
             <a rel="home" title="<%= "#{@user.subdomain.capitalize}" %>" href="/">
               <strong style="color: #235A9F;"><%= "#{@user.subdomain.capitalize}" rescue "Bussines" %></strong>
             </a>
             </center>
           </h1>
           <% if current_user == @user %>
-            <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
+            <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 11px;">
               <i class="fa fa-pencil-square-o"></i>
             </div>
           <% elsif current_user %>
-            <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
+            <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 11px;">
               <i class="fa fa-pencil-square-o"></i>
             </div>
           <% end %>
