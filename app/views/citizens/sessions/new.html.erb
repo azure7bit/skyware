@@ -5,7 +5,7 @@
         <div class="reg-block-header">
             <h2>Sign In</h2>
         </div>
-		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
         <%= flash_messages %>
         <div class="input-group margin-bottom-20">
             <span class="input-group-addon" style="height:10px"><i class="icon-envelope"></i></span>
@@ -30,7 +30,7 @@
         </div>
 
         <% end %>
-                    <%= render "citizens/shared/links" %>
+        <%= render "citizens/shared/links" %>
 
     </div>
     <!--End Reg Block-->

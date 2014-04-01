@@ -1,12 +1,28 @@
-<h2>Resend confirmation instructions</h2>
+  
+<div class="container">
+  <!--Reg Block-->
+  <div class="reg-block">
+    <div class="reg-block-header">
+      <h2>Confirmation</h2>
+    </div>
+    <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%#= flash_messages %>
+      <div class="input-group margin-bottom-20">
+          <span class="input-group-addon" style="height:10px"><i class="icon-envelope"></i></span>
+           <%= f.text_field :email,:placeholder=>"Email or HQ ID", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+      </div>
+      
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <%= f.submit "Resend confirmation instructions",:class=>"btn-u btn-block" %>                                    
+          </div>
+      </div>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <% end %>
+      <br />
+      <%= render "citizens/shared/links" %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  </div>
+  <!--End Reg Block-->
+</div><!--/container-->
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>

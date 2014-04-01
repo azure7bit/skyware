@@ -49,7 +49,8 @@
         <style>
             #header>:first-child{
                 width: 100% !important;
-            } 
+            }
+            /*#left-panel{display: none;}*/
         </style>
     </head>
     <body class="">
@@ -182,12 +183,18 @@
         <script type="text/javascript">
         // DO NOT REMOVE : GLOBAL FUNCTIONS!
         $(document).ready(function() {
+            console.log($('div#main').width());
             pageSetUp();
             $('#hit-menu').click(function(){
               $('.hit').click();
             });
-        })
+            // if($('div#main').width() < 778){
+            //     $('.hit').click();
+            //     $('.hit').hide();
+            // }else{$('.hit').show();}
+        });
         </script>
+
 
         <!-- Your GOOGLE ANALYTICS CODE Below -->
         <script type="text/javascript">

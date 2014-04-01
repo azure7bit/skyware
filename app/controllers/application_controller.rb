@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   after_filter :flash_to_headers
 
+  before_filter :check_confirmation
+
   def url_options
     {subdomain: (current_user.try(:subdomain) or 'www'), only_path: false}.merge(super)
   end
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::Base
     if devise_controller? and current_user
       "application"
     elsif devise_controller? and resource_class == SuperAdmin
-      "devise_layout"
+      "citizen_devise"
     elsif devise_controller? and resource_class == Citizen
       "citizen_devise"
     else
@@ -43,6 +45,18 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def check_confirmation
+    if params['confirmation_token']
+      @user = Citizen.find_by(subdomain: params['confirmation_token'])
+      @user ||= SuperAdmin.find_by(:confirmation_token => params['confirmation_token'])
+      if @user
+        @user.skip_confirmation!
+        @user.save
+      end
+    end
+  end
+
   def after_sign_out_path_for(resource_or_scope)
     root_url(subdomain: 'www')
   end
@@ -50,11 +64,15 @@ class ApplicationController < ActionController::Base
   def ensure_correct_subdomain
     citizen = Citizen.find_by(subdomain: request.subdomain)
     super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
+
     if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
+      puts "bbbbbbbbbbb"
       redirect_to root_path
     elsif current_user and devise_controller? and (params[:action] == 'new')
+      puts "aaaaaaaaaaa"
       redirect_to root_path
     elsif current_user.nil? and request.subdomain.empty?
+      puts "cccccccccccc"
       redirect_to root_path
     end
   end
