@@ -1,15 +1,17 @@
 <!-- HEADER -->
 <header id="header">
   <hgroup>
-    <div>
-      <span class="visible-xs visible-sm">
-      <div class="btn btn-default pull-left menu-left" style="margin-left: 10px; margin-top: 10px;">
-        <span> 
-          <a href="#" id="hit-menu" title="Collapse Menu" style="color: #000;"><i class="fa fa-bars"></i></a> 
-        </span>
+    <% if current_user == @user %>
+        <div>
+          <span class="visible-xs visible-sm">
+          <div class="btn btn-default pull-left menu-left" style="margin-left: 10px; margin-top: 10px;">
+            <span> 
+              <a href="#" id="hit-menu" title="Collapse Menu" style="color: #000;"><i class="fa fa-bars"></i></a> 
+            </span>
+            </div>
+          </span>
         </div>
-      </span>
-    </div>
+    <% end %>
     <h1 class="site-title text-center" style="font-size: 25px; padding-top: 10px;">
 
       <span id="logo" style="margin-top: -1px;">
