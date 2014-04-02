@@ -1,0 +1,105 @@
+<div class="reg-block-header">
+  <h2>Business Sign Up</h2>
+  <ul class="list-inline style-icons text-center">
+    <li><a href="index.html"><i class="icon-home icon-round icon-round-sm icon-color-grey"></i></a></li>
+    <li><a href="#"><i class="icon-linkedin icon-round icon-round-sm icon-color-grey"></i></a></li>
+    <li><a href="#"><i class="icon-facebook icon-round icon-round-sm icon-color-grey"></i></a></li>
+    <li><a href="#"><i class="icon-twitter icon-round icon-round-sm icon-color-grey"></i></a></li>
+    <li><a href="#"><i class="icon-rss icon-round icon-round-sm icon-color-grey"></i></a></li>
+  </ul>
+  <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
+</div>
+
+<%= simple_form_for(resource_admin, :html => {id: 'login-form', class: 'smart-form client-form'}, as: :super_admin, url: registration_path(:super_admin)) do |f| %>
+  <%= flash_messages %>
+  <div class='form-group'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+       <%= f.select :business_type, options_for_select([["Restaurant","Restaurant"], ["Automotive", "Automotive"]]), {prompt: "Select your business type"}, :required => true, :class=>"form-control margin-bottom-20" %> 
+    </div>
+  </div>
+  
+  <div class='form-group super-admin'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+      <%= f.text_field :business_name, :placeholder=>"Business Name", :class=>"form-control margin-bottom-20" %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+      <%= f.text_field :subdomain, :class=>"form-control margin-bottom-20", :placeholder=>"HQ ID (_____.skyhq.com)"%>
+    </div>
+  </div>
+  <hr>
+  <div class='form-group'>
+    <div class="input-group margin-bottom-20">
+      Super Administrator Information:
+    </div>
+  </div>
+
+  <div class='form-group super-admin'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="icon-user"></i></span>
+       <%= f.text_field :username, :placeholder=>"username", :class=>"form-control margin-bottom-20" %> 
+       <%= f.hidden_field :user_type, :class=>"form-control margin-bottom-20", value: "Business" %>
+    </div>
+  </div>
+
+  <div class='form-group super-admin'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="icon-user"></i></span>
+       <%= f.text_field :first_name, :placeholder=>"first_name", :class=>"form-control margin-bottom-20" %> 
+    </div>
+  </div>
+
+  <div class='form-group super-admin'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="icon-user"></i></span>
+       <%= f.text_field :last_name, :placeholder=>"last_name", :class=>"form-control margin-bottom-20" %> 
+    </div>
+  </div>
+  
+  <div class='form-group'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="icon-envelope"></i></span>
+      <%= f.email_field :email, :placeholder=>"Email", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %> 
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class="input-group margin-bottom-20">
+      <span class="input-group-addon"><i class="icon-lock"></i></span>
+      <%= f.password_field :password, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password" %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <div class="input-group margin-bottom-30">
+      <span class="input-group-addon"><i class="icon-key"></i></span>
+      <%= f.password_field :password_confirmation, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Password Confirmation" %>
+    </div>
+  </div>
+  <hr>
+  <div class='form-group'>
+    <div class="input-group margin-bottom-30">
+      <span class="input-group-addon"><i class="icon-user"></i></span>
+      <%= f.text_field :business_user, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Business Users" %>
+    </div>
+  </div>
+
+  <label class="checkbox">
+    <input type="checkbox"> 
+    <p>I read <a target="_blank" href="page_terms.html">Terms and Conditions</a></p>
+  </label>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= f.submit "Register", :class=>"btn-u btn-block" %>
+    </div>
+  </div>
+
+<% end %>
+<br >
+<%= render "citizens/shared/links" %>
