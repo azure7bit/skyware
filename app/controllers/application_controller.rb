@@ -66,13 +66,10 @@ class ApplicationController < ActionController::Base
     super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
 
     if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
-      puts "bbbbbbbbbbb"
       redirect_to root_path
     elsif current_user and devise_controller? and (params[:action] == 'new')
-      puts "aaaaaaaaaaa"
       redirect_to root_path
     elsif current_user.nil? and request.subdomain.empty?
-      puts "cccccccccccc"
       redirect_to root_path
     end
   end

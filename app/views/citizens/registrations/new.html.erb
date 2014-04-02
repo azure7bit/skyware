@@ -86,12 +86,12 @@
         <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
       </div>
 
-      <%= simple_form_for(resource_admin, :html => {id: 'login-form', class: 'smart-form client-form', remote: true }, as: :super_admin, url: registration_path(:super_admin)) do |f| %>
+      <%= simple_form_for(resource_admin, :html => {id: 'login-form', class: 'smart-form client-form'}, as: :super_admin, url: registration_path(:super_admin)) do |f| %>
         <%= flash_messages %>
         <div class='form-group'>
           <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
-             <%= select_tag :user_type, options_for_select([["--Select Business Type--",nil],["Restaurant","Restaurant"], ["Automotive", "Automotive"]]), :placeholder=>"Business Type", :required => true, :class=>"form-control margin-bottom-20" %> 
+             <%= select_tag :business_type, options_for_select([["--Select Business Type--",nil],["Restaurant","Restaurant"], ["Automotive", "Automotive"]]), :placeholder=>"Business Type", :required => true, :class=>"form-control margin-bottom-20" %> 
           </div>
         </div>
         
@@ -119,6 +119,7 @@
           <div class="input-group margin-bottom-20">
             <span class="input-group-addon"><i class="icon-user"></i></span>
              <%= f.text_field :username, :placeholder=>"username", :class=>"form-control margin-bottom-20" %> 
+             <%= f.hidden_field :user_type, :class=>"form-control margin-bottom-20", value: "Business" %>
           </div>
         </div>
 
@@ -157,14 +158,21 @@
           </div>
         </div>
         <hr>
+        <div class='form-group'>
+          <div class="input-group margin-bottom-30">
+            <span class="input-group-addon"><i class="icon-user"></i></span>
+            <%= text_field_tag :business_user, nil, :required => true ,:class=>"form-control margin-bottom-20",:placeholder=>"Business Users" %>
+          </div>
+        </div>
+
         <label class="checkbox">
-            <input type="checkbox"> 
-            <p>I read <a target="_blank" href="page_terms.html">Terms and Conditions</a></p>
+          <input type="checkbox"> 
+          <p>I read <a target="_blank" href="page_terms.html">Terms and Conditions</a></p>
         </label>
 
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <%= f.submit "Register", :class=>"btn-u btn-block", :remote => true %>
+            <%= f.submit "Register", :class=>"btn-u btn-block" %>
           </div>
         </div>
 

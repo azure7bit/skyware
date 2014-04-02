@@ -71,25 +71,6 @@ class ConversationsController < ApplicationController
 
   def sticky_post;end
 
-  # def new_direct_message
-  #   Conversation.new
-  #   respond_to do |format|
-  #     format.html
-  #   end
-  # end
-
-  # def direct_message
-  #   # params[:conversation][:body] = params[:body_message].first
-  #   conv = {:body => params[:body_message].first, :subject => params[:conversation][:subject]}
-  #   conversation = current_user.send_message(request.subdomain, *conv(:body, :subject)).conversation
-  #   respond_to do |format|
-  #     format.html { redirect_to :back, notice: 'Message sent successfully.' }
-  #     format.js{
-  #       flash[:notice] = "Message sent successfully"
-  #     }
-  #   end
-  # end
-
   private
 
   def mailbox
