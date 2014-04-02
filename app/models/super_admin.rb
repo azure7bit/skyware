@@ -8,6 +8,7 @@ class SuperAdmin < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image, :subdomain
+  attr_accessor :business_user
 
   validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
 
@@ -25,10 +26,16 @@ class SuperAdmin < ActiveRecord::Base
 
   has_many :employees, :through => :locations
 
+  has_many :users, :foreign_key => :owner_id
+
   attr_accessor :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+  scope :for_business, where(:user_type => "Business")
+
+  after_create :save_business_users
 
   # include Tire::Model::Search
   # include Tire::Model::Callbacks
@@ -63,14 +70,26 @@ class SuperAdmin < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def save_business_users
+    subdomain = "#{self.business_user}.#{self.subdomain}"
+    business_users = self.business_user.split(",")
 
-
+    if business_users.is_a?(Array)
+      business_users.each do |user|
+        user_params = {:username => user, :subdomain => subdomain}
+        self.users.build(user_params).save
+      end
+    else
+      user_params = {:username => self.business_user, :subdomain => subdomain}
+      self.users.build(user).save
+    end
+  end
 end
 
 
 class SuperAdmin::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :user_type, :first_name, :last_name)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :user_type, :first_name, :last_name, :business_user)
   end
 
   def account_update
