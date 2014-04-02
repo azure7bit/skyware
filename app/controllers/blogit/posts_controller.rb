@@ -22,6 +22,7 @@ module Blogit
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
       @user ||= SuperAdmin.where(subdomain: subdomain).first
+      @user ||= User.find_by(:subdomain => subdomain)
 
       respond_to do |format|
         format.xml {
