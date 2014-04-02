@@ -50,8 +50,8 @@ class ApplicationController < ActionController::Base
     if params['confirmation_token']
       @user = Citizen.find_by(subdomain: params['confirmation_token'])
       @user ||= SuperAdmin.find_by(:confirmation_token => params['confirmation_token'])
-      if @user
-        @user.skip_confirmation!
+      if @user && !@user.confirmed?
+        @user.confirm!
         @user.save
       end
     end

@@ -12,4 +12,8 @@ module ApplicationHelper
 		nil
 	end
 
+	def resource_admin
+		@resource ||= SuperAdmin.new
+	end
+
 end
