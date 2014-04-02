@@ -44,6 +44,7 @@ module Blogit
       @resource = Citizen.where(subdomain: subdomain).first
       @user = current_citizen
     end
+    
     def save_citizen_password
       if  params[:citizen][:password] ==  params[:citizen][:password_confirmation]
         current_user.password = params[:citizen][:password]

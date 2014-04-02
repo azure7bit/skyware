@@ -47,7 +47,8 @@
            
              <div class="input-group margin-bottom-20">
                 <span class="input-group-addon" style="height:10px"><i class="icon-user"></i></span>
-                 <%= select_tag "username", "<option>User 1</option><option>User 2</option><option>User 3</option><option>User 4</option>".html_safe,:class=>"form-control margin-bottom-20" %>
+                 <%#= select_tag "username", "<option>User 1</option><option>User 2</option><option>User 3</option><option>User 4</option>".html_safe,:class=>"form-control margin-bottom-20" %>
+                 <%= text_field_tag :username, nil, :placeholder=>"username", :required => true, :autofocus => true,:class=>"form-control margin-bottom-20" %>
             </div>
             <div class="input-group margin-bottom-20">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
