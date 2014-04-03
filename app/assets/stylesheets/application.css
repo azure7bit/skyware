@@ -56,3 +56,18 @@ div.entry-description {
   word-wrap: break-word !important;
 }
 
+.smart-form .input input, .smart-form .select select, .smart-form .textarea textarea {
+    -moz-appearance: none;
+    -moz-box-sizing: border-box;
+   /* background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px;
+    color: #404040;
+    display: block;
+    font: 13px/16px 'Open Sans',Helvetica,Arial,sans-serif;*/
+    height: 100% !important;
+    /*outline: 0 none;
+    padding: 8px 10px;
+    width: 100%;*/
+}
