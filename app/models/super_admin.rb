@@ -8,7 +8,7 @@ class SuperAdmin < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image, :subdomain
-  attr_accessor :business_user
+  # attr_accessor :business_user
 
   validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
 
@@ -71,25 +71,28 @@ class SuperAdmin < ActiveRecord::Base
   end
 
   def save_business_users
-    subdomain = "#{self.business_user}.#{self.subdomain}"
-    business_users = self.business_user.split(",")
+    # subdomain = "#{self.business_user}.#{self.subdomain}"
+    # business_users = self.business_user.split(",")
 
-    if business_users.is_a?(Array)
-      business_users.each do |user|
-        user_params = {:username => user, :subdomain => subdomain}
-        self.users.build(user_params).save
-      end
-    else
-      user_params = {:username => self.business_user, :subdomain => subdomain}
-      self.users.build(user).save
-    end
+    # if business_users.is_a?(Array)
+    #   business_users.each do |user|
+    #     user_params = {:username => user, :subdomain => subdomain}
+    #     self.users.build(user_params).save
+    #   end
+    # else
+    #   user_params = {:username => self.business_user, :subdomain => subdomain}
+    #   self.users.build(user).save
+    # end
+    sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}
+    blog = Blogit::Post.new(sticky_post)
+    blog.save
   end
 end
 
 
 class SuperAdmin::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :user_type, :first_name, :last_name, :business_user, :business_type, :business_name)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :user_type, :first_name, :last_name, :business_type, :business_name, :website, :about, :avatar)
   end
 
   def account_update
