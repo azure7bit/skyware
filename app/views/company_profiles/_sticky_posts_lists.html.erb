@@ -8,7 +8,9 @@
         <ul class="dropdown-menu" role="menu">
           <li><a href="#" class="sticky-edit" data-id="<%= post.id %>">Edit</a></li>
           <li class="divider"></li>
-          <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li>
+            <%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
         </ul>
       </div>
     <% end %>
@@ -18,7 +20,8 @@
         <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
         <h2 class="entry-title">
           <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
-          <%= post.title %></a>
+            <b><%= post.title %></b>
+          </a>
         </h2>
         <p class="entry-meta">
           By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
