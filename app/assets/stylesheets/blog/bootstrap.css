@@ -3009,7 +3009,7 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 50px;
   padding: 5px 0;
   margin: 2px 0 0;
   font-size: 14px;
@@ -3070,6 +3070,7 @@ input[type="button"].btn-block {
 }
 .open > .dropdown-menu {
   display: block;
+  width: 100px;
 }
 .open > a {
   outline: 0;

@@ -95,7 +95,7 @@ SkyhqNew::Application.routes.draw do
   devise_for :citizens, :controllers => { 
     :omniauth_callbacks => "citizens/omniauth_callbacks",
     registrations: 'citizens/registrations',
-
+    :sessions => 'user_authentications'
   }
 
   devise_for :super_admins, controllers: { 
@@ -113,6 +113,7 @@ SkyhqNew::Application.routes.draw do
 
   devise_scope :citizen do
     get "login",    to: "devise/sessions#new"
+    # get "login", to: "user_authentications#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
     get "reset",    to: "devise/passwords#new"

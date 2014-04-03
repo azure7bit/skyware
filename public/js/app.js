@@ -92,11 +92,17 @@ $(document).ready(function() {
 	}
 
 	// COLLAPSE LEFT NAV
-	$('.minifyme').click(function(e) {
+	$('#hit-menu').click(function(e) {
 		$('body').toggleClass("minified");
 		$(this).effect("highlight", {}, 500);
 		e.preventDefault();
 	});
+
+	// $('.minifyme').click(function(e) {
+	// 	$('body').toggleClass("minified");
+	// 	$(this).effect("highlight", {}, 500);
+	// 	e.preventDefault();
+	// });
 
 	// HIDE MENU
 	$('#hide-menu >:first-child > a').click(function(e) {

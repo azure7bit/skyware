@@ -16,4 +16,14 @@ module ApplicationHelper
     @resource ||= SuperAdmin.new
   end
 
+  def resource
+    Citizen.new
+  end
+
+  def resource_name
+    resource_name = :citizen
+    resource_name ||= :super_admin
+    return resource_name
+  end
+
 end

@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       end
     else
       notify 'Authentication failed, please try again.', type: :error
-      redirect_to root_url      
+      redirect_to root_url
     end
   end
 

@@ -1,77 +1,55 @@
-<!-- HEADER -->
+<!-- HEADER --> 
 <header id="header">
   <hgroup>
     <% if current_user == @user %>
-        <div>
-          <span class="visible-xs visible-sm">
-          <div class="btn btn-default pull-left menu-left" style="margin-left: 10px; margin-top: 10px;">
-            <span> 
-              <a href="#" id="hit-menu" title="Collapse Menu" style="color: #000;"><i class="fa fa-bars"></i></a> 
-            </span>
-            </div>
+      <div>
+        <span>
+        <div id="hit-menu" class="pull-left menu-left">
+          <span> 
+            <a href="#" title="Collapse Menu" style="color: #000;">
+              <%= image_tag 'post-button.png', :width=>"30", :height => "30", alt: "SmartAdmin" %>
+            </a> 
           </span>
-        </div>
+          </div>
+        </span>
+      </div>
     <% end %>
     <h1 class="site-title text-center" style="font-size: 25px; padding-top: 10px;">
-
       <span id="logo" style="margin-top: -1px;">
-          <a href="<%= root_path %>">
-            <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
-          </a>
+        <a href="<%= root_path %>">
+          <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
+        </a>
       </span>
       <% if current_user == @user %>
           <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
-          <a href="<%= edit_citizen_registration_path %>">
-            <%= image_tag url , :height => "30", :width => "30", class: "entry-avatar" %>
-          </a>
+          <div class="btn-group pull-right">
+            <a href="#" data-toggle="dropdown">
+              <%= image_tag url , :height => "30", :width => "30", class: "entry-avatar" %>
+            </a>
+            <ul class="dropdown-menu" style="width: 20px;">
+              <li>
+                <%= link_to "Profile", edit_citizen_registration_path, :style => "text-align: left" %>
+              </li>
+              <li>
+                <%= link_to "Logout", logout_path, :style => "text-align: left" %>
+              </li>
+            </ul>
+          </div>
       <% end %>
     </h1>
   </hgroup>
-
-
-    <!-- pulled right: nav area -->
-    <!-- <div class="pull-left"> -->
-
-        <!-- collapse menu button -->
-        
-       
-        <!-- end collapse menu -->
-
-        <!-- logout button -->
-<!--         <div id="logout" class="btn-header transparent pull-right">
-            <span> <a href="<%= logout_path %>" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
-        </div> -->
-        <!-- end logout button -->
-
-        <!-- search mobile button (this is hidden till mobile view port) -->
-<!--         <div id="search-mobile" class="btn-header transparent pull-right">
-            <span> <a href="/javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
-        </div> -->
-        <!-- end search mobile button -->
-
-        <!-- input: search field -->
-        <!-- <form action="#search.html" class="header-search pull-right">
-            <input type="text" placeholder="Search" id="search-fld">
-            <button type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-            <a href="/javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-        </form> -->
-        <!-- end input: search field -->
-
-    <!-- </div> -->
-    <!-- end pulled right: nav area -->
 
 </header>
 <!-- END HEADER -->
 
         <!-- Left panel : Navigation area -->
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
-<aside id="left-panel" >
+<!-- style="height: 100%; top: 0; -->
+<aside id="left-panel" style="top: 0;">
 
     <!-- User info -->
     <div class="login-info">
-        <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%#= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i></a> </span>
+      <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%#= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i></a> </span>
     </div>
     <!-- end user info -->
 
@@ -82,14 +60,10 @@
     will not initialize.
     -->
     <nav>
-        <!-- NOTE: Notice the gaps after each icon usage <i></i>.. 
-             Please note that these links work a bit different than
-             traditional hre="" links. See documentation for details.
-            -->
-        
+
         <ul>
             <% if current_citizen %>
-                <li class=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
             <% end %>
             <% if current_super_admin %>
                 <li><a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
@@ -104,7 +78,7 @@
                 </li>
                 <li>
                     <a href="<%= new_conversation_path %>">
-                        <i class="fa fa-lg fa-fw fa-inbox"></i>
+                        <i class="fa fa-lg fa-fw fa-envelope-o"></i>
                         <span class="menu-item-parent">Compose Message</span>
                         <span class="badge pull-right inbox-badge"></span>
                     </a>    
@@ -130,7 +104,7 @@
             </li> -->                       
         </ul>
     </nav>
-    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+    <!-- <span class="minifyme" style="display: none;"> <i class="fa fa-arrow-circle-left hit"></i> </span> -->
 
 </aside>
-<!-- END NAVIGATION -->
+<!-- END NAVIGATION

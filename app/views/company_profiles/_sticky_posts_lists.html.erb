@@ -18,7 +18,7 @@
         <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
         <h2 class="entry-title">
           <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
-          <strong><%= post.title %></strong></a>
+          <%= post.title %></a>
         </h2>
         <p class="entry-meta">
           By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 

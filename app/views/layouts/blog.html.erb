@@ -71,15 +71,22 @@
   <body>
     <header id="header">
     <hgroup>
-      <h1 class="site-title text-center" style="font-size: 25px; padding-top: 4px;">
+      <h1 class="site-title text-center" style="font-size: 25px; padding-top: 6px;">
         <span id="logo">
           <a href="<%= root_path %>">
             <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
           </a>
         </span>
-          <a href="#" class="entry-avatar">Login</a>
-          <a href="#" class="entry-avatar">Register</a>
-        </span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              <span><i class="glyphicon glyphicon-user"></i></span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="width: 20px;">
+              <li><a href="<%= login_path %>" style="text-align: left;">Login</a></li>
+              <li><a href="<%= login_path %>" style="text-align: left;">Register</a></li>
+            </ul>
+        </div>
       </h1>
     </hgroup>
     </header>
