@@ -4,11 +4,11 @@
     <% if current_user %>
       <% unless current_user.subdomain != request.subdomain %>
       <div>
-        <span>
+        <span class="visible-sm visible-xs">
         <div id="hit-menu" class="pull-left menu-left">
           <span> 
             <a href="#" title="Collapse Menu" style="color: #000;">
-              <%= image_tag 'post-button.png', :width=>"30", :height => "30", alt: "SmartAdmin" %>
+              <%= image_tag 'post-button.png', :width=>"25", :height => "25", alt: "SmartAdmin" %>
             </a> 
           </span>
           </div>
