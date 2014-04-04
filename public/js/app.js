@@ -93,11 +93,7 @@ $(document).ready(function() {
 
 	// COLLAPSE LEFT NAV
 	$('#hit-menu').click(function(e) {
-		if($('body').hasClass('mobile-view-activated')){
 			$('body').toggleClass("minified");
-		}else{
-			$('body').toggleClass("minified").find("#main").css('margin-left', '0px');
-		}
 		e.preventDefault();
 	});
 
@@ -110,7 +106,6 @@ $(document).ready(function() {
 	// HIDE MENU
 	$('#hide-menu >:first-child > a').click(function(e) {
 		$('body').toggleClass("hidden-menu");
-		$('body').find('div#main').css('margin-left', '0px');
 		e.preventDefault();
 	});
 	
