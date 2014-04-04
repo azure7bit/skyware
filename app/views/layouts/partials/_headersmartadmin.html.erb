@@ -56,7 +56,8 @@
 
     <!-- User info -->
     <div class="login-info">
-      <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%#= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut"><%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i></a> </span>
+      <span> <!-- User image size is adjusted inside CSS, it should stay as it --> <%#= image_tag "img/avatars/sunny.png", alt: "me", class: "online"  %> <a href="/javascript:void(0);" id="show-shortcut">
+        <%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i></a> </span>
     </div>
     <!-- end user info -->
 
@@ -70,23 +71,23 @@
 
         <ul>
             <% if current_citizen %>
-                <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
             <% end %>
             <% if current_super_admin %>
-                <li><a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                <li><a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
             <% end %>
             <% if current_user %>
                 <li>
                     <a href="<%= conversations_path %>">
-                        <i class="fa fa-lg fa-fw fa-inbox"></i>
-                        <span class="menu-item-parent">Inbox</span>
+                        <i class="fa fa-lg fa-fw fa-inbox box-panel-inline"></i>
+                        <span class="menu-item-parent">  Inbox</span>
                         <span class="badge pull-right inbox-badge"></span>
                     </a>
                 </li>
                 <li>
                     <a href="<%= new_conversation_path %>">
-                        <i class="fa fa-lg fa-fw fa-envelope-o"></i>
-                        <span class="menu-item-parent">Compose Message</span>
+                        <i class="fa fa-lg fa-fw fa-envelope-o box-panel-inline"></i>
+                        <span class="menu-item-parent">  Compose Message</span>
                         <span class="badge pull-right inbox-badge"></span>
                     </a>    
                 </li>
