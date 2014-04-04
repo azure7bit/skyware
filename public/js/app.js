@@ -92,14 +92,14 @@ $(document).ready(function() {
 	}
 
 	// COLLAPSE LEFT NAV
-	window.setInterval(function(){
+	window.onresize = function(){
 		if ($(window).width() <= 980) {
 			$( "body.hidden-menu" ).switchClass( "hidden-menu", "minified");
 		}
 		else{
 			$( "body.minified" ).switchClass( "minified", "hidden-menu");
 		}
-	},100);
+	};
 	$('#hit-menu').click(function(e) {
 		if ($(window).width() >= 980) {
 			$('body').toggleClass("hidden-menu");
@@ -108,7 +108,8 @@ $(document).ready(function() {
 			
 			$('body').toggleClass("minified");
 		}
-		$(this).effect("highlight", {}, 500);
+		
+		// $(this).effect("highlight", {}, 500);
 		e.preventDefault();
 	});
 
