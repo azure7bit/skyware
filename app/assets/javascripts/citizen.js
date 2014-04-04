@@ -75,3 +75,14 @@ function readURL(input) {
 	$("#super_admin_avatar").change(function(){
 	readURL(this);
 });
+
+$(document).ready(function(){
+    $('#reg-business').click(function(e){
+      var username = $('#super_admin_username').val();
+      var subdomain = '@'+$('#super_admin_subdomain').val();
+      if($(username).indexOf(subdomain)){
+		alert("username input incorrect");
+	   return false;
+      }else{return true}
+    });
+});
