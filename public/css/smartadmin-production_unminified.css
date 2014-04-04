@@ -15780,7 +15780,7 @@ aside {
   left: 45px;
 }
 .hidden-menu.fixed-ribbon #ribbon {
-  left: 10px;
+  /*left: 10px;*/
 }
 /*
  * NAV
