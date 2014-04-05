@@ -94,10 +94,12 @@ $(document).ready(function() {
 	// COLLAPSE LEFT NAV
 	window.onresize = function(){
 		if ($(window).width() <= 980) {
-			$( "body.hidden-menu" ).switchClass( "hidden-menu", "minified");
+			// $( "body.hidden-menu" ).switchClass( "hidden-menu", "minified");
+			$('body').removeClass("hidden-menu");
 		}
 		else{
-			$( "body.minified" ).switchClass( "minified", "hidden-menu");
+			// $( "body.minified" ).switchClass( "minified", "hidden-menu");
+			$('body').addClass("hidden-menu");
 		}
 	};
 	$('#hit-menu').click(function(e) {
