@@ -51,6 +51,7 @@ var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.tes
 	} else {
 		// Mobile
 		$.root_.addClass("mobile-detected");
+		$('body').toggleClass("minified");
 		$.device = "mobile";
 		
 		// remove 300ms delay from apple touch devices
