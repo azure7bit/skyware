@@ -46,12 +46,13 @@ var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.tes
 
 	if (!ismobile) {
 		// Desktop
+		$.root_.removeClass("hidden-menu");
 		$.root_.addClass("desktop-detected");
 		$.device = "desktop";
 	} else {
 		// Mobile
+		$.root_.removeClass("hidden-menu");
 		$.root_.addClass("mobile-detected");
-		$('body').toggleClass("minified");
 		$.device = "mobile";
 		
 		// remove 300ms delay from apple touch devices
