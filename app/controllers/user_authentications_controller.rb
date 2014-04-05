@@ -2,7 +2,7 @@ class UserAuthenticationsController < Devise::SessionsController
   before_filter :find_subdomain, only: [:create]
   layout 'citizen_devise'
   def new
-    self.resource = resource_class.new(devise_parameter_sanitizer)
+    self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     render 'citizens/sessions/new'
   end
@@ -21,7 +21,9 @@ class UserAuthenticationsController < Devise::SessionsController
   end
 
   private
-
+    def sign_in_params
+    devise_parameter_sanitizer.sanitize(:sign_in)
+  end
     def find_subdomain
       @subdomain = Citizen.find_by(:subdomain => request.subdomain)
       @subdomain ||= SuperAdmin.find_by(:subdomain => request.subdomain)
