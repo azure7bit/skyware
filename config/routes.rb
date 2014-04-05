@@ -94,13 +94,15 @@ SkyhqNew::Application.routes.draw do
 
   devise_for :citizens, :controllers => { 
     :omniauth_callbacks => "citizens/omniauth_callbacks",
-    registrations: 'citizens/registrations',
-    :sessions => 'user_authentications'
+    registrations: 'citizens/registrations'
+    # ,
+    # :sessions => 'user_authentications'
   }
 
   devise_for :super_admins, controllers: { 
-    registrations: 'super_admins/registrations',
-    :sessions => 'user_authentications'
+    registrations: 'super_admins/registrations'
+    # ,
+    # :sessions => 'user_authentications'
   }
 
   

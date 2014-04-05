@@ -5,10 +5,11 @@
     <% if current_user %>
       <% unless current_user.subdomain != request.subdomain %>
         <!-- <span class="visible-lg visible-md"> -->
-        <div class="btn-group pull-left" style="min-width: 200px;">
+        <div class="btn-group pull-left" style="min-width: 200px;margin-top: 5px;">
      
-            <a href="#" data-toggle="dropdown" style="margin-left: 10px;margin-top: 10px;">
-              <%= image_tag 'img/logo.png', alt: "SmartAdmin", :style=>"margin-top: 5px;" %>
+            <a href="#" data-toggle="dropdown" style="font-size: 26px;margin-left: 10px;margin-top: 10px;color:#333;">
+              <%#= image_tag 'img/logo.png', alt: "SmartAdmin", :style=>"margin-top: 5px;" %>
+              <strong>HQ</strong>
             </a>
           
           <ul class="dropdown-menu" style="width: auto;">
@@ -55,9 +56,10 @@
     <% end %>
 
     <h1 class="site-title text-center" style="font-size: 25px; padding-top: 10px; height: 50px;">
-      <span id="logo" style="margin-top: -1px;">
+      <span id="logo" style="margin-top: -1px;margin-right:200px;">
         <a href="<%= root_path %>" style="color:#333;">
-          <strong><%= current_user.subdomain.capitalize rescue "" %></strong>
+          <!-- <strong><%= current_user.subdomain.capitalize rescue "" %></strong> -->
+          <%= image_tag 'img/logo.png', alt: "SmartAdmin", :style=>"margin-top: 2px;" %>
         </a>
       </span>
 
