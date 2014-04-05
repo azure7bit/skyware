@@ -99,7 +99,8 @@ SkyhqNew::Application.routes.draw do
   }
 
   devise_for :super_admins, controllers: { 
-    registrations: 'super_admins/registrations'
+    registrations: 'super_admins/registrations',
+    :sessions => 'user_authentications'
   }
 
   
@@ -113,7 +114,6 @@ SkyhqNew::Application.routes.draw do
 
   devise_scope :citizen do
     get "login",    to: "devise/sessions#new"
-    # get "login", to: "user_authentications#new"
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
     get "reset",    to: "devise/passwords#new"
