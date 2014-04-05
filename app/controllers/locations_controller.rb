@@ -36,7 +36,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = current_super_admin.locations.build(params[:location].merge(super_admin_id: current_super_admin.id))
+    @location = current_super_admin.locations.build(location_params)
 
     respond_to do |format|
       if @location.save
@@ -53,7 +53,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     respond_to do |format|
-      if @location.update_attributes(params[:location])
+      if @location.update_attributes(location_params)
         format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
@@ -71,5 +71,9 @@ class LocationsController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+  private
+  def location_params
+    params.require(:location).permit(:name, :street, :city, :state, :zipcode, :country)
   end
 end

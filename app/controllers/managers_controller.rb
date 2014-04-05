@@ -44,7 +44,7 @@ class ManagersController < ApplicationController
   # POST /managers.json
   def create
     @location = Location.find(params[:location_id])
-    @manager = @location.managers.build(params[:manager])
+    @manager = @location.managers.build(manager_params)
 
     respond_to do |format|
       if @manager.save
@@ -64,7 +64,7 @@ class ManagersController < ApplicationController
     @manager = Manager.find(params[:id])
 
     respond_to do |format|
-      if @manager.update_attributes(params[:manager])
+      if @manager.update_attributes(manager_params)
         format.html { redirect_to @manager, notice: 'Manager was successfully updated.' }
         format.json { head :no_content }
       else
@@ -85,5 +85,10 @@ class ManagersController < ApplicationController
       format.html { redirect_to location_path(@manager.location) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def manager_params
+    params.require(:manager).permit(:email, :password_confirmation, :password, :first_name, :last_name, :location_id, :title)
   end
 end

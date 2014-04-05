@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313055305) do
+ActiveRecord::Schema.define(version: 20140403023539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.text     "body",       null: false
     t.integer  "post_id",    null: false
     t.string   "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "blogit_comments", ["post_id"], name: "index_blog_comments_on_post_id", using: :btree
+  add_index "blogit_comments", ["post_id"], name: "index_blogit_comments_on_post_id", using: :btree
 
   create_table "blogit_posts", force: true do |t|
     t.string   "title",                      null: false
@@ -35,25 +35,26 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.integer  "blogger_id"
     t.string   "blogger_type"
     t.integer  "comments_count", default: 0, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "post_type"
   end
 
-  add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blog_posts_on_blogger_type_and_blogger_id", using: :btree
+  add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blogit_posts_on_blogger_type_and_blogger_id", using: :btree
 
   create_table "business_messengers", force: true do |t|
     t.integer  "super_admin_id"
     t.text     "body"
     t.string   "email"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", force: true do |t|
     t.integer  "product_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "citizens", force: true do |t|
@@ -67,8 +68,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "subdomain"
     t.string   "title_tagline"
     t.text     "tagline"
@@ -90,8 +91,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "vk"
   end
 
-  add_index "citizens", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "citizens", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "citizens", ["email"], name: "index_citizens_on_email", unique: true, using: :btree
+  add_index "citizens", ["reset_password_token"], name: "index_citizens_on_reset_password_token", unique: true, using: :btree
 
   create_table "company_docs", force: true do |t|
     t.string   "company_document_file_name"
@@ -100,8 +101,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.datetime "company_document_updated_at"
     t.integer  "uploader_id"
     t.string   "uploader_type"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "company_forum_topics", force: true do |t|
@@ -109,15 +110,15 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "topic_title"
     t.string   "user_type"
     t.integer  "topic_creator_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "company_forums", force: true do |t|
     t.integer  "super_admin_id"
     t.string   "title"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "company_profiles", force: true do |t|
@@ -130,8 +131,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "hq_zipcode"
     t.string   "hq_country"
     t.datetime "company_establishment_date"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "conversations", force: true do |t|
@@ -145,8 +146,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.integer  "postable_id"
     t.string   "postable_type"
     t.text     "post_body"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
@@ -155,8 +156,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "location"
     t.string   "longitude"
     t.string   "latitude"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "street"
     t.string   "city"
     t.string   "state"
@@ -173,8 +174,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notifications", force: true do |t|
@@ -200,16 +201,16 @@ ActiveRecord::Schema.define(version: 20140313055305) do
   create_table "online_stores", force: true do |t|
     t.integer  "super_admin_id"
     t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
     t.integer  "super_admin_id"
     t.string   "name"
     t.integer  "price"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "online_store_id"
   end
 
@@ -248,8 +249,8 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -273,6 +274,10 @@ ActiveRecord::Schema.define(version: 20140313055305) do
     t.string   "github"
     t.string   "bitbucket"
     t.string   "vk"
+    t.string   "business_type"
+    t.string   "business_name"
+    t.text     "about"
+    t.string   "website"
   end
 
   add_index "super_admins", ["email"], name: "index_super_admins_on_email", unique: true, using: :btree
@@ -294,6 +299,16 @@ ActiveRecord::Schema.define(version: 20140313055305) do
   create_table "tags", force: true do |t|
     t.string "name"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "subdomain"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["owner_id"], name: "index_users_on_owner_id", using: :btree
 
   add_foreign_key "notifications", "conversations", name: "notifications_on_conversation_id"
 
