@@ -4,7 +4,7 @@ gem 'rails', '4.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'pg'
 gem 'simplecov', :require => false, :group => :test
 group :development, :test do
@@ -23,7 +23,7 @@ gem 'jquery-rails', "~> 3.1.0"
 gem "jquery-ui-rails", "~> 4.2.0"
 
 gem 'devise'
-gem "cancan"
+gem 'cancancan', '~> 1.7'
 gem "omniauth-google-oauth2"
 gem 'simple_form', '~> 3.0.1'
 # gem 'tire'

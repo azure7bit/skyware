@@ -12,13 +12,14 @@ module ApplicationHelper
     nil
   end
 
-  # def resource_admin
-  #   @resource ||= SuperAdmin.new
-  # end
+  def resource_admin
+    @resource ||= SuperAdmin.new
+  end
 
   def resource
      @resource = Citizen.new
      @resource ||= SuperAdmin.new
+     @resource ||= User.new
   end
 
   def resource_name
