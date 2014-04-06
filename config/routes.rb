@@ -16,7 +16,6 @@ SkyhqNew::Application.routes.draw do
     get '/' => 'blogit/posts#index'
   end
 
-
   authenticated :super_admin do
     get '/' => 'blogit/posts#index'
   end
@@ -94,10 +93,11 @@ SkyhqNew::Application.routes.draw do
 
   devise_for :citizens, :controllers => { 
     :omniauth_callbacks => "citizens/omniauth_callbacks",
-    registrations: 'citizens/registrations'
-    # ,
-    # :sessions => 'user_authentications'
+    registrations: 'citizens/registrations',
+    :sessions => 'user_authentications'
   }
+
+  devise_for :users
 
   devise_for :super_admins, controllers: { 
     registrations: 'super_admins/registrations'
@@ -105,7 +105,16 @@ SkyhqNew::Application.routes.draw do
     # :sessions => 'user_authentications'
   }
 
-  
+  devise_for :business_users,:controllers => { 
+    registrations: 'citizens/registrations'
+  }
+
+  devise_for :managers, skip: :sessions
+  devise_for :staffs, skip: :sessions
+
+  # devise_for :users, :controllers => { :sessions => :user_authentications, registrations: 'citizens/registrations'}
+# devise_for :users, :skip => [:sessions]
+
   devise_scope :super_admin do
     get "business/login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
@@ -122,6 +131,14 @@ SkyhqNew::Application.routes.draw do
     get "profile", to: "devise/registrations#edit"
   end
   
+  devise_scope :business_user do
+    get "login",    to: "devise/sessions#new"
+    get "logout",   to: "devise/sessions#destroy"
+    get "register", to: "devise/registrations#new"
+    get "business/reset",    to: "devise/passwords#new"
+    get "business/profile", to: "devise/registrations#edit"
+  end
+
   get("/inbox/new/:super_admin_id", { :controller => "conversations", :action => 'new', :as => 'message_company'})
   
   resources :conversations, :path => "inbox", only: [:index, :show, :new, :create] do

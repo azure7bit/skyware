@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
         "citizen_devise"
       elsif devise_controller? and resource_class == Citizen
         "citizen_devise"
+      elsif devise_controller? and resource_class == BusinessUser
+        "citizen_devise"
       else
         "application"
       end
@@ -29,6 +31,8 @@ class ApplicationController < ActionController::Base
     def devise_parameter_sanitizer
       if resource_class == Citizen
         Citizen::ParameterSanitizer.new(Citizen, :citizen, params)
+      elsif resource_class == BusinessUser
+        BusinessUser::ParameterSanitizer.new(BusinessUser, :business_user, params)
       elsif resource_class == SuperAdmin
         SuperAdmin::ParameterSanitizer.new(SuperAdmin, :super_admin, params)
       end
@@ -40,7 +44,7 @@ class ApplicationController < ActionController::Base
 
 
     def current_user
-      current_super_admin or current_citizen
+      current_super_admin or current_citizen or current_business_user
     end
 
     private
@@ -63,7 +67,7 @@ class ApplicationController < ActionController::Base
       def ensure_correct_subdomain
         citizen = Citizen.find_by(subdomain: request.subdomain)
         super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
-
+        user = User.find_by(subdomain: request.subdomain)
         if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
           redirect_to root_path
         elsif current_user and devise_controller? and (params[:action] == 'new')
