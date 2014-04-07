@@ -3,9 +3,7 @@
   <%= link_to "Sign in", login_path, :class => "form-link" %><br />
 <% end -%>
 
-<%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Login as Business", business_login_path, :class => "form-link" %><br />
-  <%# end -%>
+  <%= link_to "Login as Citizen", login_path, :class => "form-link" %><br />
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", register_path, :class => "form-link" %><br />

@@ -19,6 +19,10 @@ SkyhqNew::Application.routes.draw do
   authenticated :super_admin do
     get '/' => 'blogit/posts#index'
   end
+
+  authenticated :business_user do
+    get '/' => 'blogit/posts#index'
+  end
   
   constraints(WWWSubdomain.new) do
     get '/' => 'general_pages#index'
@@ -116,11 +120,11 @@ SkyhqNew::Application.routes.draw do
 # devise_for :users, :skip => [:sessions]
 
   devise_scope :super_admin do
-    get "business/login",    to: "devise/sessions#new"
+    get "super_admins/login",    to: "devise/sessions#new"
     get "logout",   to: "devise/sessions#destroy"
     get "business/register", to: "devise/registrations#new"
     get "business/reset",    to: "devise/passwords#new"
-    get "business/profile", to: "devise/registrations#edit"
+    # get "business/profile", to: "devise/registrations#edit"
   end
 
   devise_scope :citizen do
@@ -132,11 +136,11 @@ SkyhqNew::Application.routes.draw do
   end
   
   devise_scope :business_user do
-    get "login",    to: "devise/sessions#new"
+    get "business/login", to: "devise/sessions#new", :as => 'business_login'
     get "logout",   to: "devise/sessions#destroy"
     get "register", to: "devise/registrations#new"
     get "business/reset",    to: "devise/passwords#new"
-    get "business/profile", to: "devise/registrations#edit"
+    get "business/profile", to: "devise/registrations#edit", :as => 'business_profile'
   end
 
   get("/inbox/new/:super_admin_id", { :controller => "conversations", :action => 'new', :as => 'message_company'})

@@ -67,7 +67,7 @@ class ApplicationController < ActionController::Base
       def ensure_correct_subdomain
         citizen = Citizen.find_by(subdomain: request.subdomain)
         super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
-        user = User.find_by(subdomain: request.subdomain)
+        user = BusinessUser.find_by(subdomain: request.subdomain)
         if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
           redirect_to root_path
         elsif current_user and devise_controller? and (params[:action] == 'new')
@@ -79,6 +79,8 @@ class ApplicationController < ActionController::Base
 
       def after_sign_in_path_for(resource_or_scope)
         if resource_or_scope.class == Citizen
+          root_url(subdomain: resource_or_scope.subdomain)
+        elsif resource_or_scope.class == BusinessUser
           root_url(subdomain: resource_or_scope.subdomain)
         else
           super

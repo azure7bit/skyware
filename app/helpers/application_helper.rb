@@ -16,6 +16,10 @@ module ApplicationHelper
     @resource ||= SuperAdmin.new
   end
 
+  def resource_business
+    @resource ||= BusinessUser.new
+  end
+
   def resource
      @resource = Citizen.new
      @resource ||= SuperAdmin.new

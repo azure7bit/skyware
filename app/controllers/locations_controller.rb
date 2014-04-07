@@ -1,8 +1,11 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate_super_admin!, :only => [:index, :new, :create, :update, :destroy]
+  # before_filter :authenticate_super_admin!, :only => [:index, :new, :create, :update, :destroy]
+  # before_filter :authenticate_business_user!, :only => [:index, :new, :create, :update, :destroy]
 
   def index
-    @locations = current_super_admin.locations
+    @locations = current_user.locations
+    # @locations ||= current_user.locations
+
     @json = @locations.to_gmaps4rails
 
      respond_to do |format|
@@ -13,7 +16,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @managers = @location.managers
+    # @managers = @location.managers
     @json = @location.to_gmaps4rails
 
     respond_to do |format|
@@ -36,7 +39,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = current_super_admin.locations.build(location_params)
+    @location = current_user.locations.build(location_params)
 
     respond_to do |format|
       if @location.save

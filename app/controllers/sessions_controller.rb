@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
  
   skip_before_filter :authenticate_super_admin!, :except => :destroy
+  skip_before_filter :authenticate_business_user!, :except => :destroy
 
   def new
     # render :layout => 'login'
-    redirect_to login_path
+     # redirect_to login_path
   end
 
   def create

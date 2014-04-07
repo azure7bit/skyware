@@ -1,0 +1,36 @@
+<div class="container">
+
+<!--Reg Block-->
+  <div class="reg-block" style="width: 600px;">
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#citizen-tab" data-toggle="tab">Citizen</a></li>
+      <li><a href="#business-tab" data-toggle="tab">Business</a></li>
+    </ul>
+    <br /><br />
+    
+    <div class="tab-content">
+      <div class="tab-pane active" id="citizen-tab">
+        <%= render "citizen_registration" %>
+      </div>
+
+  <!-- </div> -->
+  <!--End Reg Block-->
+
+  <!-- <div class="reg-block" style="width: 600px;"> -->
+      <div class="tab-pane" id="business-tab">
+        <%= render 'business_registration' %>
+      </div>
+
+    </div>
+
+  </div>
+  
+</div><!--/container-->
+<!--=== End Content Part ===-->
+
+<!-- JS Page Level -->           
+
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<![endif]-->

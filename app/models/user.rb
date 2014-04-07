@@ -77,10 +77,10 @@ end
 
 class User::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :first_name, :last_name, :business_type, :business_name, :website, :about, :avatar)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :first_name, :last_name, :business_type, :business_name, :website, :about, :avatar, :locations_attributes => [:name, :street, :city, :state, :zipcode, :country])
   end
 
   def account_update
-    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk)
+    default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk, :locations_attributes => [:name, :street, :city, :state, :zipcode, :country])
   end
 end
