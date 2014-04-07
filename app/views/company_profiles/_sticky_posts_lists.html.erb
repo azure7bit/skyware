@@ -25,7 +25,7 @@
         </h2>
         <p class="entry-meta">
           By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> 
-          <% if post.dollar_tags.any? %>
+          <% if post.tags.any? %>
             | Tags 
             <% post.dollar_tags.each do |tag| %>
               <a class="label label-success" href="#"><%= tag.name %></a>
