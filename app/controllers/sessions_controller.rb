@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
           @super_admin.save
         end
 
-        session[:super_admin_id] = @super_admin.id
+        session[:business_user_id] = @super_admin.id
         notify "You are now signed in as #{@super_admin.name}.", type: :success
         sign_in(:super_admin, @super_admin)
         redirect_to root_url
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:super_admin_id] = nil
+    session[:business_user_id] = nil
     notify 'You are now signed out. Bye!', type: :success
     redirect_to root_url
   end

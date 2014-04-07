@@ -1,8 +1,8 @@
 <%= simple_form_for([@company_forum]) do |f| %>
 <%= f.error_notification %>
-<div class="form-inputs">
-    <%= f.input :business_user_id, :as => :hidden, :value => @access.id %>
+    <div class="form-group">
+        <%= f.input :business_user_id, :as => :hidden, :value => @access.id %>
     <%= f.input :title %>
-</div>
-<%= f.button :submit, :class => "btn btn-primary" %>
+    </div>
+<%= f.button :submit, :class => "btn btn-primary", :style => "margin-top: 20px;"%>
 <% end %>

@@ -1,12 +1,15 @@
 <%= simple_form_for([@company_forum, @company_forum_topic, @forum_post], :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-  	<%= f.input :company_forum_topic_id, :as => :hidden, :value => @company_forum_topic.id %>
-  	<%= f.input :post_body, :input_html => { :cols => 3, :rows => 3} %>
+  
+  <div class="input-group margin-bottom-20">
+	<%= f.input :company_forum_topic_id, :as => :hidden, :value => @company_forum_topic.id %>
   </div>
 
-  
-    <%= f.button :submit, :class => "btn btn-primary btn-large" %>
+  <div class="input-group margin-bottom-20">
+	<%= f.input :post_body, :input_html => { :cols => 3, :rows => 3} %>
+  </div>
+
+    <%= f.button :submit, :class => "btn btn-primary btn-large", :style => "margin-top: 20px;"%>
   
 <% end %>
