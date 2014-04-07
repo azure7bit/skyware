@@ -19,6 +19,7 @@ class BusinessUser < User
   after_create :save_business_users
 
   def save_business_users
+    self.confirm!
     sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}
     blog = Blogit::Post.new(sticky_post)
     blog.save
