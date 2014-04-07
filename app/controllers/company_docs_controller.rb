@@ -1,6 +1,9 @@
 class CompanyDocsController < ApplicationController
   # GET /company_docs
   # GET /company_docs.json
+
+  before_filter :find_user_active
+  
   def index
     @company_docs = CompanyDoc.all
 
@@ -24,7 +27,7 @@ class CompanyDocsController < ApplicationController
   # GET /company_docs/new
   # GET /company_docs/new.json
   def new
-    @company_doc = CompanyDoc.new uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type
+    @company_doc = CompanyDoc.new uploader_id: @access.id, uploader_type: @access.user_type
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,7 @@ class CompanyDocsController < ApplicationController
   # POST /company_docs
   # POST /company_docs.json
   def create
-    @company_doc = CompanyDoc.new(params[:company_doc].merge({uploader_id: current_super_admin.id, uploader_type: current_super_admin.user_type}))
+    @company_doc = CompanyDoc.new(params[:company_doc].merge({uploader_id: @access.id, uploader_type: @access.user_type}))
 
     respond_to do |format|
       if @company_doc.save
@@ -80,4 +83,9 @@ class CompanyDocsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def find_user_active
+      @access = current_super_admin ? current_super_admin : current_business_user
+    end
 end

@@ -45,7 +45,7 @@ class CompanyForumTopicsController < ApplicationController
   # POST /company_forum_topics.json
   def create
     @company_forum = CompanyForum.find_by_id(params[:company_forum_id])
-    @company_forum_topic = @company_forum.company_forum_topics.build(params[:company_forum_topic])
+    @company_forum_topic = @company_forum.company_forum_topics.build(company_forum_topic_params)
 
     respond_to do |format|
       if @company_forum_topic.save
@@ -64,7 +64,7 @@ class CompanyForumTopicsController < ApplicationController
     @company_forum_topic = CompanyForumTopic.find(params[:id])
 
     respond_to do |format|
-      if @company_forum_topic.update_attributes(params[:company_forum_topic])
+      if @company_forum_topic.update_attributes(company_forum_topic_params)
         format.html { redirect_to @company_forum_topic, notice: 'Company forum topic was successfully updated.' }
         format.json { head :no_content }
       else
@@ -85,4 +85,9 @@ class CompanyForumTopicsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def company_forum_topic_params
+      params.require(:company_forum_topic).permit(:company_forum_id, :topic_title, :user_type, :topic_creator_id)
+    end
 end

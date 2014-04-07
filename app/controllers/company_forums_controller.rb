@@ -1,4 +1,7 @@
 class CompanyForumsController < ApplicationController
+
+  before_filter :find_user_active
+  
   # GET /company_forums
   # GET /company_forums.json
    def index
@@ -12,7 +15,7 @@ class CompanyForumsController < ApplicationController
   # GET /company_forums/1
   # GET /company_forums/1.json
   def show
-    @company_forum = current_super_admin.company_forum
+    @company_forum = @access.company_forum
     if @company_forum != nil
     @company_forum_topics = @company_forum.company_forum_topics
     end 
@@ -25,7 +28,7 @@ class CompanyForumsController < ApplicationController
   # GET /company_forums/new
   # GET /company_forums/new.json
   def new
-    @super_admin = current_super_admin
+    @super_admin = @access
     @company_forum = CompanyForum.new
 
     respond_to do |format|
@@ -42,7 +45,7 @@ class CompanyForumsController < ApplicationController
   # POST /company_forums
   # POST /company_forums.json
   def create
-    @company_forum = current_super_admin.build_company_forum(params[:company_forum], :super_admin_id => current_super_admin.id)
+    @company_forum = @access.build_company_forum(company_forum_params)
     # @company_forum.super_admin_id = current_super_admin.id
     respond_to do |format|
       if @company_forum.save
@@ -61,7 +64,7 @@ class CompanyForumsController < ApplicationController
     @company_forum = CompanyForum.find(params[:id])
 
     respond_to do |format|
-      if @company_forum.update_attributes(params[:company_forum])
+      if @company_forum.update_attributes(company_forum_params)
         format.html { redirect_to @company_forum, notice: 'Company forum was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,4 +85,13 @@ class CompanyForumsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+    def company_forum_params
+      params.require(:company_forum).permit(:business_user_id, :title)
+    end
+
+    def find_user_active
+      @access = current_super_admin ? current_super_admin : current_business_user
+    end
 end

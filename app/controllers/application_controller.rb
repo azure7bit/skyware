@@ -46,6 +46,7 @@ class ApplicationController < ActionController::Base
     
     def populate_tags
       @super_admin = current_super_admin
+      @super_admin ||= current_super_admin
     end
 
 

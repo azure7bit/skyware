@@ -1,6 +1,8 @@
 class CompanyProfilesController < ApplicationController
   before_filter :authenticate_super_admin!, :only => [:admin_profile]
   skip_before_filter :verify_authenticity_token, :only => [:save_tagline]
+  before_filter :find_user_active
+  
   # GET /company_profiles
   # GET /company_profiles.json
   def index
@@ -15,7 +17,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/1
   # GET /company_profiles/1.json
   def show
-    @company_profile = current_super_admin.company_profile
+    @company_profile = @access.company_profile
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +38,7 @@ class CompanyProfilesController < ApplicationController
   # GET /company_profiles/new.json
   def new
     @company_profile = CompanyProfile.new
-    @super_admin = current_super_admin
+    @super_admin = @access
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,7 +52,7 @@ class CompanyProfilesController < ApplicationController
   end
 
   def admin_profile
-    @super_admin = current_super_admin
+    @super_admin = @access
     respond_to do |format|
       format.html
     end
@@ -60,7 +62,7 @@ class CompanyProfilesController < ApplicationController
   # POST /company_profiles.json
   def create
     @company_profile = CompanyProfile.new(params[:company_profile])
-    @company_profile.super_admin_id = current_super_admin.id
+    @company_profile.business_user_id = @access.id
 
     respond_to do |format|
       if @company_profile.save
@@ -131,5 +133,9 @@ class CompanyProfilesController < ApplicationController
   private
   def params_post
     params.require(:post).permit(:title, :tag_list, :body, :post_type)
-  end 
+  end
+
+  def find_user_active
+    @access = current_super_admin ? current_super_admin : current_business_user
+  end
 end

@@ -12,7 +12,7 @@
 
 <% @business_messengers.each do |business_messenger| %>
   <tr>
-    <td><%= business_messenger.super_admin_id %></td>
+    <td><%= business_messenger.business_user_id %></td>
     <td><%= business_messenger.body %></td>
     <td><%= business_messenger.email %></td>
     <td><%= link_to 'Show', business_messenger %></td>

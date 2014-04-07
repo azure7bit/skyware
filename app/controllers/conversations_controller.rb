@@ -1,7 +1,8 @@
 class ConversationsController < ApplicationController
   # before_filter :authenticate_super_admin!
   helper_method :mailbox, :conversation
-
+  before_filter :find_user_active
+  
   def index
     current_user.mailbox
     respond_to do |format|
@@ -60,12 +61,12 @@ class ConversationsController < ApplicationController
   end
 
   def trash
-    conversation.move_to_trash(current_super_admin)
+    conversation.move_to_trash(@access)
     redirect_to :conversations
   end
 
   def untrash
-    conversation.untrash(current_super_admin)
+    conversation.untrash(@access)
     redirect_to :conversations
   end
 
@@ -98,4 +99,9 @@ class ConversationsController < ApplicationController
       end
     end
   end
+
+  private
+    def find_user_active
+      @access = current_super_admin ? current_super_admin : current_business_user
+    end
 end

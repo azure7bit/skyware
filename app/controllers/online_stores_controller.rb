@@ -1,5 +1,7 @@
 class OnlineStoresController < ApplicationController
  before_filter :authenticate_super_admin!, :except => :show
+ before_filter :find_user_active
+ 
   # GET /online_stores
   # GET /online_stores.json
   def index
@@ -42,7 +44,7 @@ class OnlineStoresController < ApplicationController
   # POST /online_stores
   # POST /online_stores.json
   def create
-    @online_store = current_super_admin.build_online_store(params[:online_store].merge(super_admin_id: current_super_admin.id))
+    @online_store = @access.build_online_store(params[:online_store].merge(business_user_id: @access.id))
 
     respond_to do |format|
       if @online_store.save
@@ -82,4 +84,9 @@ class OnlineStoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+    def find_user_active
+      @access = current_super_admin ? current_super_admin : current_business_user
+    end
 end
