@@ -24,12 +24,15 @@
           </a>
         </h2>
         <p class="entry-meta">
-          By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
-          <% post.dollar_tags.each do |tag| %>
-            <a class="label label-success" href="#"><%= tag.name %></a>
-          <% end %>
-          <% post.non_dollar_tags.each do |tag| %>
-            <a class="label label-danger" href="#"><%= tag.name %></a>
+          By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> 
+          <% if post.dollar_tags.any? %>
+            | Tags 
+            <% post.dollar_tags.each do |tag| %>
+              <a class="label label-success" href="#"><%= tag.name %></a>
+            <% end %>
+            <% post.non_dollar_tags.each do |tag| %>
+              <a class="label label-danger" href="#"><%= tag.name %></a>
+            <% end %>
           <% end %>
         </p>
       </header>

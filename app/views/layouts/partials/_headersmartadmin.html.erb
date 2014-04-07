@@ -74,7 +74,11 @@
       </span>
 
       <% if current_user %>
+        <% if current_business_user %>
+        <% url = current_business_user.avatar.blank? ? "business-avatar.png" : current_business_user.avatar.url %>
+        <% else %>
         <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
+        <% end %>
         <% unless current_user.subdomain != request.subdomain %>
           <div class="btn-group pull-right">
             <a href="#" data-toggle="dropdown">

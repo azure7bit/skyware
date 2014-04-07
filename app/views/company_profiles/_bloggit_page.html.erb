@@ -63,7 +63,7 @@
       <% if @posts.present? %>
         <%= render "company_profiles/posts_blog_lists", posts: @posts, user: @user %>
       <% else %>
-        <%= render partial: "blogit/posts/empty" %>
+        <%= render partial: "blogit/posts/empty" unless @sticky_posts.any? %>
       <% end %>
     </div>
     <div class="content">

@@ -46,7 +46,7 @@ var ismobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.tes
 
 	if (!ismobile) {
 		// Desktop
-		$.root_.removeClass("hidden-menu");
+		$.root_.addClass("hidden-menu");
 		$.root_.addClass("desktop-detected");
 		$.device = "desktop";
 	} else {
