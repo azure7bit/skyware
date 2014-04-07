@@ -22,7 +22,7 @@ module Blogit
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
       @user ||= SuperAdmin.where(subdomain: subdomain).first
-      @user ||= User.find_by(:subdomain => subdomain)
+      @user ||= BusinessUser.find_by(:subdomain => subdomain)
 
       respond_to do |format|
         format.xml {
@@ -30,7 +30,7 @@ module Blogit
         }
         format.html {
           @posts = Post.where(blogger: @user, :post_type => nil).for_index(params[Kaminari.config.param_name])
-          @sticky_posts = Post.where(blogger: @user, :post_type => "Sticky").for_index(params[Kaminari.config.param_name]).per(2)
+          @sticky_posts = Post.where(blogger_id: @user.id, :post_type => "Sticky").for_index(params[Kaminari.config.param_name]).per(2)
           render :index, layout: current_user ? 'application' : 'blog'
         }
         format.rss {
