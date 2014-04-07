@@ -4,68 +4,68 @@
   <hgroup>
     <% if current_user %>
       <% unless current_user.subdomain != request.subdomain %>
-      <div>
-        <!-- <span class="visible-lg visible-md"> -->
-        <div class="pull-left">
-          <span>
-            <!-- <a href="#" title="Collapse Menu" style="color: #000;">
-              <%#= image_tag 'post-button.png', :width=>"30", :height => "30", alt: "SmartAdmin" %>
-            </a> -->
-            <div class="btn-group pull-left" style="min-width: 200px;margin-top: 5px;">
-     
-          <a href="#" data-toggle="dropdown" style="font-size: 26px;margin-left: 10px;margin-top: 10px;color:#333;">
-            <%#= image_tag 'img/logo.png', alt: "SmartAdmin", :style=>"margin-top: 5px;" %>
-            <strong>HQ</strong>
-          </a>
-          
-          <ul class="dropdown-menu" style="width: auto;">
-            <li>
-              <a href="#" id="show-shortcut">
-                <%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i>
-              </a>
-            </li>
-            <% if current_citizen %>
-              <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
-            <% end %>
-            <% if current_super_admin %>
+        <div>
+          <!-- <span class="visible-lg visible-md"> -->
+          <div class="pull-left">
+            <span>
+              <!-- <a href="#" title="Collapse Menu" style="color: #000;">
+                <%#= image_tag 'post-button.png', :width=>"30", :height => "30", alt: "SmartAdmin" %>
+              </a> -->
+              <div class="btn-group pull-left" style="min-width: 200px;margin-top: 5px;">
+       
+            <a href="#" data-toggle="dropdown" style="font-size: 26px;margin-left: 10px;margin-top: 10px;color:#333;">
+              <%#= image_tag 'img/logo.png', alt: "SmartAdmin", :style=>"margin-top: 5px;" %>
+              <strong>HQ</strong>
+            </a>
+            
+            <ul class="dropdown-menu" style="width: auto;">
               <li>
-                <a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
-            <% end %>
-            <% if current_user %>
-                <li class="">
-                    <a href="<%= conversations_path %>">
-                        <i class="fa fa-lg fa-fw fa-inbox box-panel-inline"></i>
-                        <span class="menu-item-parent">Inbox</span>
-                        <span class="badge pull-right inbox-badge"></span>
-                    </a>
-                </li>
+                <a href="#" id="show-shortcut">
+                  <%= current_user.subdomain.capitalize rescue "" %> <i class="fa fa-angle-down"></i>
+                </a>
+              </li>
+              <% if current_citizen %>
+                <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
+              <% end %>
+              <% if current_super_admin %>
                 <li>
-                    <a href="<%= new_conversation_path %>">
-                        <i class="fa fa-lg fa-fw fa-envelope-o box-panel-inline"></i>
-                        <span class="menu-item-parent">Compose Message</span>
-                        <span class="badge pull-right inbox-badge"></span>
-                    </a>    
-                </li>
-            <%end%>
-            <% if current_super_admin || current_business_user %>
-                <li><a href="<%= locations_path %>" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
-                <li><a href="<%= online_stores_path %>"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>  <span class="menu-item-parent">Orders HQ</span></a></li>
-                <li><a href="<%= company_forums_path %>"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>
-                  <li><a href="<%= public_path %>"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
-                <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Team HQ</span></a></li>
-                <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Vendors HQ</span></a></li>
-                <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Customers HQ</span></a></li>
-                <li><a href="<%= company_docs_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
-                <% unless current_super_admin %>
-                  <li><a href="<%= manage_users_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Manage Users</span></a></li>
-                <% end %>
-            <% end %>
-          </ul>
-        </div> 
-          </span>
+                  <a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
+              <% end %>
+              <% if current_user %>
+                  <li class="">
+                      <a href="<%= conversations_path %>">
+                          <i class="fa fa-lg fa-fw fa-inbox box-panel-inline"></i>
+                          <span class="menu-item-parent">Inbox</span>
+                          <span class="badge pull-right inbox-badge"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="<%= new_conversation_path %>">
+                          <i class="fa fa-lg fa-fw fa-envelope-o box-panel-inline"></i>
+                          <span class="menu-item-parent">Compose Message</span>
+                          <span class="badge pull-right inbox-badge"></span>
+                      </a>    
+                  </li>
+              <%end%>
+              <% if current_super_admin || current_business_user %>
+                  <li><a href="<%= locations_path %>" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
+                  <li><a href="<%= online_stores_path %>"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>  <span class="menu-item-parent">Orders HQ</span></a></li>
+                  <li><a href="<%= company_forums_path %>"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>
+                    <li><a href="<%= public_path %>"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i>  <span class="menu-item-parent">Public HQ</span></a></li>
+                  <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Team HQ</span></a></li>
+                  <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Vendors HQ</span></a></li>
+                  <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Customers HQ</span></a></li>
+                  <li><a href="<%= company_docs_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
+                  <% unless current_super_admin %>
+                    <li><a href="<%= manage_users_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Manage Users</span></a></li>
+                  <% end %>
+              <% end %>
+            </ul>
+          </div> 
+            </span>
+          </div>
+          <!-- </span> -->
         </div>
-        <!-- </span> -->
-      </div>
       <% end %>
     <% end %>
 
@@ -78,21 +78,21 @@
 
       <% if current_user %>
         <% if current_business_user %>
-        <% url = current_business_user.avatar.blank? ? "business-avatar.png" : current_business_user.avatar.url %>
+          <% url = current_business_user.avatar.blank? ? "business-avatar.png" : current_business_user.avatar.url %>
         <% else %>
-        <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
+          <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
         <% end %>
-        <% unless current_user.subdomain != request.subdomain %>
-          <div class="btn-group pull-right">
+        <% if current_user.subdomain == request.subdomain or current_user %>
+          <div class="btn-group pull-right" style="background: none;">
             <a href="#" data-toggle="dropdown">
               <%= image_tag url , :height => "30", :width => "30", class: "entry-avatar" %>
             </a>
             <ul class="dropdown-menu" style="width: 20px;">
               <li>
                 <% if current_business_user %>
-                <%= link_to "Setting", business_profile_path, :style => "text-align: left" %>
+                  <%= link_to "Setting", business_profile_path, :style => "text-align: left" %>
                 <% else %>
-                <%= link_to "Setting", edit_citizen_registration_path, :style => "text-align: left" %>
+                  <%= link_to "Setting", edit_citizen_registration_path, :style => "text-align: left" %>
                 <% end %>
               </li>
               <li>

@@ -29,7 +29,7 @@ module Blogit
           @posts = Post.order('created_at DESC')
         }
         format.html {
-          @posts = Post.where(blogger: @user, :post_type => nil).for_index(params[Kaminari.config.param_name])
+          @posts = Post.where(blogger_id: @user.id, :post_type => nil).for_index(params[Kaminari.config.param_name])
           @sticky_posts = Post.where(blogger_id: @user.id, :post_type => "Sticky").for_index(params[Kaminari.config.param_name]).per(2)
           render :index, layout: current_user ? 'application' : 'blog'
         }
