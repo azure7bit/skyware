@@ -43,16 +43,15 @@
       <div class="entry-description comment more"><%= post.body%></div>
       <% if post.comments.any? %>
         <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
+        <div class="post-content new-comment media" data-id="<%= post.id %>"></div>
         <% post.comments.each do |comment| %>
           <div class="post-content post-comment media" data-id="<%= post.id %>" hidden="true">
-            <!-- <p class="entry-meta comment-list"> -->
             <div class="media-body" style="margin-bottom: -21px;">
               <h4 class="entry-meta comment-list">
                 <div class="entry-description comment more" ><%= comment.body %></div>
                 Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
               </h4>
             </div>
-            <!-- </p> -->
           </div>
         <% end %>
       <% end %>

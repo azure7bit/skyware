@@ -1,0 +1,7 @@
+<div class="media-body" style="margin-bottom: -21px;">
+  <h4 class="entry-meta comment-list">
+    <div class="entry-description comment more" ><%= comment.body %></div>
+    Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
+    <%= render partial: "blogit/comments/admin_links", locals: {comment: comment} %>
+  </h4>
+</div>

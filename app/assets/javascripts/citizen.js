@@ -75,16 +75,21 @@ function readURL(input) {
   $("#business_user_avatar").change(function(){
   readURL(this);
 });
-  
+
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+jQuery.fn.submitWithAjax = function() {
+  this.submit(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+    return false;
+  })
+  return this;
+};
+
 function readKeyPress(input){
   if(input.keyCode == 13){
-    $.ajax({
-      type: "POST",
-      url: "/reply_comment/"+input.attr('data-id'),
-      data: {reply: input.value},
-      success: function(data){
-        
-      },
-    });
+    $("#edit_post_"+input.attr("data-id")).submitWithAjax();
   }
 }

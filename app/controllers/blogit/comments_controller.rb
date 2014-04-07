@@ -6,6 +6,7 @@ module Blogit
     def create
       params[:comment] = {:name => current_user.name, :email => current_user.email, :body => params[:reply]}
       @comment = post.comments.new(comment_parameters)
+    
       respond_to do |format|
         format.js {
           # the rest is dealt with in the view
