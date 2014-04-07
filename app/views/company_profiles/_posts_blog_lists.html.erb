@@ -37,22 +37,26 @@
       <div class="entry-description comment more"><%= post.body%></div>
       <% if post.comments.any? %>
         <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
-        <% post.comments.reverse.each do |comment| %>
-          <div class="post-content post-comment" data-id="<%= post.id %>" hidden="true">
-            <p class="entry-meta comment-list">
-              <div class="entry-description comment more" ><%= comment.body %></div>
-              Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
-            </p>
+        <% post.comments.each do |comment| %>
+          <div class="post-content post-comment media" data-id="<%= post.id %>" hidden="true">
+            <!-- <p class="entry-meta comment-list"> -->
+            <div class="media-body">
+              <h4 class="entry-meta comment-list media-heading">
+                <div class="entry-description comment more" ><%= comment.body %></div>
+                Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
+              </h4>
+            </div>
+            <!-- </p> -->
           </div>
         <% end %>
       <% end %>
       <div class="reply" data-id="<%= post.id %>" hidden="true">
         <% if current_user %>
         <%= form_for post, url: reply_comment_path(post.id), method: :post do |f| %>
-          <%= f.submit "Replay", class: "btn btn-success pull-right btn_reply" %>
-          <br /><br />
+          <%#= f.submit "Replay", class: "btn btn-success pull-right btn_reply" %>
+          <br />
           <div class="form-group">
-            <%= text_area_tag :reply, nil, class: "form-control", rows: "5", :placeholder => "MESSAGE CONTENT" %>
+            <%= text_field_tag :reply, nil, class: "form-control", :placeholder => "MESSAGE CONTENT" %>
           </div>
         <% end %>
         <% end %>

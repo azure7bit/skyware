@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image, :subdomain
   # attr_accessor :business_user
 
-  scope :is_user, where(:user_type=>nil)
+  scope :is_for_user, where(:user_type=>nil)
 
   validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
   validates :username, uniqueness: true

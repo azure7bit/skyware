@@ -75,13 +75,6 @@
             <%= paginate @posts %>
           </div>
           <div class="col-sm-1"></div>
-          <%# if @sticky_posts.any? %>
-<!--             <br />
-            <div class="pull-left">
-              <i id="back-top" class="fa fa-arrow-circle-up"> <a href="#">Go To Sticky</a></i>
-            </div>
-            <br /> -->
-          <%# end %>
         </div>
       </div>
     </div>
@@ -105,11 +98,6 @@
       
   </div> <!-- /#primary -->
 </div>
-
-  <%#= javascript_include_tag "blog/jquery-1.11.0.min" %>
-  <%#= javascript_include_tag "blog/custom" %>
-  <%#= javascript_include_tag "bootstrap" %>
-  <%#= stylesheet_link_tag "blog/main" %>
 
 <script type="text/javascript">
   <% if current_user.present? %>
@@ -288,9 +276,7 @@
         var side_height = $("aside#left-panel").height();
         document.getElementById("main").style.minHeight = side_height+"px";
         $content = $(this).closest('div.entry-description').prev();
-        // $(this).closest('div.entry-description').focus();
         $content.focus();
-        // e.preventDefault();
       });
     });
 
@@ -301,17 +287,6 @@
         this.value = null;
       }
     });
-
-    // $('#goto-sticky').click(function(e){
-    //   $('html, body').animate({scrollTop:$(document).height()}, 'slow');
-    //   e.preventDefault();
-    //   return false
-    // });
-
-    // $('#back-top').click(function(){
-    //   $('html, body').animate({scrollTop:0}, 'slow');
-    //   return false;
-    // });
 
     $('#button-new-post').click(function(e){1
       var topic = $("#post_title").val();

@@ -80,6 +80,8 @@ SkyhqNew::Application.routes.draw do
   # delete "/businesses/:business_id/managers/:id/delete", to: "managers#destroy", :as => "remove_manager"
 
 
+  resources :manage_users
+  
   resources :company_forums, :path => "comms" do
     resources :company_forum_topics do
       resources :forum_posts

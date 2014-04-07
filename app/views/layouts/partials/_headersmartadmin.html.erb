@@ -56,6 +56,9 @@
                 <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Vendors HQ</span></a></li>
                 <li><a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Customers HQ</span></a></li>
                 <li><a href="<%= company_docs_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Docs HQ</span></a></li>
+                <% unless current_super_admin %>
+                  <li><a href="<%= manage_users_path %>"><i class="fa fa-lg fa-fw fa-desktop"></i>  <span class="menu-item-parent">Manage Users</span></a></li>
+                <% end %>
             <% end %>
           </ul>
         </div> 
