@@ -70,11 +70,19 @@
     <% end %>
 
     <h1 class="site-title text-center" style="font-size: 25px; padding-top: 10px;">
-      <span id="logo" style="margin-top: -1px;margin-left: -125px;">
-        <a href="<%= root_path %>">
-          <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
-        </a>
-      </span>
+      <% if !current_user || current_user.subdomain != request.subdomain %>
+        <span id="logo" style="margin-top: -1px;margin-left: 60px;">
+          <a href="<%= root_path %>">
+            <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
+          </a>
+        </span>
+      <% else %>
+        <span id="logo" style="margin-top: -1px;margin-left: -125px;">
+          <a href="<%= root_path %>">
+            <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
+          </a>
+        </span>
+      <% end %>
 
       <% if current_user %>
         <% if current_business_user %>
