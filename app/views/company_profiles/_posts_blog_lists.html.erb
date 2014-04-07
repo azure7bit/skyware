@@ -11,7 +11,9 @@
           <li class="divider"></li>
           <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
           <li class="divider"></li>
-          <li><%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li>
+            <%= link_to "Delete", delete_post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
         </ul>
       </div>
     <% end %>
@@ -40,8 +42,8 @@
         <% post.comments.each do |comment| %>
           <div class="post-content post-comment media" data-id="<%= post.id %>" hidden="true">
             <!-- <p class="entry-meta comment-list"> -->
-            <div class="media-body">
-              <h4 class="entry-meta comment-list media-heading">
+            <div class="media-body" style="margin-bottom: -21px;">
+              <h4 class="entry-meta comment-list">
                 <div class="entry-description comment more" ><%= comment.body %></div>
                 Posted on <a class="entry-date" href="#"><%= "#{time_ago_in_words(comment.created_at.strftime("%B %d, %Y"))} ago"%></a> | By <a class="entry-author" href="#"><%= comment.name %></a>
               </h4>
@@ -50,13 +52,12 @@
           </div>
         <% end %>
       <% end %>
-      <div class="reply" data-id="<%= post.id %>" hidden="true">
+      <div class="reply" data-id="<%= post.id %>">
         <% if current_user %>
-        <%= form_for post, url: reply_comment_path(post.id), method: :post do |f| %>
-          <%#= f.submit "Replay", class: "btn btn-success pull-right btn_reply" %>
+        <%= form_for post, url: reply_comment_path(post.id), method: :post, remote: true do |f| %>
           <br />
           <div class="form-group">
-            <%= text_field_tag :reply, nil, class: "form-control", :placeholder => "MESSAGE CONTENT" %>
+            <%= text_field_tag :reply, nil, class: "form-control", :placeholder => "MESSAGE CONTENT", :"data-id"=> post.id, :onkeypress=>"return readKeyPress(this);" %>
           </div>
         <% end %>
         <% end %>

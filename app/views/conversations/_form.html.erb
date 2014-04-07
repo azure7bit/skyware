@@ -11,9 +11,9 @@
         <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
-        <%= f.text_area :body, :rows => 7, :class => "form-control", placeholder: "POST MESSAGE" %>
+        <%= f.text_area :body, :rows => 12, :class => "form-control", placeholder: "POST MESSAGE" %>
     </div>
-    <div class="smallMenuItems">
+    <div class="smallMenuItems pull-right">
         <%= f.submit "SEND MESSAGE", class: 'btn btn-success' %>
         <% if show_cancel %>
             <%= link_to 'CANCEL', :back, class: 'btn btn-warning' %>
