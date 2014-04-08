@@ -12,9 +12,7 @@ class BusinessUser < User
 
   has_many :employees, :through => :locations
 
-  # scope :for_business, where(:user_type => "Business")
-
-  # accepts_nested_attributes_for :locations
+  validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
 
   after_create :save_business_users if :new_record?
   

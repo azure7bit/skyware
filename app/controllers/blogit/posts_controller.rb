@@ -23,6 +23,7 @@ module Blogit
       @user = Citizen.where(subdomain: subdomain).first
       @user ||= SuperAdmin.where(subdomain: subdomain).first
       @user ||= BusinessUser.find_by(:subdomain => subdomain)
+      @user ||= current_user
 
       respond_to do |format|
         format.xml {

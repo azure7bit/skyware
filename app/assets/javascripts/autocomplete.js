@@ -239,9 +239,9 @@ $(document).ready(function(){
   }));  
 })( jQuery, window , document );
                 
-$('#conversation_user_id').triggeredAutocomplete({
-  hidden: '#hidden_conversation_user_id',
-  source: '/get_citizens',
-  trigger: "@" 
-});
+  $('#conversation_user_id').triggeredAutocomplete({
+    hidden: '#hidden_conversation_user_id',
+    source: '/get_citizens',
+    trigger: ["@"]
+  });
 });

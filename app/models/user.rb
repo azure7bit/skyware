@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
 
   scope :is_for_user, where(:user_type=>nil)
 
-  validates :subdomain, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
   validates :username, uniqueness: true
 
   acts_as_messageable
@@ -56,7 +55,7 @@ class User < ActiveRecord::Base
  #    super_admin
 	# end
 
-  # before_save :generate_subdomain if :new_record?
+  before_save :generate_subdomain if :new_record?
 
   def name
     return "#{first_name} #{last_name}"
@@ -74,11 +73,13 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  # def generate_subdomain
-  #   password = Devise.friendly_token.first(8)
-  #   self.password = password
-  #   self.subdomain = "#{self.username}@#{self.subdomain}"
-  # end
+  def generate_subdomain
+    # if self.user_type.blank?
+      password = Devise.friendly_token.first(8)
+      self.password = password
+      self.subdomain = "#{self.username}@#{self.subdomain}"
+    # end
+  end
 
 end
 
@@ -92,3 +93,4 @@ class User::ParameterSanitizer < Devise::ParameterSanitizer
     default_params.permit(:subdomain, :email, :password, :password_confirmation, :current_password, :avatar, :facebook, :twitter, :linkedin, :flickr, :pinterest, :tumblr, :dropbox, :google_plus, :instagram, :github, :bitbucket, :vk, :locations_attributes => [:name, :street, :city, :state, :zipcode, :country])
   end
 end
+
