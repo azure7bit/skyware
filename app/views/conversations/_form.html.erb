@@ -1,6 +1,8 @@
 <% show_cancel = show_cancel.nil? ? true : false %>
 <%= simple_form_for(:conversation, url: :conversations, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
-<form role="form">
+
+<form role="form">    
+    <%= hidden_field_tag "collect_citizen", Citizen.all.map(&:subdomain).join(",") %>  
     <% if @user.present? %>
         <%= f.hidden_field :recipient, :value => @user.email %>
     <% end %>
@@ -8,13 +10,16 @@
         <%= f.text_field :user_id, :class => "form-control", placeholder: "TO" %>
     </div>
     <div class="form-group">
+        <%= f.text_field :cc, :class => "form-control", placeholder: "CC" %>
+    </div>
+    <div class="form-group">
         <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
-        <%= f.text_area :body, :rows => 5, :class => "form-control", placeholder: "POST MESSAGE" %>
+        <%= f.file_field :file, :class => "form-control" %>
     </div>
     <div class="form-group">
-        <input type="file" class="form-control">
+        <%= f.text_area :body, :rows => 5, :class => "form-control", placeholder: "POST MESSAGE" %>
     </div>
     <div class="form-group">
         <%= f.submit "Send Message", class: 'btn btn-primary' %>

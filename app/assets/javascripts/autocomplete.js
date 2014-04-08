@@ -239,9 +239,30 @@ $(document).ready(function(){
   }));  
 })( jQuery, window , document );
                 
-  $('#conversation_user_id').triggeredAutocomplete({
-    hidden: '#hidden_conversation_user_id',
-    source: '/get_citizens',
-    trigger: ["@"]
-  });
+$('#conversation_user_id').triggeredAutocomplete({
+  hidden: '#hidden_conversation_user_id',
+  source: $("#collect_citizen").val().split(","),
+  trigger: "@"
+});
+
+
+$('#conversation_cc').triggeredAutocomplete({
+  hidden: '#hidden_conversation_user_id',
+  source: '/get_citizens',
+  trigger: "@"
+});
+
+
+$('#conversation_user_id').autocomplete({
+  hidden: '#hidden_conversation_user_id',
+  source: $("#collect_citizen").val().split(","),
+  minLength: 0
+});
+
+$('#conversation_cc').autocomplete({
+  hidden: '#hidden_conversation_user_id',
+  source: $("#collect_citizen").val().split(","),
+  minLength: 0
+});
+
 });

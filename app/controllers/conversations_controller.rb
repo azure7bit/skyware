@@ -32,13 +32,15 @@ class ConversationsController < ApplicationController
     else
       recipient = Citizen.find_by(subdomain: request.subdomain)
     end
+
     recipient = Citizen.where("subdomain in (?) or email = ?", recipient, recipient_email) if conversation_params(:user_id)
+    cc = Citizen.where("subdomain in (?) or email = ?", conversation_params(:cc).split(',').map{ |d| d.strip.gsub('@','') }, recipient_email) if conversation_params(:cc)
     recipient ||= SuperAdmin.find_by(email: recipient_email)
 
     if conversation_params(:user_id)
       recipient.map{|recipient|
-        conversation = current_user.
-          send_message(recipient, *conversation_params(:body, :subject)).conversation
+        send_to = [recipient, cc].flatten
+        conversation = current_user.send_message(send_to, *conversation_params(:body, :subject, :file)).conversation
       }
       @recipient_name = recipient.map{|recipient| recipient.name}
     else
