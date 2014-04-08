@@ -73,8 +73,9 @@ class GeneralPagesController < ApplicationController
   end
 
   def get_citizen
-    citizens = Citizen.select(:subdomain)
-    render :json => citizens.map{ |c| c.subdomain}
+    to_users = Citizen.select(:subdomain)
+    to_users ||= BusinessUser.where(:subdomain => current_user.subdomain)
+    render :json => to_users.map{ |c| c.subdomain}
   end
 
   private

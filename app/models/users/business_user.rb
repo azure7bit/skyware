@@ -16,7 +16,7 @@ class BusinessUser < User
 
   # accepts_nested_attributes_for :locations
 
-  after_create :save_business_users
+  after_create :save_business_users if :new_record?
 
   def save_business_users
     self.confirm!
