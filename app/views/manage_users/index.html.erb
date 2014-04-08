@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row margin-bottom-10">
+        <h3>Members for <strong><%= current_business_user.username %>:</strong></h3>
+        <div class="table-responsive">
+          <table id="manage-users" class="table table-striped">
+            <tr>
+              <th>first_name</th>
+              <th>last_name</th>
+              <th>email</th>
+              <th>username</th>
+              <th>subdomain</th>
+              <th colspan="2" style="text-align: center;">action</th>
+            </tr>
+            <% @members.each do |member| %>
+              <tr>
+                <td><%= member.first_name %></td>
+                <td><%= member.last_name %></td>
+                <td><%= member.email %></td>
+                <td><%= member.username %></td>
+                <td><%= member.subdomain %></td>
+                <td><%= link_to 'Show', manage_user_path(member) %></td>
+                <td>
+                  <%= link_to 'Destroy', manage_user_path(member), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+          <br />
+          <%= link_to 'New User', new_manage_user_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

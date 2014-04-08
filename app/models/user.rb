@@ -55,7 +55,8 @@ class User < ActiveRecord::Base
  #    super_admin
 	# end
 
-  before_save :generate_subdomain if :new_record?
+  # before_save :generate_subdomain if :new_record?
+  before_save :downcase_subdomain
 
   def name
     return "#{first_name} #{last_name}"
@@ -79,6 +80,10 @@ class User < ActiveRecord::Base
       self.password = password
       self.subdomain = "#{self.username}@#{self.subdomain}"
     # end
+  end
+
+  def downcase_subdomain
+    self.subdomain = self.subdomain.downcase
   end
 
 end

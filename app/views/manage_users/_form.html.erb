@@ -1,0 +1,52 @@
+<div class="jarviswidget" id="wid-id-4" data-widget-editbutton="false" data-widget-custombutton="false">
+  <header>
+    <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+    <h2>New Manage User</h2>            
+  </header>
+  <div>  
+    <div class="widget-body no-padding">
+      <%= form_for(@user, :url => manage_users_path, :html => { :method => :post, :class=>"smart-form"}) do |f| %>
+        <%= devise_error_messages! %>             
+          <fieldset> 
+            <section>                                  
+              <label class="input"> <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :first_name, :autofocus => true,:placeholder=>"first name here ..." %>
+              </label>
+            </section>
+            <section>                                  
+              <label class="input"> <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :last_name, :autofocus => true,:placeholder=>"last name here ..." %>
+              </label>
+            </section>
+            <section>                                  
+              <label class="input"> <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :username, :autofocus => true,:placeholder=>"username here ..." %>
+                <b class="tooltip tooltip-bottom-right">Needed to enter the username</b> 
+              </label>
+            </section>
+            <section>                                  
+              <label class="input"> <i class="icon-append fa fa-envelope-o"></i>
+                <%= f.email_field :email, :autofocus => true,:placeholder=>"Email address" %>
+                <b class="tooltip tooltip-bottom-right">Needed to verify your account</b> 
+              </label>
+            </section>
+            <section>
+              <label class="input"> <i class="icon-append fa fa-user"></i>
+                <%= f.text_field :subdomain ,:placeholder=>"Subdomain", :readonly => true, :value => current_business_user.subdomain %>
+                <b class="tooltip tooltip-bottom-right">Needed to enter the Subdomain</b> 
+              </label>
+            </section>
+            <section>
+              <label class="input"> <i class="icon-append fa fa-camera"></i>
+                <%= f.file_field :avatar %>                                       
+                <b class="tooltip tooltip-bottom-right">Needed to change your photo</b>
+              </label>
+            </section>
+          </fieldset>
+        <footer>
+          <%= f.submit "Save",:class=>"btn btn-primary" %>
+        </footer>
+      <%end%>  
+    </div>
+  </div>
+</div>
