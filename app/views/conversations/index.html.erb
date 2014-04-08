@@ -1,69 +1,30 @@
-<!-- <%# set_meta_tags :site => 'MusicMind', :title => 'Inbox', :reverse => true %>
-<style type="text/css">
-	li.conversation{
-		background-color: #e8e9eb;
-		font-size:1.250em;
-		padding:10px 0px 10px 20px;
-		font-size:20px;
-	}
-
-  .box_title {
-		border-bottom: 1px solid #f0f0f0;
-		background: #3d4450;
-		color: white;
-		padding-left:20px;
-		padding-bottom:0px;
-		margin-bottom:0px;
-	}
-
-	li.conversation a{
-		padding:10px 10px;
-
-	}
-
-
-</style>
-
-<section class="wrapper" id="inbox">
-<div class="container margin-bottom margin-top">
-	
-	<h3>Messages</h3> 
-
-	<h2 class="box_title"> Inbox</h2>
-	<ul id="inbox-messages"><%= render current_user.mailbox.inbox %></ul>
-	
-	<h2 class="box_title">SentBox</h2>
-	<ul id="outbox-messages"><%= render current_user.mailbox.sentbox %></ul> 
-	<ul><%= render current_user.mailbox.trash %></ul>
-
-	<%= link_to 'Start Conversation', :new_conversation, :class => "btn btn-primary", :style => "margin-top:10px; float:right;" %>
-	</div>
-</section> -->
-
-<div id="primary" class="col-sm-12">
-	<div class="content">
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+			<h2>General Message <small>showing all message</small></h2>
+		</div>
 		<% current_user.mailbox.inbox.each do |conversation| %>
-			<section class="post" >
-				<% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
-				<% conversation.messages.limit(3).reverse.each do |message| %>
-					<header class="entry-header">
-						<% user = message.sender %>
-						<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
-						<%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
-						<h2 class="entry-title"><a href="#"><%= message.subject %></a></h2>
-						<p class="entry-meta">
-						Sent on <a class="entry-date" href="#"><%= message.created_at.strftime("%B %d, %Y")%></a> | From <a class="entry-author" href="#"><%= user.subdomain %></a> | Tags 
-						<% ['tag1', 'tag2'].each do |tag| %>
-							<a class="label label-danger" href="#"><%= tag %></a>
-						<% end %>
-						</p>
-		          </header>
-		          <div class="entry-description comment more"><%= message.body %></div>
-		          <hr>
-				<% end %>
-				<h5><small><%= link_to "View Full Conversation", conversation %></small></h5>
-				<%= render 'inbox_reply_form', commentor: current_user, recipient: other_user, conversation: conversation, title: "Re : "+conversation.subject %>
-	        </section>
-        <% end %>
+			<% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
+			<% conversation.messages.limit(3).reverse.each do |message| %>
+				<% user = message.sender %>
+				<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+				<a href="#">
+					<div class="col-md-10 col-md-offset-1 message-list">
+						<div class="col-md-3">
+							<h4>
+								<%= message.subject %>
+								<small><%= user.subdomain %></small>
+							</h4>
+						</div>
+						<div class="col-md-7">
+							<%= truncate(message.body, length: 100) %>
+						</div>
+						<div class="col-md-2">
+							<i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		<% end %>
 	</div>
 </div>

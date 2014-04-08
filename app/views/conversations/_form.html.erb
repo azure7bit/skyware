@@ -11,13 +11,16 @@
         <%= f.text_field :subject, :class => "form-control", placeholder: "TOPIC" %>
     </div>
     <div class="form-group">
-        <%= f.text_area :body, :rows => 12, :class => "form-control", placeholder: "POST MESSAGE" %>
+        <%= f.text_area :body, :rows => 5, :class => "form-control", placeholder: "POST MESSAGE" %>
     </div>
-    <div class="smallMenuItems pull-right">
-        <%= f.submit "SEND MESSAGE", class: 'btn btn-success' %>
-        <% if show_cancel %>
-            <%= link_to 'CANCEL', :back, class: 'btn btn-warning' %>
-        <% end %>
+    <div class="form-group">
+        <input type="file" class="form-control">
+    </div>
+    <div class="form-group">
+        <%= f.submit "Send Message", class: 'btn btn-primary' %>
+        <%# if show_cancel %>
+            <%#= link_to 'CANCEL', :back, class: 'btn btn-warning' %>
+        <%# end %>
     </div>
 </form>
 <% end %>
