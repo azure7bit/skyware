@@ -4,10 +4,6 @@ class ConversationsController < ApplicationController
   before_filter :find_user_active
   
   def index
-    current_user.mailbox
-    respond_to do |format|
-      format.html
-    end
   end
 
   def new
@@ -21,6 +17,10 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    current_user.mailbox
+    respond_to do |format|
+      format.html
+    end
   end
 
   def create

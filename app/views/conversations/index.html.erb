@@ -8,8 +8,8 @@
 			<% conversation.messages.limit(3).reverse.each do |message| %>
 				<% user = message.sender %>
 				<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
-				<a href="#">
-					<div class="col-md-10 col-md-offset-1 message-list">
+				<%= link_to("/inbox/#{conversation.id}") do%>
+					<div class="col-md-12 message-list">
 						<div class="col-md-3">
 							<h4>
 								<%= message.subject %>
@@ -23,7 +23,7 @@
 							<i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
 						</div>
 					</div>
-				</a>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>
