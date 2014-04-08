@@ -16,12 +16,7 @@
     <% end %>
     <div class="sticky-content" data-id="<%= post.id %>" id="more-less">
       <header class="entry-header">
-        <% if current_business_user %>
-          <% url = current_business_user.avatar.blank? ? "business-avatar.png" : current_business_user.avatar.url %>
-        <% else %>
-          <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
-        <% end %>
-        <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+        <%= image_tag current_user_picture, :height => "52", :width => "52", class: "entry-avatar" %>
         <h2 class="entry-title">
           <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
             <h3 style="font-size: 24px;"><%= post.title %></h3>

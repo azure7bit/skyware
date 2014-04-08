@@ -1,17 +1,4 @@
-<style>
-.map_container{
-    padding: 0 !important;
-    border: none !important;
-    margin: 0 !important;
-}
-#map{
-    height: 400px !important;
-        padding: 0 !important;
-    border: none !important;
-    margin: 0 !important;
-}
-</style>
-                <%= gmaps4rails(@json) %>
+<%= gmaps4rails(@json) %>
 <div class="container">
     <div class="row">
         <!-- Begin Content -->
@@ -21,7 +8,7 @@
                 <h3><b>Location: </b><%= @location.gmaps4rails_address %></h3>
                 <div class="table-responsive">
                     <h2>Managers:</h2>
-					<% if @managers.present?  %>
+          <% if @managers.present?  %>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -52,13 +39,13 @@
                             <% end %>
                         </tbody>
                     </table>
-					<% else %>
-					<h3 class="text-center">No managers :(</h3>
-					<% end %>
+          <% else %>
+          <h3 class="text-center">No managers :(</h3>
+          <% end %>
                 </div>
                 <div class="table-responsive">
                     <h2>Staff/Employees:</h2>
-					<% if @employees.present? %>
+          <% if @employees.present? %>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -77,8 +64,8 @@
                             <% end %>
                         </tbody>
                     </table>
-					<% else %>
-					   <h3 class="text-center">No staff/employees :(</h3>
+          <% else %>
+             <h3 class="text-center">No staff/employees :(</h3>
                     <% end %>
                 </div>
                 <div class="smallMenuItems">

@@ -1,7 +1,7 @@
 var $form = $("form#new_blog_comment");
 <% if @comment.save %>
   $("#comments").append("<%= escape_javascript(render(@comment)) %>");
-  $($(".new-comment").attr("data-id", "<%= @comment.post.id %>")[0]).append("<%= escape_javascript(render('company_profiles/comments', comment: @comment)) %>");
+  $(".new-comment_<%= @comment.post.id %>").append("<%= escape_javascript(render('company_profiles/comments', comment: @comment)) %>");
   $(".counter_<%= @comment.post.id %>").text("Comment(<%= @comment.post.comments.count %>)");
   $form.get(0).reset();
   $("form#edit_post_"+"<%= @comment.post.id %>").get(0).reset();

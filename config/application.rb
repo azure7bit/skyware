@@ -23,5 +23,10 @@ module SkyhqNew
 
     # Load Subfolder Models
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Request-Method' => '*'
+    }
   end
 end

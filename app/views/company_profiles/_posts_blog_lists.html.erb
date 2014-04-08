@@ -17,19 +17,18 @@
         </ul>
       </div>
     <% end %>
+
     <div class="post-content" data-id="<%= post.id %>">
+
       <header class="entry-header">
-        <% if current_business_user %>
-          <% url = @user.avatar.blank? ? "business-avatar.png" : @user.avatar.url %>
-        <% else %>
-          <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
-        <% end %>
-        <%= image_tag url , :height => "52", :width => "52", class: "entry-avatar" %>
+        <%= image_tag current_user_picture , :height => "52", :width => "52", class: "entry-avatar" %>
+
         <h2 class="entry-title">
           <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
           	<h3 style="font-size: 24px;"><%= post.title %></h3>
           </a>
         </h2>
+
         <p class="entry-meta">
           Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
           <% post.dollar_tags.each do |tag| %>
@@ -40,9 +39,10 @@
           <% end %>
         </p>
       </header>
+
       <div class="entry-description comment more"><%= post.body%></div>
-        <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post counter_#{post.id}" if post.comments.any? %>
-        <div class="post-content new-comment media" data-id="<%= post.id %>"></div>
+      <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post counter_#{post.id}" if post.comments.any? %>
+      <div class="post-content new-comment_<%= post.id %> media" data-id="<%= post.id %>"></div>
       <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="post-content post-comment media" data-id="<%= post.id %>" hidden="true">
@@ -66,6 +66,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
       <%= form_for post, url: company_edit_post_path(post.id, user.id, user.class) do |f| %>
         <div class="form-group">
@@ -88,7 +89,7 @@
       <% end %>
     </div>
     <% if user != current_user && !current_user.blank? %>
-      <%= render 'conversations/comment_conversation_form', title: post.title, commentor: current_user, recipient: user %>
+      <%= render 'conversations/comment_conversation_form', post: post, title: post.title, commentor: current_user, recipient: user %>
     <% end %>
   </section> <!-- /.post -->
 <% end %>

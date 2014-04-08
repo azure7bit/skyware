@@ -4,6 +4,10 @@ module Blogit
     blogit_authenticate except: [:create]
 
     def create
+      user = Citizen.find_by(:subdomain => request.subdomain)
+      user ||= User.find_by(:subdomain => request.subdomain)
+
+      current_user = current_user ? current_user : user
       params[:comment] = {:name => current_user.name, :email => current_user.email, :body => params[:reply]}
       @comment = post.comments.new(comment_parameters)
     

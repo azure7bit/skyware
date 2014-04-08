@@ -14,7 +14,7 @@
                 <%= f.hidden_field :subject, value: title %>
             </div>
             <div class="form-group">
-                <%= f.text_area :body, :rows => 3, :class => "form-control", placeholder: "MESSAGE CONTENT" %>
+                <%= f.text_field :body, :rows => 3, :class => "form-control", placeholder: "MESSAGE CONTENT", :onkeypress=>"return readKeyPress(this, event);" %>
             </div>
         </form>
         <% end %>

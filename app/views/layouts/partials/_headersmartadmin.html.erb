@@ -5,7 +5,6 @@
     <% if current_user %>
       <% unless current_user.subdomain != request.subdomain %>
         <div>
-          <!-- <span class="visible-lg visible-md"> -->
           <div class="pull-left">
             <span>
               <div class="btn-group pull-left" style="min-width: 200px;margin-top: 5px;">
@@ -59,7 +58,6 @@
               </div> 
             </span>
           </div>
-          <!-- </span> -->
         </div>
       <% end %>
     <% end %>
@@ -80,15 +78,10 @@
       <% end %>
 
       <% if current_user %>
-        <% if current_business_user %>
-          <% url = current_business_user.avatar.blank? ? "business-avatar.png" : current_business_user.avatar.url %>
-        <% else %>
-          <% url = current_user.avatar.blank? ? "img/profile-placeholder.png" : current_user.avatar.url %>
-        <% end %>
         <% if current_user.subdomain == request.subdomain or current_user %>
           <div class="btn-group pull-right" style="background: none;">
             <a href="#" data-toggle="dropdown">
-              <%= image_tag url , :height => "30", :width => "30", class: "entry-avatar" %>
+              <%= image_tag current_user_picture , :height => "30", :width => "30", class: "entry-avatar" %>
             </a>
             <ul class="dropdown-menu" style="width: 20px;">
               <li>

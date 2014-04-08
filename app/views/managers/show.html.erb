@@ -4,9 +4,6 @@
 <h2><%= @manager.name %></h2>
 <h3><%= @manager.email %></h3>
 
-
-
-
-<%= link_to 'Edit', edit_location_manager_path(@location,@manager), :class => "btn btn-danger" %> |
-<%= link_to 'Back', :back, :class => "btn btn-warning" %>
+  <%= link_to 'Edit', edit_location_manager_path(@location,@manager), :class => "btn btn-danger" %> |
+  <%= link_to 'Back', :back, :class => "btn btn-warning" %>
 </div>

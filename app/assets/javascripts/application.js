@@ -25,3 +25,14 @@
 //= require flash
 //= require jquery-ui.1.8
 //= require autocomplete
+
+function readKeyPress(input, e){
+  if(e.keyCode == 13){
+    $.ajax({
+     type: 'POST',
+      url: '/reply_comment/' + $(input).attr('data-id'),
+      data: {reply: input.value}
+    });
+    return false;
+  }
+}
