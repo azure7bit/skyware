@@ -17,7 +17,7 @@ class BusinessUser < User
   # accepts_nested_attributes_for :locations
 
   after_create :save_business_users if :new_record?
-
+  
   def save_business_users
     self.confirm!
     sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}

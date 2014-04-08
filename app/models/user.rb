@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
  #    super_admin
 	# end
 
+  # before_save :generate_subdomain if :new_record?
+
   def name
     return "#{first_name} #{last_name}"
   end
@@ -71,6 +73,12 @@ class User < ActiveRecord::Base
   def name_with_initial
     "#{first_name} #{last_name}"
   end
+
+  # def generate_subdomain
+  #   password = Devise.friendly_token.first(8)
+  #   self.password = password
+  #   self.subdomain = "#{self.username}@#{self.subdomain}"
+  # end
 
 end
 
