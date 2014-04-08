@@ -72,30 +72,5 @@ div.entry-description {
     width: 100%;*/
 }
 
-.add-business{
-  position: absolute;
-  right: 0;
-  margin-right: 117px;
-  margin-top: -301px;
-  margin-bottom: 143px;
-}
 
-.nav-business{
-  color: #333;
-  padding: 1px;
-  background-color: #FFF;
-  -moz-box-shadow: 0 0 2px #000;
-  box-shadow: 0 0 2px #000;
-}
 
-.map_container{
-  padding: 0 !important;
-  border: none !important;
-  margin: 0 !important;
-}
-#map{
-  height: 400px !important;
-  padding: 0 !important;
-  border: none !important;
-  margin: 0 !important;
-}

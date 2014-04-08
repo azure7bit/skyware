@@ -5866,3 +5866,27 @@ td.visible-print {
 .message-list .col-md-2{
   text-align: right;
 }
+
+
+.map_container{
+  padding: 0 !important;
+  border: none !important;
+  margin: -20px 0 0 0;
+  height:500px;
+}
+#map{
+  height: 500px;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.add-business{
+  position: relative;
+  margin-top: -470px;
+  margin-right: -52px;
+}
+.add-business .btn{
+  font-size: 10px;
+  text-shadow: none;
+}
