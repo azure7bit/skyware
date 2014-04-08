@@ -88,8 +88,11 @@ jQuery.fn.submitWithAjax = function() {
   return this;
 };
 
-function readKeyPress(input){
-  if(input.keyCode == 13){
-    $("#edit_post_"+input.attr("data-id")).submitWithAjax();
+function readKeyPress(input, e){
+  if(e.keyCode == 13){
+    if (e.shiftKey === true){
+      $("#edit_post_"+input.attr("data-id")).submitWithAjax();
+    }
+    // return false;
   }
 }

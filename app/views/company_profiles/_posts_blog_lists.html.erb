@@ -41,9 +41,9 @@
         </p>
       </header>
       <div class="entry-description comment more"><%= post.body%></div>
-      <% if post.comments.any? %>
-        <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post" %>
+        <%= link_to "Comment(#{post.comments.count})", "#", :class => "comment-post counter_#{post.id}" if post.comments.any? %>
         <div class="post-content new-comment media" data-id="<%= post.id %>"></div>
+      <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
           <div class="post-content post-comment media" data-id="<%= post.id %>" hidden="true">
             <div class="media-body" style="margin-bottom: -21px;">
@@ -60,7 +60,7 @@
           <%= form_for post, url: reply_comment_path(post.id), method: :post, remote: true do |f| %>
             <br />
             <div class="form-group">
-              <%= text_field_tag :reply, nil, class: "form-control", :placeholder => "MESSAGE CONTENT", :"data-id"=> post.id, :onkeypress=>"return readKeyPress(this);" %>
+              <%= text_field_tag :reply, nil, class: "form-control", :rows => 2, :placeholder => "MESSAGE CONTENT", :"data-id"=> post.id, :onkeypress=>"return readKeyPress(this, event);" %>
             </div>
           <% end %>
         <% end %>

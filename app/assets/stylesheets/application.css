@@ -71,3 +71,19 @@ div.entry-description {
     padding: 8px 10px;
     width: 100%;*/
 }
+
+.add-business{
+  position: absolute;
+  right: 0;
+  margin-right: 117px;
+  margin-top: -301px;
+  margin-bottom: 143px;
+}
+
+.nav-business{
+  color: #333;
+  padding: 1px;
+  background-color: #FFF;
+  -moz-box-shadow: 0 0 2px #000;
+  box-shadow: 0 0 2px #000;
+}

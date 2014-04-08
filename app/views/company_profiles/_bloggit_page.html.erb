@@ -264,7 +264,8 @@
     $('.comment-post').each(function(){
       $(this).click(function(e){
         $(this).parent('.post-content').find('.post-comment').attr('data-id',$(this).attr('data-id')).toggle();
-        $(this).parent('.post-content').find('.reply').attr('data-id',$(this).attr('data-id')).toggle();
+        // $(this).parent('.post-content').find('.reply').attr('data-id',$(this).attr('data-id')).focus();
+        $("#reply_").attr('data-id',$(this).attr('data-id')).focus();
         e.preventDefault();
       });
     });
