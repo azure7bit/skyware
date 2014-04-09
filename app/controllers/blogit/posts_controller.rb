@@ -21,22 +21,23 @@ module Blogit
     def index    
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
-      @user ||= SuperAdmin.where(subdomain: subdomain).first
-      @user ||= BusinessUser.find_by(:subdomain => subdomain)
-      @user ||= current_user
-
-      respond_to do |format|
-        format.xml {
-          @posts = Post.order('created_at DESC')
-        }
-        format.html {
-          @posts = Post.where(blogger_id: @user.id, :post_type => nil).for_index(params[Kaminari.config.param_name])
-          @sticky_posts = Post.where(blogger_id: @user.id, :post_type => "Sticky").for_index(params[Kaminari.config.param_name]).per(2)
-          render :index, layout: current_user ? 'application' : 'blog'
-        }
-        format.rss {
-          @posts = Post.order('created_at DESC')
-        }
+      @user ||= User.where(subdomain: subdomain).first
+      if @user
+        respond_to do |format|
+          format.xml {
+            @posts = Post.order('created_at DESC')
+          }
+          format.html {
+            @posts = Post.where(blogger_id: @user.id, :post_type => nil).for_index(params[Kaminari.config.param_name])
+            @sticky_posts = Post.where(blogger_id: @user.id, :post_type => "Sticky").for_index(params[Kaminari.config.param_name]).per(2)
+            render :index, layout: current_user ? 'application' : 'blog'
+          }
+          format.rss {
+            @posts = Post.order('created_at DESC')
+          }
+        end
+      else
+          redirect_to "/404.html"
       end
     end
 
