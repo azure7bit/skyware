@@ -6,7 +6,7 @@
         <hgroup>
           <h1 class="site-title text-center">
             <center style="position: absolute; margin-top: 10px;">
-              <a rel="home" title="<%= "#{current_user.subdomain.capitalize}" %>" href="/">
+              <a rel="home" title="<%= "#{@user.subdomain.capitalize}" %>" href="/">
                 <strong style="color: #235A9F;"><%= "#{@user.subdomain.capitalize}" rescue "Bussines" %>
                 </strong>
               </a>

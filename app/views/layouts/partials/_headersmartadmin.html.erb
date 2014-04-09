@@ -19,11 +19,11 @@
                     </a>
                   </li>
                   <% if current_citizen %>
-                    <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                    <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
                   <% end %>
-                  <% if current_super_admin %>
+                  <% if current_super_admin || current_business_user %>
                     <li>
-                      <a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home box-panel-inline"></i>  <span class="menu-item-parent">Blog</span></a></li>
+                      <a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
                   <% end %>
                   <% if current_user %>
                     <li class="">
