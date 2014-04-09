@@ -37,7 +37,7 @@ module Blogit
           }
         end
       else
-          redirect_to "/404.html"
+          redirect_to root_path
       end
     end
 
