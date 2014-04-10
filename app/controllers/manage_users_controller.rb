@@ -23,8 +23,8 @@ class ManageUsersController < ApplicationController
 
   def create
     password = Devise.friendly_token.first(8)
-    params[:user][:password] = password
-    @user = eval_user(params[:user][:user_type]).new(user_params)
+    params[:business_user][:password] = password
+    @user = eval_user(params[:business_user][:user_type]).new(user_params)
     @user.generate_subdomain
     respond_to do |format|
       if @user.save
@@ -57,7 +57,7 @@ class ManageUsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :first_name, :last_name, :image, :username, :subdomain, :password)
+      params.require(:business_user).permit(:email, :first_name, :last_name, :image, :username, :subdomain, :password)
     end
 
     def eval_user(user)
