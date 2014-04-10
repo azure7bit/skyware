@@ -62,7 +62,7 @@ class BusinessUser < ActiveRecord::Base
   after_create :save_business_users, :send_mailer if :new_record?
 
   def send_mailer
-    UserMailer.send_generate_password(self, self.password).deliver
+    UserMailer.send_generate_password(self, self.password).deliver if self.user_type != "SuperAdmin"
   end
 
   def name
