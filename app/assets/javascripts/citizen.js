@@ -72,7 +72,7 @@ function readURL(input) {
   }
   }
 
-  $("#business_user_avatar").change(function(){
+  $("#super_admin_avatar").change(function(){
   readURL(this);
 });
 
