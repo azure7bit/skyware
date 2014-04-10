@@ -41,7 +41,7 @@
                       </a>    
                     </li>
                   <%end%>
-                  <% if current_super_admin %>
+                  <% if current_super_admin || current_business_user.is_a?(SuperAdmin) %>
                     <li><a href="<%= locations_path %>" title="Locations HQ"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Locations HQ</span></a></li>
                     <li><a href="<%= online_stores_path %>"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i>  <span class="menu-item-parent">Orders HQ</span></a></li>
                     <li><a href="<%= company_forums_path %>"><i class="fa fa-lg fa-fw fa-table"></i>  <span class="menu-item-parent">Communications HQ</span></a></li>

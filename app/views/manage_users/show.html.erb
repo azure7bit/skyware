@@ -1,9 +1,25 @@
-<div class="container margin-top margin-bottom">
-  <h2><strong>First name: </strong><%= @user.first_name %></h2>
-  <h2><strong>Last name: </strong><%= @user.last_name %></h2>
-  <h2><strong>Email name: </strong><%= @user.email %></h2>
-  <h2><strong>Username: </strong><%= @user.username %></h2>
-  <h3><strong>subdomain name: </strong><%= @user.subdomain %></h3>
-  
-  <%= link_to 'Back', :back, :class => "btn btn-warning" %>
+<center>
+  <h1 style="font-weight: bold;">
+    Business User @<%= @user.subdomain %>
+  </h1>
+  <small style="font-size: 14px; color: rgb(150,150,150);">
+    <!-- Write your message here -->
+  </small>
+</center>
+<div style="background-color: rgba(255,255,255,.5);margin:20px -15px 0 -15px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" style="font-size: 200px; text-align: center;">
+        <% url = @user.avatar.blank? ? "img/profile-placeholder.png" : @user.avatar.url %>
+        <%= image_tag url, class: "entry-avatar" %>
+       </div>
+       <div class='col-md-8'>
+        <h2><strong>First name: </strong><%= @user.first_name %></h2>
+        <h2><strong>Last name: </strong><%= @user.last_name %></h2>
+        <h2><strong>Email name: </strong><%= @user.email %></h2>
+        <h2><strong>Username: </strong><%= @user.username %></h2>
+        <h3><strong>Level: </strong><%= @user.class.to_s %></h3>
+      </div>
+    </div>
+  </div>
 </div>

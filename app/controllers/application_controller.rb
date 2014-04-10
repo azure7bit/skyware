@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :forem_user
 
   protect_from_forgery
-  before_filter :validate_subdomain
+  # before_filter :validate_subdomain
   before_filter :populate_tags
   before_filter :ensure_correct_subdomain
   before_filter :check_confirmation
@@ -51,12 +51,12 @@ class ApplicationController < ActionController::Base
     
     def populate_tags
       @super_admin = current_super_admin
-      @super_admin ||= current_super_admin
+      # @super_admin ||= current_super_admin
     end
 
 
     def current_user
-      current_super_admin or current_citizen
+      current_super_admin or current_citizen or current_business_user
     end
 
     private
@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
       def ensure_correct_subdomain
         citizen = Citizen.find_by(subdomain: request.subdomain)
         super_admin = SuperAdmin.find_by(subdomain: request.subdomain)
-        user = BusinessUser.find_by(subdomain: request.subdomain)
+        # user = BusinessUser.find_by(subdomain: request.subdomain)
         if current_user and (request.subdomain.empty? or request.subdomain.eql?('www'))
           redirect_to root_path
         elsif current_user and devise_controller? and (params[:action] == 'new')
@@ -91,6 +91,8 @@ class ApplicationController < ActionController::Base
 
       def after_sign_in_path_for(resource_or_scope)
         if resource_or_scope.class == Citizen
+          root_url(subdomain: resource_or_scope.subdomain)
+        elsif resource_or_scope.class == SuperAdmin
           root_url(subdomain: resource_or_scope.subdomain)
         elsif resource_or_scope.class == BusinessUser
           root_url(subdomain: resource_or_scope.subdomain)

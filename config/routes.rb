@@ -24,9 +24,9 @@ SkyhqNew::Application.routes.draw do
     get '/' => 'blogit/posts#index'
   end
 
-  authenticated :super_admin do
-    get '/' => 'blogit/posts#index'
-  end
+  # authenticated :super_admin do
+  #   get '/' => 'blogit/posts#index'
+  # end
 
   authenticated :business_user do
     get '/' => 'blogit/posts#index'

@@ -16,8 +16,6 @@ class BusinessUser < ActiveRecord::Base
 
   validates :subdomain, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
 
-  scope :is_for_user, where(:user_type=>nil)
-
   validates :username, uniqueness: true
 
   acts_as_messageable
@@ -58,11 +56,15 @@ class BusinessUser < ActiveRecord::Base
 	# end
 
   # before_save :generate_subdomain if :new_record?
-  before_save :downcase_subdomain, :generate_subdomain
+  before_save :downcase_subdomain
   after_create :save_business_users, :send_mailer if :new_record?
 
   def send_mailer
     UserMailer.send_generate_password(self, self.password).deliver if self.user_type != "SuperAdmin"
+  end
+
+  def self.is_for_user(subdomain)
+    where("user_type not in (?) and subdomain = ? ",'SuperAdmin',subdomain)
   end
 
   def name
@@ -85,6 +87,7 @@ class BusinessUser < ActiveRecord::Base
     password = Devise.friendly_token.first(8)
     self.password = password
     self.username = "#{self.username}@#{self.subdomain}"
+    self.user_type = self.class.to_s
   end
 
   def downcase_subdomain
@@ -92,10 +95,12 @@ class BusinessUser < ActiveRecord::Base
   end
   
   def save_business_users
+    if self.is_a?(SuperAdmin)
+      sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}
+      blog = Blogit::Post.new(sticky_post)
+      blog.save
+    end
     self.confirm!
-    sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}
-    blog = Blogit::Post.new(sticky_post)
-    blog.save
   end
 
   def save_locations(params)

@@ -10,7 +10,7 @@
               <th>last_name</th>
               <th>email</th>
               <th>username</th>
-              <th>subdomain</th>
+              <th>level</th>
               <th colspan="2" style="text-align: center;">action</th>
             </tr>
             <% @members.each do |member| %>
@@ -19,7 +19,7 @@
                 <td><%= member.last_name %></td>
                 <td><%= member.email %></td>
                 <td><%= member.username %></td>
-                <td><%= member.subdomain %></td>
+                <td><%= member.class.to_s %></td>
                 <td><%= link_to 'Show', manage_user_path(member) %></td>
                 <td>
                   <%= link_to 'Destroy', manage_user_path(member), method: :delete, data: { confirm: 'Are you sure?' } %>

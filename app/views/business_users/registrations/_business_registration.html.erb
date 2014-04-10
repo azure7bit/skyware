@@ -10,7 +10,7 @@
   <p>Already Signed Up? Click <a class="color-green" href="<%= login_path %>">Sign In</a> to login your account.</p>
 </div>
 
-<%= simple_form_for(resource_business, :html => {id: 'login-form', class: 'smart-form client-form'}, as: :super_admin, url: registration_path(:super_admin), :multipart => true) do |f| %>
+<%= simple_form_for(resource_admin, :html => {id: 'login-form', class: 'smart-form client-form'}, as: :super_admin, url: registration_path(:super_admin), :multipart => true) do |f| %>
   <%= flash_messages %>
   <div class='form-group'>
     <div class="input-group margin-bottom-20">

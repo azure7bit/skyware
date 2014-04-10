@@ -1,12 +1,12 @@
 class ManageUsersController < ApplicationController
 
-  before_filter :authenticate_super_admin!
+  before_filter :authenticate_business_user!
   # load_and_authorize_resource
   
   before_filter :find_user, :only => [:edit, :update, :destroy, :show]
 
   def index
-    @members = BusinessUser.is_for_user
+    @members = BusinessUser.is_for_user(current_business_user.subdomain)
   end
 
   def new

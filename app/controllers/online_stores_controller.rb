@@ -1,5 +1,5 @@
 class OnlineStoresController < ApplicationController
- before_filter :authenticate_super_admin!, :except => :show
+ before_filter :authenticate_business_user!, :except => :show
  before_filter :find_user_active
  
   # GET /online_stores
@@ -44,7 +44,7 @@ class OnlineStoresController < ApplicationController
   # POST /online_stores
   # POST /online_stores.json
   def create
-    @online_store = @access.build_online_store(params[:online_store].merge(business_user_id: @access.id))
+    @online_store = @access.build_online_store(online_store_params.merge(business_user_id: @access.id))
 
     respond_to do |format|
       if @online_store.save
@@ -63,7 +63,7 @@ class OnlineStoresController < ApplicationController
     @online_store = OnlineStore.find(params[:id])
 
     respond_to do |format|
-      if @online_store.update_attributes(params[:online_store])
+      if @online_store.update_attributes(online_store_params)
         format.html { redirect_to @online_store, notice: 'Online store was successfully updated.' }
         format.json { head :no_content }
       else
@@ -86,7 +86,11 @@ class OnlineStoresController < ApplicationController
   end
 
   private 
+    def online_store_params
+      params.require(:online_store).permit(:name)
+    end
+
     def find_user_active
-      @access = current_super_admin
+      @access = current_business_user
     end
 end
