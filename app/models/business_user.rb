@@ -58,8 +58,12 @@ class BusinessUser < ActiveRecord::Base
 	# end
 
   # before_save :generate_subdomain if :new_record?
-  before_save :downcase_subdomain
-  after_create :save_business_users if :new_record?
+  before_save :downcase_subdomain, :generate_subdomain
+  after_create :save_business_users, :send_mailer if :new_record?
+
+  def send_mailer
+    UserMailer.send_generate_password(self, self.password).deliver
+  end
 
   def name
     return "#{first_name} #{last_name}"
