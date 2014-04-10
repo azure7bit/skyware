@@ -56,7 +56,7 @@ class ApplicationController < ActionController::Base
 
 
     def current_user
-      current_super_admin or current_citizen or current_business_user
+      current_super_admin or current_citizen
     end
 
     private

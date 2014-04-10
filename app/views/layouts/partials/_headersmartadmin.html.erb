@@ -21,7 +21,7 @@
                   <% if current_citizen %>
                     <li class="" style=""><a href="<%= public_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
                   <% end %>
-                  <% if current_super_admin || current_business_user %>
+                  <% if current_super_admin %>
                     <li>
                       <a href="<%= blog_path %>" title="Blog"><i class="fa fa-lg fa-fw fa-home"></i>  <span class="menu-item-parent">Blog</span></a></li>
                   <% end %>
@@ -83,7 +83,7 @@
             </a>
             <ul class="dropdown-menu" style="width: 20px;">
               <li>
-                <% if current_business_user %>
+                <% if current_super_admin %>
                   <%= link_to "Setting", business_profile_path, :style => "text-align: left" %>
                 <% else %>
                   <%= link_to "Setting", edit_citizen_registration_path, :style => "text-align: left" %>

@@ -92,6 +92,6 @@ class CompanyForumsController < ApplicationController
     end
 
     def find_user_active
-      @access = current_super_admin ? current_super_admin : current_business_user
+      @access = current_super_admin
     end
 end
