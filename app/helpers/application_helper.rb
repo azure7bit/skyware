@@ -22,8 +22,7 @@ module ApplicationHelper
 
   def resource
      @resource = Citizen.new
-     @resource ||= SuperAdmin.new
-     @resource ||= User.new
+     @resource ||= BusinessUser.new
   end
 
   def resource_name

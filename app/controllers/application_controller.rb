@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :forem_user
 
   protect_from_forgery
+  before_filter :validate_subdomain
   before_filter :populate_tags
   before_filter :ensure_correct_subdomain
   before_filter :check_confirmation
@@ -17,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to business_login_path, alert: exception.message
+    redirect_to root_path, alert: exception.message
   end
 
   protected 
@@ -117,6 +118,12 @@ class ApplicationController < ActionController::Base
           return type unless flash[type].blank?
         end
         return :empty
+      end
+
+      def validate_subdomain
+        subdomain = Citizen.find_by(subdomain: request.subdomain)
+        subdomain ||= BusinessUser.find_by(subdomain: request.subdomain)
+        redirect_to "/404.html" unless subdomain
       end
 
 end

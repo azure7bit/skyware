@@ -1,7 +1,7 @@
 class Location < ActiveRecord::Base
   # attr_accessible :latitude, :location, :longitude, :name, :super_admin_id, :street, :city, :country, :state, :zipcode
   belongs_to :super_admin
-  belongs_to :business_user
+  # belongs_to :business_user
   # has_many :employees
 
 

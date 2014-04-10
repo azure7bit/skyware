@@ -1,16 +1,16 @@
 class ManageUsersController < ApplicationController
 
-  # before_filter :authenticate_business_user!
+  before_filter :authenticate_super_admin!
   # load_and_authorize_resource
   
   before_filter :find_user, :only => [:edit, :update, :destroy, :show]
 
   def index
-    @members = User.is_for_user
+    @members = BusinessUser.is_for_user
   end
 
   def new
-    @user = User.new
+    @user = BusinessUser.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,7 +53,7 @@ class ManageUsersController < ApplicationController
 
   private
     def find_user
-      @user = User.find_by(:id => params[:id])
+      @user = BusinessUser.find_by(:id => params[:id])
     end
 
     def user_params

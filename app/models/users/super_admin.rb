@@ -1,4 +1,4 @@
-class SuperAdmin < User
+class SuperAdmin < BusinessUser
 
   has_many :locations
 

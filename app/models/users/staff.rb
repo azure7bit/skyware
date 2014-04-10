@@ -1,2 +1,2 @@
-class Staff < User
+class Staff < BusinessUser
 end

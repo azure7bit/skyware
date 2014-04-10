@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
 
   def new
     if params[:user_id].present?
-      @user = User.find(params[:user_id])
+      @user = BusinessUser.find(params[:user_id])
     end
     Conversation.new
     respond_to do |format|

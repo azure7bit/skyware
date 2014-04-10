@@ -21,7 +21,7 @@ module Blogit
     def index    
       subdomain = request.subdomain
       @user = Citizen.where(subdomain: subdomain).first
-      @user ||= User.where(subdomain: subdomain).first
+      @user ||= BusinessUser.where(subdomain: subdomain).first
       if @user
         respond_to do |format|
           format.xml {

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class BusinessUser < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   self.table_name = "business_users"
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
-  has_one :business_user
+  # has_one :business_user
   # has_many :locations
 
   # has_one :online_store
@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
 
   # before_save :generate_subdomain if :new_record?
   before_save :downcase_subdomain
+  after_create :save_business_users if :new_record?
 
   def name
     return "#{first_name} #{last_name}"
@@ -85,11 +86,24 @@ class User < ActiveRecord::Base
   def downcase_subdomain
     self.subdomain = self.subdomain.downcase
   end
+  
+  def save_business_users
+    self.confirm!
+    sticky_post = {:blogger_id => self.id, :blogger_type => self.class.to_s, :post_type => "Sticky", :title => "About", :body => self.about}
+    blog = Blogit::Post.new(sticky_post)
+    blog.save
+  end
+
+  def save_locations(params)
+    if params[:business_user][:locations]
+      self.locations.build(params[:business_user][:locations]).save
+    end
+  end
 
 end
 
 
-class User::ParameterSanitizer < Devise::ParameterSanitizer
+class BusinessUser::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_up
     default_params.permit(:subdomain, :email, :password, :password_confirmation, :username, :first_name, :last_name, :business_type, :business_name, :website, :about, :avatar, :locations_attributes => [:name, :street, :city, :state, :zipcode, :country])
   end
