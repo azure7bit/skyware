@@ -123,7 +123,7 @@ class ApplicationController < ActionController::Base
       def validate_subdomain
         subdomain = Citizen.find_by(subdomain: request.subdomain)
         subdomain ||= BusinessUser.find_by(subdomain: request.subdomain)
-        redirect_to "/404.html" unless subdomain
+        redirect_to "/404.html" unless subdomain || request.subdomain.eql?('www')
       end
 
 end
