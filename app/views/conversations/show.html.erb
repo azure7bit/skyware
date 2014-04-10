@@ -44,6 +44,7 @@
 	<div class="content">
 		<% current_user.mailbox.inbox.each do |conversation| %>
 			<section class="post" >
+			 <div class="post-content new-comment_<%= conversation.id %> media" data-id="<%= conversation.id %>"></div>
 				<% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
 				<% conversation.messages.limit(3).reverse.each do |message| %>
 					<header class="entry-header">

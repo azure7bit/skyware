@@ -31,7 +31,19 @@ function readKeyPress(input, e){
     $.ajax({
      type: 'POST',
       url: '/reply_comment/' + $(input).attr('data-id'),
-      data: {reply: input.value}
+      data: {reply: input.value, post_id: $(input).attr('data-id')}
+    });
+    return false;
+  }
+}
+
+function replyInbox(input){
+	
+	if(e.keyCode == 13){
+    $.ajax({
+     type: 'POST',
+      url: '/inbox/'+$(input).attr('data-id')+'/reply',
+      data: {reply: input.value, post_id: $(input).attr('data-id')}
     });
     return false;
   }

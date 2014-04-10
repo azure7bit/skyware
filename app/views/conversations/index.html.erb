@@ -1,30 +1,52 @@
 <div class="container">
-	<div class="row">
-		<div class="page-header">
-			<h2>General Message <small>showing all message</small></h2>
-		</div>
-		<% current_user.mailbox.inbox.each do |conversation| %>
-			<% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
-			<% conversation.messages.limit(3).reverse.each do |message| %>
-				<% user = message.sender %>
-				<% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
-				<%= link_to("/inbox/#{conversation.id}") do%>
-					<div class="col-md-12 message-list">
-						<div class="col-md-3">
-							<h4>
-								<%= message.subject %>
-								<small><%= user.subdomain %></small>
-							</h4>
-						</div>
-						<div class="col-md-7">
-							<%= truncate(message.body, length: 100) %>
-						</div>
-						<div class="col-md-2">
-							<i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-		<% end %>
-	</div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-2">
+        <ul>
+          <li class="inbox-msg"><%= link_to "ComposeMessage", "#", class: "btn btn-primary", :style => "margin-bottom: 20px;", :id => "show-message" %></li>
+          <li class="inbox-msg"><%= link_to "Sent", "#" %></li>
+          <li class="inbox-msg"><%= link_to "Trash", "#" %></li>
+        </ul>
+      </div>
+      <div class="col-sm-10">
+        <h2 style="margin: 1px 0 2px 120px;">General Message <small>showing all message</small></h2>
+        <br/>
+        <div id="compose-message" hidden="true">
+          <%= render "conversations/form" %>
+        </div>
+        <% current_user.mailbox.inbox.each do |conversation| %>
+          <% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
+          <% conversation.messages.limit(3).reverse.each do |message| %>
+            <% user = message.sender %>
+            <% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+            <%= link_to("/inbox/#{conversation.id}") do%>
+              <div class="col-md-12 message-list">
+                <div class="col-md-3">
+                  <h4>
+                    <%= message.subject %>
+                    <small><%= user.subdomain %></small>
+                  </h4>
+                </div>
+                <div class="col-md-7">
+                  <%= truncate(message.body, length: 100) %>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(e){
+    $("#show-message").click(function(){
+      $("#compose-message").toggle();
+      e.preventDefault();
+    });
+  })
+</script>
