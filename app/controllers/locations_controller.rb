@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
   # before_filter :authenticate_super_admin!, :only => [:index, :new, :create, :update, :destroy]
-  before_filter :authenticate_business_user!, :only => [:index, :new, :create, :update, :destroy]
+  # before_filter :authenticate_business_user!, :only => [:index, :new, :create, :update, :destroy]
+
+  load_and_authorize_resource
 
   def index
     @locations = current_user.locations

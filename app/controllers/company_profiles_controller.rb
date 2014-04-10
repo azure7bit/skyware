@@ -1,5 +1,6 @@
 class CompanyProfilesController < ApplicationController
-  before_filter :authenticate_super_admin!, :only => [:admin_profile]
+  # before_filter :authenticate_super_admin!, :only => [:admin_profile]
+  load_and_authorize_resource
   skip_before_filter :verify_authenticity_token, :only => [:save_tagline]
   before_filter :find_user_active
   

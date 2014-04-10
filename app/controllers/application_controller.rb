@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     {subdomain: (current_user.try(:subdomain) or 'www'), only_path: false}.merge(super)
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to business_login_path, alert: exception.message
+  end
+
   protected 
   
     layout :layout_by_resource

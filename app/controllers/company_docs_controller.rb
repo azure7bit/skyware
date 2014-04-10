@@ -1,7 +1,8 @@
 class CompanyDocsController < ApplicationController
   # GET /company_docs
   # GET /company_docs.json
-
+  load_and_authorize_resource
+  
   before_filter :find_user_active
   
   def index

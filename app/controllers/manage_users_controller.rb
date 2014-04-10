@@ -1,6 +1,8 @@
 class ManageUsersController < ApplicationController
 
-  before_filter :authenticate_business_user!
+  # before_filter :authenticate_business_user!
+  # load_and_authorize_resource
+  
   before_filter :find_user, :only => [:edit, :update, :destroy, :show]
 
   def index
@@ -22,7 +24,7 @@ class ManageUsersController < ApplicationController
   def create
     password = Devise.friendly_token.first(8)
     params[:user][:password] = password
-    @user = User.new(user_params)
+    @user = eval_user(params[:user][:user_type]).new(user_params)
     @user.generate_subdomain
     respond_to do |format|
       if @user.save
@@ -56,6 +58,10 @@ class ManageUsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:email, :first_name, :last_name, :image, :username, :subdomain, :password)
+    end
+
+    def eval_user(user)
+      eval user
     end
 
 end

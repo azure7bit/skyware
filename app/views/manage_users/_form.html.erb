@@ -42,6 +42,12 @@
                 <b class="tooltip tooltip-bottom-right">Needed to change your photo</b>
               </label>
             </section>
+            <section>
+              <label class="input"> <i class="icon-append fa fa-camera"></i>
+               <%= f.select :user_type, options_for_select([["Staff","Staff"], ["Manager", "Manager"], ["User","User"]]), {prompt: "Select users type"}, :required => true, :class=>"form-control margin-bottom-20" %>                                     
+                <b class="tooltip tooltip-bottom-right">Needed to change your photo</b>
+              </label>
+            </section>
           </fieldset>
         <footer>
           <%= f.submit "Save",:class=>"btn btn-primary" %>

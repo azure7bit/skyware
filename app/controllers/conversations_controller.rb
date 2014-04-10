@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  # before_filter :authenticate_super_admin!
+
   helper_method :mailbox, :conversation
   before_filter :find_user_active
   
@@ -40,7 +40,7 @@ class ConversationsController < ApplicationController
     if conversation_params(:user_id)
       recipient.map{|recipient|
         send_to = [recipient, cc].flatten
-        conversation = current_user.send_message(send_to, *conversation_params(:body, :subject, :file)).conversation
+        conversation = current_user.send_message(send_to, *conversation_params(:body, :subject, :attachment)).conversation
       }
       @recipient_name = recipient.map{|recipient| recipient.name}
     else

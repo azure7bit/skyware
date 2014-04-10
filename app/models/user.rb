@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_name, :last_name, :user_type, :phone_number, :location, :image, :subdomain
   # attr_accessor :business_user
 
+  validates :subdomain, format: { with: /\A[a-z][a-z0-9_-]{2,}\z/, message: 'include only alphanumeric, hyphen(-) or underscore(_)' }, allow_nil: true
+
   scope :is_for_user, where(:user_type=>nil)
 
   validates :username, uniqueness: true
@@ -75,11 +77,9 @@ class User < ActiveRecord::Base
   end
 
   def generate_subdomain
-    # if self.user_type.blank?
-      password = Devise.friendly_token.first(8)
-      self.password = password
-      self.subdomain = "#{self.username}@#{self.subdomain}"
-    # end
+    password = Devise.friendly_token.first(8)
+    self.password = password
+    self.username = "#{self.username}@#{self.subdomain}"
   end
 
   def downcase_subdomain
