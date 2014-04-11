@@ -20,9 +20,10 @@ module Blogit
 
     def index    
       subdomain = request.subdomain
-      @user = Citizen.where(subdomain: subdomain).first
-      @user ||= BusinessUser.where(subdomain: subdomain).first
-      if @user
+      user = Citizen.where(subdomain: subdomain).first
+      user ||= BusinessUser.where(subdomain: subdomain).first
+      @user = user.present? ? user : current_user
+      if @user.present?
         respond_to do |format|
           format.xml {
             @posts = Post.order('created_at DESC')

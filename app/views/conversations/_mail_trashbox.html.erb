@@ -1,0 +1,23 @@
+<% current_user.mailbox.trash.each do |conversation| %>
+  <% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
+  <% conversation.messages.limit(3).reverse.each do |message| %>
+    <% user = message.sender %>
+    <% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+    <%= link_to("/inbox/#{conversation.id}") do%>
+      <div class="col-md-12 message-list">
+        <div class="col-md-3">
+          <h4>
+            <%= message.subject %>
+            <small><%= user.subdomain %></small>
+          </h4>
+        </div>
+        <div class="col-md-7">
+          <%= truncate(message.body, length: 100) %>
+        </div>
+        <div class="col-md-2">
+          <i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

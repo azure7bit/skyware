@@ -33,6 +33,8 @@ class BusinessUser < ActiveRecord::Base
 
   # has_many :employees, :through => :locations
 
+  has_many :blog_posts, :as => "blogger", :class_name => "Blogit::Post"
+
   attr_accessor :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
@@ -107,6 +109,10 @@ class BusinessUser < ActiveRecord::Base
     if params[:business_user][:locations]
       self.locations.build(params[:business_user][:locations]).save
     end
+  end
+
+  def has_blogposts
+    Blogit::Post.where(:blogger_id => self.id)
   end
 
 end

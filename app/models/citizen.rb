@@ -43,6 +43,10 @@ class Citizen < ActiveRecord::Base
     #if false
     #return nil
   end
+
+  def has_blogposts
+    self.blog_posts
+  end
 end
 
 class Citizen::ParameterSanitizer < Devise::ParameterSanitizer

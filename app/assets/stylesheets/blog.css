@@ -2,3 +2,38 @@
  *= require bootstrap
  *= require font-awesome
 */
+
+.sidebar {
+  top: 0!important;
+}
+.header{
+  height: 30px;
+}
+ div.entry-description { 
+  white-space: pre-wrap !important;      /* CSS3 */
+  white-space: -moz-pre-wrap !important; /* Firefox */
+  white-space: -pre-wrap !important;     /* Opera <7 */
+  white-space: -o-pre-wrap !important;   /* Opera 7 */
+  word-wrap: break-word !important;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+#header {
+  background-color: #F3F3F3 !important;
+  background-image: linear-gradient(to bottom, #F3F3F3, #E2E2E2) !important;
+  background-repeat: repeat-x !important;
+  display: block !important;
+  height: 49px !important;
+  margin: 0 !important;
+  padding: 0 13px 0 0 !important;
+  position: relative !important;
+}
+
+#logo-header {
+  display: inline-block !important;
+  margin-bottom: 20px !important;
+  margin-left: 70px !important;
+  margin-top: 0 !important;
+  width: auto !important;
+}

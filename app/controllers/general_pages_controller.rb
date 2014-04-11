@@ -57,6 +57,18 @@ class GeneralPagesController < ApplicationController
     render 'general_pages/tos'
   end
 
+  def edit_post
+    @post = Blogit::Post.find_by(:id => params[:id])
+    if params[:post][:post_type] == "0"
+      params[:post][:post_type] = nil
+    else
+      params[:post][:post_type] = "Sticky"
+    end
+    @post.update_attributes(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
+
+    redirect_to :back
+  end
+
   def save_post
     @post = Blogit::Post.new(post_params.merge({:blogger_id => current_user.id, :blogger_type => current_user.class.to_s}))
     @post.post_type = params[:post][:post_type] != "0" ? "Sticky" : nil    
@@ -81,7 +93,7 @@ class GeneralPagesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :tag_list, :post_type)
+      params.require(:post).permit(:title, :body, :tag_list, :post_type, :allow_comment)
     end
   
 end

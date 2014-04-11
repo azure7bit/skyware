@@ -7,8 +7,6 @@
           <i class="fa fa-chevron-down"></i>
         </a>
         <ul class="dropdown-menu" role="menu">
-          <!-- <li><a href="#" class="post-reply" data-id="<%= post.id %>">Reply</a></li> -->
-          <!-- <li class="divider"></li> -->
           <li><a href="#" class="post-edit" data-id="<%= post.id %>">Edit</a></li>
           <li class="divider"></li>
           <li>
@@ -22,13 +20,11 @@
 
       <header class="entry-header">
         <%= image_tag current_user_picture , :height => "52", :width => "52", class: "entry-avatar" %>
-
         <h2 class="entry-title">
           <a href="#" id="title-post-<%= i %>" data-id = "<%= post.id %>">
           	<h3 style="font-size: 24px;"><%= post.title %></h3>
           </a>
         </h2>
-
         <p class="entry-meta">
           Posted on <a class="entry-date" href="#"><%= post.created_at.strftime("%B %d, %Y")%></a> | By <a class="entry-author" href="#"><%= post.blogger.subdomain%></a> | Tags 
           <% post.dollar_tags.each do |tag| %>
@@ -56,7 +52,7 @@
         <% end %>
       <% end %>
       <div class="reply" data-id="<%= post.id %>">
-        <% if current_user %>
+        <% if current_user && post.allow_comment %>
           <%= form_for post, url: reply_comment_path(post.id), method: :post, remote: true do |f| %>
             <br />
             <div class="form-group">
@@ -68,7 +64,7 @@
     </div>
 
     <div class="form-post-content" data-id="<%= post.id %>" hidden="true">
-      <%= form_for post, url: company_edit_post_path(post.id, user.id, user.class) do |f| %>
+      <%= form_for post, url: post_edit_path(post.id), method: :put do |f| %>
         <div class="form-group">
           <%= f.label :title, "Topic" %>
           <%= f.text_field :title, class: "form-control", :id => "title_post_#{post.id}" %>
@@ -82,10 +78,21 @@
           <%= f.text_area :body, class: "form-control", rows: "5" %>
         </div>
         <div class="form-group">
-          <%= f.check_box :post_type %> Is Sticky Post
+          <div class="checkbox">
+            <label>
+              <%= f.check_box :post_type %> Is Sticky Post
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <%= f.check_box :allow_comment %> allow comments?
+            </label>
+          </div>
         </div>
         <%= f.submit "Change Post", class: "btn btn-success" %>
-        <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">Cancel</button>
+        <button type="button" class="btn btn-warning post-cancel" data-id="<%= post.id %>">
+          Cancel
+        </button>
       <% end %>
     </div>
     <% if user != current_user && !current_user.blank? %>

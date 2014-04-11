@@ -44,6 +44,8 @@ SkyhqNew::Application.routes.draw do
   root :to => 'general_pages#index'
 
   match   "/post/save" => 'general_pages#save_post', :via => :post
+  match   "/post/edit/:id" => 'general_pages#edit_post', :via => :put, as: "post_edit"
+
   post    "public/:id/tagline/", to: "company_profiles#save_tagline", as: "company_tagline"
   patch   "public/:id/edit/", to: "company_profiles#edit_post", as: "company_edit_post"
   delete  "public/:id", to: "general_pages#destroy_post", as: "delete_post"
@@ -154,6 +156,9 @@ SkyhqNew::Application.routes.draw do
   end
 
   get("/inbox/new/:super_admin_id", { :controller => "conversations", :action => 'new', :as => 'message_company'})
+
+  get "sentbox", to: "conversations#sentbox", :as => 'sentbox'
+  get "trashbox", to: "conversations#trashbox", :as => 'trashbox'
   
   resources :conversations, :path => "inbox", only: [:index, :show, :new, :create] do
     member do

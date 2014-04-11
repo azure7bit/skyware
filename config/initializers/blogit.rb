@@ -16,7 +16,7 @@ Blogit.configure do |config|
   # The name of the controller method we'll call to return the current blogger.
   # Change this if you use something other than current_user.
   # Eg. current_admin_user (if using ActiveAdmin)
-  config.current_blogger_method = :current_citizen
+  config.current_blogger_method = :current_user
 
   # What method do we call on blogger to show who they are?
   config.blogger_display_name_method = :email

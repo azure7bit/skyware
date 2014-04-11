@@ -45,8 +45,7 @@ class ConversationsController < ApplicationController
       @recipient_name = recipient.map{|recipient| recipient.name}
     else
       params[:conversation][:body] = params[:body_message].first if params[:body_message]
-      conversation = current_user.
-          send_message(recipient, *conversation_params(:body, :subject)).conversation
+      conversation = current_user.send_message(recipient, *conversation_params(:body, :subject)).conversation
     end
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Message sent successfully.' }
@@ -58,7 +57,6 @@ class ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
-    # redirect_to :back, notice: "Message sent successfully to #{recipients.first.name}."
     redirect_to :back, notice: "Message sent successfully."
   end
 
@@ -73,6 +71,10 @@ class ConversationsController < ApplicationController
   end
 
   def sticky_post;end
+
+  def sentbox;end
+
+  def trashbox;end
 
   private
 
@@ -104,6 +106,7 @@ class ConversationsController < ApplicationController
 
   private
     def find_user_active
-      @access = current_super_admin
+      @access = current_user
+      redirect_to root_url unless @access
     end
 end

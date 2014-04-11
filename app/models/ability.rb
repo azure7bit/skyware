@@ -10,6 +10,8 @@ class Ability
     user ||= BusinessUser.new # guest user (not logged in)
     user ||= Citizen.new
 
+    can :manage, :all if user
+
     #only read
     can :read, CompanyDoc if user.is_a?(BusinessUser)
     can :read, Location

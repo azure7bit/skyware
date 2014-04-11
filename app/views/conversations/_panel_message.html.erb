@@ -1,0 +1,8 @@
+<div class="col-sm-2">
+  <ul>
+    <li class="inbox-msg"><%= link_to "Compose", "#", class: "btn btn-primary", :style => "margin-bottom: 20px;", :id => "show-message" %></li>
+    <li class="inbox-msg"><%= link_to "Inbox", "/inbox" %></li>
+    <li class="inbox-msg"><%= link_to "Sent", sentbox_path %></li>
+    <li class="inbox-msg"><%= link_to "Trash", trashbox_path %></li>
+  </ul>
+</div>

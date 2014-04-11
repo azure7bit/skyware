@@ -38,7 +38,7 @@
       <div class="entry-description comment more"><%= post.body%></div>
     </div>
     <div class="form-sticky-content" data-id="<%= post.id %>" hidden="true">
-      <%= form_for post, url: company_edit_post_path(post.id, @user.id, @user.class) do |f| %>
+      <%= form_for post, url: post_edit_path(post.id), method: :put do |f| %>
         <div class="form-group">
           <%= f.label :title, "Topic" %>
           <%= f.text_field :title, class: "form-control", :id => "title_post_#{post.id}" %>

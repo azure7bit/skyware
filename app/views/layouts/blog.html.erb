@@ -38,44 +38,21 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
-    <style type="text/css">
-    .sidebar {
-      top: 0!important;
-    }
-    .header{
-      height: 30px;
-    }
-     div.entry-description { 
-      white-space: pre-wrap !important;      /* CSS3 */
-      white-space: -moz-pre-wrap !important; /* Firefox */
-      white-space: -pre-wrap !important;     /* Opera <7 */
-      white-space: -o-pre-wrap !important;   /* Opera 7 */
-      word-wrap: break-word !important;
-    }
-    article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
-      display: block;
-    }
-    #header {
-      background-color: #F3F3F3 !important;
-      background-image: linear-gradient(to bottom, #F3F3F3, #E2E2E2) !important;
-      background-repeat: repeat-x !important;
-      display: block !important;
-      height: 49px !important;
-      margin: 0 !important;
-      padding: 0 13px 0 0 !important;
-      position: relative !important;
-    }
-    </style>
   </head>
 
   <body>
     <header id="header">
     <hgroup>
       <h1 class="site-title text-center" style="font-size: 25px; padding-top: 6px;">
-        <span id="logo">
-          <a href="<%= root_path %>">
-            <%= image_tag 'img/logo.png', alt: "SmartAdmin" %>
-          </a>
+        <span id="logo-header">
+          <center>
+            <a href="<%= root_path %>">
+              <%#= image_tag 'img/logo.png', alt: "SmartAdmin" %>
+              <strong style="color: #235A9F;">
+                <%= request.subdomain.capitalize %>
+              </strong>
+            </a>
+          </center>
         </span>
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

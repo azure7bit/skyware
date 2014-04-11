@@ -4,14 +4,14 @@
     <div class="content">    
       <header class="header" style="margin-bottom: -5px;">
         <hgroup>
-          <h1 class="site-title text-center">
+<!--           <h1 class="site-title text-center">
             <center style="position: absolute; margin-top: 10px;">
               <a rel="home" title="<%= "#{@user.subdomain.capitalize}" %>" href="/">
                 <strong style="color: #235A9F;"><%= "#{@user.subdomain.capitalize}" rescue "Bussines" %>
                 </strong>
               </a>
             </center>
-          </h1>
+          </h1> -->
           <% if current_user == @user %>
             <div id='create-new-post-btn' class="btn btn-primary pull-right" style="margin-top: 3px;">
               <i class="fa fa-pencil-square-o"></i>
@@ -24,10 +24,10 @@
         </hgroup>
       </header> 
       
-       <% if current_user == @user %>
+      <% unless @user.has_blogposts.blank? %>
         <section class='new-post post' style="display:none">
           <div class="form-post-content">
-            <%= form_for Blogit::Post.new, url: post_save_path do |f| %>
+            <%= form_for new_blogit, url: post_save_path do |f| %>
               <div class="form-group">
                 <%= f.label :title, "Topic" %>
                 <%= f.text_field :title, class: "form-control", :required => true %>
@@ -41,10 +41,21 @@
                 <%= f.text_area :body, class: "form-control", rows: "5", :required => true %>
               </div>
               <div class="form-group">
-                  <%= f.check_box :post_type %>Is Sticky Post
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :post_type %> Is Sticky Post
+                  </label>
                 </div>
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :allow_comment %> allow comments?
+                  </label>
+                </div>
+              </div>
               <%= f.submit "Create Post", class: "btn btn-success", :id => "button-new-post" %>
-              <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">Cancel</button>
+              <button type="reset" class="btn btn-warning post-cancel" id="cancel-post">
+                Cancel
+              </button>
             <% end %>
           </div>
         </section>
@@ -57,13 +68,13 @@
       <% end %>
 
       <p class="text-muted">
-        <%= render 'company_profiles/sticky_posts_lists', sticky_posts: @sticky_posts %>
+        <%= render 'company_profiles/sticky_posts_lists', sticky_posts: @sticky_posts if @sticky_posts.present? && !@user.has_blogposts.blank? %>
       </p>
 
-      <% if @posts.present? %>
+      <% if @posts && !@user.has_blogposts.blank? %>
         <%= render "company_profiles/posts_blog_lists", posts: @posts, user: @user %>
       <% else %>
-        <%= render partial: "blogit/posts/empty" unless @sticky_posts.any? %>
+        <%= render partial: "blogit/posts/empty" unless @sticky_posts.any? && !@user.has_blogposts.blank? %>
       <% end %>
     </div>
     <div class="content">
@@ -264,7 +275,6 @@
     $('.comment-post').each(function(){
       $(this).click(function(e){
         $(this).parent('.post-content').find('.post-comment').attr('data-id',$(this).attr('data-id')).toggle();
-        // $(this).parent('.post-content').find('.reply').attr('data-id',$(this).attr('data-id')).focus();
         $("#reply_").attr('data-id',$(this).attr('data-id')).focus();
         e.preventDefault();
       });
@@ -286,6 +296,14 @@
         this.value = "Sticky";
       }else{
         this.value = null;
+      }
+    });
+
+    $('#post_allow_comment').on("click", function(){
+      if($("input:checked")){
+        this.value = true;
+      }else{
+        this.value = false;
       }
     });
 
