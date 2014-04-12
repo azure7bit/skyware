@@ -5,17 +5,19 @@
     </div> -->
     <div class='col-md-12 comment-reply'>
         
-        <%= simple_form_for(:message, url: reply_conversation_path(conversation), remote: true, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } }) do |f| %>
+        <%= simple_form_for(:message, url: reply_conversation_path(conversation), :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :"data-id" => conversation.id, :class => 'form-control' } }) do |f| %>
         <form role="form">
-            <!-- <div class="smallMenuItems">
-                <%= f.submit "Reply", class: 'btn btn-success pull-right btn_reply' %>
-            </div> -->
-            <div class="form-group">
-                <%= f.hidden_field :subject, value: title %>
-            </div>
-            <div class="form-group">
-                <%= f.text_field :body, :rows => 3, :class => "form-control", placeholder: "MESSAGE CONTENT", :onkeypress=>"return replyInbox(this);", :"data-id" => conversation.id %>
-            </div>
+          <div class="smallMenuItems">
+            <%= f.submit "Reply", class: 'btn btn-success pull-right btn_reply', :"data-id" => conversation.id %>
+          </div>
+          <br />
+          <div class="form-group">
+              <%= f.hidden_field :subject, value: title %>
+          </div>
+          <div class="form-group">
+            <%#= f.text_area :body, :rows => 1, :class => "form-control", placeholder: "MESSAGE CONTENT", :onkeypress=>"return replyInbox(this, event);", :"data-id" => conversation.id %>
+            <%= f.text_area :body, :rows => 1, :class => "form-control", placeholder: "MESSAGE CONTENT", :"data-id" => conversation.id %>
+          </div>
         </form>
         <% end %>
     </div>

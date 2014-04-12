@@ -1,23 +1,29 @@
 <% current_user.mailbox.inbox.each do |conversation| %>
   <% other_user = (conversation.messages.collect(&:sender) - [current_user]).first %>
-  <% conversation.messages.limit(3).reverse.each do |message| %>
-    <% user = message.sender %>
-    <% url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
-    <%= link_to("/inbox/#{conversation.id}") do%>
-      <div class="col-md-12 message-list">
-        <div class="col-md-3">
-          <h4>
-            <%= message.subject %>
-            <small><%= user.subdomain %></small>
-          </h4>
+  <% conversation.messages.limit(3).group_by(&:subject).each do |conversations, messages| %>
+
+    <%# messages.each do |message| %>
+      <% user = messages.map{ |m| m.sender} %>
+      <%# url = user.avatar.blank? ? "img/profile-placeholder.png" : user.avatar.url %>
+      <%= link_to("/inbox/#{conversation.id}") do%>
+        <div class="col-md-12 message-list">
+          <div class="col-md-3">
+            <h4>
+              <%#= message.subject %>
+              <% counter = (messages.map{|user| user.sender.subdomain}.count > 1) ? "(#{messages.map{|user| user.sender.subdomain}.count})" : nil %>
+              <%= messages.map{|user| user.sender.subdomain}.uniq.map(&:inspect).join(',').gsub('"','') %>
+              <small><%= counter %></small>
+            </h4>
+          </div>
+          <div class="col-md-7">
+            <%#= truncate(messages.first.body, length: 100) %>
+            <%= messages.first.subject %>
+          </div>
+          <div class="col-md-2">
+            <i class="fa fa-clock-o"></i> <%= time_ago_in_words(messages.first.created_at) %>
+          </div>
         </div>
-        <div class="col-md-7">
-          <%= truncate(message.body, length: 100) %>
-        </div>
-        <div class="col-md-2">
-          <i class="fa fa-clock-o"></i> <%= time_ago_in_words(message.created_at) %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    <%# end %>
   <% end %>
 <% end %>

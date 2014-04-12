@@ -56,7 +56,12 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    @conversation_reply = current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    # respond_to do |format|
+    #   format.html {redirect_to :back, notice: "Message sent successfully."}
+    #   # format.js{@conversation_reply}
+    #   format.js{redirect_to :back, notice: "Message sent successfully."}
+    # end
     redirect_to :back, notice: "Message sent successfully."
   end
 

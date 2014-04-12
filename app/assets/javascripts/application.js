@@ -27,24 +27,32 @@
 //= require autocomplete
 
 function readKeyPress(input, e){
-  if(e.keyCode == 13){
-    $.ajax({
-     type: 'POST',
-      url: '/reply_comment/' + $(input).attr('data-id'),
-      data: {reply: input.value, post_id: $(input).attr('data-id')}
-    });
-    return false;
+  if(!e.shiftKey){
+    if(e.which == 13 ){
+      e.preventDefault();
+      $.ajax({
+       type: 'POST',
+        url: '/reply_comment/' + $(input).attr('data-id'),
+        data: {reply: input.value, post_id: $(input).attr('data-id')}
+      });
+      input.value="";
+      return false;
+    }
   }
 }
 
-function replyInbox(input){
-	
-	if(e.keyCode == 13){
-    $.ajax({
-     type: 'POST',
-      url: '/inbox/'+$(input).attr('data-id')+'/reply',
-      data: {reply: input.value, post_id: $(input).attr('data-id')}
-    });
-    return false;
+function replyInbox(input, e){
+	if(!e.shiftKey){
+  	if(e.keyCode == 13){
+      e.preventDefault();
+      // $.ajax({
+      //  type: 'POST',
+      //   url: '/inbox/'+$(input).attr('data-id')+'/reply',
+      //   data: {reply: input.value, post_id: $(input).attr('data-id')}
+      // });
+      $(".btn_reply").attr('data-id', $(input).attr('data-id')).click();
+      input.value="";
+      return false;
+    }
   }
 }

@@ -56,7 +56,7 @@
           <%= form_for post, url: reply_comment_path(post.id), method: :post, remote: true do |f| %>
             <br />
             <div class="form-group">
-              <%= text_field_tag :reply, nil, class: "form-control", :rows => 2, :placeholder => "MESSAGE CONTENT", :"data-id"=> post.id, :onkeypress=>"return readKeyPress(this, event);" %>
+              <%= text_area :reply, nil, class: "form-control", :rows => 1, :placeholder => "MESSAGE CONTENT", :"data-id"=> post.id, required: true, :onkeypress=>"return readKeyPress(this, event);" %>
             </div>
           <% end %>
         <% end %>
